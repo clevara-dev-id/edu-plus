@@ -71,6 +71,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 �
 
 
-###Update 
-##25 Maret 2020
+### Update 
+## 25 Maret 2020
 => update component "pilih Jenjang Pendidikan"
