@@ -5,7 +5,7 @@ import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
 import $ from 'jquery';
 
 import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
-import '../css/radioButtonFour.css'
+import '../css/radioButtonFour.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
 export default class index extends Component {
@@ -22,20 +22,6 @@ export default class index extends Component {
         //this.handleClick = this.handleClick.bind(this);
     }
     
-    // componentDidMount = () =>{
-    //     // document.getElementById("inputsd").addEventListener( 'change', function() {
-    //     //     if(this.checked) {
-    //     //         handleClick();
-    //     //     } else {
-    //     //         // Checkbox is not checked..
-    //     //     }
-    //     // });
-    // }
-
-    // componentDidUpdate = () =>{
-    //     $('input[type=radio][radioFruit]').change(console.log("changed !"));
-    // }
-
     handleClick = () => {
         document.getElementById("inputsd").checked === true ? this.setState({icon:"check-circle"}) : this.setState({icon:"circle-o"});
         document.getElementById("inputSMP").checked === true ? this.setState({iconSmp:"check-circle"}) : this.setState({iconSmp:"circle-o"});
