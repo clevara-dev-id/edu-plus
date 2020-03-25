@@ -8,7 +8,7 @@ import '../../../../../node_modules/font-awesome/css/font-awesome.min.css';
 import '../css/radioButtonThree.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
-export default class index extends Component {
+export default class RadioButtonThree extends Component {
     constructor(props) {
         super(props);
         // Don't call this.setState() here!

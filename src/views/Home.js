@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 
-import Radio from '../components/base_components/RadioButton/RadioButtonThree'
-import Radio2 from '../components/base_components/RadioButton/RadioButtonFour'
+import{
+    RadioButtonThree,
+    RadioButtonFour
+} from '../components/base_components'
+
 class Home extends Component {
     render() {
         return (
             <>
                 <div>
                     Home
-                    <Radio onClick={(e) => {console.log(e.target.value)}} />
-                    <Radio2 onClick={(e) => {console.log(e.target.value)}} />
+                    <RadioButtonFour onClick={(e) => {console.log(e.target.value)}} />
+                    <RadioButtonThree onClick={(e) => {console.log(e.target.value)}} />
                 </div>
             </>
         );
