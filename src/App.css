@@ -40,11 +40,25 @@ body{
   }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Rubik:regular,bold,italic&subset=latin,latin-ext');
+/* @import url('https://fonts.googleapis.com/css?family=Rubik:regular,bold,italic&subset=latin,latin-ext'); */
 
-/* @font-face {
+@font-face {
   font-family: 'Rubik';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./asset/font/Rubik/Rubik-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Rubik Bold';
   font-style: bold;
   font-weight: bold;
-  src: url('./asset/font/Rubik/Rubik-Regular.ttf');
-} */
+  src: url('./asset/font/Rubik/Rubik-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Rubik Italic';
+  font-style: italic;
+  font-weight: normal;
+  src: url('./asset/font/Rubik/Rubik-Italic.ttf');
+}

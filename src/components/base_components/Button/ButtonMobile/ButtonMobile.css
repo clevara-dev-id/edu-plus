@@ -1,0 +1,5 @@
+@media screen and (max-width: 360px) {
+    #buttonAsset > div > div > button {
+        width: 330px;
+    }
+}

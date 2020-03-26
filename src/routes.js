@@ -1,13 +1,17 @@
-import React, { lazy } from 'react'
-import { Route } from 'react-router-dom'
+import React, { lazy } from 'react';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
-import Home from './views/Home'
+import Home from './views/Home';
+import Page404 from './views/errors/Page404';
 
 const BaseRoute = () => {
     return (
-        <div>
-            <Route exact path="/" component={Home} />
-        </div>
+        <>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="" component={Page404} />
+            </Switch>
+        </>
     )
 }
 
