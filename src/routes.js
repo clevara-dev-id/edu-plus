@@ -10,7 +10,7 @@ const BaseRoute = () => {
         <>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/search" component={Home} />
+                <Route exact path="/search" component={Search} />
                 <Route path="" component={Page404} />
             </Switch>
         </>
