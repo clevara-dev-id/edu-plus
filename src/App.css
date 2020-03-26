@@ -1,6 +1,3 @@
-body{
-  font-family: "Rubik";
-}
 .App {
   text-align: center;
 }
@@ -61,4 +58,76 @@ body{
   font-style: italic;
   font-weight: normal;
   src: url('./asset/font/Rubik/Rubik-Italic.ttf');
+}
+
+body{
+  font-family: "Rubik";
+}
+
+h1{
+  font-family: "Rubik";
+  font-size: 34px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 41px;
+}
+
+h2{
+  font-family: "Rubik";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 36px;
+}
+
+h3{
+  font-family: "Rubik";
+  font-size: 17px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 22px;
+}
+
+h4{
+  font-family: "Rubik";
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 20px;
+}
+
+h5{
+  font-family: "Rubik";
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 16px;
+  letter-spacing: 3px;
+}
+
+h6{
+  font-family: "Rubik";
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 13px;
+}
+
+p{
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+body{
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 18px;
+}
+.form-control{
+  border-radius: 0;
 }

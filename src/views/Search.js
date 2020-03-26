@@ -11,11 +11,8 @@ class Home extends Component {
         return (
             <>
                 <div>
-                    <Title name="Mulai cari informasi sekolah disini" />
-                    <RadioButtonFour onClick={(e) => {console.log(e.target.value)}} />
-                    <RadioButtonThree onClick={(e) => {console.log(e.target.value)}} />
-                    <ButtonPrimary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button !")}} />
-                    <br />
+                    Search
+                    <Title name="Daftar SMA Negeri" />
                     <ButtonSecondary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button Secondary Button !")}} />
                 </div>
             </>
