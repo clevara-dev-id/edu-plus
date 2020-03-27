@@ -60,10 +60,6 @@
   src: url('./asset/font/Rubik/Rubik-Italic.ttf');
 }
 
-body{
-  font-family: "Rubik";
-}
-
 h1{
   font-family: "Rubik";
   font-size: 34px;
