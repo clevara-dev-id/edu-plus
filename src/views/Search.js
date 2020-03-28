@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
-import CardList from '../components/base_components/Card/CardMobile/CardList/CardList'
+import CardList from '../components/base_components/Card/CardMobile/CardList/CardList';
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
+import DropDownList from '../components/base_components/DropDwonList/DropdownMobile/DropDownList';
 
 //Import Image
-import CardImage1 from '../components/asset/images/CardList/SMAN14JAKARTA.png'
-import CardImage2 from '../components/asset/images/CardList/SMAN51JAKARTA.png'
-import CardImage3 from '../components/asset/images/CardList/SMAN62JAKARTA.png'
-import CardImage4 from '../components/asset/images/CardList/SMAN93JAKARTA.png'
+import CardImage1 from '../components/asset/images/CardList/SMAN14JAKARTA.png';
+import CardImage2 from '../components/asset/images/CardList/SMAN51JAKARTA.png';
+import CardImage3 from '../components/asset/images/CardList/SMAN62JAKARTA.png';
+import CardImage4 from '../components/asset/images/CardList/SMAN93JAKARTA.png';
+
 
 let store = [{
         image   : CardImage1,
@@ -40,13 +42,14 @@ let store = [{
     },
 ];
 
-class Home extends Component {
+class Search extends Component {
     render() {
         return (
             <>
                 <div>
                     Search
                     <Title name="Daftar SMA Negeri" />
+                    <DropDownList onClick={(e)=>{console.log(e.target.value)}}/>
                     <CardList store={store} />
                     <ButtonSecondary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button Secondary Button !")}} />
                 </div>
@@ -55,4 +58,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default Search;
