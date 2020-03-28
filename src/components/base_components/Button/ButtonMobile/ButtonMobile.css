@@ -3,3 +3,17 @@
         width: 330px;
     }
 }
+
+@media screen and (max-width: 360px) {
+    #buttonAsset > div > div > button {
+        width: 290px;
+    }
+}
+
+#buttonAsset{
+    margin-bottom: 25px;
+}
+
+#buttonAsset > div > div > button {
+    outline:none;
+}

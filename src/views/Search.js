@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import CardList from '../components/base_components/Card/CardMobile/CardList/CardList';
+import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 import DropDownList from '../components/base_components/DropDwonList/DropdownMobile/DropDownList';
 
@@ -51,7 +52,7 @@ class Search extends Component {
                     <Title name="Daftar SMA Negeri" />
                     <DropDownList onClick={(e)=>{console.log(e.target.value)}}/>
                     <CardList store={store} />
-                    <ButtonSecondary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button Secondary Button !")}} />
+                    <ButtonPrimary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button Secondary Button !")}} />
                 </div>
             </>
         );
