@@ -50,7 +50,7 @@ class Search extends Component {
     render() {
         return (
             <>
-                <div>
+                <div style={{overflow:"hidden"}}>
                     Search
                     <Title name="Daftar SMA Negeri" />
                     <BadgesGroup store={store2} />
