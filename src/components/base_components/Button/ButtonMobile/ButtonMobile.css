@@ -4,7 +4,7 @@
     }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 320px) {
     #buttonAsset > div > div > button {
         width: 290px;
     }
@@ -12,8 +12,4 @@
 
 #buttonAsset{
     margin-bottom: 25px;
-}
-
-#buttonAsset > div > div > button {
-    outline:none;
 }

@@ -64,3 +64,10 @@
 .container{
   max-width: 375px;
 } 
+
+@media screen and (max-width: 320px) {
+  .bsjp > label {
+    width: 143px;
+  }
+  
+}

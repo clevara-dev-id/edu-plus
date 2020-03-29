@@ -25,14 +25,14 @@
     width: 107px;
 }
 
-.bsjp > label > div{
+.bsjp2 > label > div{
     padding: 10px;
   }
 .radio-toolbarThree > label > div > i{
     left: 0px;
     padding: 0px;
 }
-.bsjp > label > div > div {
+.bsjp2 > label > div > div {
     padding: 0px;
     display: inline-block;
     position: absolute;
@@ -65,3 +65,30 @@
 .container{
   max-width: 375px;
 } 
+
+/* .bsjp2 > label > div > i {
+  font-size: 12px !important;
+} */
+
+@media screen and (max-width: 320px) {
+  /* .bsjp2{
+    padding-left: 8px;
+  } */
+  .bsjp2 > label {
+    width : 95px
+  }
+  .bsjp2 > label > div > i {
+    font-size: 22px !important;
+  }
+  .bsjp2 > label > div{
+    padding-top : 10px;
+    padding-left: 8px;
+  }
+
+  .bsjp2 > label > div > div{
+    padding-left: 10px;
+  }
+  #midConten{
+    padding-left: 8px !important;
+  }
+}

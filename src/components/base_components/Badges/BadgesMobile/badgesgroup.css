@@ -1,0 +1,51 @@
+div.scrollmenu {
+    position: relative;
+    width: 100%;
+    background-color:transparent;
+    white-space: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none; /* Firefox */
+}
+  
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+    background-color: #777;
+}
+
+div.scrollmenu::-webkit-scrollbar { 
+    display: none;  
+}
+
+#childscroll > span{
+    width: auto;
+    height: 30;
+    font-family: Rubik;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-align: center;
+    background: #3273DC;
+    border-radius: 29px;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    margin-right: 9px;
+}
+
+#childscroll > span:hover{
+    cursor: pointer !important;
+}
+
+#badgesgroup{
+    margin-bottom: 15px;
+    padding-right: 0px;
+}

@@ -5,6 +5,7 @@ import CardList from '../components/base_components/Card/CardMobile/CardList/Car
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 import DropDownList from '../components/base_components/DropDwonList/DropdownMobile/DropDownList';
+import BadgesGroup from '../components/base_components/Badges/BadgesMobile/BadgesGroup'
 
 //Import Image
 import CardImage1 from '../components/asset/images/CardList/SMAN14JAKARTA.png';
@@ -43,6 +44,8 @@ let store = [{
     },
 ];
 
+const store2 =[{name:"4 SMA ditemukan"},{name:"Kramat Jati"},{name:"DKI Jakarta"}];
+
 class Search extends Component {
     render() {
         return (
@@ -50,6 +53,7 @@ class Search extends Component {
                 <div>
                     Search
                     <Title name="Daftar SMA Negeri" />
+                    <BadgesGroup store={store2} />
                     <DropDownList onClick={(e)=>{console.log(e.target.value)}}/>
                     <CardList store={store} />
                     <ButtonPrimary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button Secondary Button !")}} />

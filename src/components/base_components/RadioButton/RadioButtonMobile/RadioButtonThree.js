@@ -17,7 +17,7 @@ const RadioButtonThree = props =>{
                 <div className="radio-toolbarThree">
                     <Row><Col className="radioTitle">Filter Status Sekolah</Col></Row>
                     <Row>
-                        <Col className="bsjp" xs={4}>
+                        <Col className="bsjp2" xs={4}>
                             <Input 
                                 type="radio" id="inputnegeri" 
                                 name="radioThreeMobile" value="apple" 
@@ -27,12 +27,12 @@ const RadioButtonThree = props =>{
                             />
                             <label htmlFor="inputnegeri" >
                                 <div>
-                                    <FontAwesome name={icon === 'negeri' ? 'check-circle' : "circle-o"} color="black" size={24} />
+                                    <FontAwesome name={icon === 'negeri' ? 'check-circle' : "circle-o"} size={24} color="black" />
                                     <div>Negeri</div>
                                 </div>
                             </label>
                         </Col>
-                        <Col className="bsjp" xs={4} style={{paddingLeft : "5px", paddingRight : "5px"}}>
+                        <Col className="bsjp2" xs={4} style={{paddingLeft : "5px", paddingRight : "5px"}} id="midConten">
                             <Input 
                                 type="radio" id="inputswasta" 
                                 name="radioThreeMobile" 
@@ -46,7 +46,7 @@ const RadioButtonThree = props =>{
                                 </div>
                             </label>
                         </Col>
-                        <Col className="bsjp" xs={4} style={{paddingLeft : "0px"}} >
+                        <Col className="bsjp2" xs={4} style={{paddingLeft : "0px"}} >
                             <Input 
                                 type="radio" 
                                 id="inputkursus" 
