@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 
 import DropDownList from '../components/base_components/DropDwonList/DropdownMobile/DropDownList';
 import BadgesGroup from '../components/base_components/Badges/BadgesMobile/BadgesGroup';
-import CarouselMobile from '../components/base_components/Carousel/CarouselMobile/CarouselMobile'
-import TitleReadMore from '../components/base_components/TitlePage/TitleMobile/TitlePageSecondary'
-import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility'
+import CarouselMobile from '../components/base_components/Carousel/CarouselMobile/CarouselMobile';
+import TitleReadMore from '../components/base_components/TitlePage/TitleMobile/TitlePageSecondary';
+import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
+import InformasiSekolah from '../components/base_components/Footer/Mobile/InformasiSekolah';
+import KontakSekolah from '../components/base_components/Footer/Mobile/KontakSekolah';
 
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
@@ -42,10 +44,14 @@ class Detail extends Component {
                     <CarouselMobile store={store} />
                     <TitleReadMore title="SMAN 14 JAKARTA" text={text} />
                     <PrimaryFacility store={store3} title="Fasilitas" />
+                    <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
+                    <KontakSekolah />
                 </div>
             </>
         );
     }
 }
+
+
 
 export default Detail;
