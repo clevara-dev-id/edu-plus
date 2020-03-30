@@ -27,7 +27,6 @@ class Detail extends Component {
                 <div style={{overflow:"hidden"}}>
                     Detail
                     <CarouselMobile store={store} />
-                    <Title name="Daftar SMA Negeri" />
                 </div>
             </>
         );
