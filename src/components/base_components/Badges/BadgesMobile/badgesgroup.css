@@ -1,3 +1,6 @@
+#badgesgroup{
+    max-width: 375px;
+}
 div.scrollmenu {
     position: relative;
     width: 100%;

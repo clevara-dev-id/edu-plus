@@ -18,7 +18,7 @@ const CardList = props => {
     props.store ? store=props.store : store=store; 
     return (
         <>
-        <Container>
+        <Container id="cardimgesearch">
             { 
             store.map((data)=>{return (
             <Row>

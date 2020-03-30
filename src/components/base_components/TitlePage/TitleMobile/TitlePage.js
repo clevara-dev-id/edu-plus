@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { Container, Row, Col } from 'react-bootstrap';
+import './titlepage.css'
 
 const TitlePage = props => {
     return (
         <>
-            <Container>
+            <Container id="primarytitile">
                 <Row>
                     <Col xs={1}>
                     <HeaderDiv>    

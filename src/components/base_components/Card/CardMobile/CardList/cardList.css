@@ -1,3 +1,6 @@
+#cardimgesearch{
+    max-width: 375px;
+}
 .card-horizontal {
     display: flex;
     flex: 1 1 auto;
