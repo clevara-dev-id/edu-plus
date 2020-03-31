@@ -7,7 +7,7 @@ import TitleReadMore from '../components/base_components/TitlePage/TitleMobile/T
 import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
 import InformasiSekolah from '../components/base_components/Footer/Mobile/InformasiSekolah';
 import KontakSekolah from '../components/base_components/Footer/Mobile/KontakSekolah';
-
+import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges'
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
 import slideImage2 from '../components/asset/images/CarouselSlider/slider2.png'
@@ -42,6 +42,7 @@ class Detail extends Component {
                 <div style={{overflow:"hidden"}}>
                     Detail
                     <CarouselMobile store={store} />
+                    <SingleBadges name="Nasional" />
                     <TitleReadMore title="SMAN 14 JAKARTA" text={text} />
                     <PrimaryFacility store={store3} title="Fasilitas" />
                     <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />

@@ -1,0 +1,26 @@
+#singlebadges{
+    max-width: 375px;
+    margin-bottom: 25px;
+}
+.badgeclasssingle{
+    text-align: left;
+}
+
+.badgeclasssingle > span{
+    width: auto;
+    height: 24px;
+    display: inline-block;
+    font-family: "Rubik" !important;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px !important;
+    line-height: 17px;
+    font-weight: 700;
+    padding-top: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background: #3273DC;
+    border-radius: 29px !important;
+}
