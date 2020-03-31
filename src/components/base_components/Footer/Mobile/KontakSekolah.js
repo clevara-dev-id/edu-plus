@@ -2,44 +2,49 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
 
-import './informasisekolah.css'
+import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
+import './kontaksekolah.css'
 
-const InformasiSekolah = props => {
+import PhoneIcon from '../../../asset/logo/InfoContact/phone-call.svg';
+import GlobeIcon from '../../../asset/logo/InfoContact/globe.svg';
+
+const KontakSekolah = props => {
     return(
         <>
-            <Container id="informasiSekolahContainer">
+            <Container id="kontakSekolahContainer">
                 <Row>
-                    <Col><TitleInformsi>Kontak Sekolah</TitleInformsi></Col>
+                    <Col><TitleKontak>Kontak Sekolah</TitleKontak></Col>
                 </Row>
                 <Row>
                     <Col>
-                        <SecondTitileInformasi>Jam Masuk</SecondTitileInformasi>
+                        <SecondTitileKontak>
+                            <span>
+                                <img src={PhoneIcon} width="16px" height="16px" />
+                            </span>
+                            <BodyKontak>{props.phone}</BodyKontak>
+                        </SecondTitileKontak>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <CH>{props.time}</CH>
+                        <SecondTitileKontak>
+                            <span>
+                                <FontAwesome name="envelope-o" color="#3273DC" size={16} />
+                            </span>
+                            <BodyKontak>{props.mail}</BodyKontak>
+                        </SecondTitileKontak>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <SecondTitileInformasi>Pendaftaran</SecondTitileInformasi>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <CH>{props.reg}</CH>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <SecondTitileInformasi>Kepala Sekolah</SecondTitileInformasi>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <CH>{props.headmaster}</CH>
+                        <SecondTitileKontak>
+                            <span>
+                                <img src={GlobeIcon} width="16px" height="16px" />
+                            </span>
+                            <BodyKontak>{props.web}</BodyKontak>
+                        </SecondTitileKontak>
                     </Col>
                 </Row>
             </Container>
@@ -47,17 +52,7 @@ const InformasiSekolah = props => {
     );
 }
 
-const CH = styled.div`
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: left;
-    margin-bottom : 25px;
-
-`;
-
-const TitleInformsi = styled.div`
+const TitleKontak = styled.div`
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -66,27 +61,31 @@ const TitleInformsi = styled.div`
     text-transform: uppercase;
     color: #0A0A0A;
     text-align: left;
-    margin-bottom: 18px;
+    margin-bottom: 25px;
 `;
 
-const SecondTitileInformasi = styled.div`
+const SecondTitileKontak = styled.div`
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 19px;
     text-align: left;
+    margin-bottom: 16px;
 
     /* identical to box height */
-    letter-spacing: 0.005em;
-
+    letter-spacing: 0.0025em;
     /* grey dark */
-    color: #4A4A4A;
+    color: #000000
 `;
 
-InformasiSekolah.propTypes = {
-    time : PropTypes.string,
-    reg  : PropTypes.string,
-    headmaster : PropTypes.string,
+const BodyKontak = styled.span`
+    margin-left: 10px;
+`;
+
+KontakSekolah.propTypes = {
+    phone : PropTypes.string,
+    mail  : PropTypes.string,
+    web   : PropTypes.string,
 }
 
-export default InformasiSekolah;
+export default KontakSekolah;

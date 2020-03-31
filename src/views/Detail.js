@@ -45,7 +45,11 @@ class Detail extends Component {
                     <TitleReadMore title="SMAN 14 JAKARTA" text={text} />
                     <PrimaryFacility store={store3} title="Fasilitas" />
                     <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
-                    <KontakSekolah />
+                    <KontakSekolah 
+                        phone="021 - 525 8721"
+                        mail="sman14jkt@mail.com"
+                        web="sman14jkt.sch.id"
+                    />
                 </div>
             </>
         );
