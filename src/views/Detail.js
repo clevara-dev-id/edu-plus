@@ -5,6 +5,7 @@ import BadgesGroup from '../components/base_components/Badges/BadgesMobile/Badge
 import CarouselMobile from '../components/base_components/Carousel/CarouselMobile/CarouselMobile';
 import TitleReadMore from '../components/base_components/TitlePage/TitleMobile/TitlePageSecondary';
 import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
+import OtherFacility from '../components/base_components/Accordion/Mobile/AccordionComponents';
 import InformasiSekolah from '../components/base_components/Footer/Mobile/InformasiSekolah';
 import KontakSekolah from '../components/base_components/Footer/Mobile/KontakSekolah';
 import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges'
@@ -34,6 +35,11 @@ const store3 = [
     {iconname:"wifi", name: "Akses Internet"}, 
 ]
 
+const store4 =[
+    {name:"Orchestra"},
+    {name:"Paskibra"},
+    {name:"Tari Saman"}
+]
 
 class Detail extends Component {
     render() {
@@ -45,6 +51,7 @@ class Detail extends Component {
                     <SingleBadges name="Nasional" />
                     <TitleReadMore title="SMAN 14 JAKARTA" text={text} />
                     <PrimaryFacility store={store3} title="Fasilitas" />
+                    <OtherFacility store={store4} title="Ekstrakulikuler lainnya"/>
                     <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
                     <KontakSekolah 
                         phone="021 - 525 8721"

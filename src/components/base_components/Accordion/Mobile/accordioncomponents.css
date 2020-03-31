@@ -1,0 +1,33 @@
+#acorrdingcomponents{
+    max-width: 375px;
+    margin-bottom: 25px;
+}
+
+#acorrdingcomponents > .row > .col > .accordion > .card > .card-header {
+
+    padding: 0px;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 0px;
+    text-align: left !important;
+}
+
+#acorrdingcomponents > .row > .col > .accordion > .card {
+
+    /* position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word; */
+    background-color: inherit;
+    border: 0px;
+    border-radius: 0px;
+}
+
+#acorrdingcomponents > .row > .col > .accordion > .card > .collapse, .show > .card-body {
+    padding-left: 0px !important;
+}
+
+#acorrdingcomponents > .row > .col > .accordion > .card > .show > .card-body {
+    padding-left: 0px !important;
+}
