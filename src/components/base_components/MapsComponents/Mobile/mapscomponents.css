@@ -1,0 +1,7 @@
+#mapscomponents{
+    max-width: 375px;
+    margin-bottom: 25px;
+}
+#mapscomponents > .row > .col > .mapsstyle > div > div {
+    border-radius: 8px !important;
+}

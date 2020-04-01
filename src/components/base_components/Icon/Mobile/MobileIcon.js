@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
 import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
 
@@ -49,5 +50,10 @@ const NameItem = styled.div`
     letter-spacing: 0.0025em;
 `;
 
+MobileIcon.propTypes = {
+    name      : PropTypes.string,
+    icon      : PropTypes.string,
+    iconColor : PropTypes.string 
+}
 
 export default MobileIcon;

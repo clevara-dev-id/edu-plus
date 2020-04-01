@@ -9,6 +9,8 @@ import OtherFacility from '../components/base_components/Accordion/Mobile/Accord
 import InformasiSekolah from '../components/base_components/Footer/Mobile/InformasiSekolah';
 import KontakSekolah from '../components/base_components/Footer/Mobile/KontakSekolah';
 import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges'
+import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets'
+
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
 import slideImage2 from '../components/asset/images/CarouselSlider/slider2.png'
@@ -39,7 +41,18 @@ const store4 =[
     {name:"Orchestra"},
     {name:"Paskibra"},
     {name:"Tari Saman"}
-]
+];
+
+const store5 = {
+    center: {
+        lat: -6.2260798,
+        lng: 106.8536369
+    },
+    zoom: 15,
+    title:"Alamat Sekolah",
+    addr : "jl. sma barat no 4, clilitan, Kramat jati, jakarta timur"
+};
+
 
 class Detail extends Component {
     render() {
@@ -50,6 +63,7 @@ class Detail extends Component {
                     <CarouselMobile store={store} />
                     <SingleBadges name="Nasional" />
                     <TitleReadMore title="SMAN 14 JAKARTA" text={text} />
+                    <MapsComponents store={store5} />
                     <PrimaryFacility store={store3} title="Fasilitas" />
                     <OtherFacility store={store4} title="Ekstrakulikuler lainnya"/>
                     <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
