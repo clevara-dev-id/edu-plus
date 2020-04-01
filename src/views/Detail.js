@@ -6,10 +6,13 @@ import CarouselMobile from '../components/base_components/Carousel/CarouselMobil
 import TitleReadMore from '../components/base_components/TitlePage/TitleMobile/TitlePageSecondary';
 import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
 import OtherFacility from '../components/base_components/Accordion/Mobile/AccordionComponents';
+import Ekstrakulikuler from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
+import OtherEkstrakulikuler from '../components/base_components/Accordion/Mobile/AccordionComponents';
 import InformasiSekolah from '../components/base_components/Footer/Mobile/InformasiSekolah';
 import KontakSekolah from '../components/base_components/Footer/Mobile/KontakSekolah';
 import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges'
-import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets'
+import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets';
+import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
@@ -38,9 +41,9 @@ const store3 = [
 ]
 
 const store4 =[
-    {name:"Orchestra"},
-    {name:"Paskibra"},
-    {name:"Tari Saman"}
+    {name:"Lapangan Olahraga"},
+    {name:"Tempat Ibadah"},
+    {name:"Kantin"}
 ];
 
 const store5 = {
@@ -53,25 +56,60 @@ const store5 = {
     addr : "jl. sma barat no 4, clilitan, Kramat jati, jakarta timur"
 };
 
+const store6 = [
+    {iconname:"camera", name: "Fotografi"}, 
+    {iconname:"soccer-ball-o", name: "Futsal"},
+    {iconname:"dribbble", name: "BasketBall"}, 
+]
+
+const store7 =[
+    {name:"Orchestra"},
+    {name:"Paskibra"},
+    {name:"Tari Saman"}
+];
 
 class Detail extends Component {
     render() {
         return (
             <>
                 <div style={{overflow:"hidden"}}>
-                    Detail
-                    <CarouselMobile store={store} />
-                    <SingleBadges name="Nasional" />
-                    <TitleReadMore title="SMAN 14 JAKARTA" text={text} />
-                    <MapsComponents store={store5} />
-                    <PrimaryFacility store={store3} title="Fasilitas" />
-                    <OtherFacility store={store4} title="Ekstrakulikuler lainnya"/>
-                    <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
-                    <KontakSekolah 
-                        phone="021 - 525 8721"
-                        mail="sman14jkt@mail.com"
-                        web="sman14jkt.sch.id"
-                    />
+                    <section>
+                        <div style={{marginTop: "18px"}} />
+                        <CarouselMobile store={store} />
+                    </section>
+                    <section>
+                        <SingleBadges name="Nasional" />
+                    </section>
+                    <section>
+                        <div style={{marginTop: "-10px"}} />
+                        <TitleReadMore title="SMAN 14 JAKARTA" text={text} />
+                    </section>
+                    <section>
+                        <LineComponents marginTop="7px" marginBottom="32px" />
+                        <MapsComponents store={store5} />
+                    </section>
+                    <section>
+                        <LineComponents marginTop="7px" marginBottom="32px" />
+                        <PrimaryFacility store={store3} title="Fasilitas" />
+                        <OtherFacility store={store4} title="Fasilitas lainnya"/>
+                    </section>
+                    <section>
+                        <LineComponents marginTop="7px" marginBottom="32px" />
+                        <Ekstrakulikuler store={store6} title="Ekstrakulikuler" />
+                        <OtherEkstrakulikuler store={store7} title="Ekstrakulikuler lainnya"/>
+                    </section>
+                    <section>
+                        <LineComponents marginTop="7px" marginBottom="32px" />
+                        <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
+                    </section>
+                    <section>
+                        <LineComponents marginTop="-14px" marginBottom="32px" />
+                        <KontakSekolah 
+                            phone="021 - 525 8721"
+                            mail="sman14jkt@mail.com"
+                            web="sman14jkt.sch.id"
+                        />
+                    </section>
                 </div>
             </>
         );
