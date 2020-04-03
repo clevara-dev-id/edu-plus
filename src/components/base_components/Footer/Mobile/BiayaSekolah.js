@@ -10,36 +10,36 @@ const InformasiSekolah = props => {
         <>
             <Container id="biayaSekolahContainer">
                 <Row>
-                    <Col><TitleInformsi>{props.title}</TitleInformsi></Col>
+                    <Col><TitleInformsi>{props.store.title}</TitleInformsi></Col>
                 </Row>
                 <Row>
                     <Col>
-                        <SecondTitileInformasi>{firstTitle}</SecondTitileInformasi>
+                        <SecondTitileInformasi>{props.store.firstTitle}</SecondTitileInformasi>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <CH>{props.fistCost}</CH>
+                        <CH>{props.store.firstCost}</CH>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <SecondTitileInformasi>{secondTitle}</SecondTitileInformasi>
+                        <SecondTitileInformasi>{props.store.secondTitle}</SecondTitileInformasi>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <CH>{props.secondCost}</CH>
+                        <CH>{props.store.secondCost}</CH>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <SecondTitileInformasi>{thirdTitle}</SecondTitileInformasi>
+                        <SecondTitileInformasi>{props.store.thirdTitle}</SecondTitileInformasi>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <CH>{props.secondCost}</CH>
+                        <CH>{props.store.thirdCost}</CH>
                     </Col>
                 </Row>
             </Container>
