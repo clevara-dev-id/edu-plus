@@ -5,3 +5,32 @@
     line-height: 19px;
     text-align: center !important;
 } */
+
+#bottomtitle{
+    max-width: 375px;
+}
+
+#bottomtitle{
+    max-width: 375px;
+}
+
+@media screen and (max-width: 360px) {
+    #bottomtitle{
+        max-width: 360px;
+    }
+
+    #bottomtitle > div > div > .titlestyle{
+        width: 300px;
+    }
+    
+}
+ 
+@media screen and (max-width: 320px) {
+    #bottomtitle{
+        max-width: 320px;
+    }
+
+    #bottomtitle > div > div > .titlestyle{
+        width: 285px;
+    }
+}

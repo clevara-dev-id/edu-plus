@@ -49,7 +49,9 @@ const LinkRegister = styled.a`
     /* Black */
     color: #3273DC;
     &:hover{
+        text-decoration: none;
         cursor:pointer;
+        color: #3273DC;
     }
 `;
 
