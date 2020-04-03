@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import TitleLogin from '../../components/base_components/TitlePage/TitleMobile/TitlePage';
 import InputForm from '../../components/base_components/Auth/Mobile/InputLogin';
 import ButtonPrimary from '../../components/base_components/Button/ButtonMobile/ButtonPrimary';
-import ToastMobile from '../../components/base_components/Toast/Mobile/ToastMobile';
 import SweetAlert from '../../components/base_components/SweetAllaret/mobile/SweetAlaretMobile';
+import BottomTitle from '../../components/base_components/TitleBottom/Mobile/TitleBottom'
 
 export default class Login extends Component {
     constructor(props){
@@ -103,9 +103,14 @@ export default class Login extends Component {
                         onClick={(e)=>{this.handleButtonLogin()}} 
                     />
                 </section>
-                {/* <section>
-                    <ToastMobile storeToast={this.state.storeToast} toastShow={this.state.show} />
-                </section> */}
+                <section>
+                    <div style={{marginTop: "7px"}}></div>
+                    <BottomTitle 
+                        name="Already have an account?" 
+                        namelink="Regiter Here"
+                        link="/register" 
+                    />
+                </section>
             </>
         );
     }
