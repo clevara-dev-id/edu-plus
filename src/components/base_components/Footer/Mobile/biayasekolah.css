@@ -1,4 +1,7 @@
 #biayaSekolahContainer{
     max-width: 375px;
-    margin-bottom: 25px;
+}
+
+#childRowTitle{
+    margin-bottom: 5px;
 }

@@ -12,7 +12,7 @@ const InformasiSekolah = props => {
                 <Row>
                     <Col><TitleInformsi>{props.store.title}</TitleInformsi></Col>
                 </Row>
-                <Row>
+                <Row id="childRowTitle">
                     <Col>
                         <SecondTitileInformasi>{props.store.firstTitle}</SecondTitileInformasi>
                     </Col>
@@ -22,7 +22,7 @@ const InformasiSekolah = props => {
                         <CH>{props.store.firstCost}</CH>
                     </Col>
                 </Row>
-                <Row>
+                <Row id="childRowTitle">
                     <Col>
                         <SecondTitileInformasi>{props.store.secondTitle}</SecondTitileInformasi>
                     </Col>
@@ -32,7 +32,7 @@ const InformasiSekolah = props => {
                         <CH>{props.store.secondCost}</CH>
                     </Col>
                 </Row>
-                <Row>
+                <Row id="childRowTitle">
                     <Col>
                         <SecondTitileInformasi>{props.store.thirdTitle}</SecondTitileInformasi>
                     </Col>

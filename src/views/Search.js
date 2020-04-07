@@ -51,12 +51,23 @@ class Search extends Component {
         return (
             <>
                 <div style={{overflow:"hidden"}}>
-                    Search
-                    <Title name="Daftar SMA Negeri" />
-                    <BadgesGroup store={store2} />
-                    <DropDownList onClick={(e)=>{console.log(e.target.value)}}/>
-                    <CardList store={store} />
-                    <ButtonPrimary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button Secondary Button !")}} />
+                    <section>
+                        <div style={{marginTop: "48px"}}></div>
+                        <Title name="Daftar SMA Negeri" />
+                    </section>
+                    <section>
+                        <BadgesGroup store={store2} />
+                    </section>
+                    <section>
+                        <DropDownList onClick={(e)=>{console.log(e.target.value)}}/>
+                    </section>
+                    <section>
+                         <CardList store={store} />
+                    </section>
+                    <section>
+                        <ButtonSecondary name="CARI SEKOLAH LAINNYA" onClick={(e)=>{console.log("this is button Secondary Button !")}} />
+                    </section>
+                    
                 </div>
             </>
         );
