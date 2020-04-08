@@ -14,7 +14,7 @@ import KontakSekolah from '../components/base_components/Footer/Mobile/KontakSek
 import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges'
 import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets';
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
-
+import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription'
 
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
@@ -80,11 +80,46 @@ const store8 = {
     thirdCost   :"Rp. 1,000,000",
 }
 
+const store9 = [
+    {   title:"Alamat", 
+        description : "Jl.Rawa Belong No.2 , Kebon Jeruk, Jakarta Barat"
+    },
+    {   title:"Kurikulum Sekolah", 
+        description : "International"
+    },
+    {   title:"Telepon", 
+        description : "021-26678321"
+    },
+    {   title:"Web", 
+        description : "www.smainternational.ac.id"
+    },
+    {   title:"Email", 
+        description : "smainternational@mail.ac.id"
+    },
+    {   title:"Web", 
+        description : "sdwidurijaya@blogspot.com"
+    },
+    {   title:"Jam Sekolah", 
+        description : "06:30 - 12:00"
+    },
+    {   title:"Kepala Sekolah", 
+        description : "Anita"
+    },
+    {   title:"Jumlah Siswa", 
+        description : "2000 Siswa"
+    }
+]
+
+
 class Detail extends Component {
     render() {
         return (
             <>
                 <div style={{overflow:"hidden"}}>
+                    <section>
+                        <div style={{marginTop: "18px"}} />
+                        <MobileDescription store={store9} />
+                    </section>
                     <section>
                         <div style={{marginTop: "18px"}} />
                         <CarouselMobile store={store} />
