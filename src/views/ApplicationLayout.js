@@ -6,7 +6,7 @@ import Base from './Base'
 // import Whatsapp from '../component/base/whatsapp'
 // import { Spinner } from 'react-bootstrap'
 // import LoaderSpinner from '../component/base/loader/LoaderSpinner'
-
+import FooterMobile from '../components/base_components/Footer/Mobile/FooterMobile'
 export default class ApplicationLayout extends Base {
     render() {
         return (
@@ -26,6 +26,7 @@ export default class ApplicationLayout extends Base {
                 </div>
 
                 <footer>
+                    <FooterMobile />
                     {/* <OnDesktop>
                         <Footer
                             validated={this.state.footer.validated}
