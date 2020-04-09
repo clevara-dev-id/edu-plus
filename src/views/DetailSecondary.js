@@ -108,8 +108,7 @@ const store9 = [
     {   title:"Jumlah Siswa", 
         description : "2000 Siswa"
     }
-]
-
+];
 
 class Detail extends Component {
     render() {
