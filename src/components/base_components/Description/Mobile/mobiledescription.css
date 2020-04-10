@@ -1,6 +1,42 @@
-#descriptionmobile{
+/* #descriptionmobile{
     padding-right: 0px;
     padding-left: 0px;
     margin-right: 0px;
     margin-left: 0px;
+} */
+
+
+
+
+
+
+@media screen and (min-width: 320px) {
+    #descriptionmobile{
+        max-width: 320px;
+    } 
+}
+
+@media screen and (min-width: 360px) {
+    #descriptionmobile{
+        max-width: 360px;
+    } 
+}
+
+
+@media screen and (min-width: 375px) {
+    #descriptionmobile{
+        max-width: 375px;
+    } 
+}
+
+@media screen and (min-width: 414px) {
+    #descriptionmobile{
+        max-width: 375px;
+    } 
+}
+
+@media screen and (min-width: 480px) {
+    #descriptionmobile{
+        max-width: 375px;
+    } 
 }

@@ -40,7 +40,6 @@ const TitleDescription = styled.div`
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    margin-left: 15px;
     text-align: justify;
 
     /* identical to box height */
@@ -57,7 +56,6 @@ const FillDescription = styled.div`
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    margin-left: 15px;
     margin-top: 3px;
     text-align: justify;
 
