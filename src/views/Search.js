@@ -5,7 +5,8 @@ import CardList from '../components/base_components/Card/CardMobile/CardList/Car
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 import DropDownList from '../components/base_components/DropDwonList/DropdownMobile/DropDownList';
-import BadgesGroup from '../components/base_components/Badges/BadgesMobile/BadgesGroup'
+import BadgesGroup from '../components/base_components/Badges/BadgesMobile/BadgesGroup';
+import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 
 //Import Image
 import CardImage1 from '../components/asset/images/CardList/SMAN14JAKARTA.png';
@@ -45,6 +46,14 @@ let store = [{
 ];
 
 const store2 =[{name:"4 SMA ditemukan"},{name:"Kramat Jati"},{name:"DKI Jakarta"}];
+const store3 =[
+    {name:"Home", link: "/home"},
+    {name:"Search", link: "/search"},
+    {name:"Informasi Sekolah", link: "/information"},
+    {name:"Kontak Sekolah", link: "/contact"},
+    {name:"Biaya Sekolah", link: "/payroll"},
+    {name:"About", link: "/about"}
+];
 
 class Search extends Component {
     render() {
@@ -57,6 +66,9 @@ class Search extends Component {
                     </section>
                     <section>
                         <BadgesGroup store={store2} />
+                    </section>
+                    <section>
+                        <BadgesGroupSecondary store={store3} />
                     </section>
                     <section>
                         <DropDownList onClick={(e)=>{console.log(e.target.value)}}/>
