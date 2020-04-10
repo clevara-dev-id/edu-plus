@@ -14,7 +14,8 @@ import KontakSekolah from '../components/base_components/Footer/Mobile/KontakSek
 import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges'
 import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets';
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
-import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription'
+import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription';
+import PriceListMobile from '../components/base_components/PriceList/Mobile/PriceListMobile';
 
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
@@ -110,11 +111,27 @@ const store9 = [
     }
 ];
 
+const store10 = [
+    {   title:"Uang Pangkal", 
+        description : "Rp. 3,000,000"
+    },
+    {   title:"SPP Bulanan", 
+        description : "Rp. 550,000"
+    },
+    {   title:"Uang Kegiatan", 
+        description : "Rp. 1,550,000"
+    },
+]
+
 class Detail extends Component {
     render() {
         return (
             <>
                 <div style={{overflow:"hidden"}}>
+                    <section>
+                        <div style={{marginTop: "18px"}} />
+                        <PriceListMobile store={store10} title="Biaya Pendidikan" />
+                    </section>
                     <section>
                         <div style={{marginTop: "18px"}} />
                         <MobileDescription store={store9} />

@@ -1,0 +1,33 @@
+@media screen and (min-width: 480px) {
+    #pricelistmobile{
+        max-width: 480px;
+    }
+    
+}
+
+@media screen and (min-width: 414px) {
+    #pricelistmobile{
+        max-width: 414px;
+    }
+    
+}
+
+@media screen and (min-width: 375px) {
+    #pricelistmobile{
+        max-width: 375px;
+    }
+    
+}
+
+@media screen and (min-width: 360px) {
+    #pricelistmobile{
+        max-width: 360px;
+    }
+    
+}
+
+@media screen and (min-width: 320px) {
+    #pricelistmobile{
+        max-width: 320px;
+    } 
+}
