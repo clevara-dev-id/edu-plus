@@ -16,6 +16,7 @@ import MapsComponents from '../components/base_components/MapsComponents/Mobile/
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription';
 import PriceListMobile from '../components/base_components/PriceList/Mobile/PriceListMobile';
+import CarouselMobileSecondary from '../components/base_components/Carousel/CarouselMobile/CarouselMobileSecondary';
 
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
@@ -128,6 +129,10 @@ class Detail extends Component {
         return (
             <>
                 <div style={{overflow:"hidden"}}>
+                    <section>
+                        <div style={{marginTop: "18px"}} />
+                        <CarouselMobileSecondary store={store} />
+                    </section>
                     <section>
                         <div style={{marginTop: "18px"}} />
                         <PriceListMobile store={store10} title="Biaya Pendidikan" />
