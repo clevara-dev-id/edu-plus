@@ -1,0 +1,13 @@
+#cardimgesearchseconadary{
+    max-width: 375px;
+}
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+.imageClass{
+    width: 104px;
+    height: 104px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px; 
+}
