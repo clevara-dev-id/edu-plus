@@ -35,9 +35,9 @@ Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor po
 `;
 
 const store3 = [
-    {iconname:"snowflake-o", name: "Air conditioning"}, 
-    {iconname:"desktop", name: "Lab. Komputer"},
-    {iconname:"wifi", name: "Akses Internet"}, 
+    {iconname:"snowflake-o", name: "Air conditioning", fontFamily : "FontAwesome"}, 
+    {iconname:"desktop", name: "Lab. Komputer", fontFamily : "FontAwesome"},
+    {iconname:"wifi", name: "Akses Internet", fontFamily : "FontAwesome"}, 
 ]
 
 const store4 =[
@@ -57,9 +57,9 @@ const store5 = {
 };
 
 const store6 = [
-    {iconname:"camera", name: "Fotografi"}, 
-    {iconname:"soccer-ball-o", name: "Futsal"},
-    {iconname:"dribbble", name: "BasketBall"}, 
+    {iconname:"camera", name: "Fotografi", fontFamily : "FontAwesome"}, 
+    {iconname:"soccer-ball-o", name: "Futsal", fontFamily : "FontAwesome"},
+    {iconname:"dribbble", name: "BasketBall", fontFamily : "FontAwesome"}, 
 ]
 
 const store7 =[

@@ -39,9 +39,9 @@ Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor po
 `;
 
 const store3 = [
-    {iconname:"snowflake-o", name: "Air conditioning"}, 
-    {iconname:"desktop", name: "Lab. Komputer"},
-    {iconname:"wifi", name: "Akses Internet"}, 
+    {iconname:"snowflake-o", name: "Air Conditioner", fontFamily : "FontAwesome"}, 
+    {iconname:"desktop", name: "Lab. Komputer", fontFamily : "FontAwesome"},
+    {iconname:"wifi", name: "Akses Internet", fontFamily : "AntDesign"}, 
 ]
 
 const store4 =[
@@ -61,9 +61,9 @@ const store5 = {
 };
 
 const store6 = [
-    {iconname:"camera", name: "Fotografi"}, 
-    {iconname:"soccer-ball-o", name: "Futsal"},
-    {iconname:"dribbble", name: "BasketBall"}, 
+    {iconname:"camera", name: "Fotografi", fontFamily : "FontAwesome"}, 
+    {iconname:"soccer-ball-o", name: "Futsal", fontFamily : "FontAwesome"},
+    {iconname:"dribbble", name: "BasketBall", fontFamily : "FontAwesome"}, 
 ]
 
 const store7 =[
@@ -165,8 +165,7 @@ class Detail extends Component {
                         <LineComponents marginTop="7px" marginBottom="32px" />
                         <Ekstrakulikuler store={store6} title="Ekstrakulikuler" />
                         <OtherEkstrakulikuler store={store7} title="Ekstrakulikuler lainnya"/>
-                    </section>
-                    
+                    </section>    
                     <section>
                         <LineComponents marginTop="7px" marginBottom="32px" />
                         <BiayaSekolah store={store8} />

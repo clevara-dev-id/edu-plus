@@ -3,16 +3,23 @@ import styled from 'styled-components';
 import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
-import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
+// import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
+import './Icon';
+// import EntypoIcon from 'react-native-vector-icons/dist/Entypo';
+import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 
 const MobileIcon = props => {
     return (
         <>
             <Container>
                 <Row>
-                    <Col>
-                        <ItemTag><FontAwesome name={props.icon} color={props.iconColor} size={24} /></ItemTag>
+                    <Col style={{display: "block ruby", alignSelf: "center"}}>
+                        <ItemTag><Icon name={props.icon} color={props.iconColor} font={props.fontFamily} size={24} /></ItemTag>
+                        {/* <Feather name="arrow-down-circle" size={30} color="#404" /> */}
+                        {/*  */}
                     </Col>
+                <Row>
+                </Row>
                     <Col>
                         <NameItem>{props.name}</NameItem>
                     </Col>
@@ -29,14 +36,14 @@ const ItemTag = styled.div`
     /*padding-bottom:16px;*/
     margin-top: 10px;
     margin-bottom: 10px;
+    
     /* white */
-    background: red;
-
+    border: 1px solid rgba(0, 0, 0, 0.08);
     /* shadow-1 */
     background: #FFFFFF;
 
     /* shadow-1 */
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15); */
     border-radius: 8px;
 `;
 
@@ -51,9 +58,10 @@ const NameItem = styled.div`
 `;
 
 MobileIcon.propTypes = {
-    name      : PropTypes.string,
-    icon      : PropTypes.string,
-    iconColor : PropTypes.string 
+    name       : PropTypes.string,
+    icon       : PropTypes.string,
+    iconColor  : PropTypes.string,
+    fontFamily : PropTypes.string
 }
 
 export default MobileIcon;
