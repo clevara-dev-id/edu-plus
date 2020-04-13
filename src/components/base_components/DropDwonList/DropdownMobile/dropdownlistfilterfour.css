@@ -1,0 +1,76 @@
+#dropdownfilter {
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 320px){
+    #mybuttonFilter{
+        width: 270px;
+    }
+    #mybuttonFilter > .placeholderclass{
+        text-align: left;
+        margin-left: -16px;
+    }
+    #mybuttonFilter > .iconClass{
+        text-align: right;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (min-width: 360px){
+    #mybuttonFilter{
+        width: 308px;
+    }
+    #mybuttonFilter > .placeholderclass{
+        text-align: left;
+        margin-left: -16px;
+    }
+    #mybuttonFilter > .iconClass{
+        text-align: right;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (min-width: 375px){
+    #mybuttonFilter{
+        width: 308px;
+    }
+    #mybuttonFilter > .placeholderclass{
+        text-align: left;
+        margin-left: -22px;
+    }
+    #mybuttonFilter > .iconClass{
+        text-align: right;
+        margin-left: 12px;
+    }
+}
+
+#myDropdownSecondary > li{
+    color: #000000;
+    display: block;
+    width: auto;
+    height: 37px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+
+    /* link */
+}
+
+#myDropdownSecondary > li:hover {
+    color: #FFFFFF;
+    background: #08A0E9;
+}
+
+#myDropdownSecondary > li:active {
+    color: #FFFFFF;
+    background: #08A0E9;
+}
+
+#myDropdownSecondary > li > option{
+    font-style: normal;
+    font-weight: normal !important;
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+}
