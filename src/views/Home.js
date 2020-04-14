@@ -5,6 +5,7 @@ import RadioButtonThree from '../components/base_components/RadioButton/RadioBut
 import RadioButtonFour from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonFour'
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
+import ButtonGray from '../components/base_components/Button/ButtonMobile/ButtonGray';
 import AccordionAddress from '../components/base_components/Accordion/Mobile/AccordionAddress';
 import BottomTitle from '../components/base_components/TitleBottom/Mobile/TitleBottom';
 import DropdownListFilter from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilter';
@@ -87,9 +88,13 @@ class Home extends Component {
                         <div style={{marginTop: "25px"}}></div>
                         <RadioButtonThreeGray onClick={(e) => {console.log(e.target.value)}} />
                     </section>
-                    <section>
+                    {/* <section>
                         <div style={{marginTop: "25px"}}></div>
                         <ButtonPrimary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button !")}} />
+                    </section> */}
+                    <section>
+                        <div style={{marginTop: "25px"}}></div>
+                        <ButtonGray name="CARI SEKARANG" onClick={(e)=>{console.log("this is button !")}} />
                     </section>
                     <section>
                         <div style={{marginTop: "7px"}}></div>
