@@ -69,7 +69,10 @@ class Search extends Component {
                         <BadgesGroupSecondary store={store3} />
                     </section>
                     <section>
-                        <DropDownList onClick={(e)=>{console.log(e.target.value)}}/>
+                        <DropDownList 
+                            onClick={(e)=>{console.log(e.target.value)}}
+                            onClickArea={(e)=>{console.log(e.target.value)}}
+                        />
                     </section>
                     <section>
                          <CardListSecondary store={store} />
