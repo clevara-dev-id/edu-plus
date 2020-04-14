@@ -6,10 +6,10 @@ import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
 import $ from 'jquery';
 
 import '../../Icon/Mobile/Icon'
-import './radioButtonThree.css';
+import './radiobuttonthreegray.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const RadioButtonThree = props =>{  
+const RadioButtonThreeGray = props =>{  
     const [icon,setIcon]=useState('');
     return(
         <>
@@ -27,7 +27,7 @@ const RadioButtonThree = props =>{
                             />
                             <label htmlFor="inputnegeri" >
                                 <div>
-                                    <FontAwesome name={icon === 'negeri' ? 'check-circle' : "circle-o"} size={24} color="black" />
+                                    <FontAwesome name={icon === 'negeri' ? 'check-circle' : "circle-o"} size={24} color="#B5B5B5" />
                                     <div>Negeri</div>
                                 </div>
                             </label>
@@ -41,7 +41,7 @@ const RadioButtonThree = props =>{
                                 onChange={()=>{setIcon('swasta')}} />
                             <label htmlFor="inputswasta" >
                                 <div>
-                                    <FontAwesome name={icon === 'swasta' ? 'check-circle' : "circle-o"} color='black' size={24} />
+                                    <FontAwesome name={icon === 'swasta' ? 'check-circle' : "circle-o"} color='#B5B5B5' size={24} />
                                     <div>Swasta</div>
                                 </div>
                             </label>
@@ -57,7 +57,7 @@ const RadioButtonThree = props =>{
                             />
                             <label htmlFor="inputkursus" >
                                 <div>
-                                    <FontAwesome name={icon === 'kursus' ? 'check-circle' : "circle-o"} color='black' size={24} />
+                                    <FontAwesome name={icon === 'kursus' ? 'check-circle' : "circle-o"} color='#B5B5B5' size={24} />
                                     <div>Kursus</div>
                                 </div>
                             </label>
@@ -73,11 +73,8 @@ const Input = styled.input`
     bgcolor : red;
 `;
 
-RadioButtonThree.propTypes  = {
+RadioButtonThreeGray.propTypes  = {
     onClick : PropTypes.func
 }
 
-export default RadioButtonThree;
-
-
-
+export default RadioButtonThreeGray;

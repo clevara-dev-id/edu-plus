@@ -10,6 +10,7 @@ import BottomTitle from '../components/base_components/TitleBottom/Mobile/TitleB
 import DropdownListFilter from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilter';
 import DropdownListFilterFour from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilterFour';
 import TitleDropDownList from '../components/base_components/TitlePage/TitleMobile/TitleDropDownList';
+import RadioButtonThreeGray from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThreeGray';
 
 
 const store = [
@@ -78,9 +79,13 @@ class Home extends Component {
                         <div style={{marginTop: "35px"}}></div>
                         <RadioButtonFour onClick={(e) => {console.log(e.target.value)}} />
                     </section> */}
-                    <section>
+                    {/* <section>
                         <div style={{marginTop: "25px"}}></div>
                         <RadioButtonThree onClick={(e) => {console.log(e.target.value)}} />
+                    </section> */}
+                    <section>
+                        <div style={{marginTop: "25px"}}></div>
+                        <RadioButtonThreeGray onClick={(e) => {console.log(e.target.value)}} />
                     </section>
                     <section>
                         <div style={{marginTop: "25px"}}></div>
