@@ -18,6 +18,7 @@ import MobileDescription from '../components/base_components/Description/Mobile/
 import PriceListMobile from '../components/base_components/PriceList/Mobile/PriceListMobile';
 import ButtonGray from '../components/base_components/Button/ButtonMobile/ButtonGray';
 import CarouselMobileSecondary from '../components/base_components/Carousel/CarouselMobile/CarouselMobileSecondary';
+import TitleDetail from '../components/base_components/TitlePage/TitleMobile/TitleDetail';
 
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png';
@@ -137,7 +138,7 @@ class Detail extends Component {
                     </section>
                     <section>
                         <div style={{marginTop: "18px"}} />
-                        {/* <h2 style={{textAlign: "left"}}>SMA INTERNATIONAL</h2> */}
+                        <TitleDetail name="SMA INTERNATIONAL" />
                     </section>
                     <section>
                         <BadgesGroupSecondary store={store8} />
