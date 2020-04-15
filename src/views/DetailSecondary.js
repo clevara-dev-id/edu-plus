@@ -14,7 +14,8 @@ import KontakSekolah from '../components/base_components/Footer/Mobile/KontakSek
 import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges'
 import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets';
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
-import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription'
+import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription';
+import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
@@ -122,6 +123,9 @@ class Detail extends Component {
                     <section>
                         <div style={{marginTop: "18px"}} />
                         <CarouselMobile store={store} />
+                    </section>
+                    <section>
+                        <BadgesGroupSecondary store={store3} />
                     </section>
                     <section>
                         <SingleBadges name="Nasional" />
