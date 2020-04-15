@@ -15,10 +15,13 @@ import MapsComponents from '../components/base_components/MapsComponents/Mobile/
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription';
+import PriceListMobile from '../components/base_components/PriceList/Mobile/PriceListMobile';
+import ButtonGray from '../components/base_components/Button/ButtonMobile/ButtonGray';
+import CarouselMobileSecondary from '../components/base_components/Carousel/CarouselMobile/CarouselMobileSecondary';
 
 //Import Image
-import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
-import slideImage2 from '../components/asset/images/CarouselSlider/slider2.png'
+import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png';
+import slideImage2 from '../components/asset/images/CarouselSlider/slider2.png';
 
 
 const store = [
@@ -72,11 +75,12 @@ const store7 =[
 
 const store8 =[
     {name:"Informasi Sekolah", idContent: "mobileDescriptionId"},
-    {name:"Biaya Pendidikan", idContent: "titlereadmoreid"},
-    {name:"Pendaftaran", idContent: "search"},
-    {name:"Jurusan", idContent: "contact"},
-    {name:"Fasilitas", idContent: "payroll"},
-    {name:"Ekstrakulikuler", idContent: "about"}
+    {name:"MAPS", idContent: "mapsContentId"},
+    {name:"Biaya Pendidikan", idContent: "studentConstId"},
+    {name:"Pendaftaran", idContent: "registerTimeId"},
+    {name:"Jurusan", idContent: "majorsId"},
+    {name:"Fasilitas", idContent: "primaryFasilityId"},
+    {name:"Ekstrakulikuler", idContent: "extracurricularContentId"}
 ];
 
 const store9 = [
@@ -109,15 +113,31 @@ const store9 = [
     }
 ];
 
+const store10 = [
+    {   title:"Uang Pangkal", 
+        description : "Rp. 3,000,000"
+    },
+    {   title:"SPP Bulanan", 
+        description : "Rp. 550,000"
+    },
+    {   title:"Uang Kegiatan", 
+        description : "Rp. 1,550,000"
+    },
+];
+
 
 class Detail extends Component {
     render() {
         return (
             <>
-                <div style={{overflow:"hidden"}}>
+                <div style={{overflowX:"hidden"}}>
                     <section>
                         <div style={{marginTop: "18px"}} />
-                        <CarouselMobile store={store} />
+                        <CarouselMobileSecondary store={store} />
+                    </section>
+                    <section>
+                        <div style={{marginTop: "18px"}} />
+                        {/* <h2 style={{textAlign: "left"}}>SMA INTERNATIONAL</h2> */}
                     </section>
                     <section>
                         <BadgesGroupSecondary store={store8} />
@@ -129,7 +149,31 @@ class Detail extends Component {
                         <div style={{marginTop: "18px"}} />
                         <MobileDescription store={store9} />
                     </section>
-                    <section style={{display: "none"}} id="titlereadmoreid" className="tabcontendetail">
+                    <section style={{display: "none"}} id="mapsContentId" className="tabcontendetail">
+                        <MapsComponents store={store5} />
+                    </section>
+                    <section style={{display: "none"}} id="studentConstId" className="tabcontendetail">
+                        <div style={{marginTop: "18px"}} />
+                        <PriceListMobile store={store10} title="Biaya Pendidikan" />
+                    </section>
+                    <section style={{display: "none"}} id="registerTimeId" className="tabcontendetail">
+                        <LineComponents marginTop="7px" marginBottom="32px" />
+                        <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
+                    </section>
+                    <section style={{display: "none"}} id="primaryFasilityId" className="tabcontendetail">
+                        <PrimaryFacility store={store3} title="Fasilitas" />
+                    </section>
+                    <section style={{display: "none"}} id="majorsId" className="tabcontendetail">
+                        <OtherFacility store={store4} title="Jurusan"/>
+                    </section>
+                    <section style={{display: "none"}} id="extracurricularContentId" className="tabcontendetail">
+                        <Ekstrakulikuler store={store6} title="Ekstrakulikuler" />
+                    </section>
+                    <section>
+                        <div style={{marginTop: "25px"}}></div>
+                        <ButtonGray name="CARI SEKOLAH LAIN" onClick={(e)=>{console.log("this is button !")}} />
+                    </section>
+                    {/* <section style={{display: "none"}} id="titlereadmoreid" className="tabcontendetail">
                         <div style={{marginTop: "-10px"}} />
                         <TitleReadMore title="SMAN 14 JAKARTA" text={text} />
                     </section>
@@ -148,17 +192,13 @@ class Detail extends Component {
                         <OtherEkstrakulikuler store={store7} title="Ekstrakulikuler lainnya"/>
                     </section>
                     <section>
-                        <LineComponents marginTop="7px" marginBottom="32px" />
-                        <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
-                    </section>
-                    <section>
                         <LineComponents marginTop="-14px" marginBottom="32px" />
                         <KontakSekolah 
                             phone="021 - 525 8721"
                             mail="sman14jkt@mail.com"
                             web="sman14jkt.sch.id"
                         />
-                    </section>
+                    </section> */}
                 </div>
             </>
         );

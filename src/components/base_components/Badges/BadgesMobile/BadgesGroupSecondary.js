@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Badge } from 'react-bootstrap';
+import $ from 'jquery';
 
 import './badgesgroupsecondary.css';
 
@@ -23,6 +24,17 @@ const BadgesGroupSecondary = props => {
         document.getElementById(cityName).style.display = "block";
         evt.currentTarget.className += " activeClassBadges";
     }
+
+    const firstload = async () =>{
+        await document.getElementById("defaultOpen").click();
+    }
+    
+    // useEffect(()=>{
+    $(document).ready(function(){
+        document.getElementById("defaultOpenBadges").click();  
+    })
+    // });
+
     return (
         <>
         <Container id="badgesgroupSecondary">
@@ -32,10 +44,15 @@ const BadgesGroupSecondary = props => {
                         <div id="childscrollSecondary" >
                             {props.store.map((data)=>{
                                 return(
-                                    // data.link===getPath ?
-                                    // <MyBadge variant="primary">{data.name}</MyBadge>
-                                    // : <LinkBadge href={data.link}>
-                                    <MyBadgeGray variant="primary" className="tablinksbadges" onClick={(e)=>{openPage(e,data.idContent)}}>
+                                    props.store[0].name === data.name ?
+                                    <MyBadgeGray id="defaultOpenBadges" 
+                                        className="tablinksbadges" 
+                                        onClick={(e)=>{openPage(e,data.idContent)}}>
+                                        {data.name}
+                                    </MyBadgeGray>
+                                    :
+                                    // <LinkBadge href={data.link}>
+                                    <MyBadgeGray className="tablinksbadges" onClick={(e)=>{openPage(e,data.idContent)}}>
                                         {data.name}
                                     </MyBadgeGray>  
                                     //   </LinkBadge>      
