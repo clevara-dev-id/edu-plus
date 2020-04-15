@@ -1,6 +1,37 @@
-#cardlist{
-  margin-bottom: 25px;
-  max-width: 375px;
+@media screen and (min-width: 320px){
+  #cardlist{
+    margin-bottom: 25px;
+    width: 320px;
+    /* margin-right: 15px; */
+  }  
+  #myDropdownLetter > li{
+    width: 150px;
+  }
+  #myDropdownArea > li {
+    width: 150px;
+  }
+}
+
+@media screen and (min-width: 360px){
+  #cardlist{
+    margin-bottom: 25px;
+    width: 360px;
+    /* margin-right: 15px; */
+  }  
+  #myDropdownLetter > li{
+    width: 170px;
+  }
+  #myDropdownArea > li {
+    width: 160px;
+  }
+}
+
+@media screen and (min-width: 375px){
+  #cardlist{
+    margin-bottom: 25px;
+    width: 375px;
+    /* margin-right: 15px; */
+  }  
 }
 
 .dropbtn {
@@ -12,7 +43,7 @@
     height: 24px;
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.015em;
     text-transform: uppercase;
     text-align: left;
@@ -31,11 +62,13 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
-    max-width: 139px;
+    background-color: #ffffff;
+    min-width: 139px;
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    right: 0;
+    left: auto;
   }
   
   .dropdown-content a {
@@ -68,14 +101,64 @@
   padding-left: 6px;
 }
 
-#myDropdown > li {
+#myDropdownLetter > li {
   list-style-type: none;
   padding : 10px 20px 5px 10px;
-  font-weight: bold;
-  font-style: bold;
+  
+  /* width: 170px; */
+  height: 37px;
+
+  /* ROBOTO - BODY 2 */
+
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.0025em;
+
+  color: #000000;
+
+
 }
 
-#myDropdown > li > option {
-  font-weight: bold;
-  font-style: bold;
+#myDropdownLetter > li:hover {
+  background: #08A0E9;
+  color: #ffffff;
+}
+
+#myDropdownLetter > li > option {
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+#myDropdownArea > li {
+  list-style-type: none;
+  padding : 10px 20px 5px 10px;
+  
+  /* width: 170px; */
+  height: 37px;
+
+  /* ROBOTO - BODY 2 */
+
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.0025em;
+
+  color: #000000;
+
+
+}
+
+#myDropdownArea > li:hover {
+  background: #08A0E9;
+  color: #ffffff;
+}
+
+#myDropdownArea > li > option {
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 14px;
+  line-height: 17px;
 }

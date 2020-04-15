@@ -21,6 +21,26 @@ const store = [
     {id:"004", name:'SMA'},
     {id:"005", name:'Madrasah Aliyah'},
 ];
+const store2 = [
+    {id:"001", name:'Jakarta'},
+    {id:"002", name:'Jawa Barat'},
+];
+
+const store3 = [
+    {id:"001", name:'Jakarta Selatan'},
+    {id:"002", name:'Jakarta Barat'},
+];
+
+const store4 = [
+    {id:"001", name:'Manggarai'},
+    {id:"002", name:'Tebet'},
+];
+
+const store5 = [
+    {id:"001", name:'Tebet Timur'},
+    {id:"002", name:'Tebet Utara'},
+];
+
 
 class Home extends Component {
     render() {
@@ -45,28 +65,28 @@ class Home extends Component {
                         <TitleDropDownList name="Pilih Alamat"/>
                         <DropdownListFilterFour
                             onClick={(e)=>{console.log(e.target.value)}}
-                            store={store} 
+                            store={store2} 
                             placeholder="Pilih Provinsi"
                             title="Provinsi"
                             className="provdropdownclass"
                         />
                         <DropdownListFilterFour
                             onClick={(e)=>{console.log(e.target.value)}}
-                            store={store} 
+                            store={store3} 
                             placeholder="Pilih Kota / Kabupaten"
                             title="Kota / Kabupaten"
                             className="citydropdownclass"
                          />
                          <DropdownListFilterFour
                             onClick={(e)=>{console.log(e.target.value)}}
-                            store={store} 
+                            store={store4} 
                             placeholder="Pilih Kecamatan"
                             title="Kecamatan"
                             className="subcitydropdownclass"
                          />
                          <DropdownListFilterFour
                             onClick={(e)=>{console.log(e.target.value)}}
-                            store={store} 
+                            store={store5} 
                             placeholder="Pilih Kelurahan / Desa"
                             title="Kelurahan / Desa"
                             className="secondsubcitydropdownclass"

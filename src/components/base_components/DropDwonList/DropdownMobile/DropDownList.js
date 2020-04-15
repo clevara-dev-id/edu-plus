@@ -6,40 +6,61 @@ import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
 import { Container, Row, Col } from 'react-bootstrap';
 import $ from 'jquery';
 
-import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
+import '../../Icon/Mobile/Icon';
 import arrowicon from '../../../asset/images/ShortButton/icon.svg';
-import './dropdown.css'
-
+import filtericon from '../../../asset/images/ShortButton/filter.svg';
+import './dropdown.css';
 
 const DropDownList = props => {
-    const [filter, setFilter]=useState('SUSUN SESUAI ABJAD');
+    const [filter, setFilter]=useState('URUTKAN');
+    const [filterArea, setFilterArea]=useState('FILTER');
     const showfunction = () => {
-        $("#myDropdown").toggle();
+        $("#myDropdownLetter").toggle();
     }
     const hidefunction = () => {
-        $("#myDropdown").hide();   
+        $("#myDropdownLetter").hide();   
+    }
+    const showfunctionArea = () => {
+        $("#myDropdownArea").toggle();
+    }
+    const hidefunctionArea = () => {
+        $("#myDropdownArea").hide();   
     }
     return (
         <>
             <Container id="cardlist">
                 <Row>
-                    <Col xs={1} className="filterSearch">
+                    <Col xs={6} className="filterSearch">
                         <MyButton onClick={()=>{showfunction()}} className="dropbtn" id="dropbtn">
                             <img src={arrowicon} width="24px" height="24px" />
                             <span className="fildfilter" >{filter}</span>
                         </MyButton>
-                        <div id="myDropdown" class="dropdown-content">
-                            <li onClick={(e)=>{hidefunction(); setFilter("Teratas")}}>
-                                <option value="teratas" onClick={props.onClick}>Teratas</option>
+                        <div id="myDropdownLetter" class="dropdown-content">
+                            <li onClick={(e)=>{hidefunction(); setFilter("Abjad A-Z")}}>
+                                <option value="az" onClick={props.onClick}>Abjad A-Z</option>
                             </li>
-                            <li onClick={(e)=>{hidefunction(); setFilter("Terbawah")}}>
-                                <option value="terbawah" onClick={props.onClick}>Terbawah</option>
+                            <li onClick={(e)=>{hidefunction(); setFilter("Abjad Z-A")}}>
+                                <option value="za" onClick={props.onClick}>Abjad Z-A</option>
                             </li>
-                            <li onClick={(e)=>{hidefunction(); setFilter("Terpopuler")}}>
-                                <option value="terpopuler" onClick={props.onClick}>Terpopuler</option>
+                        </div>
+                    </Col>
+                    <Col xs={6} className="filterSearch">
+                        <MyButton onClick={()=>{showfunctionArea()}} className="dropbtn" id="dropbtn">
+                            <img src={filtericon} width="24px" height="24px" />
+                            <span className="fildfilter" >{filterArea}</span>
+                        </MyButton>
+                        <div id="myDropdownArea" class="dropdown-content">
+                            <li onClick={(e)=>{hidefunctionArea(); setFilterArea("Provinsi")}}>
+                                <option value="provinsi" onClick={props.onClickArea}>Provinsi</option>
                             </li>
-                            <li onClick={(e)=>{hidefunction(); setFilter("Rekomendasi")}}>
-                                <option value="rekomendasi" onClick={props.onClick}>Rekomendasi</option>
+                            <li onClick={(e)=>{hidefunctionArea(); setFilterArea("Kota")}}>
+                                <option value="kota" onClick={props.onClickArea}>Kota</option>
+                            </li>
+                            <li onClick={(e)=>{hidefunctionArea(); setFilterArea("Kecamatan")}}>
+                                <option value="kecamatan" onClick={props.onClickArea}>Kecamatan</option>
+                            </li>
+                            <li onClick={(e)=>{hidefunctionArea(); setFilterArea("Kelurahan")}}>
+                                <option value="kelurahan" onClick={props.onClickArea}>Kelurahan</option>
                             </li>
                         </div>
                     </Col>
@@ -53,7 +74,8 @@ const MyButton = styled.button`
 `;
 
 DropDownList.propTypes = {
-    onClick : PropTypes.func,
+    onClick     : PropTypes.func,
+    onClickArea : PropTypes.func,
 }
 
 export default DropDownList;
