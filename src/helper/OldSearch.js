@@ -66,6 +66,9 @@ class Search extends Component {
                         <Title name="Daftar SMA Negeri" />
                     </section>
                     <section>
+                        <BadgesGroup store={store2} />
+                    </section>
+                    <section>
                         <BadgesGroupSecondary store={store3} />
                     </section>
                     <section>
@@ -73,6 +76,9 @@ class Search extends Component {
                     </section>
                     <section>
                          <CardListSecondary store={store} />
+                    </section>
+                    <section>
+                         <CardList store={store} />
                     </section>
                     <section>
                         <ButtonSecondary name="CARI SEKOLAH LAINNYA" onClick={(e)=>{console.log("this is button Secondary Button !")}} />

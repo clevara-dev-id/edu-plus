@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import './mobiledescription.css'
+// import './mobiledescription.css'
 
 import { Container, Row, Col } from 'react-bootstrap';
 
-const MobileDescription = props => {
+const PriceListMobile = props => {
     return (
         <>
-            <Container id="descriptionmobile">
+            <Container id="pricelistmobile">
+                <Row>
+                    <Col>
+                        <Title>{props.title}</Title>
+                    </Col>
+                </Row>
                 {props.store.map((data)=>{
                     return(
                         <GroupDescription>
@@ -32,7 +37,27 @@ const MobileDescription = props => {
 
 const GroupDescription = styled.div`
     margin-bottom: 16px;
-    margin-right: 15px;
+`;
+
+const Title = styled.div`
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 16px !important;
+
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.0015em;
+
+    color: #000000;
+
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    align-self: flex-start;
 `;
 
 const TitleDescription = styled.div`
@@ -68,8 +93,9 @@ const FillDescription = styled.div`
     color: #4A4A4A;
 `;
 
-MobileDescription.propTypes = {
-    store : PropTypes.object
+PriceListMobile.propTypes = {
+    store : PropTypes.object,
+    title : PropTypes.string
 }
 
-export default MobileDescription;
+export default PriceListMobile;

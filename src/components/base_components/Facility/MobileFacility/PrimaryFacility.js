@@ -23,16 +23,16 @@ const PrimaryFacility = props => {
                     <Row>
                         {props.store.map((data)=>{
                          return(
-                                <Col xs={4}><Item1 icon={data.iconname} iconColor="#3273DC" name={data.name} /></Col>
+                                <Col xs={4}>
+                                    <Item1 
+                                        icon={data.iconname} 
+                                        iconColor="#3273DC" 
+                                        name={data.name} 
+                                        fontFamily={data.fontFamily} 
+                                    />
+                                </Col>
                             );
                         })}
-                        {/* <Col xs={4}><Item1 icon="snowflake-o" iconColor="#3273DC" name="Air conditioning" /></Col> */}
-                        {/* <Col xs={4}><Item1 icon="desktop" iconColor="#3273DC" name="Lab. Komputer" /></Col>
-                        <Col xs={4}><Item1 icon="wifi" iconColor="#3273DC" name="Akses Internet" /></Col>
-                        <Col xs={4}><Item1 icon="desktop" iconColor="#3273DC" name="Lab. Komputer" /></Col>
-                        <Col xs={4}><Item1 icon="wifi" iconColor="#3273DC" name="Akses Internet" /></Col>
-                        <Col xs={4}><Item1 icon="wifi" iconColor="#3273DC" name="Akses Internet" /></Col>
-                        <Col xs={4}><Item1 icon="wifi" iconColor="#3273DC" name="Akses Internet" /></Col> */}
                     </Row>
             </Container>
         </>
@@ -52,8 +52,8 @@ const TitleFasilitas = styled.div`
 `;
 
 PrimaryFacility.propTypes = {
-    title : PropTypes.string,
-    store : PropTypes.object,
+    title       : PropTypes.string,
+    store       : PropTypes.object,
 }
 
 export default PrimaryFacility;

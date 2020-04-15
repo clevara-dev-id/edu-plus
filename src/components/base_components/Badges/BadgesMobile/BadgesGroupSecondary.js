@@ -11,16 +11,16 @@ const BadgesGroupSecondary = props => {
     // console.log(getPath);
     const openPage = (evt, cityName) =>{
         var i, tabcontent, tablinks;
-        // tabcontent = document.getElementsByClassName("tabcontent");
-        // for (i = 0; i < tabcontent.length; i++) {
-        //   tabcontent[i].style.display = "none";
-        // }
+        tabcontent = document.getElementsByClassName("tabcontendetail");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
         tablinks = document.getElementsByClassName("tablinksbadges");
         // console.log(tablinks);
         for (i = 0; i < tablinks.length; i++) {
           tablinks[i].className = tablinks[i].className.replace(" activeClassBadges", "");
         }
-        // document.getElementById(cityName).style.display = "block";
+        document.getElementById(cityName).style.display = "block";
         evt.currentTarget.className += " activeClassBadges";
     }
     return (
@@ -35,7 +35,7 @@ const BadgesGroupSecondary = props => {
                                     // data.link===getPath ?
                                     // <MyBadge variant="primary">{data.name}</MyBadge>
                                     // : <LinkBadge href={data.link}>
-                                    <MyBadgeGray variant="primary" className="tablinksbadges" onClick={(e)=>{openPage(e,data.name)}}>
+                                    <MyBadgeGray variant="primary" className="tablinksbadges" onClick={(e)=>{openPage(e,data.idContent)}}>
                                         {data.name}
                                     </MyBadgeGray>  
                                     //   </LinkBadge>      

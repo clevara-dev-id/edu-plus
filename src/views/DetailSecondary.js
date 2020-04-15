@@ -16,6 +16,8 @@ import MapsComponents from '../components/base_components/MapsComponents/Mobile/
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
+import PriceListMobile from '../components/base_components/PriceList/Mobile/PriceListMobile';
+import CarouselMobileSecondary from '../components/base_components/Carousel/CarouselMobile/CarouselMobileSecondary';
 
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
@@ -38,9 +40,9 @@ Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor po
 `;
 
 const store3 = [
-    {iconname:"snowflake-o", name: "Air conditioning"}, 
-    {iconname:"desktop", name: "Lab. Komputer"},
-    {iconname:"wifi", name: "Akses Internet"}, 
+    {iconname:"snowflake-o", name: "Air Conditioner", fontFamily : "FontAwesome"}, 
+    {iconname:"desktop", name: "Lab. Komputer", fontFamily : "FontAwesome"},
+    {iconname:"wifi", name: "Akses Internet", fontFamily : "AntDesign"}, 
 ]
 
 const store4 =[
@@ -60,9 +62,9 @@ const store5 = {
 };
 
 const store6 = [
-    {iconname:"camera", name: "Fotografi"}, 
-    {iconname:"soccer-ball-o", name: "Futsal"},
-    {iconname:"dribbble", name: "BasketBall"}, 
+    {iconname:"camera", name: "Fotografi", fontFamily : "FontAwesome"}, 
+    {iconname:"soccer-ball-o", name: "Futsal", fontFamily : "FontAwesome"},
+    {iconname:"dribbble", name: "BasketBall", fontFamily : "FontAwesome"}, 
 ]
 
 const store7 =[
@@ -111,11 +113,33 @@ const store9 = [
     }
 ];
 
+const store10 = [
+    {   title:"Uang Pangkal", 
+        description : "Rp. 3,000,000"
+    },
+    {   title:"SPP Bulanan", 
+        description : "Rp. 550,000"
+    },
+    {   title:"Uang Kegiatan", 
+        description : "Rp. 1,550,000"
+    },
+]
+
+
+
 class Detail extends Component {
     render() {
         return (
             <>
                 <div style={{overflow:"hidden"}}>
+                    <section>
+                        <div style={{marginTop: "18px"}} />
+                        <CarouselMobileSecondary store={store} />
+                    </section>
+                    <section>
+                        <div style={{marginTop: "18px"}} />
+                        <PriceListMobile store={store10} title="Biaya Pendidikan" />
+                    </section>
                     <section>
                         <div style={{marginTop: "18px"}} />
                         <MobileDescription store={store9} />
@@ -147,8 +171,7 @@ class Detail extends Component {
                         <LineComponents marginTop="7px" marginBottom="32px" />
                         <Ekstrakulikuler store={store6} title="Ekstrakulikuler" />
                         <OtherEkstrakulikuler store={store7} title="Ekstrakulikuler lainnya"/>
-                    </section>
-                    
+                    </section>    
                     <section>
                         <LineComponents marginTop="7px" marginBottom="32px" />
                         <BiayaSekolah store={store8} />

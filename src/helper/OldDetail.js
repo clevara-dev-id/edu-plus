@@ -14,7 +14,6 @@ import SingleBadges from '../components/base_components/Badges/BadgesMobile/Sing
 import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets';
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
-import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription';
 
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png'
@@ -71,44 +70,13 @@ const store7 =[
 ];
 
 const store8 =[
-    {name:"Informasi Sekolah", idContent: "mobileDescriptionId"},
-    {name:"Biaya Pendidikan", idContent: "titlereadmoreid"},
-    {name:"Pendaftaran", idContent: "search"},
-    {name:"Jurusan", idContent: "contact"},
-    {name:"Fasilitas", idContent: "payroll"},
-    {name:"Ekstrakulikuler", idContent: "about"}
+    {name:"Home", link: "/home"},
+    {name:"Search", link: "/search"},
+    {name:"Informasi Sekolah", link: "/information"},
+    {name:"Kontak Sekolah", link: "/contact"},
+    {name:"Biaya Sekolah", link: "/payroll"},
+    {name:"About", link: "/about"}
 ];
-
-const store9 = [
-    {   title:"Alamat", 
-        description : "Jl.Rawa Belong No.2 , Kebon Jeruk, Jakarta Barat"
-    },
-    {   title:"Kurikulum Sekolah", 
-        description : "International"
-    },
-    {   title:"Telepon", 
-        description : "021-26678321"
-    },
-    {   title:"Web", 
-        description : "www.smainternational.ac.id"
-    },
-    {   title:"Email", 
-        description : "smainternational@mail.ac.id"
-    },
-    {   title:"Web", 
-        description : "sdwidurijaya@blogspot.com"
-    },
-    {   title:"Jam Sekolah", 
-        description : "06:30 - 12:00"
-    },
-    {   title:"Kepala Sekolah", 
-        description : "Anita"
-    },
-    {   title:"Jumlah Siswa", 
-        description : "2000 Siswa"
-    }
-];
-
 
 class Detail extends Component {
     render() {
@@ -125,11 +93,7 @@ class Detail extends Component {
                     {/* <section>
                         <SingleBadges name="Nasional" />
                     </section> */}
-                    <section style={{display: "none"}} id="mobileDescriptionId" className="tabcontendetail">
-                        <div style={{marginTop: "18px"}} />
-                        <MobileDescription store={store9} />
-                    </section>
-                    <section style={{display: "none"}} id="titlereadmoreid" className="tabcontendetail">
+                    <section>
                         <div style={{marginTop: "-10px"}} />
                         <TitleReadMore title="SMAN 14 JAKARTA" text={text} />
                     </section>
@@ -164,7 +128,5 @@ class Detail extends Component {
         );
     }
 }
-
-
 
 export default Detail;

@@ -6,80 +6,79 @@ import logoeduplus from '../../../asset/logo/eduplus.svg'
 
 import './footermobile.css'
 
-class FooterMobile extends Component {
-    render() {
-        return (
-            <>
-                <Container id="footermobile" fluid>
-                    <Row>
-                        <Col xs={12} className="headclassfooter">
-                            <DivLogo><img src={logoeduplus} width="124px" height="36px" /></DivLogo>
-                        </Col>
-                    </Row>
-                    <Row >
-                        <Col xs={12} >
-                        <DivDescr>Dolore consequat et eu minim proident enim</DivDescr>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12} >
-                            <DivHeadTitle>Company</DivHeadTitle>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <DivChild>About US</DivChild>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <DivChild>Partners</DivChild>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12} >
-                            <DivHeadTitle>Support</DivHeadTitle>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <DivChild>Get in touch</DivChild>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <DivChild>Help Center</DivChild>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12} >
-                            <DivHeadTitle>Contact Us</DivHeadTitle>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <DivChild>Email : info@eduplus.com</DivChild>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <DivChild>Phone : 021 562 7621</DivChild>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <LineFooter></LineFooter>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <CopyRight>2020 © Clevara. All rights reserved.</CopyRight>
-                        </Col>
-                    </Row>
-                </Container>
-            </>
-        );
-    }
+const FooterMobile = props => {
+  
+    return (
+        <>
+            <Container id="footermobile" fluid>
+                <Row>
+                    <Col xs={12} className="headclassfooter">
+                        <DivLogo><img src={logoeduplus} width="124px" height="36px" /></DivLogo>
+                    </Col>
+                </Row>
+                <Row >
+                    <Col xs={12} >
+                    <DivDescr>Dolore consequat et eu minim proident enim</DivDescr>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12} >
+                        <DivHeadTitle>Company</DivHeadTitle>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <DivChild>About US</DivChild>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <DivChild>Partners</DivChild>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12} >
+                        <DivHeadTitle>Support</DivHeadTitle>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <DivChild>Get in touch</DivChild>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <DivChild>Help Center</DivChild>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12} >
+                        <DivHeadTitle>Contact Us</DivHeadTitle>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <DivChild>Email : info@eduplus.com</DivChild>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <DivChild>Phone : 021 562 7621</DivChild>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <LineFooter></LineFooter>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <CopyRight>2020 © Clevara. All rights reserved.</CopyRight>
+                    </Col>
+                </Row>
+            </Container>
+        </>
+    );
 }
 
 const DivLogo = styled.div`
