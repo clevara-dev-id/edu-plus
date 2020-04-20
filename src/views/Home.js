@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+
+//Desktop
+import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop'
+
+//Mobile Item
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage'
 import RadioButtonThree from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThree';
 import RadioButtonFour from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonFour'
@@ -13,6 +18,7 @@ import DropdownListFilter from '../components/base_components/DropDwonList/Dropd
 import DropdownListFilterFour from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilterFour';
 import TitleDropDownList from '../components/base_components/TitlePage/TitleMobile/TitleDropDownList';
 import RadioButtonThreeGray from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThreeGray';
+
 
 
 
@@ -49,6 +55,11 @@ class Home extends Component {
         return (
             <>
                 <div>
+                    <OnDesktop>
+                        <section>
+                            <JumbotronDesktop />
+                        </section>
+                    </OnDesktop>
                     <OnMobile>
                         <section>
                             <div style={{marginTop: "48px"}}></div>

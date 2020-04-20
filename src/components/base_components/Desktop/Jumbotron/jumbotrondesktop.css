@@ -1,0 +1,51 @@
+@media screen and (min-width: 1280px){
+    #jumbotronDesktopContainer{
+        max-width: 0px;
+        width: 100%;
+        min-width: 1280px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+@media screen and (min-width: 1360px){
+    #jumbotronDesktopContainer{
+        max-width: 100%;
+        width: 100%;
+        min-width: 1360px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+@media screen and (min-width: 1366px){
+    #jumbotronDesktopContainer{
+        max-width: 100%;
+        width: 100%;
+        min-width: 1366px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    #jumbotronDesktopContainer{
+        max-width: 100%;
+        width: 100%;
+        min-width: 1440px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+#jumbotronDesktopContainer > .row > .col > .jumbotron {
+    border-radius: 0px;
+    min-height: 700px;
+}
+
+#jumbotronDesktopContainer > .row > .col > .jumbotron > .col {
+    text-align: left;
+    margin-left: 117px;
+    margin-top: 149px;
+    max-width: 540px;
+}
