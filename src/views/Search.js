@@ -65,9 +65,9 @@ class Search extends Component {
                         <div style={{marginTop: "48px"}}></div>
                         <Title name="Daftar SMA Negeri" />
                     </section>
-                    <section>
+                    {/* <section>
                         <BadgesGroupSecondary store={store3} />
-                    </section>
+                    </section> */}
                     <section>
                         <DropDownList 
                             onClick={(e)=>{console.log(e.target.value)}}

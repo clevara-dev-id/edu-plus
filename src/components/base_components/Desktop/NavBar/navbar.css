@@ -1,0 +1,72 @@
+@media screen and (min-width: 1024px){
+    #navbarDesktop{
+        max-width: none;
+        min-width: 1024px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    #navbarDesktop > .row > .col > .navbar > .labelNavbar {
+        padding-left: 60px;
+    }
+}
+
+@media screen and (min-width: 1152px){
+    #navbarDesktop{
+        max-width: none;
+        min-width: 1152px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    #navbarDesktop > .row > .col > .navbar > .labelNavbar {
+        padding-left: 90px;
+    }
+}
+@media screen and (min-width: 1280px){
+    #navbarDesktop{
+        max-width: none;
+        min-width: 1280px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    #navbarDesktop > .row > .col > .navbar > .labelNavbar {
+        padding-left: 100px;
+    }
+}
+@media screen and (min-width: 1360px){
+    #navbarDesktop{
+        max-width: none;
+        min-width: 1360px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    #navbarDesktop > .row > .col > .navbar > .labelNavbar {
+        padding-left: 125px;
+    }
+}
+
+@media screen and (min-width: 1366px){
+    #navbarDesktop{
+        max-width: none;
+        min-width: 1366px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    #navbarDesktop > .row > .col > .navbar > .labelNavbar {
+        padding-left: 135px;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    #navbarDesktop{
+        max-width: none;
+        min-width: 1440px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    #navbarDesktop > .row > .col > .navbar > .labelNavbar {
+        padding-left: 135px;
+    }
+    #buttonNavbarId {
+        padding-right: 20px;
+    }
+}

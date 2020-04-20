@@ -148,9 +148,9 @@ class Detail extends Component {
                         <div style={{marginTop: "18px"}} />
                         <CarouselMobile store={store} />
                     </section>
-                    <section>
+                    {/* <section>
                         <BadgesGroupSecondary store={store3} />
-                    </section>
+                    </section> */}
                     <section>
                         <SingleBadges name="Nasional" />
                     </section>

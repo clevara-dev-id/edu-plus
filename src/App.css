@@ -60,6 +60,13 @@
   src: url('./asset/font/Rubik/Rubik-Italic.ttf');
 }
 
+@font-face {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./asset/font/Helvetica/Helvetica.ttf');
+}
+
 h1{
   font-family: "Rubik";
   font-size: 34px;
