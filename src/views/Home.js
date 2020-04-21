@@ -4,6 +4,7 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop'
+import CardImage from '../components/base_components/Desktop/CardImage/CardImage'
 
 //Mobile Item
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage'
@@ -49,6 +50,42 @@ const store5 = [
     {id:"002", name:'Tebet Utara'},
 ];
 
+//dummy Desktop
+const storeDesktop = [
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "DKI Jakarta",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Jawa Barat",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "Jawa Tengah",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Bali",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "Sumatra Utara",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Kalimantan",
+        descrip   : "15 Sekolah"
+    }
+
+
+];
+
 
 class Home extends Component {
     render() {
@@ -56,8 +93,13 @@ class Home extends Component {
             <>
                 <div>
                     <OnDesktop>
-                        <section>
+                        {/* <section>
                             <JumbotronDesktop />
+                        </section> */}
+                        <section>
+                            <CardImage 
+                                store={storeDesktop}
+                            />
                         </section>
                     </OnDesktop>
                     <OnMobile>
