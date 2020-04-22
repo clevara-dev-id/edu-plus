@@ -14,7 +14,7 @@ const MobileIcon = props => {
             <Container>
                 <Row>
                     <Col style={{display: "block ruby", alignSelf: "center"}}>
-                        <ItemTag><Icon name={props.icon} color={props.iconColor} font={props.fontFamily} size={24} /></ItemTag>
+                        <ItemTag><Icon name={props.icon} color={props.iconColor} font={props.fontFamily} size={23} /></ItemTag>
                         {/* <Feather name="arrow-down-circle" size={30} color="#404" /> */}
                         {/*  */}
                     </Col>

@@ -5,6 +5,7 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 //Desktop
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop'
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage'
+import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges'
 
 //Mobile Item
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage'
@@ -86,6 +87,13 @@ const storeDesktop = [
 
 ];
 
+const storeDesktop2 =[
+    {name:"SD & MI", idContent: "desktopSDdanMI"},
+    {name:"SMP & MTS", idContent: "desktopSmpMts"},
+    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
+    {name:"Universitas", idContent: "desktopUniv"},
+];
+
 
 class Home extends Component {
     render() {
@@ -97,6 +105,26 @@ class Home extends Component {
                             <JumbotronDesktop />
                         </section> */}
                         <section>
+                            <BadgesDesktop
+                                store={storeDesktop2}
+                            />
+                        </section>
+                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImage 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImage 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImage 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
                             <CardImage 
                                 store={storeDesktop}
                             />
