@@ -13,4 +13,6 @@
 #buttonAsset{
     margin-bottom: 25px;
     max-width: 375px;
+    justify-content: center;
+    display: flex;
 }

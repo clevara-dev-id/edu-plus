@@ -11,8 +11,8 @@ import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopB
 import CardImageMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageMobile';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 import InputSearchMobile from '../components/base_components/InputSearch/Mobile/InputSearchMobile';
-import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle'
-
+import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
+import JumbotronMobile from '../components/base_components/Jumbotron/Mobile/JumbotronMobile';
 
 //Image
 import JakartaImage from '../components/asset/images/HomePage/CardImage/Jakarta.png'
@@ -141,6 +141,12 @@ class Home extends Component {
                         </section>
                     </OnDesktop>
                     <OnMobile>
+                        <section>
+                            <JumbotronMobile
+                                onClickHeader={()=>{console.log("this is button")}}
+                                text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
+                            />
+                        </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <MobileHomePageTitle name="Sekolah Favorite" />

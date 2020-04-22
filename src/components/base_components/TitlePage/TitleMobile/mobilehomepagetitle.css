@@ -1,0 +1,17 @@
+@media screen and (min-width: 320px) {
+    #mobileHomePageTitleContainer{
+        width: 320px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #mobileHomePageTitleContainer{
+        width: 360px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #mobileHomePageTitleContainer{
+        width: 375px;
+    }
+}

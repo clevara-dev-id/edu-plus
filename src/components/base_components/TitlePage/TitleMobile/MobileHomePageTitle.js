@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 
+import './mobilehomepagetitle.css'
+
 const MobileHomePageTitle = props => {
     return (
         <>
-            <Container id="dropdownfilter">
+            <Container id="mobileHomePageTitleContainer">
                 <Row>
                     <Col>
                         <TitleDiv>{props.name}</TitleDiv>

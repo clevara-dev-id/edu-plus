@@ -1,0 +1,21 @@
+#jumbotronMobileContainer{
+    background: #96C8EB;;
+    height: 350px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+@media screen and (min-width: 320px) {
+    #jumbotronMobileButton > #buttonAsset > div > div > button{
+        width: 227px !important;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #jumbotronMobileButton > #buttonAsset > div > div > button{
+        width: 227px !important;
+    }
+}
+
