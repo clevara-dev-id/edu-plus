@@ -1,19 +1,60 @@
-#badgesgroupSecondary{
-    max-width: 375px;
-    overflow: hidden;
+@media screen and (min-width: 320px){
+    #badgesgroupSecondary{
+        max-width: 320px;
+        overflow: hidden;
+        position: relative;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;
+    }
+    div.scrollmenu {
+        position: relative;
+        background-color:transparent;
+        white-space: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Firefox */
+    }
 }
-div.scrollmenu {
-    position: relative;
-    width: 100%;
-    background-color:transparent;
-    white-space: nowrap;
-    overflow-x: scroll;
-    scrollbar-width: none; /* Firefox */
+@media screen and (min-width: 360px){
+    #badgesgroupSecondary{
+        max-width: 360px;
+        overflow: hidden;
+        position: relative;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        /* scrollbar-width: none; */
+    }
+    #badgesgroupSecondary::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+        width: 0 !important
+    }
+    div.scrollmenu {
+        position: relative;
+        background-color:transparent;
+        white-space: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Firefox */
+    }
+
+}
+@media screen and (min-width: 375px){
+
+    #badgesgroupSecondary{
+        max-width: 375px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    div.scrollmenu {
+        position: relative;
+        background-color:transparent;
+        white-space: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Firefox */
+    }
 }
 
 .activeClassBadges{
     color: #FFFFFF !important;
-    background: #08A0E9 !important;
+    background: #1A6EB2 !important;
 }
 
 /* div.scrollmenu a {
@@ -26,11 +67,11 @@ div.scrollmenu {
 
 div.scrollmenu a:hover {
     background: none;
-}
+} */
 
 div.scrollmenu::-webkit-scrollbar { 
     display: none;  
-} */
+}
 
 /* #badgesgroupSecondary > .row > .col > .scrollmenu > #childscroll > span{
     width: auto;

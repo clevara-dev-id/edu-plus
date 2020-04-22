@@ -1,0 +1,54 @@
+@media screen and (min-width: 320px){
+    #cardImageMobileContainer > .row > .col {
+        margin-bottom: 25px;
+        
+    }
+    #cardImageMobileContainer{
+        max-width: 320px;
+        /* padding-right: 145px;
+        padding-left: 145px; */
+    }
+    #cardImageMobileContainer > .row > .col > .card{
+        border: 0px;
+        max-width: 345px;
+        max-height: 345px;
+    }
+}
+@media screen and (min-width: 360px){
+    #cardImageMobileContainer > .row > .col{
+        margin-bottom: 25px;
+        
+    }
+    #cardImageMobileContainer{
+        max-width: 360px;
+        /* padding-right: 145px;
+        padding-left: 145px; */
+    }
+    #cardImageMobileContainer > .row > .col > .card{
+        border: 0px;
+        max-width: 345px;
+        max-height: 345px;
+    }
+
+}
+@media screen and (min-width: 375px){
+
+    #cardImageMobileContainer > .row > .col{
+        margin-bottom: 30px;
+        
+    }
+    #cardImageMobileContainer{
+        max-width: 375px;
+    }
+
+    #cardImageMobileContainer > .row > .col > .card{
+        border: 0px;
+        max-width: 345px;
+        max-height: 345px;
+    }
+}
+
+#cardImageMobileContainer > .row > .col > .card > .card-img {
+    /* background-color: none !important; */
+    border-radius: 16px !important;
+}

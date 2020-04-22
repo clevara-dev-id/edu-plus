@@ -67,53 +67,22 @@ const BadgesGroupSecondary = props => {
     );
 }
 
-const LinkBadge = styled.a`
-    &:hover{
-        text-decoration: none;
-        background: none;
-    }
-`;
-
-const MyBadge = styled.span`
-    width: auto;
-    height: 30;
-    font-family: Rubik;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    background: #08A0E9;
-    border-radius: 4px;
-    padding-left: 14px;
-    padding-right: 14px;
-    padding-top: 8px;
-    padding-bottom: 7px;
-    margin-right: 9px;
-
-    display: inline-block;
-    white-space: nowrap;
-    vertical-align: baseline;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    
-`;
-
 const MyBadgeGray = styled.span`
     width: auto;
-    height: 30;
+    height: 39px;
     font-family: Rubik;
-    font-weight: normal;
-    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
     line-height: 19px;
     align-items: center;
     text-align: center;
     color: #B5B5B5;
     background: #F5F5F5;
-    border-radius: 4px;
+    border-radius: 36px;
     padding-left: 14px;
     padding-right: 14px;
-    padding-top: 8px;
+    padding-top: 10px;
     padding-bottom: 7px;
     margin-right: 9px;
 
