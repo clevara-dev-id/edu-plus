@@ -94,7 +94,7 @@ const MyBadgeGray = styled.span`
 `;
 
 BadgesGroupSecondary.propTypes = {
-    name : PropTypes.object,
+    store : PropTypes.object,
 }
 
 export default BadgesGroupSecondary;

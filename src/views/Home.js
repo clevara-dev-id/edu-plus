@@ -8,8 +8,9 @@ import CardImage from '../components/base_components/Desktop/CardImage/CardImage
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges'
 
 //Mobile Item
-import CardImageMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageMobile'
+import CardImageMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageMobile';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
+import InputSearchMobile from '../components/base_components/InputSearch/Mobile/InputSearchMobile'
 
 
 //Image
@@ -142,6 +143,10 @@ class Home extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BadgesGroupSecondary store={storeMobile2} />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <InputSearchMobile onChange={(e)=>{console.log(e.target.value)}} />
                         </section>
                         <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
