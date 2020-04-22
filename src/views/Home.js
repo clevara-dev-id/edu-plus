@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop'
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage'
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges'
+import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
+import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
+import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 
 //Mobile Item
 import CardImageMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageMobile';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
-import InputSearchMobile from '../components/base_components/InputSearch/Mobile/InputSearchMobile'
+import InputSearchMobile from '../components/base_components/InputSearch/Mobile/InputSearchMobile';
+import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle'
 
 
 //Image
@@ -140,6 +141,10 @@ class Home extends Component {
                         </section>
                     </OnDesktop>
                     <OnMobile>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <MobileHomePageTitle name="Sekolah Favorite" />
+                        </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BadgesGroupSecondary store={storeMobile2} />
