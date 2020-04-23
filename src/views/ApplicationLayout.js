@@ -7,7 +7,7 @@ import Base from './Base';
 // import { Spinner } from 'react-bootstrap'
 // import LoaderSpinner from '../component/base/loader/LoaderSpinner'
 import NavbarDesktop from '../components/base_components/Desktop/NavBar/Navbar'
-import FooterMobile from '../components/base_components/Footer/Mobile/FooterMobile';
+import FooterMobileBlue from '../components/base_components/Footer/Mobile/FooterMobileBlue';
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 const store = [
@@ -48,7 +48,11 @@ export default class ApplicationLayout extends Base {
 
                 <footer>
                     <OnMobile>
-                        <FooterMobile />
+                        <FooterMobileBlue
+                            homeLink="/"
+                            contactLink="contact"
+                            registerLink="/register"
+                        />
                     </OnMobile>
                     
                     {/* <OnDesktop>

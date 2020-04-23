@@ -1,0 +1,39 @@
+
+#footerMobileBlueContainer{
+    background: #96C8EB;
+    height: 313px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#footerMobileBlueContainer > .linkFooters {
+    margin-top: 59px;
+}
+
+#footerMobileBlueContainer > .linkFooters > .footersDaftar {
+    text-align: right;
+}
+
+@media screen and (min-width: 320px) {
+    #footerMobileBlueContainer > .linkFooters > #footerlinkid > a{
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #footerMobileBlueContainer > .linkFooters > #footerlinkid > a{
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #footerMobileBlueContainer > .linkFooters > #footerlinkid > a{
+        font-size: 13px;
+    }
+}
+
+
+
+
