@@ -159,7 +159,11 @@ class Home extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
-                            <InputSearchMobile onChange={(e)=>{console.log(e.target.value)}} />
+                            <InputSearchMobile 
+                                onChange={(e)=>{console.log(e.target.value)}} 
+                                label="CariProvinsi"
+                                placeholder="Cari Provinsi"
+                            />
                         </section>
                         <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
@@ -176,16 +180,15 @@ class Home extends Component {
                         <section style={{display: "none"}} id="mobileUniv" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
                             <CardImageMobile store={storeMobile} />
-                        </section>
-                            <div style={{marginTop: "25px"}}></div>
-                            <ButtonLoadMore 
-                                name="MUAT LEBIH BANYAK"
-                                width="277px"
-                                boxShadow="none"
-                                background="#f3f3f3"
-                            />
+                        </section>     
                         <section>
-
+                            <div style={{marginTop: "25px"}}></div>
+                                <ButtonLoadMore 
+                                    name="MUAT LEBIH BANYAK"
+                                    width="277px"
+                                    boxShadow="none"
+                                    background="#f3f3f3"
+                                />
                         </section>
                     </OnMobile>
                 </div>

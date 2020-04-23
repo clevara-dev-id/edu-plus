@@ -26,8 +26,8 @@ const InputSearchMobile = props => {
                         <Icon name="search" color="#B5B5B5" font="Feather" size={17} />
                         <FormControl
                         className="inputTextBadges"
-                        placeholder="Cari Provinsi"
-                        aria-label="CariProvinsi"
+                        placeholder={props.placeholder}
+                        aria-label={props.label}
                         aria-describedby="basic-addon1"
                         onChange={props.onChange}
                         />
@@ -40,7 +40,9 @@ const InputSearchMobile = props => {
 }
 
 InputSearchMobile.propTypes = {
-    onChange : PropTypes.func
+    onChange    : PropTypes.func,
+    label       : PropTypes.string,
+    placeholder : PropTypes.string
 }
 
 export default InputSearchMobile;

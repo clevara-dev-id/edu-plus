@@ -12,7 +12,7 @@ import CardImageMobile from '../components/base_components/Card/CardMobile/CardI
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 import InputSearchMobile from '../components/base_components/InputSearch/Mobile/InputSearchMobile';
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
-import JumbotronMobile from '../components/base_components/Jumbotron/Mobile/JumbotronMobile';
+import JumbotronMobileSecondary from '../components/base_components/Jumbotron/Mobile/JumbotronMobileSecondary';
 import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 
 
@@ -144,14 +144,10 @@ class Favorite extends Component {
                     </OnDesktop>
                     <OnMobile>
                         <section>
-                            <JumbotronMobile
-                                onClickHeader={()=>{console.log("this is button")}}
-                                text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
+                            <JumbotronMobileSecondary
+                                primaryText="Sekolah Favorit"
+                                secondaryText="DKI Jakarta"
                             />
-                        </section>
-                        <section>
-                            <div style={{marginTop:"25px"}}></div>
-                            <MobileHomePageTitle name="Sekolah Favorite" />
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
@@ -159,33 +155,24 @@ class Favorite extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
-                            <InputSearchMobile onChange={(e)=>{console.log(e.target.value)}} />
+                            <InputSearchMobile 
+                                onChange={(e)=>{console.log(e.target.value)}}
+                                label="CariKabupaten"
+                                placeholder="Cari Kabupaten"
+                            />
                         </section>
                         <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
                             <CardImageMobile store={storeMobile} />
                         </section>
-                        <section style={{display: "none"}} id="mobileSmpMts" className="tabcontendetail">
-                            <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobile store={storeMobile} />
-                        </section>
-                        <section style={{display: "none"}} id="mobileSmaSmkMa" className="tabcontendetail">
-                            <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobile store={storeMobile} />
-                        </section>
-                        <section style={{display: "none"}} id="mobileUniv" className="tabcontendetail">
-                            <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobile store={storeMobile} />
-                        </section>
-                            <div style={{marginTop: "25px"}}></div>
-                            <ButtonLoadMore 
-                                name="MUAT LEBIH BANYAK"
-                                width="277px"
-                                boxShadow="none"
-                                background="#f3f3f3"
-                            />
                         <section>
-
+                            <div style={{marginTop: "25px"}}></div>
+                                <ButtonLoadMore 
+                                    name="MUAT LEBIH BANYAK"
+                                    width="277px"
+                                    boxShadow="none"
+                                    background="#f3f3f3"
+                                />
                         </section>
                     </OnMobile>
                 </div>
