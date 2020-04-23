@@ -8,7 +8,7 @@ import CardImage from '../components/base_components/Desktop/CardImage/CardImage
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 
 //Mobile Item
-import CardImageMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageMobile';
+import CardImageMobileSecondary from '../components/base_components/Card/CardMobile/CardImage/CardImageMobileSecondary';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 import InputSearchMobile from '../components/base_components/InputSearch/Mobile/InputSearchMobile';
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
@@ -17,7 +17,7 @@ import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/Bu
 
 
 //Image
-import JakartaImage from '../components/asset/images/HomePage/CardImage/Jakarta.png'
+import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
 
 
 //dummy Mobile
@@ -28,27 +28,27 @@ const storeMobile = [
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/256x255",
+        image     : "https://via.placeholder.com/256x242",
         titleCard : "Jawa Barat",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/255x256",
+        image     : "https://via.placeholder.com/255x242",
         titleCard : "Jawa Tengah",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/256x255",
+        image     : "https://via.placeholder.com/256x242",
         titleCard : "Bali",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/255x256",
+        image     : "https://via.placeholder.com/255x242",
         titleCard : "Sumatra Utara",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/256x255",
+        image     : "https://via.placeholder.com/256x242",
         titleCard : "Kalimantan",
         descrip   : "15 Sekolah"
     }
@@ -163,16 +163,7 @@ class Favorite extends Component {
                         </section>
                         <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobile store={storeMobile} />
-                        </section>
-                        <section>
-                            <div style={{marginTop: "25px"}}></div>
-                                <ButtonLoadMore 
-                                    name="MUAT LEBIH BANYAK"
-                                    width="277px"
-                                    boxShadow="none"
-                                    background="#f3f3f3"
-                                />
+                            <CardImageMobileSecondary store={storeMobile} />
                         </section>
                     </OnMobile>
                 </div>
