@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 
-import DropDownList from '../components/base_components/DropDwonList/DropdownMobile/DropDownList';
-import BadgesGroup from '../components/base_components/Badges/BadgesMobile/BadgesGroup';
-import CarouselMobile from '../components/base_components/Carousel/CarouselMobile/CarouselMobile';
-import TitleReadMore from '../components/base_components/TitlePage/TitleMobile/TitlePageSecondary';
+import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+
+//Mobile
 import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
 import OtherFacility from '../components/base_components/Accordion/Mobile/AccordionComponents';
 import Ekstrakulikuler from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
-import OtherEkstrakulikuler from '../components/base_components/Accordion/Mobile/AccordionComponents';
 import InformasiSekolah from '../components/base_components/Footer/Mobile/InformasiSekolah';
-import KontakSekolah from '../components/base_components/Footer/Mobile/KontakSekolah';
-import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges'
 import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets';
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
@@ -19,11 +15,49 @@ import PriceListMobile from '../components/base_components/PriceList/Mobile/Pric
 import ButtonGray from '../components/base_components/Button/ButtonMobile/ButtonGray';
 import CarouselMobileSecondary from '../components/base_components/Carousel/CarouselMobile/CarouselMobileSecondary';
 import TitleDetail from '../components/base_components/TitlePage/TitleMobile/TitleDetail';
+import CardImageMobileScroll from '../components/base_components/Card/CardMobile/CardImage/CardImageMobileScroll'
 
 //Import Image
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png';
 import slideImage2 from '../components/asset/images/CarouselSlider/slider2.png';
+import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
 
+
+//dummy Mobile
+const storeMobile = [
+    {
+        image     : JakartaImage,
+        titleCard : "SD Al-Azhar Syifa Budi",
+        descrip   : "Jalan Kemang Raya No. 3"
+    },
+    {
+        image     : JakartaImage,
+        titleCard : "Jawa Barat",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "Jawa Tengah",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Bali",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "Sumatra Utara",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Kalimantan",
+        descrip   : "15 Sekolah"
+    }
+
+
+];
 
 const store = [
     {image : slideImage1},
@@ -131,75 +165,53 @@ class Detail extends Component {
     render() {
         return (
             <>
-                <div style={{overflowX:"hidden"}}>
-                    <section>
-                        <div style={{marginTop: "18px"}} />
-                        <CarouselMobileSecondary store={store} />
-                    </section>
-                    <section>
-                        <div style={{marginTop: "18px"}} />
-                        <TitleDetail name="SMA INTERNATIONAL" />
-                    </section>
-                    <section>
-                        <BadgesGroupSecondary store={store8} />
-                    </section>
-                    {/* <section>
-                        <SingleBadges name="Nasional" />
-                    </section> */}
-                    <section style={{display: "none"}} id="mobileDescriptionId" className="tabcontendetail">
-                        <div style={{marginTop: "18px"}} />
-                        <MobileDescription store={store9} />
-                    </section>
-                    <section style={{display: "none"}} id="mapsContentId" className="tabcontendetail">
-                        <MapsComponents store={store5} />
-                    </section>
-                    <section style={{display: "none"}} id="studentConstId" className="tabcontendetail">
-                        <div style={{marginTop: "18px"}} />
-                        <PriceListMobile store={store10} title="Biaya Pendidikan" />
-                    </section>
-                    <section style={{display: "none"}} id="registerTimeId" className="tabcontendetail">
-                        <LineComponents marginTop="7px" marginBottom="32px" />
-                        <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
-                    </section>
-                    <section style={{display: "none"}} id="primaryFasilityId" className="tabcontendetail">
-                        <PrimaryFacility store={store3} title="Fasilitas" />
-                    </section>
-                    <section style={{display: "none"}} id="majorsId" className="tabcontendetail">
-                        <OtherFacility store={store4} title="Jurusan"/>
-                    </section>
-                    <section style={{display: "none"}} id="extracurricularContentId" className="tabcontendetail">
-                        <Ekstrakulikuler store={store6} title="Ekstrakulikuler" />
-                    </section>
-                    <section>
-                        <div style={{marginTop: "25px"}}></div>
-                        <ButtonGray name="CARI SEKOLAH LAIN" onClick={(e)=>{console.log("this is button !")}} />
-                    </section>
-                    {/* <section style={{display: "none"}} id="titlereadmoreid" className="tabcontendetail">
-                        <div style={{marginTop: "-10px"}} />
-                        <TitleReadMore title="SMAN 14 JAKARTA" text={text} />
-                    </section>
-                    <section>
-                        <LineComponents marginTop="7px" marginBottom="32px" />
-                        <MapsComponents store={store5} />
-                    </section>
-                    <section>
-                        <LineComponents marginTop="7px" marginBottom="32px" />
-                        <PrimaryFacility store={store3} title="Fasilitas" />
-                        <OtherFacility store={store4} title="Fasilitas lainnya"/>
-                    </section>
-                    <section>
-                        <LineComponents marginTop="7px" marginBottom="32px" />
-                        <Ekstrakulikuler store={store6} title="Ekstrakulikuler" />
-                        <OtherEkstrakulikuler store={store7} title="Ekstrakulikuler lainnya"/>
-                    </section>
-                    <section>
-                        <LineComponents marginTop="-14px" marginBottom="32px" />
-                        <KontakSekolah 
-                            phone="021 - 525 8721"
-                            mail="sman14jkt@mail.com"
-                            web="sman14jkt.sch.id"
-                        />
-                    </section> */}
+                
+                <div>
+                    <OnMobile>
+                        <section>
+                            <div style={{marginTop: "18px"}} />
+                            <CarouselMobileSecondary store={store} />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "18px"}} />
+                            <TitleDetail name="SMA INTERNATIONAL" />
+                        </section>
+                        <section>
+                            <BadgesGroupSecondary store={store8} />
+                        </section>
+                        <section style={{display: "none"}} id="mobileDescriptionId" className="tabcontendetail">
+                            <div style={{marginTop: "18px"}} />
+                            <MobileDescription store={store9} />
+                        </section>
+                        <section style={{display: "none"}} id="mapsContentId" className="tabcontendetail">
+                            <MapsComponents store={store5} />
+                        </section>
+                        <section style={{display: "none"}} id="studentConstId" className="tabcontendetail">
+                            <div style={{marginTop: "18px"}} />
+                            <PriceListMobile store={store10} title="Biaya Pendidikan" />
+                        </section>
+                        <section style={{display: "none"}} id="registerTimeId" className="tabcontendetail">
+                            <LineComponents marginTop="7px" marginBottom="32px" />
+                            <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
+                        </section>
+                        <section style={{display: "none"}} id="primaryFasilityId" className="tabcontendetail">
+                            <PrimaryFacility store={store3} title="Fasilitas" />
+                        </section>
+                        <section style={{display: "none"}} id="majorsId" className="tabcontendetail">
+                            <OtherFacility store={store4} title="Jurusan"/>
+                        </section>
+                        <section style={{display: "none"}} id="extracurricularContentId" className="tabcontendetail">
+                            <Ekstrakulikuler store={store6} title="Ekstrakulikuler" />
+                        </section>
+                        {/* <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <ButtonGray name="CARI SEKOLAH LAIN" onClick={(e)=>{console.log("this is button !")}} />
+                        </section> */}
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <CardImageMobileScroll store={storeMobile}  />
+                        </section>
+                    </OnMobile>
                 </div>
             </>
         );

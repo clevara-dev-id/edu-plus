@@ -42,7 +42,6 @@ const CardTitle = styled.h3`
 
     /* identical to box height */
     letter-spacing: 0.0125em;
-    text-transform: uppercase;
 
     color: #FFFFFF;
 `;
@@ -53,7 +52,6 @@ const CardCount = styled.div`
     font-size: 14px;
     line-height: 14px;
     letter-spacing: 0.0125em;
-    text-transform: uppercase;
     text-align: left;
 
     color: #FFFFFF;

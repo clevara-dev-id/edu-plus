@@ -2,7 +2,8 @@ import React, { lazy } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Home from './views/Home';
-import Favorite from './views/Favorite'
+import Favorite from './views/Favorite';
+import FavoriteDetail from './views/FavoriteDetail';
 import Search from './views/Search';
 import Detail from './views/Detail';
 import DetailSecondary from './views/DetailSecondary';
@@ -16,6 +17,7 @@ const BaseRoute = () => {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/favorite" component={Favorite} />
+                <Route exact path="/favoritedetail" component={FavoriteDetail} />
                 <Route exact path="/search" component={Search} />
                 <Route exact path="/detail" component={Detail} />
                 <Route exact path="/detailsecondary" component={DetailSecondary} />

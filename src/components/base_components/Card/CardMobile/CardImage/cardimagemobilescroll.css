@@ -1,0 +1,90 @@
+@media screen and (min-width: 320px){
+
+    #cardImageMobileScrollContainer > .row > .col{
+        margin-bottom: 30px;
+        
+    }
+    #cardImageMobileScrollContainer{
+        max-width: 375px;
+    }
+
+    #cardImageMobileScrollContainer > .row > .scrollmenu  > .col > .card{
+        border: 0px;
+        min-width: 256px;
+        height: 267px;
+        /* margin-right: 0px; */
+        margin-bottom: 25px;
+        box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.35);
+    }
+    #cardImageMobileScrollContainer > .row > .scrollmenu {
+        position: relative;
+        background-color:transparent;
+        /* white-space: nowrap; */
+        overflow-x: scroll;
+        display: flex;
+        /* scrollbar-width: none;  */
+    }
+}
+@media screen and (min-width: 360px){
+
+    #cardImageMobileScrollContainer > .row > .col{
+        margin-bottom: 30px;
+        
+    }
+    #cardImageMobileScrollContainer{
+        max-width: 375px;
+    }
+
+    #cardImageMobileScrollContainer > .row > .scrollmenu  > .col > .card{
+        border: 0px;
+        min-width: 276px;
+        height: 267px;
+        /* margin-right: 0px; */
+        margin-bottom: 25px;
+        box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.35);
+    }
+    #cardImageMobileScrollContainer > .row > .scrollmenu {
+        position: relative;
+        background-color:transparent;
+        /* white-space: nowrap; */
+        overflow-x: scroll;
+        display: flex;
+        /* scrollbar-width: none;  */
+    }
+}
+@media screen and (min-width: 375px){
+
+    #cardImageMobileScrollContainer > .row > .col{
+        margin-bottom: 30px;
+        
+    }
+    #cardImageMobileScrollContainer{
+        max-width: 375px;
+    }
+
+    #cardImageMobileScrollContainer > .row > .scrollmenu  > .col > .card{
+        border: 0px;
+        min-width: 286px;
+        height: 267px;
+        /* margin-right: 0px; */
+        margin-bottom: 25px;
+        box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.35);
+    }
+    #cardImageMobileScrollContainer > .row > .scrollmenu {
+        position: relative;
+        background-color:transparent;
+        /* white-space: nowrap; */
+        overflow-x: scroll;
+        display: flex;
+        /* scrollbar-width: none;  */
+    }
+}
+
+#cardImageMobileScrollContainer > .row > .col > .card{
+    border-radius: 8px !important;
+    box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.4);
+}
+#badgesgroupSecondary{
+    margin-bottom: 15px;
+    padding-right: 0px;
+}

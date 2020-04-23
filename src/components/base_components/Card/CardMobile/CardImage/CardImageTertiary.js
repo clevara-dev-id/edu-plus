@@ -4,18 +4,18 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
 
-import './cardimagemobilesecondary.css'
+import './cardimagemobiletertiary.css'
 
-const CardImageMobileSecondary = props => {
+const CardImageTertiary = props => {
     return (
         <>
-            <Container id="cardImageMobileSecondaryContainer">
+            <Container id="cardImageMobileTertiaryContainer">
             {props.store.map((data)=>{
                 return(
                     <Row>
                         <Col>
                             <Card>
-                                <Card.Img variant="top" src={data.image} height={242}/>
+                                <Card.Img variant="top" src={data.image} height={180}/>
                                 <Card.Body>
                                     <CardTitle>{data.titleCard}</CardTitle>
                                     <CardCount>{data.descrip}</CardCount>
@@ -32,20 +32,18 @@ const CardImageMobileSecondary = props => {
 }
 
 const CardTitle = styled.h3`
-    font-family: Rubik;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 17px;
     text-align: left;
-    margin-top: 10px;
+    margin-top: 5px;
 
     /* identical to box height */
     letter-spacing: 0.0125em;
     color: #242424;
 `;
 const CardCount = styled.div`
-    font-family: Rubik;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -55,12 +53,9 @@ const CardCount = styled.div`
     color: #242424;
 `;
 
-const BottomStyle = styled.div`
-    min-height: 83%;
-`;
 
-CardImageMobileSecondary.propTypes = {
+CardImageTertiary.propTypes = {
     store : PropTypes.object
 }
 
-export default CardImageMobileSecondary;
+export default CardImageTertiary;
