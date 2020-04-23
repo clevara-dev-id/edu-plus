@@ -107,7 +107,7 @@ const storeDesktop2 =[
 ];
 
 
-class Home extends Component {
+class Favorite extends Component {
     render() {
         return (
             <>
@@ -194,4 +194,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default Favorite;
