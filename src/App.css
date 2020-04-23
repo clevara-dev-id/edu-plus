@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -130,14 +131,8 @@ body{
   font-weight: bold;
   font-size: 13px;
   line-height: 18px;
-  overflow-x: hidden !important;
-  scrollbar-width: none; 
+}
 
-}
-body::-webkit-scrollbar { 
-  display: none;
-  width: 0 !important 
-}
 .form-control{
   border-radius: 0;
 }
