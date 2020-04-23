@@ -15,6 +15,7 @@ import PriceListMobile from '../components/base_components/PriceList/Mobile/Pric
 import ButtonGray from '../components/base_components/Button/ButtonMobile/ButtonGray';
 import CarouselMobileSecondary from '../components/base_components/Carousel/CarouselMobile/CarouselMobileSecondary';
 import TitleDetail from '../components/base_components/TitlePage/TitleMobile/TitleDetail';
+import TitleCardImageScroll from '../components/base_components/TitlePage/TitleMobile/TitleCardImageScroll';
 import CardImageMobileScroll from '../components/base_components/Card/CardMobile/CardImage/CardImageMobileScroll'
 
 //Import Image
@@ -203,10 +204,14 @@ class Detail extends Component {
                         <section style={{display: "none"}} id="extracurricularContentId" className="tabcontendetail">
                             <Ekstrakulikuler store={store6} title="Ekstrakulikuler" />
                         </section>
-                        {/* <section>
+                        <section>
                             <div style={{marginTop: "25px"}}></div>
-                            <ButtonGray name="CARI SEKOLAH LAIN" onClick={(e)=>{console.log("this is button !")}} />
-                        </section> */}
+                            <TitleCardImageScroll
+                                name="Daftar Sekolah Lainnya"
+                                link="#"
+                                linkName="Lihat Semua"
+                            />
+                        </section>
                         <section>
                             <div style={{marginTop: "25px"}}></div>
                             <CardImageMobileScroll store={storeMobile}  />

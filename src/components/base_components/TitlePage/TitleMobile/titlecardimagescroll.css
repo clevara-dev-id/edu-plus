@@ -1,0 +1,27 @@
+@media screen and (min-width: 320px){
+    #titlecardimagescrollContainer{
+        max-width: 320px;
+    }
+    #titlecardimagescrollContainer > .row > .col-4{
+        text-align: right;
+        display: ruby;
+    }
+}
+@media screen and (min-width: 360px){
+    #titlecardimagescrollContainer{
+        max-width: 360px;
+    }
+    #titlecardimagescrollContainer > .row > .col-4{
+        text-align: right;
+        display: ruby;
+    }
+}
+@media screen and (min-width: 375px){
+    #titlecardimagescrollContainer{
+        max-width: 375px;
+    }
+    #titlecardimagescrollContainer > .row > .col-4{
+        text-align: right;
+        display: ruby;
+    }
+}
