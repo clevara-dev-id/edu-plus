@@ -51,11 +51,9 @@ const BadgesGroupSecondary = props => {
                                         {data.name}
                                     </MyBadgeGray>
                                     :
-                                    // <LinkBadge href={data.link}>
                                     <MyBadgeGray className="tablinksbadges" onClick={(e)=>{openPage(e,data.idContent)}}>
                                         {data.name}
-                                    </MyBadgeGray>  
-                                    //   </LinkBadge>      
+                                    </MyBadgeGray>    
                                 );
                             })}
                         </div>

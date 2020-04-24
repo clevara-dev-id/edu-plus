@@ -1,0 +1,58 @@
+@media screen and (min-width: 320px){
+    #breadCrumbMobileContainer{
+        max-width: 320px;
+    }
+    #breadCrumbMobileContainer > .row > .col > nav > .breadcrumb{
+        background: none;
+        padding: 0px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+    }
+    #breadCrumbMobileContainer > .row > .col > nav > .breadcrumb > .breadcrumb-item > a{
+        color: #B5B5B5;
+    }
+    #breadCrumbMobileContainer > .row > .col > nav > .breadcrumb > .breadcrumb-item, .active{
+        color: #1A6EB2;
+    }
+}
+@media screen and (min-width: 360px){
+    #breadCrumbMobileContainer{
+        max-width: 360px;
+    }
+    #breadCrumbMobileContainer > .row > .col > nav > .breadcrumb{
+        background: none;
+        padding: 0px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+    }
+    #breadCrumbMobileContainer > .row > .col > nav > .breadcrumb > .breadcrumb-item > a{
+        color: #B5B5B5;
+    }
+    #breadCrumbMobileContainer > .row > .col > nav > .breadcrumb > .breadcrumb-item, .active{
+        color: #1A6EB2;
+    }
+}
+@media screen and (min-width: 375px){
+    #breadCrumbMobileContainer{
+        max-width: 375px;
+    }
+    #breadCrumbMobileContainer > .row > .col > nav > .breadcrumb{
+        background: none;
+        padding: 0px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+    }
+    #breadCrumbMobileContainer > .row > .col > nav > .breadcrumb > .breadcrumb-item > a{
+        color: #B5B5B5;
+    }
+    #breadCrumbMobileContainer > .row > .col > nav > .breadcrumb > .breadcrumb-item, .active{
+        color: #1A6EB2;
+    }
+
+}

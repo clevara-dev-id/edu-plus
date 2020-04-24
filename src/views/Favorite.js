@@ -14,7 +14,7 @@ import InputSearchMobile from '../components/base_components/InputSearch/Mobile/
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
 import JumbotronMobileSecondary from '../components/base_components/Jumbotron/Mobile/JumbotronMobileSecondary';
 import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
-
+import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -95,8 +95,6 @@ const storeDesktop = [
         titleCard : "Kalimantan",
         descrip   : "15 Sekolah"
     }
-
-
 ];
 
 const storeDesktop2 =[
@@ -147,6 +145,12 @@ class Favorite extends Component {
                             <JumbotronMobileSecondary
                                 primaryText="Sekolah Favorit"
                                 secondaryText="DKI Jakarta"
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbMobile 
+                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"},{name:"Jakarta Selatan", link:"#"}]}
                             />
                         </section>
                         <section>
