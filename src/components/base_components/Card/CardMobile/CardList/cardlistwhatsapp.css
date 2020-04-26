@@ -1,0 +1,39 @@
+@media screen and (min-width: 320px) {
+    #cardimgewatapp{
+        max-width: 375px;
+    }
+
+    .cardimgewatappbody > .contact {
+        font-size: 15.5px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #cardimgewatapp{
+        max-width: 375px;
+    }
+    .cardimgewatappbody > .contact {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #cardimgewatapp{
+        max-width: 375px;
+    }
+
+    .cardimgewatappbody > .contact {
+        font-size: 17px;
+    }
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+.imageClass{
+    width: 56px;
+    height: 56px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px; 
+}
