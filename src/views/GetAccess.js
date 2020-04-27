@@ -20,6 +20,7 @@ import CardImageTertiary from '../components/base_components/Card/CardMobile/Car
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
+import MessageGetAccessResult from '../components/base_components/Message/Mobile/MessageGetAccessResult';
 
 
 //Image
@@ -113,7 +114,13 @@ const storeDesktop2 =[
 
 
 class GetAccess extends Component {
-    
+    constructor(props){
+        super(props);
+ 
+        this.state = {
+            fieldRsult: "",
+        }
+     }
     render() {
         return (
             <>
@@ -132,10 +139,12 @@ class GetAccess extends Component {
                             <div style={{marginTop:"25px"}}></div>
                             <InputSearchMobileSecondary 
                                 title="Cari sekolah/Tempat Kursus disini"
-                                onChange={(e)=>{console.log(e.target.value)}}
+                                onChange={(e)=>{this.setState({fieldRsult:e.target.value})}}
                                 label="Masukannamasekolah"
                                 placeholder="Masukan nama Sekolah/Kursusan"
                             />
+                            {this.state.fieldRsult ? <MessageGetAccessResult 
+                            name={this.state.fieldRsult} sumOf="5" fontSize="13px" /> : ""}
                             {!window.location.search ?<div style={{marginTop:"150px"}}></div> : ""}
                         </section>
                         <section id="mobileSDdanMI" className="tabcontendetail">
