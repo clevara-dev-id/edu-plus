@@ -23,7 +23,7 @@ const TitlePage = props => {
 }
 const HeaderDiv = styled.div(
     props => ({
-        width       : props.width ? props.width : "227px",
+        width       : props.width ? props.width : "345px",
         textAlign   : props.textAlign ? props.textAlign : "Left",
         paddingLeft : "0px",
         fontStyle   : props.fontStyle ? props.fontStyle : "normal",
