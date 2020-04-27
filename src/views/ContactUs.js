@@ -134,6 +134,10 @@ class ContactUs extends Component {
                                 onClickButton={()=>{console.log("Button Is Activated !")}}
                             />
                         </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <CardListWatsApp />
+                        </section>
                     </OnMobile>
                 </div>
             </>
