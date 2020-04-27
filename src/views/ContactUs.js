@@ -13,6 +13,7 @@ import JumbotronMobile from '../components/base_components/Jumbotron/Mobile/Jumb
 import CardListWatsApp from '../components/base_components/Card/CardMobile/CardList/CardListWatsApp';
 import FormContactComponents from '../components/base_components/Form/FormContact/FormContactComponents';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
+import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
 
 //Image
 import JakartaImage from '../components/asset/images/HomePage/CardImage/Jakarta.png'
@@ -132,6 +133,15 @@ class ContactUs extends Component {
                                 onChangeEmail={(e)=>{console.log(e.target.value)}}
                                 onChangeMessage={(e)=>{console.log(e.target.value)}}
                                 onClickButton={()=>{console.log("Button Is Activated !")}}
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"24px"}}></div>
+                            <TitleBottomSecondary 
+                                name="Pesan anda akan dikirim ke "
+                                link="#"
+                                namelink="halo@eduplus.com"
+                                nameSecondary=" dan akan segera kami balas"
                             />
                         </section>
                     </OnMobile>

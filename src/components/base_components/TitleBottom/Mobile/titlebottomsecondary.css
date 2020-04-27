@@ -1,0 +1,21 @@
+@media screen and (min-width: 320px) {
+    #bottomtitlesecondarycontainer{
+        max-width: 320px;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #bottomtitlesecondarycontainer{
+        max-width: 360px;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #bottomtitlesecondarycontainer{
+        max-width: 375px;
+        margin-bottom: 25px;
+    }
+}
+
