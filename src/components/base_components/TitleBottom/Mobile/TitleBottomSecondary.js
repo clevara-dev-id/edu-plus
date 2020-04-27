@@ -11,7 +11,7 @@ const TitleBottomSecondary = props => {
             <Container id="bottomtitlesecondarycontainer">
                 <Row>
                     <Col xs={1}>
-                        <H5Styled className="titlestyle">{props.name}
+                        <H5Styled {...props} className="titlestyle">{props.name}
                             <LinkRegister href={props.link}>{props.namelink}</LinkRegister>{props.nameSecondary}
                         </H5Styled>
                     </Col>
@@ -21,18 +21,19 @@ const TitleBottomSecondary = props => {
     );
 }
 
-const H5Styled = styled.h5`
-    width: 342px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px !important;
-    line-height: 14px;
-    word-wrap: break-word;
-    letter-spacing: 0px;
+const H5Styled = styled.h5(
+    props => ({
+    width: props.width ? props.width : "342px",
+    fontStyle: props.fontStyle ? props.fontStyle : "normal",
+    fontWeight: props.fontWeight ? props.fontWeight: "normal",
+    fontSize: props.fontSize ? props.fontSize : "14px !important",
+    lineHeight: props.lineHeight ? props.lineHeight : "14px",
+    letterSpacing: "0px",
 
     /* grey dark */
-    color: #4A4A4A;
-`;
+    color: props.color ? props.color : "#4A4A4A",
+    })
+)
 
 const LinkRegister = styled.a`
     font-style: normal;
@@ -54,6 +55,12 @@ TitleBottomSecondary.propTypes = {
     namelink      : PropTypes.string,
     link          : PropTypes.string,
     nameSecondary : PropTypes.string,
+    width         : PropTypes.string,
+    fontStyle     : PropTypes.string,
+    fontWeight    : PropTypes.string,
+    fontSize      : PropTypes.string,
+    lineHeight    : PropTypes.string,
+    color         : PropTypes.string,
 }
 
 export default TitleBottomSecondary;

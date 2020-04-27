@@ -1,17 +1,15 @@
-
-
 import React, { Component, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
-import $ from 'jquery';
+// import $ from 'jquery';
 
-import './inputsearchmobile.css';
-import '../../Icon/Mobile/Icon'
+import './inputsearchmobilesecondary.css';
+import '../../Icon/Mobile/Icon';
 
 
-const InputSearchMobile = props => {
+const InputSearchMobileSecondary = props => {
 
     // $(document).ready(function(){
     //     document.getElementById("defaultOpenBadges").click();  
@@ -19,11 +17,15 @@ const InputSearchMobile = props => {
 
     return (
         <>
-        <Container id="inputSearchContainer">
+        <Container id="inputSearchSecondaryContainer">
+            <Row>
+                <Col>
+                    <DivTitle>{props.title}</DivTitle>
+                </Col>
+            </Row>
             <Row>
                 <Col>
                     <InputGroup className="mb-3">
-                        <Icon name="search" color="#B5B5B5" font="Feather" size={17} />
                         <FormControl
                         className="inputTextBadges"
                         placeholder={props.placeholder}
@@ -31,6 +33,7 @@ const InputSearchMobile = props => {
                         aria-describedby="basic-addon1"
                         onChange={props.onChange}
                         />
+                        <Icon name="search" color="#B5B5B5" font="Feather" size={17} />
                     </InputGroup>
                 </Col>
             </Row>
@@ -39,10 +42,22 @@ const InputSearchMobile = props => {
     );
 }
 
-InputSearchMobile.propTypes = {
+const DivTitle = styled.div`
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: left;
+    margin-bottom: 16px;
+
+    /* black ter */
+    color: #242424;
+`;
+
+InputSearchMobileSecondary.propTypes = {
     onChange    : PropTypes.func,
     label       : PropTypes.string,
     placeholder : PropTypes.string
 }
 
-export default InputSearchMobile;
+export default InputSearchMobileSecondary;

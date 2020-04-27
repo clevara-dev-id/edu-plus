@@ -11,9 +11,9 @@ const TitlePage = props => {
             <Container id="primarytitile">
                 <Row>
                     <Col xs={1}>
-                    <HeaderDiv {...props}>    
-                        <h1>{props.name}</h1>
-                    </HeaderDiv>
+                        <HeaderDiv {...props}>    
+                            <h1>{props.name}</h1>
+                        </HeaderDiv>
                     </Col>
                 </Row>
             </Container>
