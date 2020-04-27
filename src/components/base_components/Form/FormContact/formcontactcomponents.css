@@ -1,0 +1,63 @@
+@media screen and (min-width: 320px) {
+    #formContactContainer{
+        max-width: 320px;
+    }
+    #formContactContainer > .row > .col > div {
+        width: 290px;
+    }
+    #formContactContainer > .row > .col > div > .inputClass > input {
+        width: 255px;
+    }    
+    #formContactContainer > .row > .col > div > .inputClass > textarea {
+        width: 255px;
+    }
+
+    #buttonmesaageFormcontact{
+        margin-top: 24px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #formContactContainer{
+        max-width: 360px;
+    }
+    #formContactContainer > .row > .col > div {
+        width: 330px;
+    }
+    #formContactContainer > .row > .col > div > .inputClass > input {
+        width: 293px;
+    }    
+    #formContactContainer > .row > .col > div > .inputClass > textarea {
+        width: 293px;
+    }
+
+    #buttonmesaageFormcontact{
+        margin-top: 24px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #formContactContainer{
+        max-width: 375px;
+    }
+    #formContactContainer > .row > .col > div {
+        width: 343px;
+    }
+
+    #formContactContainer > .row > .col > div > .inputClass > input {
+        width: 305px;
+    }
+
+    #formContactContainer > .row > .col > div > .inputClass > textarea {
+        width: 305px;
+    }    
+    #buttonmesaageFormcontact{
+        margin-top: 24px;
+    }
+}
+
+#formContactContainer > .row > .col > .errorClassDiv {
+    margin-bottom: 16px;
+    color: red;
+    font-size: 13px;
+}

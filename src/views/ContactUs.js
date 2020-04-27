@@ -11,6 +11,8 @@ import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopB
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
 import JumbotronMobile from '../components/base_components/Jumbotron/Mobile/JumbotronMobile';
 import CardListWatsApp from '../components/base_components/Card/CardMobile/CardList/CardListWatsApp';
+import FormContactComponents from '../components/base_components/Form/FormContact/FormContactComponents';
+import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 
 //Image
 import JakartaImage from '../components/asset/images/HomePage/CardImage/Jakarta.png'
@@ -109,49 +111,28 @@ class ContactUs extends Component {
             <>
                 <div>
                     <OnDesktop>
-                        {/* <section>
-                            <JumbotronDesktop />
-                        </section> */}
-                        <section>
-                            <BadgesDesktop
-                                store={storeDesktop2}
-                            />
-                        </section>
-                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
                     </OnDesktop>
                     <OnMobile>
                         <section>
-                            <JumbotronMobile
-                                onClickHeader={()=>{console.log("this is button")}}
-                                text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
+                            <div style={{marginTop:"36px"}}></div>
+                            <TitlePageMobile
+                                name="Hubungi Kami"
+                                color="#1A6EB2"
                             />
-                        </section>
-                        <section>
-                            <div style={{marginTop:"25px"}}></div>
-                            <MobileHomePageTitle name="Sekolah Favorite" />
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <CardListWatsApp />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <FormContactComponents 
+                                title="Atau Kirimkan pesan anda"
+                                onChangeName={(e)=>{console.log(e.target.value)}}
+                                onChangeEmail={(e)=>{console.log(e.target.value)}}
+                                onChangeMessage={(e)=>{console.log(e.target.value)}}
+                                onClickButton={()=>{console.log("Button Is Activated !")}}
+                            />
                         </section>
                     </OnMobile>
                 </div>

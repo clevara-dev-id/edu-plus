@@ -14,7 +14,6 @@ const CardListWatsApp = props => {
         contact : "+62 999 9999 9999 9999",
         phone   : "021 - 525 8721"
     }];
-    console.log(props.store);
     props.store ? store=props.store : store=store; 
     return (
         <>
