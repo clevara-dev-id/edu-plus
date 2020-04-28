@@ -115,12 +115,6 @@ class GetAccessDetail extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
-                            <LabelMobileSecondary
-                                label="Belum ada Operator"
-                            />
-                        </section>
-                        <section>
-                            <div style={{marginTop:"25px"}}></div>
                             <CardImageSingleMobile store={storeMobile} />
                         </section>
                         <section>
