@@ -1,0 +1,23 @@
+@media screen and (min-width: 320px) {
+    #labelMobileComponentsContainer{
+        max-width: 320px;
+    }
+    #labelMobileComponentsContainer > .row > .col > h6 {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #labelMobileComponentsContainer{
+        max-width: 360px;
+    }
+    #labelMobileComponentsContainer > .row > .col > h6 {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #labelMobileComponentsContainer{
+        max-width: 375px;
+    }
+}

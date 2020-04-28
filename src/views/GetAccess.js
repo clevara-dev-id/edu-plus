@@ -22,6 +22,7 @@ import LineComponents from '../components/base_components/LineComponents/Mobile/
 import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
 import MessageGetAccessResult from '../components/base_components/Message/Mobile/MessageGetAccessResult';
+import LabelMobileComponents from '../components/base_components/Label/Mobile/LabelMobileComponents';
 
 
 //Image
@@ -163,7 +164,11 @@ class GetAccess extends Component {
                             <div style={{marginTop: "48px"}}></div>
                             { storeMobile!==null && storeMobile.length > 0 ? <CardImageTertiary store={storeMobile} /> : ""}
                         </section>
-                        {this.state.fieldRsult === "notfound" ? "":""}
+                        {this.state.fieldRsult === "notfound" ? 
+                            <LabelMobileComponents
+                                label="Mohon maaf data tidak ditemukan"
+                            />
+                            :""}
                         <section >
                             <div style={{marginTop: "48px"}}></div>
                             {storeMobile!==null && storeMobile.length > 0 || this.state.fieldRsult === "notfound" ? 
