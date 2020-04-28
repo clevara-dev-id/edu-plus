@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery'
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
@@ -28,8 +29,8 @@ import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.p
 
 
 //dummy Mobile
-// const storeMobile = [];
-const storeMobile = [
+const storeMobile = [];
+const storeMobileTest = [
     {
         image     : JakartaImage,
         titleCard : "DKI Jakarta",
@@ -120,7 +121,18 @@ class GetAccess extends Component {
         this.state = {
             fieldRsult: "",
         }
-     }
+    }
+    // componentDidMount = ()=>{
+    //     this.handleOnChange();
+    // }
+    // componentDidUpdate = () =>{
+    //     this.handleOnChange();
+    // }
+    handleOnChange = () => {
+        $(document).ready(()=>{
+            $("#firstLoadItemFromGetAccess").hide();
+        }); 
+    }
     render() {
         return (
             <>
@@ -139,22 +151,25 @@ class GetAccess extends Component {
                             <div style={{marginTop:"25px"}}></div>
                             <InputSearchMobileSecondary 
                                 title="Cari sekolah/Tempat Kursus disini"
-                                onChange={(e)=>{this.setState({fieldRsult:e.target.value})}}
+                                onChange={(e)=>{this.setState({fieldRsult:e.target.value}); this.handleOnChange()}}
                                 label="Masukannamasekolah"
                                 placeholder="Masukan nama Sekolah/Kursusan"
                             />
                             {this.state.fieldRsult ? <MessageGetAccessResult 
                             name={this.state.fieldRsult} sumOf="5" fontSize="13px" /> : ""}
-                            {!window.location.search ?<div style={{marginTop:"150px"}}></div> : ""}
+                            <div id="firstLoadItemFromGetAccess" style={{marginTop:"300px"}}></div>
                         </section>
                         <section id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
                             { storeMobile!==null && storeMobile.length > 0 ? <CardImageTertiary store={storeMobile} /> : ""}
                         </section>
+                        {this.state.fieldRsult === "notfound" ? "":""}
                         <section >
                             <div style={{marginTop: "48px"}}></div>
-                            {storeMobile!==null && storeMobile.length > 0  ? <LineComponents marginTop="7px" marginBottom="25px" /> : ""}
-                            {storeMobile!==null && storeMobile.length > 0 ? <TitleBottomSecondary 
+                            {storeMobile!==null && storeMobile.length > 0 || this.state.fieldRsult === "notfound" ? 
+                                <LineComponents marginTop="7px" marginBottom="25px" /> : ""}
+                            {storeMobile!==null && storeMobile.length > 0 || this.state.fieldRsult === "notfound" ? 
+                                <TitleBottomSecondary 
                                 name="Tidak Menemukan Data sekolah/Tempat kursus? Klik tombol dibawah untuk daftarkan sekolah/tempat kursus"
                                 link=""
                                 namelink=""
@@ -163,7 +178,7 @@ class GetAccess extends Component {
                             /> : ""}
                         </section>
                         <section id="mobileSDdanMI" className="tabcontendetail">
-                            { storeMobile!==null && storeMobile.length > 0 ?<ButtonPrimary
+                            { storeMobile!==null && storeMobile.length > 0 || this.state.fieldRsult === "notfound" ?<ButtonPrimary
                                 name="DAFTARKAN SEKOLAH/TEMPAT KURSUS"
                                 id="buttonmesaageFormcontact"
                                 background="#1A6EB2"
