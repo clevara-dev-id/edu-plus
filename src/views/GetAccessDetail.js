@@ -10,7 +10,8 @@ import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopB
 
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
-import CardImageSingleMobile from '../components/base_components/Card/CardMobile/SingleImage/CardImageSingleMobile'
+import CardImageSingleMobile from '../components/base_components/Card/CardMobile/SingleImage/CardImageSingleMobile';
+import LabelMobileSecondary from '../components/base_components/Label/Mobile/LabelMobileSecondary';
 
 
 
@@ -114,7 +115,19 @@ class GetAccessDetail extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
+                            <LabelMobileSecondary
+                                label="Belum ada Operator"
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
                             <CardImageSingleMobile store={storeMobile} />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <LabelMobileSecondary
+                                label="Belum ada Operator"
+                            />
                         </section>
                     </OnMobile>
                 </div>
