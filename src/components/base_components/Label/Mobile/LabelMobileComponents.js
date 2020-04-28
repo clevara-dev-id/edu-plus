@@ -34,11 +34,11 @@ const DivLine = styled.h6`
     padding-bottom: 15px;
     padding-left: 53px;
     padding-right: 54px;
-    border: .05px solid rgba(0, 0, 0, 0.05);
+    border: .05px solid rgba(0, 0, 0, 0.1);
 
     /* danger */
     color: #FF3860;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.02);
 `;
 
 LabelMobileComponents.propTypes = {
