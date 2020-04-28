@@ -29,6 +29,7 @@ const H5Styled = styled.h5(
     fontSize: props.fontSize ? props.fontSize : "14px !important",
     lineHeight: props.lineHeight ? props.lineHeight : "14px",
     letterSpacing: "0px",
+    textAlign: props.textAlign ? props.textAlign : "center",
 
     /* grey dark */
     color: props.color ? props.color : "#4A4A4A",
@@ -42,11 +43,11 @@ const LinkRegister = styled.a`
     // letter-spacing: 0.005em;
 
     /* Black */
-    color: #3273DC;
+    color: #1A6EB2;
     &:hover{
         text-decoration: none;
         cursor:pointer;
-        color: #3273DC;
+        color: #1A6EB2;
     }
 `;
 

@@ -1,6 +1,8 @@
 @media screen and (min-width: 320px) {
     #labelMobileSecondaryContainer{
         max-width: 320px;
+        margin-bottom: 25px;
+
     }
     #labelMobileSecondaryContainer > .row > .col > h6 {
         font-size: 13px;
@@ -10,6 +12,8 @@
 @media screen and (min-width: 360px) {
     #labelMobileSecondaryContainer{
         max-width: 360px;
+        margin-bottom: 25px;
+
     }
     #labelMobileSecondaryContainer > .row > .col > h6 {
         font-size: 13px;

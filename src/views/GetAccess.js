@@ -164,11 +164,13 @@ class GetAccess extends Component {
                             <div style={{marginTop: "48px"}}></div>
                             { storeMobile!==null && storeMobile.length > 0 ? <CardImageTertiary store={storeMobile} /> : ""}
                         </section>
+                        <section>
                         {this.state.fieldRsult === "notfound" ? 
                             <LabelMobileComponents
                                 label="Mohon maaf data tidak ditemukan"
                             />
                             :""}
+                        </section>
                         <section >
                             <div style={{marginTop: "48px"}}></div>
                             {storeMobile!==null && storeMobile.length > 0 || this.state.fieldRsult === "notfound" ? 

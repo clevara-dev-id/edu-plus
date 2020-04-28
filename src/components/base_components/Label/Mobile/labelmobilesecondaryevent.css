@@ -1,0 +1,35 @@
+@media screen and (min-width: 320px) {
+    #labelMobileSecondaryEventContainer{
+        max-width: 320px;
+        margin-bottom: 25px;
+
+    }
+    #labelMobileSecondaryEventContainer > .row > .col > div > h5 > span {
+        /* font-size: 13px; */
+        color: #4A4A4A;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #labelMobileSecondaryEventContainer{
+        max-width: 360px;
+        margin-bottom: 25px;
+
+    }
+    #labelMobileSecondaryEventContainer > .row > .col > div > h5 > span {
+        /* font-size: 13px; */
+        color: #4A4A4A;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #labelMobileSecondaryEventContainer{
+        max-width: 375px;
+        margin-bottom: 25px;
+    }
+    
+    #labelMobileSecondaryEventContainer > .row > .col > div > h5 > span {
+        /* font-size: 13px; */
+        color: #4A4A4A;
+    }
+}

@@ -1,0 +1,29 @@
+@media screen and (min-width: 320px) {
+    #mobileIconWithTitleContainer{
+        max-width: 320px;
+        margin-bottom: 25px;
+    }
+    #mobileIconWithTitleContainer > .row > .col-10{
+        margin-left: -25px;
+    } 
+}
+
+@media screen and (min-width: 360px) {
+    #mobileIconWithTitleContainer{
+        max-width: 360px;
+        margin-bottom: 25px;
+    }
+    #mobileIconWithTitleContainer > .row > .col-10{
+        margin-left: -25px;
+    } 
+}
+
+@media screen and (min-width: 375px) {
+    #mobileIconWithTitleContainer{
+        max-width: 375px;
+        margin-bottom: 25px;
+    }
+    #mobileIconWithTitleContainer > .row > .col-10{
+        margin-left: -25px;
+    } 
+}

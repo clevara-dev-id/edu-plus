@@ -3,6 +3,9 @@
         max-width: 320px;
         margin-bottom: 25px;
     }
+    #bottomtitlesecondarycontainer > .row > .col-1 > h5{
+        width: 290px;
+    }
 }
 
 @media screen and (min-width: 360px) {
@@ -10,12 +13,18 @@
         max-width: 360px;
         margin-bottom: 25px;
     }
+    #bottomtitlesecondarycontainer > .row > .col-1 > h5{
+        width: 330px;
+    }
 }
 
 @media screen and (min-width: 375px) {
     #bottomtitlesecondarycontainer{
         max-width: 375px;
         margin-bottom: 25px;
+    }
+    #bottomtitlesecondarycontainer > .row > .col-1 > h5{
+        width: 342px;
     }
 }
 

@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import './labelmobilesecondary.css'
-const LabelMobileComponents = props => {
+import './labelmobilesecondaryevent.css'
+const LabelMobileSecondaryEvent = props => {
     return (
         <>
-            <Container id="labelMobileSecondaryContainer">
+            <Container id="labelMobileSecondaryEventContainer">
                 <Row>
                     <Col>
-                        <DivLine><H5>{props.label}</H5></DivLine>
+                        <DivLine><H5><span>Operator :</span> {props.label}</H5></DivLine>
                     </Col>
                 </Row>
             </Container>
@@ -50,8 +50,8 @@ const H5 = styled.h5`
     color: #1A6EB2;
 `;
 
-LabelMobileComponents.propTypes = {
+LabelMobileSecondaryEvent.propTypes = {
     label : PropTypes.string,
 }
 
-export default LabelMobileComponents;
+export default LabelMobileSecondaryEvent;
