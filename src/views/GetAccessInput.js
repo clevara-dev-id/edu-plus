@@ -13,7 +13,7 @@ import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/Br
 import CardImageSingleMobile from '../components/base_components/Card/CardMobile/SingleImage/CardImageSingleMobile';
 import TitlePageWithAddress from '../components/base_components/TitlePage/TitleMobile/TitlePageWithAddress';
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
-import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
+import TitleBotttomTertiary from '../components/base_components/TitleBottom/Mobile/TitleBotttomTertiary';
 import FormGetAccessMobile from '../components/base_components/Form/FormGetAccess/FormGetAccessMobile';
 
 //Image
@@ -232,11 +232,14 @@ class GetAccessInput extends Component {
                         </section>
                         <section >
                             <div style={{marginTop: "48px"}}></div>
-                                <TitleBottomSecondary 
-                                name="Sekolah ini belum memiliki Operator. Klik tombol"
+                                <TitleBotttomTertiary 
+                                name="Pihak Eduplus melalui email"
                                 link=""
-                                namelink=" dapatkan akses "
-                                nameSecondary="untuk mengubah atau menambahkan data di sekolah ini"
+                                namelink=" halo@eduplus.com "
+                                nameSecondary="atau no. telp. "
+                                linkSecondary=""
+                                namelinkSecondary=" +62 999 9999 9999 "
+                                nameTertiary="akan segera menghubungi anda untuk melakukan verifikasi lebih lanjut, Terimakasih"
                                 fontSize="13px"
                                 textAlign="justify"/>
                         </section>
