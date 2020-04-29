@@ -11,21 +11,10 @@ import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopB
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 import CardImageSingleMobile from '../components/base_components/Card/CardMobile/SingleImage/CardImageSingleMobile';
-import LabelMobileSecondary from '../components/base_components/Label/Mobile/LabelMobileSecondary';
-import LabelMobileSecondaryEvent from '../components/base_components/Label/Mobile/LabelMobileSecondaryEvent';
 import TitlePageWithAddress from '../components/base_components/TitlePage/TitleMobile/TitlePageWithAddress';
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
-import MobileIconWithTitle from '../components/base_components/Icon/Mobile/MobileIconWithTitle';
-import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
-import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription';
-import PriceListMobile from '../components/base_components/PriceList/Mobile/PriceListMobile';
-import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
-import OtherFacility from '../components/base_components/Accordion/Mobile/AccordionComponents';
-import Ekstrakulikuler from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
-import InformasiSekolah from '../components/base_components/Footer/Mobile/InformasiSekolah';
-import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets';
 import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
-import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
+import FormGetAccessMobile from '../components/base_components/Form/FormGetAccess/FormGetAccessMobile';
 
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -231,23 +220,25 @@ class GetAccessInput extends Component {
                                 marginTop="-20px"
                             />
                         </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <FormGetAccessMobile 
+                                title="Atau Kirimkan pesan anda"
+                                onChangeName={(e)=>{console.log(e.target.value)}}
+                                onChangeEmail={(e)=>{console.log(e.target.value)}}
+                                onChangePhone={(e)=>{console.log(e.target.value)}}
+                                onClickButton={()=>{console.log("Button Is Activated !")}}
+                            />
+                        </section>
                         <section >
-                            <div style={{marginTop: "48px"}}></div>                            
-                               {this.state.opsSekolah ? 
-                               <TitleBottomSecondary 
-                                name="Sekolah ini sudah memiliki Operator. Klik tombol"
-                                link=""
-                                namelink=" login "
-                                nameSecondary="untuk mengubah atau menambahkan data di sekolah ini"
-                                fontSize="13px"
-                                textAlign="justify"/> : 
+                            <div style={{marginTop: "48px"}}></div>
                                 <TitleBottomSecondary 
                                 name="Sekolah ini belum memiliki Operator. Klik tombol"
                                 link=""
                                 namelink=" dapatkan akses "
                                 nameSecondary="untuk mengubah atau menambahkan data di sekolah ini"
                                 fontSize="13px"
-                                textAlign="justify"/>}
+                                textAlign="justify"/>
                         </section>
                     </OnMobile>
                 </div>
