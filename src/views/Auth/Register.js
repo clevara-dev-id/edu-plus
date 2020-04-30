@@ -1,79 +1,201 @@
 import React, { Component } from 'react';
+import $ from 'jquery'
 
-import TitleLogin from '../../components/base_components/TitlePage/TitleMobile/TitlePage';
-import InputForm from '../../components/base_components/Auth/Mobile/InputRegister';
-import ButtonPrimary from '../../components/base_components/Button/ButtonMobile/ButtonPrimary';
+import { OnDesktop, OnMobile, onTablet } from '../../constants/Breackpoint';
+
+//Desktop
+// import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
+// import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
+// import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+
+//Mobile Item
+import BreadCrumbMobile from '../../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
+import CardImageSingleMobile from '../../components/base_components/Card/CardMobile/SingleImage/CardImageSingleMobile';
+import TitlePageWithAddress from '../../components/base_components/TitlePage/TitleMobile/TitlePageWithAddress';
+import LineComponents from '../../components/base_components/LineComponents/Mobile/LineComponents';
+import TitleBotttomTertiary from '../../components/base_components/TitleBottom/Mobile/TitleBotttomTertiary';
+import FormGetAccessMobile from '../../components/base_components/Form/FormGetAccess/FormGetAccessMobile';
 import SweetAlert from '../../components/base_components/SweetAllaret/mobile/SweetAlaretMobile';
-import BottomTitle from '../../components/base_components/TitleBottom/Mobile/TitleBottom'
 
-export default class Login extends Component {
+//Image
+import JakartaImage from '../../components/asset/images/FavoritePage/JakartaUtara.png'
+
+
+//dummy Mobile
+// const storeMobile = [];
+const storeMobile = [
+    {
+        image     : JakartaImage,
+        titleCard : "DKI Jakarta",
+        descrip   : "15 Sekolah"
+    },
+];
+
+const storeMobile2 =[
+    {name:"SD & MI", idContent: "mobileSDdanMI"},
+    {name:"SMP & MTS", idContent: "mobileSmpMts"},
+    {name:"SMA, SMK, & MA", idContent: "mobileSmaSmkMa"},
+    {name:"Universitas", idContent: "mobileUniv"},
+];
+
+const storeMobilebadges =[
+    {name:"Informasi Sekolah", idContent: "mobileDescriptionId"},
+    {name:"MAPS", idContent: "mapsContentId"},
+    {name:"Biaya Pendidikan", idContent: "studentConstId"},
+    {name:"Pendaftaran", idContent: "registerTimeId"},
+    {name:"Jurusan", idContent: "majorsId"},
+    {name:"Fasilitas", idContent: "primaryFasilityId"},
+    {name:"Ekstrakulikuler", idContent: "extracurricularContentId"}
+];
+
+const store3 = [
+    {iconname:"snowflake-o", name: "Air conditioning", fontFamily : "FontAwesome"}, 
+    {iconname:"desktop", name: "Lab. Komputer", fontFamily : "FontAwesome"},
+    {iconname:"wifi", name: "Akses Internet", fontFamily : "FontAwesome"}, 
+]
+
+const store4 =[
+    {name:"Lapangan Olahraga"},
+    {name:"Tempat Ibadah"},
+    {name:"Kantin"}
+];
+
+const store5 = {
+    center: {
+        lat: -6.2260798,
+        lng: 106.8536369
+    },
+    zoom: 15,
+    title:"Alamat Sekolah",
+    addr : "jl. sma barat no 4, clilitan, Kramat jati, jakarta timur"
+};
+
+const store6 = [
+    {iconname:"camera", name: "Fotografi", fontFamily : "FontAwesome"}, 
+    {iconname:"soccer-ball-o", name: "Futsal", fontFamily : "FontAwesome"},
+    {iconname:"dribbble", name: "BasketBall", fontFamily : "FontAwesome"}, 
+]
+
+const store7 =[
+    {name:"Orchestra"},
+    {name:"Paskibra"},
+    {name:"Tari Saman"}
+];
+
+const store8 =[
+    {name:"Informasi Sekolah", idContent: "mobileDescriptionId"},
+    {name:"MAPS", idContent: "mapsContentId"},
+    {name:"Biaya Pendidikan", idContent: "studentConstId"},
+    {name:"Pendaftaran", idContent: "registerTimeId"},
+    {name:"Jurusan", idContent: "majorsId"},
+    {name:"Fasilitas", idContent: "primaryFasilityId"},
+    {name:"Ekstrakulikuler", idContent: "extracurricularContentId"}
+];
+
+const store9 = [
+    {   title:"Alamat", 
+        description : "Jl.Rawa Belong No.2 , Kebon Jeruk, Jakarta Barat"
+    },
+    {   title:"Kurikulum Sekolah", 
+        description : "International"
+    },
+    {   title:"Telepon", 
+        description : "021-26678321"
+    },
+    {   title:"Web", 
+        description : "www.smainternational.ac.id"
+    },
+    {   title:"Email", 
+        description : "smainternational@mail.ac.id"
+    },
+    {   title:"Web", 
+        description : "sdwidurijaya@blogspot.com"
+    },
+    {   title:"Jam Sekolah", 
+        description : "06:30 - 12:00"
+    },
+    {   title:"Kepala Sekolah", 
+        description : "Anita"
+    },
+    {   title:"Jumlah Siswa", 
+        description : "2000 Siswa"
+    }
+];
+
+const store10 = [
+    {   title:"Uang Pangkal", 
+        description : "Rp. 3,000,000"
+    },
+    {   title:"SPP Bulanan", 
+        description : "Rp. 550,000"
+    },
+    {   title:"Uang Kegiatan", 
+        description : "Rp. 1,550,000"
+    },
+];
+
+
+//dummy Desktop
+const storeDesktop = [
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "DKI Jakarta",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Jawa Barat",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "Jawa Tengah",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Bali",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "Sumatra Utara",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Kalimantan",
+        descrip   : "15 Sekolah"
+    }
+];
+
+const storeDesktop2 =[
+    {name:"SD & MI", idContent: "desktopSDdanMI"},
+    {name:"SMP & MTS", idContent: "desktopSmpMts"},
+    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
+    {name:"Universitas", idContent: "desktopUniv"},
+];
+
+
+class GetAccessInput extends Component {
     constructor(props){
         super(props);
  
         this.state = {
+            opsSekolah: false,
             fields: {},
             errors: {},
             storeToast :'',
             show:"false"
-
         }
-     }
- 
-     handleValidation = () => {
-         let fields = this.state.fields;
-         let errors = {};
-         let formIsValid = true;
-
-        //Name
-        if(!fields["name"]){
-            formIsValid = false;
-            errors["name"] = "Cannot be empty";
-         }
- 
-         if(typeof fields["name"] !== "undefined"){
-            let pattern = /[A-Za-z]{3}/; // Lower case || Capital || number || min * char
-            let pvalidation = pattern.test(fields["name"]);
- 
-            if (pvalidation===false) {
-               formIsValid = false;
-               errors["name"] = "Name Must be String";
-             }
-        }
-          //Email
-        if(!fields["email"]){
-        formIsValid = false;
-        errors["email"] = "Cannot be empty";
-        }
-
-        if(typeof fields["email"] !== "undefined"){
-        let lastAtPos = fields["email"].lastIndexOf('@');
-        let lastDotPos = fields["email"].lastIndexOf('.');
-
-        if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
-            formIsValid = false;
-            errors["email"] = "Email is not valid";
-            }
-        }  
-
-        //Password
-        if(!fields["password"]){
-            formIsValid = false;
-            errors["password"] = "Cannot be empty";
-         }
- 
-         if(typeof fields["password"] !== "undefined"){
-            let pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/; // Lower case || Capital || number || min * char
-            let pvalidation = pattern.test(fields["password"]);
- 
-            if (pvalidation===false) {
-               formIsValid = false;
-               errors["password"] = "Password is not valid";
-             }
-        }
- 
-        this.setState({errors: errors});
-        return formIsValid;
     }
+    
+    handleOnChange = () => {
+        $(document).ready(()=>{
+            $("#formGetAccessContainer > .row > .col > div > div > #nameFormContactComponent").hide();
+        }); 
+    }
+ 
  
     handleButtonLogin(){
     
@@ -83,56 +205,66 @@ export default class Login extends Component {
             SweetAlert("Daftar Gagal !","Maaf Terjadi Kesalahan Silahkan Coba beberapa Saat Lagi", "error" );
         }
  
-     }
-     
-    handleChange(field, e){         
-        let fields = this.state.fields;
-        fields[field] = e.target.value;        
-        this.setState({fields});
     }
-
+     
     render() {
         return (
             <>
-                <section>
-                    <div style={{marginTop: "40px"}}></div>
-                    <TitleLogin name="Sign Up" />
-                </section>
-                <section>
-                    <div style={{marginTop: "64px"}}></div>
-                    <InputForm 
-                        onChangeName={this.handleChange.bind(this, "name")}
-                        nameError={this.state.errors["name"]}
-                        onBlurName={this.handleValidation.bind(this)}
-                        valueName={this.state.fields["name"]}
-
-                        onChangeEmail={this.handleChange.bind(this, "email")}
-                        emailError={this.state.errors["email"]}
-                        onBlurEmail={this.handleValidation.bind(this)}
-                        valueEmail={this.state.fields["email"]}
-                        onChangePassword={this.handleChange.bind(this, "password")} 
-                        passwordError={this.state.errors["password"]}
-                        onBlurPassword={this.handleValidation.bind(this)}
-                        valuePassword={this.state.fields["password"]}
-                    />
-                </section>
-                <section>
-                    <div style={{marginTop: "4px"}}></div>
-                    <ButtonPrimary
-                        fontSize="16px" 
-                        name="SIGN UP" 
-                        onClick={(e)=>{this.handleButtonLogin()}} 
-                    />
-                </section>
-                <section>
-                    <div style={{marginTop: "7px"}}></div>
-                    <BottomTitle 
-                        name="Have an account?" 
-                        namelink="Log in"
-                        link="/login" 
-                    />
-                </section>
+                <div>
+                    <OnDesktop>
+                    </OnDesktop>
+                    <OnMobile>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbMobile 
+                                store={[
+                                    {name:"Detail Sekolah"},
+                                    {name:"Dapatkan Akses", link:"#"},
+                                ]}
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <CardImageSingleMobile store={storeMobile} />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <TitlePageWithAddress
+                                title="SD Sumbangsih"
+                                text="Jalan Duren Bangka No. 36, Bangka, Mampang Prapatan, Jakarta Selatan, DKI Jakarta"
+                            />
+                            <LineComponents 
+                                marginTop="-20px"
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <FormGetAccessMobile 
+                                title="Atau Kirimkan pesan anda"
+                                onChangeName={(e)=>{console.log(e.target.value)}}
+                                onChangeEmail={(e)=>{console.log(e.target.value)}}
+                                onChangePhone={(e)=>{console.log(e.target.value)}}
+                                onClickButton={()=>{this.handleOnChange()}}
+                            />
+                        </section>
+                        <section >
+                            <div style={{marginTop: "48px"}}></div>
+                                <TitleBotttomTertiary 
+                                name="Pihak Eduplus melalui email"
+                                link=""
+                                namelink=" halo@eduplus.com "
+                                nameSecondary="atau no. telp. "
+                                linkSecondary=""
+                                namelinkSecondary=" +62 999 9999 9999 "
+                                nameTertiary="akan segera menghubungi anda untuk melakukan verifikasi lebih lanjut, Terimakasih"
+                                fontSize="13px"
+                                textAlign="justify"/>
+                        </section>
+                    </OnMobile>
+                </div>
             </>
         );
     }
 }
+
+export default GetAccessInput;

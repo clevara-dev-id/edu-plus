@@ -18,6 +18,7 @@ import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/Bu
 
 //Image
 import JakartaImage from '../components/asset/images/HomePage/CardImage/Jakarta.png'
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 
 
 //dummy Mobile
@@ -28,7 +29,7 @@ const storeMobile = [
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/256x255",
+        image     : BASE_URL+"/345x345",
         titleCard : "Jawa Barat",
         descrip   : "15 Sekolah"
     },
