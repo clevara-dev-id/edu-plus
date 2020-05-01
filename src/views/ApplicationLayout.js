@@ -7,8 +7,11 @@ import Base from './Base';
 // import { Spinner } from 'react-bootstrap'
 // import LoaderSpinner from '../component/base/loader/LoaderSpinner'
 import NavbarDesktop from '../components/base_components/Desktop/NavBar/Navbar'
-import FooterMobileBlue from '../components/base_components/Footer/Mobile/FooterMobileBlue';
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+
+//Mobile Import
+import HumbergerHeader from '../components/base_components/Header/Mobile/HumbergerHeader'
+import FooterMobileBlue from '../components/base_components/Footer/Mobile/FooterMobileBlue';
 
 const store = [
     {
@@ -31,15 +34,15 @@ export default class ApplicationLayout extends Base {
             <div>
                 {/* <Whatsapp /> */}
                 <header>
-                    <OnDesktop>
+                    {/* <OnDesktop>
                         <NavbarDesktop 
                             store={store}
                             onClickButton={()=>{console.log("this is button !")}}
                         />
-                    </OnDesktop>
-                    {/* <OnMobileAndTablet>
-                        <MobileNavigationBar store={this.state.navigation} isTop={this.state.isTop} />
-                    </OnMobileAndTablet> */}
+                    </OnDesktop> */}
+                    <OnMobile>
+                        <HumbergerHeader primaryText="test" secondaryText="test" />
+                    </OnMobile>
                 </header>
 
                 <div id="content">

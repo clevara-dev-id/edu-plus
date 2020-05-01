@@ -1,0 +1,89 @@
+@media screen and (min-width: 320px) {
+    #humbergerHeaderContainer{
+        height: 58px;
+        background: #96C8EB;
+    }
+    #humbergerHeaderContainer > .row > .humbergerLogo {
+        padding-top: 18px;
+        text-align: left;
+    }
+    #humbergerHeaderContainer > .row > .humbergerbutton {
+        padding-top: 18px;
+        text-align: right;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #humbergerHeaderContainer{
+        height: 58px;
+        background: #96C8EB;
+    }
+    #humbergerHeaderContainer > .row > .humbergerLogo {
+        padding-top: 20px;
+        text-align: left;
+    }
+    #humbergerHeaderContainer > .row > .humbergerbutton {
+        padding-top: 23px;
+        text-align: right;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #humbergerHeaderContainer{
+        height: 58px;
+        background: #96C8EB;
+    }
+    #humbergerHeaderContainer > .row > .humbergerLogo {
+        padding-top: 23px;
+        text-align: left;
+    }
+    #humbergerHeaderContainer > .row > .humbergerbutton {
+        padding-top: 23px;
+        text-align: right;
+    }
+}
+
+#humbergerHeaderContainer{
+    background: #96C8EB;;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.sidenavHumberger {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align:center;
+}
+
+.sidenavHumberger a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 26px;
+  color: #1A6EB2;
+  display: block;
+  transition: 0.3s;
+
+}
+
+.sidenavHumberger a:hover{
+  color: #f1f1f1;
+}
+
+.sidenavHumberger .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-top: 15px;
+  margin-left: 50px;
+}
