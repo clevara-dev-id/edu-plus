@@ -5,6 +5,7 @@ import Home from './views/Home';
 import Favorite from './views/Favorite';
 import FavoriteDetail from './views/FavoriteDetail';
 import Search from './views/Search';
+import SearchResult from './views/SearchResult';
 import Detail from './views/Detail';
 import DetailSecondary from './views/DetailSecondary';
 import ContactUs from './views/ContactUs';
@@ -23,6 +24,7 @@ const BaseRoute = () => {
                 <Route exact path="/favorite" component={Favorite} />
                 <Route exact path="/favoritedetail" component={FavoriteDetail} />
                 <Route exact path="/search" component={Search} />
+                <Route exact path="/searchresult" component={SearchResult} />
                 <Route exact path="/detail" component={Detail} />
                 <Route exact path="/detailsecondary" component={DetailSecondary} />
                 <Route exact path="/contactus" component={ContactUs} />

@@ -5,40 +5,39 @@ import $ from 'jquery';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import ButtonPrimary from '../../Button/ButtonMobile/ButtonPrimary';
-import './formcontactcomponents.css';
+import LineComponents from '../../LineComponents/Mobile/LineComponents';
+import './formregister.css';
 
-const FormContactComponents = props => {
-    const IsNameValid = () => {
-        let valueInput, text, formIsValid=true;
+
+const FormRegister = props => {
+    //BOTTOM FORM
+    const IsPhoneValid = () => {
+        let valueInput, text="", formIsValid=true;
       
         // Get the value of the input field with id="numb"
-        valueInput = document.getElementById("nameFormContactComponent").value;
+        valueInput = document.getElementById("phoneFormContactComponent").value;
           
         if (!valueInput) {
-          text = "Name cannot be empty !";
+          text = "Phone Number cannot be empty !";
           formIsValid=false;
-        } 
-        else {
-          text = "";
         }
-        document.getElementById("errorValueName").innerHTML = text;
-        return formIsValid;
-    }
 
-    const IsMessageValid = () => {
-        let valueInput, text, formIsValid=true;
-      
-        // Get the value of the input field with id="numb"
-        valueInput = document.getElementById("messageFormContactComponent").value;
-          
-        if (!valueInput) {
-          text = "Message cannot be empty !";
-          formIsValid=false;
+        if (isNaN(valueInput)) {
+            text = "Phone Number Must be Integer !";
+            formIsValid=false;
         } 
-        else {
-          text = "";
+
+        if (valueInput < 0) {
+            text = "Phone Number Must Positive Number !";
+            formIsValid=false;
         }
-        document.getElementById("errorValueMessage").innerHTML = text;
+
+        if (valueInput.length > 14) {
+            text = "Phone Number max 14 Digit !";
+            formIsValid=false;
+        } 
+
+        document.getElementById("errorValuePhone").innerHTML = text;
         return formIsValid;
     }
 
@@ -64,59 +63,49 @@ const FormContactComponents = props => {
         document.getElementById("errorValueEmail").innerHTML = text;
         return formIsValid;
     }
-    const buttonClickHandle = () => {
-        let formIsValid=true;
-        if(!IsNameValid()){
-            formIsValid=false;
+    const IsOperatorValid = () => {
+        let valueInput, text, formIsValid=true;
+      
+        // Get the value of the input field with id="numb"
+        valueInput = document.getElementById("operatorFormContactComponent").value;
+          
+        if (!valueInput) {
+          text = "Operator Name cannot be empty !";
+          formIsValid=false;
+        } 
+        else {
+          text = "";
         }
-        if(!IsMessageValid()){
-            formIsValid=false;
-        }
-        if(!IsEmailValid()){
-            formIsValid=false;
-        }
+        document.getElementById("errorValueOperator").innerHTML = text;
         return formIsValid;
     }
-    $(document).ready(()=> {
-        $("#buttonmesaageFormcontact").click(()=>{
-            if(buttonClickHandle()){
-                $("#buttonmesaageFormcontact").attr("onclick",props.onClickButton);
-            }
-
-        });
-    });
     return (
         <>
-            <Container id="formContactContainer">
-                <Row>
-                    <Col>
-                        <DivTitile>{props.title}</DivTitile>
-                    </Col>
-                </Row>
+            <Container id="formRegisterContainer">
                 <Row>
                     <Col>
                         <DivInput>
-                            <DivTitle>Nama</DivTitle>
+                            <DivTitle>No. Telepon Sekolah / Tempat Kursus</DivTitle>
                             <div className="inputClass">
                                 <InputEmail 
-                                    id="nameFormContactComponent"
+                                    id="phoneFormContactComponent"
                                     type="text" 
-                                    name="name"
-                                    placeholder="Masukan nama anda"
-                                    onChange={props.onChangeName}
-                                    onBlur={()=>{IsNameValid()}}
+                                    name="phone"
+                                    placeholder="Masukan nomor telepon"
+                                    onChange={props.onChangePhone}
+                                    onBlur={()=>{IsPhoneValid()}}
                                 />
                             </div>
                         </DivInput>
                         <div className="errorClassDiv">
-                            <span id="errorValueName" ></span>
+                            <span id="errorValuePhone" ></span>
                         </div>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
                         <DivInput>
-                            <DivTitle>Email</DivTitle>
+                            <DivTitle>Email Sekolah / Tempat Kursus</DivTitle>
                             <div className="inputClass">
                                 <InputEmail 
                                     id="emailFormContactComponent"
@@ -135,31 +124,22 @@ const FormContactComponents = props => {
                 </Row>
                 <Row>
                     <Col>
-                        <DivTextArea>
-                            <DivTitle>Pesan</DivTitle>
+                        <DivInput>
+                            <DivTitle>Masukkan Nama Operator</DivTitle>
                             <div className="inputClass">
-                                <InputMessage 
-                                    id="messageFormContactComponent"
-                                    name="name"
-                                    placeholder="Masukan nama anda"
-                                    onChange={props.onChangeMessage}
-                                    onBlur={()=>{IsMessageValid()}}>
-                                </InputMessage>
-                                
+                                <InputEmail 
+                                    id="operatorFormContactComponent"
+                                    type="text" 
+                                    name="operatorname"
+                                    placeholder="Masukan nama Operator"
+                                    onChange={props.onChangeOperator}
+                                    onBlur={()=>{IsOperatorValid()}}
+                                />
                             </div>
-                        </DivTextArea>
+                        </DivInput>
                         <div className="errorClassDiv">
-                            <span id="errorValueMessage" ></span>
+                            <span id="errorValueOperator" ></span>
                         </div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <ButtonPrimary
-                            name="KIRIM"
-                            id="buttonmesaageFormcontact"
-                            background="#1A6EB2"
-                        />
                     </Col>
                 </Row>
             </Container>
@@ -171,7 +151,7 @@ const FormContactComponents = props => {
 const DivTitile = styled.div`
     font-style: normal;
     font-weight: normal;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 17px;
     text-align: left;
     margin-bottom: 16px;
@@ -183,15 +163,6 @@ const DivTitile = styled.div`
 const DivInput = styled.div`
     width: 343px;
     height: 64px;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    margin-bottom: 16px;
-`;
-
-const DivTextArea = styled.div`
-    width: 343px;
-    height: 200px;
     background: #FFFFFF;
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
@@ -230,30 +201,21 @@ const InputEmail = styled.input`
     color: #2D2D2D;
 `;
 
-const InputMessage = styled.textarea`
-    width: 305px;
-    height: 157px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    margin-left: 20px;
-    border : none;
+const DivLine = styled.div(
+    props => ({
+        border       : "1.5px solid #DBDBDB",
+        marginTop    : "10px",
+        marginBottom : "10px"
+    })
+);
 
-    /* identical to box height */
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.0025em;
 
-    color: #2D2D2D;
-`;
-
-FormContactComponents.propTypes = {
+FormRegister.propTypes = {
     title            : PropTypes.string,
     onChangeName     : PropTypes.func,
     onChangeEmail    : PropTypes.func,
-    onChangeMessage  : PropTypes.func,
+    onChangePhone    : PropTypes.func,
     onClickButton    : PropTypes.func,
 }
 
-export default FormContactComponents;
+export default FormRegister;

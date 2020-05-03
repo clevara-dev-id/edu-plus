@@ -21,7 +21,7 @@ const LineComponents = props => {
 
 const DivLine = styled.div(
     props => ({
-        border       : "1px solid #DBDBDB",
+        border       : props.border ? props.border : "1px solid #DBDBDB",
         marginTop    : props.marginTop ? props.marginTop : "10px",
         marginBottom : props.marginBottom ? props.marginBottom : "10px"
     })

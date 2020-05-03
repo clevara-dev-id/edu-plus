@@ -1,86 +1,211 @@
 import React, { Component } from 'react';
 
-import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
-import CardList from '../components/base_components/Card/CardMobile/CardList/CardList';
-import CardListSecondary from '../components/base_components/Card/CardMobile/CardList/CardListSecondary';
+import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+
+//Desktop
+import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop'
+import CardImage from '../components/base_components/Desktop/CardImage/CardImage'
+import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges'
+
+//Mobile Item
+import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage'
+import RadioButtonThree from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThree';
+import RadioButtonFour from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonFour'
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
-import DropDownList from '../components/base_components/DropDwonList/DropdownMobile/DropDownList';
-import BadgesGroup from '../components/base_components/Badges/BadgesMobile/BadgesGroup';
-import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
-
-//Import Image
-import CardImage1 from '../components/asset/images/CardList/SMAN14JAKARTA.png';
-import CardImage2 from '../components/asset/images/CardList/SMAN51JAKARTA.png';
-import CardImage3 from '../components/asset/images/CardList/SMAN62JAKARTA.png';
-import CardImage4 from '../components/asset/images/CardList/SMAN93JAKARTA.png';
+import ButtonGray from '../components/base_components/Button/ButtonMobile/ButtonGray';
+import AccordionAddress from '../components/base_components/Accordion/Mobile/AccordionAddress';
+import BottomTitle from '../components/base_components/TitleBottom/Mobile/TitleBottom';
+import DropdownListFilter from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilter';
+import DropdownListFilterFour from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilterFour';
+import TitleDropDownList from '../components/base_components/TitlePage/TitleMobile/TitleDropDownList';
+import RadioButtonThreeGray from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThreeGray';
 
 
-let store = [{
-        image   : CardImage1,
-        brand   : "NASIONAL",
-        title   : "SMAN 14 JAKARTA JAKARTA JAKARTAJAKARTA",
-        address : "Jl. SMA BARAT, CILILITAN",
-        phone   : "021 - 525 8721"
-    },
-    {
-        image   : CardImage2,
-        brand   : "NASIONAL",
-        title   : "SMAN 51 JAKARTA",
-        address : "JL. BATU AMPAR 3 CONDET",
-        phone   : "021 - 525 8721"
-    },
-    {
-        image   : CardImage3,
-        brand   : "NASIONAL",
-        title   : "SMAN 62 JAKARTA",
-        address : "JL. RAYA BOGOR KM.20",
-        phone   : "021 - 525 8721"
-    },
-    {
-        image   : CardImage4,
-        brand   : "NASIONAL",
-        title   : "SMAN 93 JAKARTA",
-        address : "JL. RAYA BOGOR KOMP. PASWALPRES",
-        phone   : "021 - 525 8721"
-    },
+
+
+const store = [
+    {id:"001", name:'SD'},
+    {id:"002", name:'Madrasah Tsanawiyah'},
+    {id:"003", name:'SMP'},
+    {id:"004", name:'SMA'},
+    {id:"005", name:'Madrasah Aliyah'},
+];
+const store2 = [
+    {id:"001", name:'Jakarta'},
+    {id:"002", name:'Jawa Barat'},
 ];
 
-const store2 =[{name:"4 SMA ditemukan"},{name:"Kramat Jati"},{name:"DKI Jakarta"}];
-const store3 =[
-    {name:"Home", link: "/home"},
-    {name:"Search", link: "/search"},
-    {name:"Informasi Sekolah", link: "/information"},
-    {name:"Kontak Sekolah", link: "/contact"},
-    {name:"Biaya Sekolah", link: "/payroll"},
-    {name:"About", link: "/about"}
+const store3 = [
+    {id:"001", name:'Jakarta Selatan'},
+    {id:"002", name:'Jakarta Barat'},
 ];
+
+const store4 = [
+    {id:"001", name:'Manggarai'},
+    {id:"002", name:'Tebet'},
+];
+
+const store5 = [
+    {id:"001", name:'Tebet Timur'},
+    {id:"002", name:'Tebet Utara'},
+];
+
+//dummy Desktop
+const storeDesktop = [
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "DKI Jakarta",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Jawa Barat",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "Jawa Tengah",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Bali",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x256",
+        titleCard : "Sumatra Utara",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Kalimantan",
+        descrip   : "15 Sekolah"
+    }
+
+
+];
+
+const storeDesktop2 =[
+    {name:"SD & MI", idContent: "desktopSDdanMI"},
+    {name:"SMP & MTS", idContent: "desktopSmpMts"},
+    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
+    {name:"Universitas", idContent: "desktopUniv"},
+];
+
 
 class Search extends Component {
     render() {
         return (
             <>
-                <div style={{overflow:"hidden"}}>
-                    <section>
-                        <div style={{marginTop: "48px"}}></div>
-                        <Title name="Daftar SMA Negeri" />
-                    </section>
-                    {/* <section>
-                        <BadgesGroupSecondary store={store3} />
-                    </section> */}
-                    <section>
-                        <DropDownList 
-                            onClick={(e)=>{console.log(e.target.value)}}
-                            onClickArea={(e)=>{console.log(e.target.value)}}
-                        />
-                    </section>
-                    <section>
-                         <CardListSecondary store={store} />
-                    </section>
-                    <section>
-                        <ButtonSecondary name="CARI SEKOLAH LAINNYA" onClick={(e)=>{console.log("this is button Secondary Button !")}} />
-                    </section>
-                    
+                <div>
+                    <OnDesktop>
+                        <section>
+                            <BadgesDesktop
+                                store={storeDesktop2}
+                            />
+                        </section>
+                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImage 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImage 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImage 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImage 
+                                store={storeDesktop}
+                            />
+                        </section>
+                    </OnDesktop>
+                    <OnMobile>
+                        <section>
+                            <div style={{marginTop: "48px"}}></div>
+                            <Title name="Mulai cari informasi sekolah disini" />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <DropdownListFilter 
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={store} 
+                                placeholder="Pilih Pendidikan"
+                                title="Pendidikan"
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <TitleDropDownList name="Pilih Alamat"/>
+                            <DropdownListFilterFour
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={store2} 
+                                placeholder="Pilih Provinsi"
+                                title="Provinsi"
+                                className="provdropdownclass"
+                            />
+                            <DropdownListFilterFour
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={store3} 
+                                placeholder="Pilih Kota / Kabupaten"
+                                title="Kota / Kabupaten"
+                                className="citydropdownclass"
+                            />
+                            <DropdownListFilterFour
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={store4} 
+                                placeholder="Pilih Kecamatan"
+                                title="Kecamatan"
+                                className="subcitydropdownclass"
+                            />
+                            <DropdownListFilterFour
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={store5} 
+                                placeholder="Pilih Kelurahan / Desa"
+                                title="Kelurahan / Desa"
+                                className="secondsubcitydropdownclass"
+                            />
+                        </section>
+                        {/* <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <AccordionAddress clickProvinsi={(e)=>{console.log(e.target.value)}} clickKecamatan={(e)=>{console.log(e.target.value)}} />
+                        </section> */}
+                        {/* <section>
+                            <div style={{marginTop: "35px"}}></div>
+                            <RadioButtonFour onClick={(e) => {console.log(e.target.value)}} />
+                        </section> */}
+                        {/* <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <RadioButtonThree onClick={(e) => {console.log(e.target.value)}} />
+                        </section> */}
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <RadioButtonThreeGray onClick={(e) => {console.log(e.target.value)}} />
+                        </section>
+                        {/* <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <ButtonPrimary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button !")}} />
+                        </section> */}
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <ButtonGray name="CARI SEKARANG" onClick={(e)=>{console.log("this is button !")}} />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "7px"}}></div>
+                            <BottomTitle 
+                                name="Daftarkan Sekolah atau tempat kursus anda" 
+                                namelink="disini"
+                                link="/register" 
+                            />
+                        </section>
+                    </OnMobile>
                 </div>
             </>
         );

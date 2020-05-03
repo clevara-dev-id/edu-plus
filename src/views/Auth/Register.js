@@ -16,6 +16,14 @@ import LineComponents from '../../components/base_components/LineComponents/Mobi
 import TitleBotttomTertiary from '../../components/base_components/TitleBottom/Mobile/TitleBotttomTertiary';
 import FormGetAccessMobile from '../../components/base_components/Form/FormGetAccess/FormGetAccessMobile';
 import SweetAlert from '../../components/base_components/SweetAllaret/mobile/SweetAlaretMobile';
+import FormRegister from '../../components/base_components/Auth/Mobile/FormRegister';
+import DropdownListFilter from '../../components/base_components/DropDwonList/DropdownMobile/DropDownListFilter';
+import DropdownListFilterFour from '../../components/base_components/DropDwonList/DropdownMobile/DropDownListFilterFour';
+import ButtonPrimary from '../../components/base_components/Button/ButtonMobile/ButtonPrimary';
+import RadioButtonTwo from '../../components/base_components/RadioButton/RadioButtonMobile/RadioButtonTwo';
+import FormRegisterSingle from '../../components/base_components/Auth/Mobile/FormRegisterSingle';
+import TitlePageMobile from '../../components/base_components/TitlePage/TitleMobile/TitlePage';
+
 
 //Image
 import JakartaImage from '../../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -31,21 +39,32 @@ const storeMobile = [
     },
 ];
 
-const storeMobile2 =[
-    {name:"SD & MI", idContent: "mobileSDdanMI"},
-    {name:"SMP & MTS", idContent: "mobileSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "mobileSmaSmkMa"},
-    {name:"Universitas", idContent: "mobileUniv"},
+const storeMobileTwo = [
+    {id:"001", name:'SD'},
+    {id:"002", name:'Madrasah Tsanawiyah'},
+    {id:"003", name:'SMP'},
+    {id:"004", name:'SMA'},
+    {id:"005", name:'Madrasah Aliyah'},
 ];
 
-const storeMobilebadges =[
-    {name:"Informasi Sekolah", idContent: "mobileDescriptionId"},
-    {name:"MAPS", idContent: "mapsContentId"},
-    {name:"Biaya Pendidikan", idContent: "studentConstId"},
-    {name:"Pendaftaran", idContent: "registerTimeId"},
-    {name:"Jurusan", idContent: "majorsId"},
-    {name:"Fasilitas", idContent: "primaryFasilityId"},
-    {name:"Ekstrakulikuler", idContent: "extracurricularContentId"}
+const storeMobileThree = [
+    {id:"001", name:'Jakarta'},
+    {id:"002", name:'Jawa Barat'},
+];
+
+const storeMobileFour = [
+    {id:"001", name:'Jakarta Selatan'},
+    {id:"002", name:'Jakarta Barat'},
+];
+
+const storeMobileFive = [
+    {id:"001", name:'Manggarai'},
+    {id:"002", name:'Tebet'},
+];
+
+const storeMobileSix = [
+    {id:"001", name:'Tebet Timur'},
+    {id:"002", name:'Tebet Utara'},
 ];
 
 const store3 = [
@@ -189,22 +208,143 @@ class GetAccessInput extends Component {
             show:"false"
         }
     }
-    
-    handleOnChange = () => {
-        $(document).ready(()=>{
-            $("#formGetAccessContainer > .row > .col > div > div > #nameFormContactComponent").hide();
+    IsSchoolNameValid = () =>{
+        return $(document).ready(()=>{
+            let valueInput, text, formIsValid=true;
+        
+            // Get the value of the input field with id="numb"
+            valueInput = document.getElementById("registerforminputnameschoolscontent").value;
+            
+            if (!valueInput) {
+            text = "School Name Cannot be Empty !";
+            formIsValid=false;
+            } 
+            else {
+            text = "";
+            }
+            document.getElementById("registererrormessageschoolnamescontent").innerHTML = text;
+            return formIsValid;
         }); 
     }
- 
- 
-    handleButtonLogin(){
-    
-        if(this.handleValidation()){
-            SweetAlert("Daftar Berhasil !","Akun Berhasil di Daftarkan Silahkan cek email anda untuk konfirmasi", "success" );
-        }else{
-            SweetAlert("Daftar Gagal !","Maaf Terjadi Kesalahan Silahkan Coba beberapa Saat Lagi", "error" );
+    IsSchoolAddressValid = () =>{
+        return $(document).ready(()=>{
+            let valueInput, text, formIsValid=true;
+        
+            // Get the value of the input field with id="numb"
+            valueInput = document.getElementById("registerforminputadresscontent").value;
+            
+            if (!valueInput) {
+            text = "Address Cannot be Empty !";
+            formIsValid=false;
+            } 
+            else {
+            text = "";
+            }
+            document.getElementById("registererrormessageadresscontent").innerHTML = text;
+            return formIsValid;
+        }); 
+    }
+    IsPhoneValid = () => {
+        let valueInput, text="", formIsValid=true;
+      
+        // Get the value of the input field with id="numb"
+        valueInput = document.getElementById("phoneFormContactComponent").value;
+          
+        if (!valueInput) {
+          text = "Phone Number cannot be empty !";
+          formIsValid=false;
         }
+
+        if (isNaN(valueInput)) {
+            text = "Phone Number Must be Integer !";
+            formIsValid=false;
+        } 
+
+        if (valueInput < 0) {
+            text = "Phone Number Must Positive Number !";
+            formIsValid=false;
+        }
+
+        if (valueInput.length > 14) {
+            text = "Phone Number max 14 Digit !";
+            formIsValid=false;
+        } 
+
+        document.getElementById("errorValuePhone").innerHTML = text;
+        return formIsValid;
+    }
+    
+    IsEmailValid = () => {
+        let valueInput, text="", formIsValid=true;
+      
+        // Get the value of the input field with id="numb"
+        valueInput = document.getElementById("emailFormContactComponent").value;
+        if (!valueInput) {
+            text = "e-Mail cannot be empty !";
+            formIsValid=false;
+        }
+        else if(typeof valueInput !== "undefined"){
+            let lastAtPos = valueInput.lastIndexOf('@');
+            let lastDotPos = valueInput.lastIndexOf('.');
+
+            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && valueInput.indexOf('@@') == -1 && lastDotPos > 2 && (valueInput.length - lastDotPos) > 2)) {
+                text = "Invalid Format";
+                formIsValid=false;
+            }
+        }
+  
+        document.getElementById("errorValueEmail").innerHTML = text;
+        return formIsValid;
+    }
+    IsOperatorValid = () => {
+        let valueInput, text, formIsValid=true;
+      
+        // Get the value of the input field with id="numb"
+        valueInput = document.getElementById("operatorFormContactComponent").value;
+          
+        if (!valueInput) {
+          text = "Operator Name cannot be empty !";
+          formIsValid=false;
+        } 
+        else {
+          text = "";
+        }
+        document.getElementById("errorValueOperator").innerHTML = text;
+        return formIsValid;
+    }
+
+    handleOnChange = () => {
+        let formIsValid=true;
+        if(!this.IsSchoolNameValid()){
+            formIsValid=false;
+        }
+
+        if(!this.IsSchoolAddressValid()){
+            formIsValid=false;
+        }
+
+        if(!this.IsPhoneValid()){
+            formIsValid=false;
+        }
+
+        if(!this.IsEmailValid()){
+            formIsValid=false;
+        }
+        if(!this.IsOperatorValid()){
+            formIsValid=false;
+        }
+        return formIsValid;
+    }
  
+    handleButtonRegister=()=>{
+        if(this.handleOnChange()){
+            if(this.handleOnChange()){
+                SweetAlert("Daftar Berhasil !","Akun Berhasil di Daftarkan Silahkan cek email anda untuk konfirmasi", "success" );
+            }else{
+                SweetAlert("Daftar Gagal !","Maaf Terjadi Kesalahan Silahkan Coba beberapa Saat Lagi", "error" );
+            }
+        }
+    
     }
      
     render() {
@@ -215,36 +355,110 @@ class GetAccessInput extends Component {
                     </OnDesktop>
                     <OnMobile>
                         <section>
+                            <div style={{marginTop:"36px"}}></div>
+                            <TitlePageMobile
+                                name="Daftarkan Sekolah / Tempat Kursus"
+                                color="#1A6EB2"
+                            />
+                        </section>
+                        <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbMobile 
                                 store={[
-                                    {name:"Detail Sekolah"},
-                                    {name:"Dapatkan Akses", link:"#"},
+                                    {name:"Pencarian data"},
+                                    {name:"Form Pendaftaran", link:"#"},
                                 ]}
                             />
                         </section>
-                        <section>
+                        <section id="schoolsnameforminputsection">
                             <div style={{marginTop:"25px"}}></div>
-                            <CardImageSingleMobile store={storeMobile} />
+                            <FormRegisterSingle
+                                title="Nama Sekolah / Tempat Kursus"
+                                onChange={(e)=>{console.log(e.target.value)}}
+                                placeholderForm="Masukan Nama Sekolah / Tempat Kursus"
+                                nameInputForm="shoolsname"
+                                idInputForm="registerforminputnameschoolscontent"
+                                idErrorMessage="registererrormessageschoolnamescontent"
+                                errorMessage="Shoools Name cannot be empty !"
+                            />
                         </section>
                         <section>
-                            <div style={{marginTop:"25px"}}></div>
-                            <TitlePageWithAddress
-                                title="SD Sumbangsih"
-                                text="Jalan Duren Bangka No. 36, Bangka, Mampang Prapatan, Jakarta Selatan, DKI Jakarta"
+                            <DropdownListFilterFour
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={storeMobileTwo} 
+                                placeholder="Pilih Jenjang Pendidikan"
+                                title="Jenjang Pendidikan"
+                                className="jenjangpendidikandropdownclass"
                             />
+
+                        </section>
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <RadioButtonTwo onClick={(e) => {console.log(e.target.value)}} />
+                        </section>
+                        <section>
                             <LineComponents 
-                                marginTop="-20px"
+                                marginTop="10px"
+                                border="1.5px solid #DBDBDB"
+                            />
+                            <FormRegisterSingle
+                                title="ALamat"
+                                onChange={(e)=>{console.log(e.target.value)}}
+                                placeholderForm="Masukan Alamat Sekolah / Tempat Kursus"
+                                nameInputForm="addressname"
+                                idInputForm="registerforminputadresscontent"
+                                idErrorMessage="registererrormessageadresscontent"
+                                errorMessage="Adress cannot be empty !"
                             />
                         </section>
                         <section>
-                            <div style={{marginTop:"25px"}}></div>
-                            <FormGetAccessMobile 
+                            <DropdownListFilterFour
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={storeMobileThree} 
+                                placeholder="Pilih Provinsi"
+                                title="Provinsi"
+                                className="provdropdownclass"
+                            />
+                            <DropdownListFilterFour
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={storeMobileFour} 
+                                placeholder="Pilih Kota / Kabupaten"
+                                title="Kota / Kabupaten"
+                                className="citydropdownclass"
+                            />
+                            <DropdownListFilterFour
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={storeMobileFive} 
+                                placeholder="Pilih Kecamatan"
+                                title="Kecamatan"
+                                className="subcitydropdownclass"
+                            />
+                            <DropdownListFilterFour
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={storeMobileSix} 
+                                placeholder="Pilih Kelurahan / Desa"
+                                title="Kelurahan / Desa"
+                                className="secondsubcitydropdownclass"
+                            />
+                        </section>
+                        <section>
+                            <LineComponents 
+                                marginTop="25px"
+                                border="1.5px solid #DBDBDB"
+                            />
+                            <FormRegister 
                                 title="Atau Kirimkan pesan anda"
                                 onChangeName={(e)=>{console.log(e.target.value)}}
                                 onChangeEmail={(e)=>{console.log(e.target.value)}}
                                 onChangePhone={(e)=>{console.log(e.target.value)}}
-                                onClickButton={()=>{this.handleOnChange()}}
+                            />
+                        </section>
+                        <section>
+                            <ButtonPrimary
+                                name="Daftarkan sekarang"
+                                id="buttonRegisterForm"
+                                background="#1A6EB2"
+                                onClick={()=>{this.handleButtonRegister()}}
                             />
                         </section>
                         <section >

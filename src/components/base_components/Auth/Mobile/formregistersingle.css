@@ -1,0 +1,63 @@
+@media screen and (min-width: 320px) {
+    #formRegisterSingleContainer{
+        max-width: 320px;
+    }
+    #formRegisterSingleContainer > .row > .col > div {
+        width: 290px;
+    }
+    #formRegisterSingleContainer > .row > .col > div > .inputClass > input {
+        width: 255px;
+    }    
+    #formRegisterSingleContainer > .row > .col > div > .inputClass > textarea {
+        width: 255px;
+    }
+
+    #buttonmesaageFormcontact{
+        margin-top: 24px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #formRegisterSingleContainer{
+        max-width: 360px;
+    }
+    #formRegisterSingleContainer > .row > .col > div {
+        width: 330px;
+    }
+    #formRegisterSingleContainer > .row > .col > div > .inputClass > input {
+        width: 293px;
+    }    
+    #formRegisterSingleContainer > .row > .col > div > .inputClass > textarea {
+        width: 293px;
+    }
+
+    #buttonmesaageFormcontact{
+        margin-top: 24px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #formRegisterSingleContainer{
+        max-width: 375px;
+    }
+    #formRegisterSingleContainer > .row > .col > div {
+        width: 343px;
+    }
+
+    #formRegisterSingleContainer > .row > .col > div > .inputClass > input {
+        width: 305px;
+    }
+
+    #formRegisterSingleContainer > .row > .col > div > .inputClass > textarea {
+        width: 305px;
+    }    
+    #buttonmesaageFormcontact{
+        margin-top: 24px;
+    }
+}
+
+#formRegisterSingleContainer > .row > .col > .errorClassDiv {
+    margin-bottom: 16px;
+    color: red;
+    font-size: 13px;
+}

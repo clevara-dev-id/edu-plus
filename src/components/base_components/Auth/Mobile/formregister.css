@@ -1,0 +1,63 @@
+@media screen and (min-width: 320px) {
+    #formRegisterContainer{
+        max-width: 320px;
+    }
+    #formRegisterContainer > .row > .col > div {
+        width: 290px;
+    }
+    #formRegisterContainer > .row > .col > div > .inputClass > input {
+        width: 255px;
+    }    
+    #formRegisterContainer > .row > .col > div > .inputClass > textarea {
+        width: 255px;
+    }
+
+    #buttonmesaageFormcontact{
+        margin-top: 24px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    #formRegisterContainer{
+        max-width: 360px;
+    }
+    #formRegisterContainer > .row > .col > div {
+        width: 330px;
+    }
+    #formRegisterContainer > .row > .col > div > .inputClass > input {
+        width: 293px;
+    }    
+    #formRegisterContainer > .row > .col > div > .inputClass > textarea {
+        width: 293px;
+    }
+
+    #buttonmesaageFormcontact{
+        margin-top: 24px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #formRegisterContainer{
+        max-width: 375px;
+    }
+    #formRegisterContainer > .row > .col > div {
+        width: 343px;
+    }
+
+    #formRegisterContainer > .row > .col > div > .inputClass > input {
+        width: 305px;
+    }
+
+    #formRegisterContainer > .row > .col > div > .inputClass > textarea {
+        width: 305px;
+    }    
+    #buttonmesaageFormcontact{
+        margin-top: 24px;
+    }
+}
+
+#formRegisterContainer > .row > .col > .errorClassDiv {
+    margin-bottom: 16px;
+    color: red;
+    font-size: 13px;
+}

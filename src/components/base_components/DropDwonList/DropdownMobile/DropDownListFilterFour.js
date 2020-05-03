@@ -157,7 +157,7 @@ const DropDownListContent = styled.div`
     box-sizing: border-box;
 
     /* shadow 1 */
-    box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.03);
+    box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
  `;
 

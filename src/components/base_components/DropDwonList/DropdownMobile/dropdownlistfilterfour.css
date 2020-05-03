@@ -59,12 +59,12 @@
 
 #myDropdownSecondary > li:hover {
     color: #FFFFFF;
-    background: #08A0E9;
+    background: #1A6EB2;
 }
 
 #myDropdownSecondary > li:active {
     color: #FFFFFF;
-    background: #08A0E9;
+    background: #1A6EB2;
 }
 
 #myDropdownSecondary > li > option{
