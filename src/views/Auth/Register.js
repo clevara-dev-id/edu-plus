@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import $ from 'jquery'
+import $ from 'jquery';
+import axios from 'axios';
 
 import { OnDesktop, OnMobile, onTablet } from '../../constants/Breackpoint';
 
@@ -26,7 +27,10 @@ import TitlePageMobile from '../../components/base_components/TitlePage/TitleMob
 
 
 //Image
-import JakartaImage from '../../components/asset/images/FavoritePage/JakartaUtara.png'
+import JakartaImage from '../../components/asset/images/FavoritePage/JakartaUtara.png';
+
+//get data
+const BACKEND_URL=process.env.REACT_APP_BACKEND_URL;
 
 
 //dummy Mobile
@@ -205,7 +209,115 @@ class GetAccessInput extends Component {
             fields: {},
             errors: {},
             storeToast :'',
-            show:"false"
+            show:"false",
+            provinceList:[],
+            cityList:[],
+            districtList:[],
+            villageList:[],
+            province:"",
+            city:"",
+            district:"",
+            village:"",
+        }
+    }
+    componentDidMount = () =>{
+        this.getProvinceName();
+    }
+    getProvinceName = async () =>{
+        let provinceData=[];
+        const data = {
+            "province" : "Jawa Barat",
+        };
+        const result =await axios.post(BACKEND_URL+'/api/location',data);
+        const convert = await result.data.province;        
+        convert.forEach((data,index)=>{
+            provinceData[index]={id:data.province, name:data.province}
+        });
+        this.setState({provinceList:provinceData});
+        return provinceData;
+    }
+    checkProvince = () =>{
+        let checklist = true;
+        if(this.state.province===""){
+            checklist=false;
+        }
+
+        return checklist;
+    }
+    getCityName = async () =>{
+        if(this.checkProvince()){
+            let cityData=[];
+            const data = {
+                "province" : this.state.province,
+                "city":this.state.city,
+            };
+            const result =await axios.post(BACKEND_URL+'/api/location',data);
+            const convert = await result.data.city;        
+            convert.forEach((data,index)=>{
+                cityData[index]={id:data.city, name:data.city}
+            });
+            this.setState({cityList:cityData});
+            return cityData;
+        }
+        else{
+            SweetAlert("Maaf !","Sebelun memilih Kabupaten/Kota anda harus memilih Provinsi terlebih dahulu", "error" );
+        }
+    }
+    checkCity = () =>{
+        let checklist = true;
+        if(this.state.city===""){
+            checklist=false;
+        }
+
+        return checklist;
+    }
+    getDistrictName= async ()=>{
+        if(this.checkCity()){
+            let dictrictData=[];
+            const data = {
+                "province" : this.state.province,
+                "city"     : this.state.city,
+            };
+            const result =await axios.post(BACKEND_URL+'/api/location',data);
+            const convert = await result.data.district;        
+            convert.forEach((data,index)=>{
+                dictrictData[index]={id:data.district, name:data.district}
+            });
+            this.setState({districtList:dictrictData});
+            return dictrictData;
+        }
+        else{
+            SweetAlert("Maaf !","Sebelun memilih Kecamatan anda harus memilih Kabupaten/Kota terlebih dahulu", "error" );
+        }
+    }
+    checkDistrict = () =>{
+        let checklist = true;
+        if(this.state.city===""){
+            checklist=false;
+        }
+
+        return checklist;
+    }
+    getVillageName= async ()=>{
+        if(this.checkCity()){
+            let villageData=[];
+            const data = {
+                "province" : this.state.province,
+                "city"     : this.state.city,
+                "district" : this.state.district,
+
+            };
+            const result =await axios.post(BACKEND_URL+'/api/location',data);
+            const convert = await result.data.village;        
+            convert.forEach((data,index)=>{
+                villageData[index]={id:data.village, name:data.village}
+            });
+            console.log(villageData)
+            this.setState({villageList:villageData});
+            return villageData;
+        }
+        else{
+            SweetAlert("Maaf !","Sebelun memilih Kecamatan anda harus memilih Kabupaten/Kota terlebih dahulu", "error" );
         }
     }
     IsSchoolNameValid = () =>{
@@ -389,6 +501,7 @@ class GetAccessInput extends Component {
                                 placeholder="Pilih Jenjang Pendidikan"
                                 title="Jenjang Pendidikan"
                                 className="jenjangpendidikandropdownclass"
+                                buttonClass="buttonclickStageregistercontent"
                             />
 
                         </section>
@@ -413,32 +526,40 @@ class GetAccessInput extends Component {
                         </section>
                         <section>
                             <DropdownListFilterFour
-                                onClick={(e)=>{console.log(e.target.value)}}
-                                store={storeMobileThree} 
+                                onClick={(e)=>{this.setState({province:e.target.value})}}
+                                store={ this.state.provinceList } 
                                 placeholder="Pilih Provinsi"
                                 title="Provinsi"
                                 className="provdropdownclass"
+                                buttonClass="citybuttonclickprovregistercontent"
                             />
                             <DropdownListFilterFour
-                                onClick={(e)=>{console.log(e.target.value)}}
-                                store={storeMobileFour} 
+                                onClick={(e)=>{this.setState({city:e.target.value})}}
+                                store={this.state.province ? this.state.cityList : [{id:"",name:""}]} 
                                 placeholder="Pilih Kota / Kabupaten"
                                 title="Kota / Kabupaten"
                                 className="citydropdownclass"
+                                buttonClass="citybuttonclickcityregistercontent"
+                                onButtonClick={()=>{this.getCityName()}}
                             />
                             <DropdownListFilterFour
-                                onClick={(e)=>{console.log(e.target.value)}}
-                                store={storeMobileFive} 
+                                onClick={(e)=>{this.setState({district:e.target.value})}}
+                                store={this.state.city ? this.state.districtList : [{id:"",name:""}]} 
                                 placeholder="Pilih Kecamatan"
                                 title="Kecamatan"
                                 className="subcitydropdownclass"
+                                buttonClass="citybuttonclickDistricregistercontent"
+                                onButtonClick={()=>{this.getDistrictName()}}
                             />
                             <DropdownListFilterFour
-                                onClick={(e)=>{console.log(e.target.value)}}
-                                store={storeMobileSix} 
+                                onClick={(e)=>{this.setState({village:e.target.value})}}
+                                store={this.state.district ? this.state.villageList : [{id:"",name:""}]} 
                                 placeholder="Pilih Kelurahan / Desa"
                                 title="Kelurahan / Desa"
                                 className="secondsubcitydropdownclass"
+                                buttonClass="citybuttonclickVilegeregistercontent"
+                                onButtonClick={()=>{this.getVillageName()}}
+
                             />
                         </section>
                         <section>

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import $ from 'jquery';
 import Icon from 'react-web-vector-icons';
 
-
 import './dropdownlistfilterfour.css';
 import '../../Icon/Mobile/Icon';
 
@@ -14,9 +13,6 @@ const DropDownListFilterFour = props => {
     const [visible, setVisible]=useState(false);
     const [pickItem, setMyPickItem]=useState(props.placeholder);
     
-    const handleOnClick = () =>{
-        visible === false ? show() : hide();
-    }
     const show = () =>{
         $(`.${props.className}`).css({"display":"block"});
         setVisible(true);
@@ -25,6 +21,12 @@ const DropDownListFilterFour = props => {
         $(`.${props.className}`).css({"display":"none"});
         setVisible(false);
     }
+    $(document).ready(()=> {
+        $(`.${props.buttonClass}`).click(()=>{
+            visible === false ? show() : hide();
+        });
+    });
+
     return (
         <>
             <Container id="dropdownfilter">
@@ -39,7 +41,8 @@ const DropDownListFilterFour = props => {
                             <Row>
                                 <Col sm={12}>
                                     <MyDropDownDiv> 
-                                        <MyDropDownButton onClick={()=>{handleOnClick()}} id="mybuttonFilter" className="provButton">
+                                        <MyDropDownButton onClick={props.onButtonClick} id="mybuttonFilter" 
+                                        className={props.buttonClass ? props.buttonClass : "defaultclassbitton"}>
                                             <Col className="placeholderclass" xs={11}>
                                                 {pickItem}
                                             </Col>
