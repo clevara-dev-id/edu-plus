@@ -28,11 +28,16 @@ const DropDownList = props => {
     }
     return (
         <>
-            <Container id="cardlist">
+            <Container id="dropdownlistFilterContainer">
                 <Row>
                     <Col xs={6} className="filterSearch">
                         <MyButton onClick={()=>{showfunction()}} className="dropbtn" id="dropbtn">
-                            <img src={arrowicon} width="24px" height="24px" />
+                            <Icon  
+                                name="swap-vert" 
+                                color="#1A6EB2"
+                                font="MaterialIcons"
+                                size={22} 
+                            />
                             <span className="fildfilter" >{filter}</span>
                         </MyButton>
                         <div id="myDropdownLetter" class="dropdown-content">
@@ -46,7 +51,12 @@ const DropDownList = props => {
                     </Col>
                     <Col xs={6} className="filterSearch">
                         <MyButton onClick={()=>{showfunctionArea()}} className="dropbtn" id="dropbtn">
-                            <img src={filtericon} width="24px" height="24px" />
+                            <Icon  
+                                name="filter" 
+                                color="#1A6EB2"
+                                font="AntDesign"
+                                size={20} 
+                            />
                             <span className="fildfilter" >{filterArea}</span>
                         </MyButton>
                         <div id="myDropdownArea" class="dropdown-content">

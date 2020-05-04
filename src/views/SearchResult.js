@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
+import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
+import TitleWithSeparator from '../components/base_components/TitlePage/TitleMobile/TitleWithSeparator';
 import CardList from '../components/base_components/Card/CardMobile/CardList/CardList';
 import CardListSecondary from '../components/base_components/Card/CardMobile/CardList/CardListSecondary';
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
@@ -9,6 +12,9 @@ import DropDownList from '../components/base_components/DropDwonList/DropdownMob
 import BadgesGroup from '../components/base_components/Badges/BadgesMobile/BadgesGroup';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 import CardImageTertiary from '../components/base_components/Card/CardMobile/CardImage/CardImageTertiary';
+import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges';
+import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
+
 
 
 //Image
@@ -101,10 +107,31 @@ class SearchResult extends Component {
     render() {
         return (
             <>
-                <div style={{overflow:"hidden"}}>
-                    <section>
+                <OnDesktop></OnDesktop>
+                <OnMobile>
+                    {/* <section>
                         <div style={{marginTop: "48px"}}></div>
                         <Title name="Daftar SMA Negeri" />
+                    </section> */}
+                    <section>
+                        <div style={{marginTop:"36px"}}></div>
+                        <TitlePageMobile
+                            name="Daftar SD & MI Swasta"
+                            color="#1A6EB2"
+                        />
+                    </section>
+                    <section>
+                        <div style={{marginTop:"8px"}}></div>
+                        <TitleWithSeparator
+                            store={["Bangka", "Mampang Prapatan", "Jakarta Selatan", "DKI Jakarta"]}
+                        />
+                    </section>
+                    <section>
+                        <LineComponents 
+                            marginTop="24px"
+                            marginBottom="24px"
+                            border="1.5px solid #DBDBDB"
+                        />
                     </section>
                     {/* <section>
                         <BadgesGroupSecondary store={store3} />
@@ -119,14 +146,16 @@ class SearchResult extends Component {
                          <CardListSecondary store={store} />
                     </section> */}
                     <section>
+                         <SingleBadges name="3 data ditemukan" />
+                    </section>
+                    <section>
                         <div style={{marginTop: "48px"}}></div>
                         <CardImageTertiary store={storeMobile} />
                     </section>
                     <section>
                         <ButtonSecondary name="CARI SEKOLAH LAINNYA" onClick={(e)=>{console.log("this is button Secondary Button !")}} />
                     </section>
-                    
-                </div>
+                </OnMobile>                    
             </>
         );
     }
