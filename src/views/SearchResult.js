@@ -8,6 +8,11 @@ import ButtonSecondary from '../components/base_components/Button/ButtonMobile/B
 import DropDownList from '../components/base_components/DropDwonList/DropdownMobile/DropDownList';
 import BadgesGroup from '../components/base_components/Badges/BadgesMobile/BadgesGroup';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
+import CardImageTertiary from '../components/base_components/Card/CardMobile/CardImage/CardImageTertiary';
+
+
+//Image
+import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
 
 //Import Image
 import CardImage1 from '../components/asset/images/CardList/SMAN14JAKARTA.png';
@@ -15,6 +20,42 @@ import CardImage2 from '../components/asset/images/CardList/SMAN51JAKARTA.png';
 import CardImage3 from '../components/asset/images/CardList/SMAN62JAKARTA.png';
 import CardImage4 from '../components/asset/images/CardList/SMAN93JAKARTA.png';
 
+
+//dummy Mobile
+const storeMobile = [
+    {
+        image     : JakartaImage,
+        titleCard : "SDN Islam Harapan Ibu",
+        descrip   : "Jalan Batu Merah No. 71, Pejaten Timur"
+    },
+    {
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Jawa Barat",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "Jawa Tengah",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Bali",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "Sumatra Utara",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Kalimantan",
+        descrip   : "15 Sekolah"
+    }
+
+
+];
 
 let store = [{
         image   : CardImage1,
@@ -74,8 +115,12 @@ class SearchResult extends Component {
                             onClickArea={(e)=>{console.log(e.target.value)}}
                         />
                     </section>
-                    <section>
+                    {/* <section>
                          <CardListSecondary store={store} />
+                    </section> */}
+                    <section>
+                        <div style={{marginTop: "48px"}}></div>
+                        <CardImageTertiary store={storeMobile} />
                     </section>
                     <section>
                         <ButtonSecondary name="CARI SEKOLAH LAINNYA" onClick={(e)=>{console.log("this is button Secondary Button !")}} />

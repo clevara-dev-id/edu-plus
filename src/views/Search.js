@@ -129,6 +129,7 @@ class Search extends Component {
                         </section>
                     </OnDesktop>
                     <OnMobile>
+                        
                         {/* <section>
                             <div style={{marginTop: "48px"}}></div>
                             <Title name="Mulai cari informasi sekolah disini" />
