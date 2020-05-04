@@ -8,7 +8,8 @@ import CardImage from '../components/base_components/Desktop/CardImage/CardImage
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges'
 
 //Mobile Item
-import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage'
+import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
+import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import RadioButtonThree from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThree';
 import RadioButtonFour from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonFour'
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
@@ -19,7 +20,7 @@ import BottomTitle from '../components/base_components/TitleBottom/Mobile/TitleB
 import DropdownListFilter from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilter';
 import DropdownListFilterFour from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilterFour';
 import TitleDropDownList from '../components/base_components/TitlePage/TitleMobile/TitleDropDownList';
-import RadioButtonThreeGray from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThreeGray';
+// import RadioButtonThreeGray from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThreeGray';
 
 
 
@@ -128,11 +129,18 @@ class Search extends Component {
                         </section>
                     </OnDesktop>
                     <OnMobile>
-                        <section>
+                        {/* <section>
                             <div style={{marginTop: "48px"}}></div>
                             <Title name="Mulai cari informasi sekolah disini" />
-                        </section>
+                        </section> */}
                         <section>
+                            <div style={{marginTop:"36px"}}></div>
+                            <TitlePageMobile
+                                name="Mulai cari informasi sekolah disini"
+                                color="#1A6EB2"
+                            />
+                        </section>
+                        {/* <section>
                             <div style={{marginTop: "25px"}}></div>
                             <DropdownListFilter 
                                 onClick={(e)=>{console.log(e.target.value)}}
@@ -140,16 +148,17 @@ class Search extends Component {
                                 placeholder="Pilih Pendidikan"
                                 title="Pendidikan"
                             />
-                        </section>
+                        </section> */}
                         <section>
                             <div style={{marginTop: "25px"}}></div>
-                            <TitleDropDownList name="Pilih Alamat"/>
+                            {/* <TitleDropDownList name="Pilih Alamat"/> */}
                             <DropdownListFilterFour
                                 onClick={(e)=>{console.log(e.target.value)}}
                                 store={store2} 
                                 placeholder="Pilih Provinsi"
                                 title="Provinsi"
                                 className="provdropdownclass"
+                                buttonClass="citybuttonclickprovregistercontent"
                             />
                             <DropdownListFilterFour
                                 onClick={(e)=>{console.log(e.target.value)}}
@@ -157,6 +166,7 @@ class Search extends Component {
                                 placeholder="Pilih Kota / Kabupaten"
                                 title="Kota / Kabupaten"
                                 className="citydropdownclass"
+                                buttonClass="citybuttonclickcityregistercontent"
                             />
                             <DropdownListFilterFour
                                 onClick={(e)=>{console.log(e.target.value)}}
@@ -164,6 +174,7 @@ class Search extends Component {
                                 placeholder="Pilih Kecamatan"
                                 title="Kecamatan"
                                 className="subcitydropdownclass"
+                                buttonClass="citybuttonclickDistricregistercontent"
                             />
                             <DropdownListFilterFour
                                 onClick={(e)=>{console.log(e.target.value)}}
@@ -171,31 +182,36 @@ class Search extends Component {
                                 placeholder="Pilih Kelurahan / Desa"
                                 title="Kelurahan / Desa"
                                 className="secondsubcitydropdownclass"
+                                buttonClass="citybuttonclickVilegeregistercontent"
                             />
                         </section>
                         {/* <section>
                             <div style={{marginTop: "25px"}}></div>
                             <AccordionAddress clickProvinsi={(e)=>{console.log(e.target.value)}} clickKecamatan={(e)=>{console.log(e.target.value)}} />
                         </section> */}
-                        {/* <section>
+                        <section>
                             <div style={{marginTop: "35px"}}></div>
                             <RadioButtonFour onClick={(e) => {console.log(e.target.value)}} />
-                        </section> */}
-                        {/* <section>
-                            <div style={{marginTop: "25px"}}></div>
-                            <RadioButtonThree onClick={(e) => {console.log(e.target.value)}} />
-                        </section> */}
+                        </section>
                         <section>
                             <div style={{marginTop: "25px"}}></div>
-                            <RadioButtonThreeGray onClick={(e) => {console.log(e.target.value)}} />
+                            <RadioButtonThree onClick={(e) => {console.log(e.target.value)}} />
                         </section>
+                        {/* <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <RadioButtonThreeGray onClick={(e) => {console.log(e.target.value)}} />
+                        </section> */}
                         {/* <section>
                             <div style={{marginTop: "25px"}}></div>
                             <ButtonPrimary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button !")}} />
                         </section> */}
                         <section>
                             <div style={{marginTop: "25px"}}></div>
-                            <ButtonGray name="CARI SEKARANG" onClick={(e)=>{console.log("this is button !")}} />
+                            <ButtonPrimary
+                                name="CARI SEKARANG" 
+                                onClick={(e)=>{console.log("this is button !")}} 
+                                background="#1A6EB2"
+                            />
                         </section>
                         <section>
                             <div style={{marginTop: "7px"}}></div>

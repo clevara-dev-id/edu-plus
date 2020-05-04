@@ -47,11 +47,11 @@ const LinkRegister = styled.a`
     letter-spacing: 0.005em;
 
     /* Black */
-    color: #3273DC;
+    color: #1A6EB2;
     &:hover{
         text-decoration: none;
         cursor:pointer;
-        color: #3273DC;
+        color: #1A6EB2;
     }
 `;
 

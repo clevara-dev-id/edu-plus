@@ -47,7 +47,7 @@
   }
 
 .radio-toolbar input[type="radio"]:checked + label {
-    background-color:#3273DC;;
+    background-color:#1A6EB2;;
     color: #FFFFFF;
     border: 0px;
 }

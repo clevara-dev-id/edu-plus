@@ -28,7 +28,7 @@ const RadioButtonFour = props => {
                             <label htmlFor="inputsd" >
                                 <div>
                                     <FontAwesome name={icon === 'sd' ? 'check-circle' : "circle-o"} color="black" size={24} />
-                                    <div>SD</div>
+                                    <div>SD {"&"} MI</div>
                                 </div>
                             </label>
                         </Col>
@@ -42,7 +42,7 @@ const RadioButtonFour = props => {
                             <label htmlFor="inputSMP" >
                                 <div>
                                     <FontAwesome name={icon === 'smp' ? 'check-circle' : "circle-o"} color='black' size={24} />
-                                    <div>SMP</div>
+                                    <div>SMP {"&"} MTs</div>
                                 </div>
                             </label>
                         </Col>
@@ -60,7 +60,7 @@ const RadioButtonFour = props => {
                             <label htmlFor="inputSMA" >
                                 <div>
                                     <FontAwesome name={icon === 'sma' ? 'check-circle' : "circle-o"} color='black' size={24} />
-                                    <div>SMA</div>
+                                    <div>SMA/SMK {"&"} MA</div>
                                 </div>
                             </label>
                         </Col>
