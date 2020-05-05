@@ -40,30 +40,24 @@ const storeMobile = [
     },
     {
         image     : JakartaImage,
-        titleCard : "Jawa Barat",
-        descrip   : "15 Sekolah"
+        titleCard : "SDIT Insan Mandiri Jakarta",
+        descrip   : "Jalan Batu Merah No. 71, Pejaten Timur"
     },
     {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Jawa Tengah",
-        descrip   : "15 Sekolah"
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "SDS Islam Harapan Ibu",
+        descrip   : "Jl. H. Banan No. 1, Kebayoran Lama"
     },
     {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Bali",
-        descrip   : "15 Sekolah"
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "SDS Pangudi Luhur Jakarta",
+        descrip   : "Jl. H. Nawi Raya No. 21, Cilandak"
     },
     {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Sumatra Utara",
-        descrip   : "15 Sekolah"
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "SD Charitas",
+        descrip   : "Jalan Swakarya C.13 A No. 1 4, Cilandak"
     },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Kalimantan",
-        descrip   : "15 Sekolah"
-    }
-
 
 ];
 

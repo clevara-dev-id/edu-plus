@@ -34,12 +34,12 @@ export default class ApplicationLayout extends Base {
             <div>
                 {/* <Whatsapp /> */}
                 <header>
-                    {/* <OnDesktop>
+                    <OnDesktop>
                         <NavbarDesktop 
                             store={store}
                             onClickButton={()=>{console.log("this is button !")}}
                         />
-                    </OnDesktop> */}
+                    </OnDesktop>
                     <OnMobile>
                         <HumbergerHeader primaryText="test" secondaryText="test" />
                     </OnMobile>
@@ -53,7 +53,7 @@ export default class ApplicationLayout extends Base {
                     <OnMobile>
                         <FooterMobileBlue
                             homeLink="/"
-                            contactLink="contact"
+                            contactLink="contactus"
                             registerLink="/register"
                         />
                     </OnMobile>

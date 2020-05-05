@@ -26,6 +26,8 @@ import InformasiSekolah from '../components/base_components/Footer/Mobile/Inform
 import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets';
 import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
+import MobileDescriptionWithIcon from '../components/base_components/Description/Mobile/MobileDescriptionWithIcon';
+
 
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -41,6 +43,157 @@ const storeMobile = [
     },
 ];
 
+const storeMobileTwo =[
+    {
+        name:"021 - 525 8721",
+        icon:"phone",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:"",
+    },
+    {
+        name:"sdsumbangsih@mail.com",
+        icon:"mail",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:""
+    },
+    {
+        name:"sdsumbangsih.sch.id",
+        icon:"globe",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:""
+    }
+];
+
+const storeMobileThree = [
+    {   title:"Uang Pangkal", 
+        description : "Rp. 3,000,000"
+    },
+    {   title:"SPP Bulanan", 
+        description : "Rp. 550,000"
+    },
+    {   title:"Uang Kegiatan", 
+        description : "Rp. 1,550,000"
+    },
+    {   title:"Uang Buku", 
+        description : "Rp. 1,550,000"
+    },
+    {   title:"Potongan / Diskon", 
+        description : "Rp. 1,550,000"
+    },
+];
+
+const storeMobileFour = [
+    {   title:"Kepala Sekolah", 
+        description : "Anis Mulyanis S.pd"
+    },
+    {   title:"Jumlah Siswa", 
+        description : "451"
+    },
+    {   title:"Akreditasi", 
+        description : "A"
+    },
+    {   title:"Status", 
+        description : "swasta"
+    },
+    {   title:"Jam Sekolah", 
+        description : "06:30 - 12:00"
+    },
+];
+
+const storeMobileFive = [
+    {   title:"Pendaftaran", 
+        description : "24-29 Mei 2020"
+    },
+    {   title:"Pengumuman", 
+        description : "31 Mei 2020"
+    },
+    {   title:"Daftar Ulang", 
+        description : "17 - 18 Juni 2020"
+    },
+];
+
+const storeMobileSix =[
+    {
+        name:"IPA",
+        icon:"check-circle",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:"",
+    },
+    {
+        name:"IPS",
+        icon:"check-circle",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:""
+    },
+];
+
+const storeMobileSeven =[
+    {
+        name:"Perpustakaan",
+        icon:"check-circle",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:"",
+    },
+    {
+        name:"Laboratorium",
+        icon:"check-circle",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:""
+    },
+    {
+        name:"Lapangan Olahraga",
+        icon:"check-circle",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:""
+    },
+    {
+        name:"Air Conditioning",
+        icon:"check-circle",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:""
+    },
+];
+
+const storeMobileEight =[
+    {
+        name:"Sepak Bola",
+        icon:"check-circle",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:"",
+    },
+    {
+        name:"Bola Voli",
+        icon:"check-circle",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:""
+    },
+    {
+        name:"Pramuka",
+        icon:"check-circle",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:""
+    },
+    {
+        name:"Bola Basket",
+        icon:"check-circle",
+        iconColor:"",
+        fontFamily:"Feather",
+        size:""
+    },
+];
+
 const storeMobile2 =[
     {name:"SD & MI", idContent: "mobileSDdanMI"},
     {name:"SMP & MTS", idContent: "mobileSmpMts"},
@@ -48,14 +201,15 @@ const storeMobile2 =[
     {name:"Universitas", idContent: "mobileUniv"},
 ];
 
-const storeMobilebadges =[
+const storeMobilebadges =[    
+    {name:"Kontak Sekolah", idContent: "mobileSchoolsContactId"},
+    {name:"Biaya Sekolah", idContent: "studentConstId"},
     {name:"Informasi Sekolah", idContent: "mobileDescriptionId"},
-    {name:"MAPS", idContent: "mapsContentId"},
-    {name:"Biaya Pendidikan", idContent: "studentConstId"},
     {name:"Pendaftaran", idContent: "registerTimeId"},
-    {name:"Jurusan", idContent: "majorsId"},
-    {name:"Fasilitas", idContent: "primaryFasilityId"},
+    {name:"Jurusan", idContent: "mobileDirectionId"},
+    {name:"Fasilitas", idContent: "mobileprimaryFasilityId"},
     {name:"Ekstrakulikuler", idContent: "extracurricularContentId"}
+
 ];
 
 const store3 = [
@@ -252,29 +406,44 @@ class GetAccessDetail extends Component {
                                 store={storeMobilebadges}
                             />
                         </section>
-                         <section style={{display: "none"}} id="mobileDescriptionId" className="tabcontendetail">
-                            <div style={{marginTop: "18px"}} />
-                            <MobileDescription store={store9} />
-                        </section>
-                        <section style={{display: "none"}} id="mapsContentId" className="tabcontendetail">
-                            <MapsComponents store={store5} />
+                        <section style={{display: "none"}} id="mobileSchoolsContactId" className="tabcontendetail">
+                            <div style={{marginTop: "30px"}} />
+                            <MobileDescriptionWithIcon
+                                store={storeMobileTwo}
+                            />
                         </section>
                         <section style={{display: "none"}} id="studentConstId" className="tabcontendetail">
                             <div style={{marginTop: "18px"}} />
-                            <PriceListMobile store={store10} title="Biaya Pendidikan" />
+                            <MobileDescription store={storeMobileThree} />
+                        </section>
+                        <section style={{display: "none"}} id="mobileDescriptionId" className="tabcontendetail">
+                            <div style={{marginTop: "18px"}} />
+                            <MobileDescription store={storeMobileFour} />
                         </section>
                         <section style={{display: "none"}} id="registerTimeId" className="tabcontendetail">
-                            <LineComponents marginTop="7px" marginBottom="32px" />
-                            <InformasiSekolah time="07:00-15:00" reg="10 April 2020 - 10 Juni 2020" headmaster="Fauzi Bow, SPsi" />
+                            <div style={{marginTop: "18px"}} />
+                            <MobileDescription store={storeMobileFive} />
                         </section>
-                        <section style={{display: "none"}} id="primaryFasilityId" className="tabcontendetail">
-                            <PrimaryFacility store={store3} title="Fasilitas" />
+                        {/* <section style={{display: "none"}} id="mapsContentId" className="tabcontendetail">
+                            <MapsComponents store={store5} />
+                        </section> */}
+                        <section style={{display: "none"}} id="mobileDirectionId" className="tabcontendetail">
+                            <div style={{marginTop: "30px"}} />
+                            <MobileDescriptionWithIcon
+                                store={storeMobileSix}
+                            />
                         </section>
-                        <section style={{display: "none"}} id="majorsId" className="tabcontendetail">
-                            <OtherFacility store={store4} title="Jurusan"/>
+                        <section style={{display: "none"}} id="mobileprimaryFasilityId" className="tabcontendetail">
+                            <div style={{marginTop: "30px"}} />
+                            <MobileDescriptionWithIcon
+                                store={storeMobileSeven}
+                            />
                         </section>
                         <section style={{display: "none"}} id="extracurricularContentId" className="tabcontendetail">
-                            <Ekstrakulikuler store={store6} title="Ekstrakulikuler" />
+                            <div style={{marginTop: "30px"}} />
+                            <MobileDescriptionWithIcon
+                                store={storeMobileEight}
+                            />
                         </section>
                         <section >
                             <div style={{marginTop: "48px"}}></div>
