@@ -12,6 +12,7 @@ const CardImageMobile = props => {
             <Container id="cardImageMobileContainer">
             {props.store.map((data)=>{
                 return(
+                    <LinkCards href={data.url ? data.url+`?province=${data.titleCard}` : `/favorite?province=${data.titleCard}`}>
                     <Row>
                         <Col>
                             <Card className="text-white">
@@ -24,6 +25,7 @@ const CardImageMobile = props => {
                             </Card>
                         </Col>
                     </Row>
+                    </LinkCards>
                   );
                 })
             }
@@ -32,6 +34,12 @@ const CardImageMobile = props => {
     );
 }
 
+const LinkCards = styled.a`
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+`; 
 const CardTitle = styled.h3`
     font-family: Rubik;
     font-style: normal;

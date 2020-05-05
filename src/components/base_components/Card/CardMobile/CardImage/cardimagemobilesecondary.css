@@ -1,5 +1,5 @@
 @media screen and (min-width: 320px){
-    #cardImageMobileSecondaryContainer > .row > .col {
+    #cardImageMobileSecondaryContainer > a > .row > .col {
         margin-bottom: 25px;
         
     }
@@ -8,14 +8,14 @@
         /* padding-right: 145px;
         padding-left: 145px; */
     }
-    #cardImageMobileSecondaryContainer > .row > .col > .card{
+    #cardImageMobileSecondaryContainer > a > .row > .col > .card{
         border: 0px;
         max-width: 345px;
         max-height: 345px;
     }
 }
 @media screen and (min-width: 360px){
-    #cardImageMobileSecondaryContainer > .row > .col{
+    #cardImageMobileSecondaryContainer > a > .row > .col{
         margin-bottom: 25px;
         
     }
@@ -24,7 +24,7 @@
         /* padding-right: 145px;
         padding-left: 145px; */
     }
-    #cardImageMobileSecondaryContainer > .row > .col > .card{
+    #cardImageMobileSecondaryContainer > a > .row > .col > .card{
         border: 0px;
         max-width: 345px;
         max-height: 345px;
@@ -33,7 +33,7 @@
 }
 @media screen and (min-width: 375px){
 
-    #cardImageMobileSecondaryContainer > .row > .col{
+    #cardImageMobileSecondaryContainer > a > .row > .col{
         margin-bottom: 30px;
         
     }
@@ -41,14 +41,14 @@
         max-width: 375px;
     }
 
-    #cardImageMobileSecondaryContainer > .row > .col > .card{
+    #cardImageMobileSecondaryContainer > a > .row > .col > .card{
         border: 0px;
         width: 345px;
         height: 345px;
     }
 }
 
-#cardImageMobileSecondaryContainer > .row > .col > .card{
+#cardImageMobileSecondaryContainer > a > .row > .col > .card{
     border-radius: 8px !important;
     box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.4);
 }

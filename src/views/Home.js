@@ -29,7 +29,7 @@ const storeMobile = [
         descrip   : "15 Sekolah"
     },
     {
-        image     : BASE_URL+"/345x345",
+        image     : "https://via.placeholder.com/255x256",
         titleCard : "Jawa Barat",
         descrip   : "15 Sekolah"
     },
@@ -159,7 +159,7 @@ class Home extends Component {
                             <BadgesGroupSecondary store={storeMobile2} />
                         </section>
                         <section>
-                            <div style={{marginTop:"25px"}}></div>
+                            <div style={{marginTop:"35px"}}></div>
                             <InputSearchMobile 
                                 onChange={(e)=>{console.log(e.target.value)}} 
                                 label="CariProvinsi"
@@ -167,7 +167,7 @@ class Home extends Component {
                             />
                         </section>
                         <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
-                            <div style={{marginTop: "48px"}}></div>
+                            <div style={{marginTop: "25px"}}></div>
                             <CardImageMobile store={storeMobile} />
                         </section>
                         <section style={{display: "none"}} id="mobileSmpMts" className="tabcontendetail">

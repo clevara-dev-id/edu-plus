@@ -24,36 +24,29 @@ import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.p
 const storeMobile = [
     {
         image     : JakartaImage,
-        titleCard : "DKI Jakarta",
+        titleCard : "Jakarta Utara",
         descrip   : "15 Sekolah"
     },
     {
         image     : "https://via.placeholder.com/256x242",
-        titleCard : "Jawa Barat",
+        titleCard : "Jakarta Pusat",
         descrip   : "15 Sekolah"
     },
     {
         image     : "https://via.placeholder.com/255x242",
-        titleCard : "Jawa Tengah",
+        titleCard : "Jakarta Barat",
         descrip   : "15 Sekolah"
     },
     {
         image     : "https://via.placeholder.com/256x242",
-        titleCard : "Bali",
+        titleCard : "Jakarta Timur",
         descrip   : "15 Sekolah"
     },
     {
         image     : "https://via.placeholder.com/255x242",
-        titleCard : "Sumatra Utara",
+        titleCard : "Jakarta Selatan",
         descrip   : "15 Sekolah"
     },
-    {
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "Kalimantan",
-        descrip   : "15 Sekolah"
-    }
-
-
 ];
 
 const storeMobile2 =[
@@ -166,6 +159,18 @@ class Favorite extends Component {
                             />
                         </section>
                         <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
+                            <div style={{marginTop: "48px"}}></div>
+                            <CardImageMobileSecondary store={storeMobile} />
+                        </section>
+                        <section style={{display: "none"}} id="mobileSmpMts" className="tabcontendetail">
+                            <div style={{marginTop: "48px"}}></div>
+                            <CardImageMobileSecondary store={storeMobile} />
+                        </section>
+                        <section style={{display: "none"}} id="mobileSmaSmkMa" className="tabcontendetail">
+                            <div style={{marginTop: "48px"}}></div>
+                            <CardImageMobileSecondary store={storeMobile} />
+                        </section>
+                        <section style={{display: "none"}} id="mobileUniv" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
                             <CardImageMobileSecondary store={storeMobile} />
                         </section>

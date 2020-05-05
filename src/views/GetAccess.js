@@ -30,8 +30,8 @@ import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.p
 
 
 //dummy Mobile
-const storeMobile = [];
-const storeMobileTest = [
+// const storeMobile = [];
+const storeMobile = [
     {
         image     : JakartaImage,
         titleCard : "DKI Jakarta",
@@ -162,7 +162,8 @@ class GetAccess extends Component {
                         </section>
                         <section id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
-                            { storeMobile!==null && storeMobile.length > 0 ? <CardImageTertiary store={storeMobile} /> : ""}
+                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldRsult!=="" && this.state.fieldRsult!=="notfound" ? 
+                            <CardImageTertiary store={storeMobile} /> : ""}
                         </section>
                         <section>
                         {this.state.fieldRsult === "notfound" ? 

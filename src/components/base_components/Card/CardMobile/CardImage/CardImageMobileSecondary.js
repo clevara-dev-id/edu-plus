@@ -12,17 +12,19 @@ const CardImageMobileSecondary = props => {
             <Container id="cardImageMobileSecondaryContainer">
             {props.store.map((data)=>{
                 return(
-                    <Row>
-                        <Col>
-                            <Card>
-                                <Card.Img variant="top" src={data.image} height={242}/>
-                                <Card.Body>
-                                    <CardTitle>{data.titleCard}</CardTitle>
-                                    <CardCount>{data.descrip}</CardCount>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    </Row>
+                    <LinkCards href={data.link ? data.link+`?city=${data.titleCard}` :`/favoritedetail?city=${data.titleCard}`}>
+                        <Row>
+                            <Col>
+                                <Card>
+                                    <Card.Img variant="top" src={data.image} height={242}/>
+                                    <Card.Body>
+                                        <CardTitle>{data.titleCard}</CardTitle>
+                                        <CardCount>{data.descrip}</CardCount>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </LinkCards>
                   );
                 })
             }
@@ -30,6 +32,14 @@ const CardImageMobileSecondary = props => {
         </>
     );
 }
+
+const LinkCards = styled.a`
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+`; 
+
 
 const CardTitle = styled.h3`
     font-family: Rubik;

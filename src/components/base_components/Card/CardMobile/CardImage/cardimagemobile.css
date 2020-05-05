@@ -1,5 +1,5 @@
 @media screen and (min-width: 320px){
-    #cardImageMobileContainer > .row > .col {
+    #cardImageMobileContainer > a >.row > .col {
         margin-bottom: 25px;
         
     }
@@ -8,14 +8,14 @@
         /* padding-right: 145px;
         padding-left: 145px; */
     }
-    #cardImageMobileContainer > .row > .col > .card{
+    #cardImageMobileContainer > a > .row > .col > .card{
         border: 0px;
         max-width: 345px;
         max-height: 345px;
     }
 }
 @media screen and (min-width: 360px){
-    #cardImageMobileContainer > .row > .col{
+    #cardImageMobileContainer > a > .row > .col{
         margin-bottom: 25px;
         
     }
@@ -24,7 +24,7 @@
         /* padding-right: 145px;
         padding-left: 145px; */
     }
-    #cardImageMobileContainer > .row > .col > .card{
+    #cardImageMobileContainer > a > .row > .col > .card{
         border: 0px;
         max-width: 345px;
         max-height: 345px;
@@ -33,7 +33,7 @@
 }
 @media screen and (min-width: 375px){
 
-    #cardImageMobileContainer > .row > .col{
+    #cardImageMobileContainer > a > .row > .col{
         margin-bottom: 30px;
         
     }
@@ -41,14 +41,14 @@
         max-width: 375px;
     }
 
-    #cardImageMobileContainer > .row > .col > .card{
+    #cardImageMobileContainer > a > .row > .col > .card{
         border: 0px;
         max-width: 345px;
         max-height: 345px;
     }
 }
 
-#cardImageMobileContainer > .row > .col > .card > .card-img {
+#cardImageMobileContainer > a > .row > .col > .card > .card-img {
     /* background-color: none !important; */
     border-radius: 16px !important;
 }
