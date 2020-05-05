@@ -195,7 +195,9 @@ class GetAccessDetail extends Component {
             opsSekolah: false,
         }
     }
-    
+    onClickGetAccessHandle = () =>{
+        window.location="/getaccessinput";
+    }
     handleOnChange = () => {
         $(document).ready(()=>{
             $("#firstLoadItemFromGetAccess").hide();
@@ -300,11 +302,13 @@ class GetAccessDetail extends Component {
                                     name="LOGIN"
                                     id="buttonmesaageFormcontact"
                                     background="#1A6EB2"
+                                    onClick={()=>{console.log("get Login")}}
                                 /> :
                                 <ButtonPrimary
                                     name="DAPATKAN AKSES"
                                     id="buttonmesaageFormcontact"
                                     background="#1A6EB2"
+                                    onClick={()=>{this.onClickGetAccessHandle()}}
                             /> }
                         </section>
                     </OnMobile>

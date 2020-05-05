@@ -40,7 +40,6 @@ const LinkCards = styled.a`
     }
 `; 
 
-
 const CardTitle = styled.h3`
     font-family: Rubik;
     font-style: normal;

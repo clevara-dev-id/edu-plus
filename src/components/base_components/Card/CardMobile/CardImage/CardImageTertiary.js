@@ -12,6 +12,7 @@ const CardImageTertiary = props => {
             <Container id="cardImageMobileTertiaryContainer">
             {props.store.map((data)=>{
                 return(
+                    <LinkCards href={data.link ? data.link+`?schools=${data.titleCard}` :`/detail?schools=${data.titleCard}`}>
                     <Row>
                         <Col>
                             <Card>
@@ -23,6 +24,7 @@ const CardImageTertiary = props => {
                             </Card>
                         </Col>
                     </Row>
+                    </LinkCards>
                   );
                 })
             }
@@ -30,6 +32,13 @@ const CardImageTertiary = props => {
         </>
     );
 }
+
+const LinkCards = styled.a`
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+`; 
 
 const CardTitle = styled.h3`
     font-style: normal;

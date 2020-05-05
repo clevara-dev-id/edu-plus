@@ -34,35 +34,34 @@ import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.p
 const storeMobile = [
     {
         image     : JakartaImage,
-        titleCard : "DKI Jakarta",
-        descrip   : "15 Sekolah"
+        titleCard : "SDN Islam Harapan Ibu",
+        descrip   : "Jalan Batu Merah No. 71, Pejaten Timur",
+        link      : "/getaccessdetail",
     },
     {
         image     : "https://via.placeholder.com/256x242",
-        titleCard : "Jawa Barat",
-        descrip   : "15 Sekolah"
+        titleCard : "SDIT Insan Mandiri Jakarta",
+        descrip   : "Jalan Batu Merah No. 71, Pejaten Timur",
+        link      : "/getaccessdetail",
     },
     {
         image     : "https://via.placeholder.com/255x242",
-        titleCard : "Jawa Tengah",
-        descrip   : "15 Sekolah"
+        titleCard : "SDS Islam Harapan Ibu",
+        descrip   : "Jl. H. Banan No. 1, Kebayoran Lama",
+        link      : "/getaccessdetail",
     },
     {
         image     : "https://via.placeholder.com/256x242",
-        titleCard : "Bali",
-        descrip   : "15 Sekolah"
+        titleCard : "SDS Pangudi Luhur Jakarta",
+        descrip   : "Jl. H. Nawi Raya No. 21, Cilandak",
+        link      : "/getaccessdetail",
     },
     {
         image     : "https://via.placeholder.com/255x242",
-        titleCard : "Sumatra Utara",
-        descrip   : "15 Sekolah"
+        titleCard : "SD Charitas",
+        descrip   : "Jalan Swakarya C.13 A No. 1 4, Cilandak",
+        link      : "/getaccessdetail",
     },
-    {
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "Kalimantan",
-        descrip   : "15 Sekolah"
-    }
-
 
 ];
 
@@ -122,6 +121,9 @@ class GetAccess extends Component {
         this.state = {
             fieldRsult: "",
         }
+    }
+    onClickRegisterHandle = () =>{
+        window.location="/register";
     }
     // componentDidMount = ()=>{
     //     this.handleOnChange();
@@ -190,6 +192,7 @@ class GetAccess extends Component {
                                 name="DAFTARKAN SEKOLAH/TEMPAT KURSUS"
                                 id="buttonmesaageFormcontact"
                                 background="#1A6EB2"
+                                onClick={()=>{this.onClickRegisterHandle()}}
                             /> : ""}
                         </section>
                     </OnMobile>

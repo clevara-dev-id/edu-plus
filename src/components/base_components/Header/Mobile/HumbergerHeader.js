@@ -36,9 +36,9 @@ const HumbergerHeader = props => {
                     <Col>
                     <div id="mySidenavhumberger" className="sidenavHumberger">
                         <a href="javascript:void(0)" className="closebtn" onClick={()=>{closeNav()}}>&times;</a>
-                        <a href="#">Home</a>
-                        <a href="#">Hubungi Kami</a>
-                        <a href="#">Daftarkan Sekolah</a>
+                        <a href="/">Home</a>
+                        <a href="/contactus">Hubungi Kami</a>
+                        <a href="/getaccess">Daftarkan Sekolah</a>
                     </div>
                     </Col>
                 </Row>

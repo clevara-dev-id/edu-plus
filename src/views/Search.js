@@ -97,6 +97,9 @@ const storeDesktop2 =[
 
 
 class Search extends Component {
+    onClickSearchDetailHandle = () =>{
+        window.location="/searchresult";
+    }
     render() {
         return (
             <>
@@ -210,7 +213,7 @@ class Search extends Component {
                             <div style={{marginTop: "25px"}}></div>
                             <ButtonPrimary
                                 name="CARI SEKARANG" 
-                                onClick={(e)=>{console.log("this is button !")}} 
+                                onClick={(e)=>{this.onClickSearchDetailHandle()}} 
                                 background="#1A6EB2"
                             />
                         </section>

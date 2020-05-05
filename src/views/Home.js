@@ -109,6 +109,9 @@ const storeDesktop2 =[
 
 
 class Home extends Component {
+    onClickSearchHandle = () =>{
+        window.location="/search";
+    }
     render() {
         return (
             <>
@@ -146,7 +149,7 @@ class Home extends Component {
                     <OnMobile>
                         <section>
                             <JumbotronMobile
-                                onClickHeader={()=>{console.log("this is button")}}
+                                onClickHeader={()=>{this.onClickSearchHandle()}}
                                 text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
                             />
                         </section>

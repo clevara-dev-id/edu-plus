@@ -143,7 +143,7 @@ class Favorite extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbMobile 
-                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"},{name:"Jakarta Selatan", link:"#"}]}
+                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"}]}
                             />
                         </section>
                         <section>

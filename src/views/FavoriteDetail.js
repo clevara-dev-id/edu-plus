@@ -14,6 +14,7 @@ import InputSearchMobile from '../components/base_components/InputSearch/Mobile/
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
 import JumbotronMobileSecondary from '../components/base_components/Jumbotron/Mobile/JumbotronMobileSecondary';
 import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
+import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 
 
 //Image
@@ -114,6 +115,12 @@ class FavoriteDetail extends Component {
                             <JumbotronMobileSecondary
                                 primaryText="Sekolah Favorit"
                                 secondaryText="Jakarta Selatan"
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbMobile 
+                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"},{name:"Jakarta Selatan", link:"#"}]}
                             />
                         </section>
                         <section>
