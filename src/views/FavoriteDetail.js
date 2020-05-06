@@ -15,6 +15,7 @@ import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMo
 import JumbotronMobileSecondary from '../components/base_components/Jumbotron/Mobile/JumbotronMobileSecondary';
 import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
+import DropDownListSingle from '../components/base_components/DropDwonList/DropdownMobile/DropDownListSingle';
 
 
 //Image
@@ -126,6 +127,10 @@ class FavoriteDetail extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BadgesGroupSecondary store={storeMobile2} />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <DropDownListSingle onClick={(e)=>{console.log(`this is array by ${e.target.value}`)}} />
                         </section>
                         <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
