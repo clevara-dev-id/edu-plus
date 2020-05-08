@@ -452,7 +452,10 @@ class Register extends Component {
                             </section>
                             <section>
                                 <div style={{marginTop: "25px"}}></div>
-                                <RadioButtonTwo onClick={(e) => {console.log(e.target.value)}} />
+                                <RadioButtonTwo 
+                                    title="Status Sekolah"
+                                    onClick={(e) => {console.log(e.target.value)}} 
+                                />
                             </section>
                             <section>
                                 <LineComponents 

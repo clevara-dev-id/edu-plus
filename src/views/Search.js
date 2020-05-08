@@ -11,7 +11,7 @@ import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopB
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import RadioButtonThree from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThree';
-import RadioButtonFour from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonFour'
+import RadioButtonFive from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonFive'
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 import ButtonGray from '../components/base_components/Button/ButtonMobile/ButtonGray';
@@ -20,7 +20,7 @@ import BottomTitle from '../components/base_components/TitleBottom/Mobile/TitleB
 import DropdownListFilter from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilter';
 import DropdownListFilterFour from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilterFour';
 import TitleDropDownList from '../components/base_components/TitlePage/TitleMobile/TitleDropDownList';
-// import RadioButtonThreeGray from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThreeGray';
+import RadioButtonTwo from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonTwo';
 
 
 
@@ -195,12 +195,15 @@ class Search extends Component {
                         </section> */}
                         <section>
                             <div style={{marginTop: "35px"}}></div>
-                            <RadioButtonFour onClick={(e) => {console.log(e.target.value)}} />
+                            <RadioButtonFive onClick={(e)=>{console.log(e.target.value)}} />
                         </section>
                         <section>
-                            <div style={{marginTop: "25px"}}></div>
-                            <RadioButtonThree onClick={(e) => {console.log(e.target.value)}} />
-                        </section>
+                                <div style={{marginTop: "25px"}}></div>
+                                <RadioButtonTwo 
+                                    title="Filter Status  Sekolah"
+                                    onClick={(e) => {console.log(e.target.value)}} 
+                                />
+                            </section>
                         {/* <section>
                             <div style={{marginTop: "25px"}}></div>
                             <RadioButtonThreeGray onClick={(e) => {console.log(e.target.value)}} />

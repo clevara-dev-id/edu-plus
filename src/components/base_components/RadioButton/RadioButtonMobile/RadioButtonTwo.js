@@ -15,9 +15,9 @@ const RadioButtonTwo = props =>{
         <>
             <Container id="radioTwoid">
                 <div className="radio-toolbarTwo">
-                    <Row><Col className="radioTitle">Status Sekolah</Col></Row>
+                    <Row><Col className="radioTitle">{props.title}</Col></Row>
                     <Row>
-                        <Col className="bsjp2" xs={4}>
+                        <Col className="bsjpTwo" xs={4}>
                             <Input 
                                 type="radio" id="inputnegeri" 
                                 name="radioTwoMobile" 
@@ -32,7 +32,7 @@ const RadioButtonTwo = props =>{
                                 </div>
                             </label>
                         </Col>
-                        <Col className="bsjp2" xs={4} style={{paddingLeft : "5px", paddingRight : "5px"}} id="midConten">
+                        <Col className="bsjpTwo" xs={4} style={{paddingLeft : "5px", paddingRight : "5px"}} id="midConten">
                             <Input 
                                 type="radio" id="inputswasta" 
                                 name="radioTwoMobile" 
@@ -46,7 +46,7 @@ const RadioButtonTwo = props =>{
                                 </div>
                             </label>
                         </Col>
-                        <Col className="bsjp2" xs={4} style={{paddingLeft : "0px"}} >
+                        <Col className="bsjpTwo" xs={4} style={{paddingLeft : "0px"}} >
                         </Col>
                     </Row>
                 </div>
