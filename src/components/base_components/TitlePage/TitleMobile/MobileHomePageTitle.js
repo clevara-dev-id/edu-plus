@@ -19,18 +19,18 @@ const MobileHomePageTitle = props => {
     );
 }
 
-const TitleDiv = styled.h5`
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: left;   
-    letter-spacing: 0px;
+const TitleDiv = styled.h5(
+    props => ({
+    fontStyle: "normal",
+    fontWeight: "600",
+    fontSize: "18px",
+    lineHeight: "21px",
+    textAlign: "left",  
+    letterSpacing: "0px",
 
-    /* darkblue-eduplus */
-    color: #1A6EB2;
-
-`;
+    color: "#242424",
+    })
+);
 
 MobileHomePageTitle.propTypes = {
     name : PropTypes.string

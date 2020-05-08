@@ -14,6 +14,7 @@ import InputSearchMobile from '../components/base_components/InputSearch/Mobile/
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
 import JumbotronMobile from '../components/base_components/Jumbotron/Mobile/JumbotronMobile';
 import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
+import CarouselMobileSecondary from '../components/base_components/Carousel/CarouselMobile/CarouselMobileSecondary';
 
 
 //Image
@@ -62,6 +63,15 @@ const storeMobile2 =[
     {name:"SMP & MTS", idContent: "mobileSmpMts"},
     {name:"SMA, SMK, & MA", idContent: "mobileSmaSmkMa"},
     {name:"Universitas", idContent: "mobileUniv"},
+];
+
+const imageSliderStore = [
+    {image : "https://via.placeholder.com/290x180?text=First_Slide"},
+    {image : "https://via.placeholder.com/290x180?text=Second_Slide"},
+    {image : "https://via.placeholder.com/290x180?text=Third_Slide"},
+    {image : "https://via.placeholder.com/290x180?text=Fourth_Slide"},
+    {image : "https://via.placeholder.com/290x180?text=Fifth_Slide"}
+
 ];
 
 //dummy Desktop
@@ -155,6 +165,15 @@ class Home extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
+                            <MobileHomePageTitle name="Promo Untuk Anda" />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "10px"}} />
+                            <CarouselMobileSecondary store={imageSliderStore} />
+                        </section>
+
+                        <section>
+                            <div style={{marginTop:"65px"}}></div>
                             <MobileHomePageTitle name="Sekolah Favorite" />
                         </section>
                         <section>
