@@ -65,9 +65,9 @@
   line-height: 17px;
 }
 
-.container{
+/* .container{
   max-width: 375px;
-} 
+}  */
 
 @media screen and (max-width: 320px) {
   .bsjp > label {

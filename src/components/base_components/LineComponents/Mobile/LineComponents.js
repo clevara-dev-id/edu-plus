@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
+import './linecomponents.css';
 
 const LineComponents = props => {
     return (
         <>
-            <Container id="lineComponents">
+            <Container id="lineComponentsContainer">
                 <Row>
                     <Col>
                         <DivLine {...props} />

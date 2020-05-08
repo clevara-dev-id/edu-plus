@@ -15,7 +15,7 @@ const FormRegister = props => {
         let valueInput, text="", formIsValid=true;
       
         // Get the value of the input field with id="numb"
-        valueInput = document.getElementById("phoneFormContactComponent").value;
+        valueInput = document.getElementById(props.phoneid ? props.phoneid :"phoneFormContactComponent").value;
           
         if (!valueInput) {
           text = "Phone Number cannot be empty !";
@@ -37,7 +37,7 @@ const FormRegister = props => {
             formIsValid=false;
         } 
 
-        document.getElementById("errorValuePhone").innerHTML = text;
+        document.getElementById(props.phoneerrorid ? props.phoneerrorid : "errorValuePhone").innerHTML = text;
         return formIsValid;
     }
 
@@ -45,7 +45,7 @@ const FormRegister = props => {
         let valueInput, text="", formIsValid=true;
       
         // Get the value of the input field with id="numb"
-        valueInput = document.getElementById("emailFormContactComponent").value;
+        valueInput = document.getElementById(props.emailid ? props.emailid :"emailFormContactComponent").value;
         if (!valueInput) {
             text = "e-Mail cannot be empty !";
             formIsValid=false;
@@ -60,14 +60,14 @@ const FormRegister = props => {
             }
         }
   
-        document.getElementById("errorValueEmail").innerHTML = text;
+        document.getElementById(props.emailerrorid ? props.emailerrorid : "errorValueEmail").innerHTML = text;
         return formIsValid;
     }
     const IsOperatorValid = () => {
         let valueInput, text, formIsValid=true;
       
         // Get the value of the input field with id="numb"
-        valueInput = document.getElementById("operatorFormContactComponent").value;
+        valueInput = document.getElementById(props.opratorid ? props.opratorid : "operatorFormContactComponent").value;
           
         if (!valueInput) {
           text = "Operator Name cannot be empty !";
@@ -76,7 +76,7 @@ const FormRegister = props => {
         else {
           text = "";
         }
-        document.getElementById("errorValueOperator").innerHTML = text;
+        document.getElementById(props.opratorerrorid ? props.opratorerrorid : "errorValueOperator").innerHTML = text;
         return formIsValid;
     }
     return (
@@ -85,10 +85,10 @@ const FormRegister = props => {
                 <Row>
                     <Col>
                         <DivInput>
-                            <DivTitle>No. Telepon Sekolah / Tempat Kursus</DivTitle>
+                            <DivTitle>{props.phonetitle}</DivTitle>
                             <div className="inputClass">
                                 <InputEmail 
-                                    id="phoneFormContactComponent"
+                                    id={props.phoneid ? props.phoneid :"phoneFormContactComponent"}
                                     type="text" 
                                     name="phone"
                                     placeholder="Masukan nomor telepon"
@@ -98,17 +98,17 @@ const FormRegister = props => {
                             </div>
                         </DivInput>
                         <div className="errorClassDiv">
-                            <span id="errorValuePhone" ></span>
+                            <span id={props.phoneerrorid ? props.phoneerrorid : "errorValuePhone"} ></span>
                         </div>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
                         <DivInput>
-                            <DivTitle>Email Sekolah / Tempat Kursus</DivTitle>
+                            <DivTitle>{props.emailtitle}</DivTitle>
                             <div className="inputClass">
                                 <InputEmail 
-                                    id="emailFormContactComponent"
+                                    id={props.emailid ? props.emailid :"emailFormContactComponent"}
                                     type="email" 
                                     name="email"
                                     placeholder="Masukan email anda"
@@ -118,7 +118,7 @@ const FormRegister = props => {
                             </div>
                         </DivInput>
                         <div className="errorClassDiv">
-                            <span id="errorValueEmail" ></span>
+                            <span id={props.emailerrorid ? props.emailerrorid : "errorValueEmail"} ></span>
                         </div>
                     </Col>
                 </Row>
@@ -128,7 +128,7 @@ const FormRegister = props => {
                             <DivTitle>Masukkan Nama Operator</DivTitle>
                             <div className="inputClass">
                                 <InputEmail 
-                                    id="operatorFormContactComponent"
+                                    id={props.opratorid ? props.opratorid : "operatorFormContactComponent"}
                                     type="text" 
                                     name="operatorname"
                                     placeholder="Masukan nama Operator"
@@ -138,7 +138,7 @@ const FormRegister = props => {
                             </div>
                         </DivInput>
                         <div className="errorClassDiv">
-                            <span id="errorValueOperator" ></span>
+                            <span id={props.opratorerrorid ? props.opratorerrorid : "errorValueOperator"} ></span>
                         </div>
                     </Col>
                 </Row>
@@ -216,6 +216,12 @@ FormRegister.propTypes = {
     onChangeEmail    : PropTypes.func,
     onChangePhone    : PropTypes.func,
     onClickButton    : PropTypes.func,
+    phoneid          : PropTypes.string,
+    phoneerrorid     : PropTypes.string,
+    emailid          : PropTypes.string,
+    emailerrorid     : PropTypes.string,
+    opratorid        : PropTypes.string,
+    opratorerrorid   : PropTypes.string,
 }
 
 export default FormRegister;

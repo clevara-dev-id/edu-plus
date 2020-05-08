@@ -1,8 +1,8 @@
-#dropdownfilter {
-    margin-bottom: 16px;
-}
-
 @media screen and (min-width: 320px){
+    #dropdownfilter {
+        margin-bottom: 16px;
+        max-width: 320px;
+    }    
     #mybuttonFilter{
         width: 270px;
     }
@@ -17,6 +17,10 @@
 }
 
 @media screen and (min-width: 360px){
+    #dropdownfilter {
+        margin-bottom: 16px;
+        max-width: 360px;
+    }  
     #mybuttonFilter{
         width: 308px;
     }
@@ -31,6 +35,10 @@
 }
 
 @media screen and (min-width: 375px){
+    #dropdownfilter {
+        margin-bottom: 16px;
+        max-width: 375px;
+    } 
     #mybuttonFilter{
         width: 308px;
     }
