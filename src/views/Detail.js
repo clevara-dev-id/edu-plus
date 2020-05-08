@@ -256,10 +256,9 @@ const store7 =[
 
 const store8 =[
     {name:"Kontak Sekolah", idContent: "mobileSchoolsContactId"},
-    {name:"Biaya Sekolah", idContent: "studentConstId"},
     {name:"Informasi Sekolah", idContent: "mobileDescriptionId"},
+    {name:"Biaya Sekolah", idContent: "studentConstId"},
     {name:"Pendaftaran", idContent: "registerTimeId"},
-    {name:"Jurusan", idContent: "mobileDirectionId"},
     {name:"Fasilitas", idContent: "mobileprimaryFasilityId"},
     {name:"Ekstrakulikuler", idContent: "extracurricularContentId"}
 ];
@@ -358,27 +357,24 @@ class Detail extends Component {
                                 store={storeMobileTwo}
                             />
                         </section>
-                        <section style={{display: "none"}} id="studentConstId" className="tabcontendetail">
-                            <div style={{marginTop: "18px"}} />
-                            <MobileDescription store={storeMobileThree} />
-                        </section>
                         <section style={{display: "none"}} id="mobileDescriptionId" className="tabcontendetail">
                             <div style={{marginTop: "18px"}} />
                             <MobileDescription store={storeMobileFour} />
+                        </section>
+                        <section style={{display: "none"}} id="studentConstId" className="tabcontendetail">
+                            <div style={{marginTop: "18px"}} />
+                            <MobileDescription store={storeMobileThree} />
                         </section>
                         <section style={{display: "none"}} id="registerTimeId" className="tabcontendetail">
                             <div style={{marginTop: "18px"}} />
                             <MobileDescription store={storeMobileFive} />
                         </section>
-                        {/* <section style={{display: "none"}} id="mapsContentId" className="tabcontendetail">
-                            <MapsComponents store={store5} />
-                        </section> */}
-                        <section style={{display: "none"}} id="mobileDirectionId" className="tabcontendetail">
+                        {/* <section style={{display: "none"}} id="mobileDirectionId" className="tabcontendetail">
                             <div style={{marginTop: "30px"}} />
                             <MobileDescriptionWithIcon
                                 store={storeMobileSix}
                             />
-                        </section>
+                        </section> */}
                         <section style={{display: "none"}} id="mobileprimaryFasilityId" className="tabcontendetail">
                             <div style={{marginTop: "30px"}} />
                             <MobileDescriptionWithIcon

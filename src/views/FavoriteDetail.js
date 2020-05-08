@@ -136,6 +136,18 @@ class FavoriteDetail extends Component {
                             <div style={{marginTop: "48px"}}></div>
                             <CardImageTertiary store={storeMobile} />
                         </section>
+                        <section style={{display: "none"}} id="mobileSmpMts" className="tabcontendetail">
+                            <div style={{marginTop: "48px"}}></div>
+                            <CardImageTertiary store={storeMobile} />
+                        </section>
+                        <section style={{display: "none"}} id="mobileSmaSmkMa" className="tabcontendetail">
+                            <div style={{marginTop: "48px"}}></div>
+                            <CardImageTertiary store={storeMobile} />
+                        </section>
+                        <section style={{display: "none"}} id="mobileUniv" className="tabcontendetail">
+                            <div style={{marginTop: "48px"}}></div>
+                            <CardImageTertiary store={storeMobile} />
+                        </section>
                         <section>
                             <div style={{marginTop: "25px"}}></div>
                                 <ButtonLoadMore 
