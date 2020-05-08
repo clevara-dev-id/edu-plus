@@ -119,22 +119,11 @@ class GetAccess extends Component {
         super(props);
  
         this.state = {
-            fieldRsult: "",
+            fieldResult: "",
         }
     }
     onClickRegisterHandle = () =>{
         window.location="/register";
-    }
-    // componentDidMount = ()=>{
-    //     this.handleOnChange();
-    // }
-    // componentDidUpdate = () =>{
-    //     this.handleOnChange();
-    // }
-    handleOnChange = () => {
-        $(document).ready(()=>{
-            $("#firstLoadItemFromGetAccess").hide();
-        }); 
     }
     render() {
         return (
@@ -151,24 +140,39 @@ class GetAccess extends Component {
                             />
                         </section>
                         <section>
-                            <div style={{marginTop:"25px"}}></div>
+                            <div style={{marginTop:"0px"}}></div>
                             <InputSearchMobileSecondary 
                                 title="Cari sekolah/Tempat Kursus disini"
-                                onChange={(e)=>{this.setState({fieldRsult:e.target.value}); this.handleOnChange()}}
+                                onChange={(e)=>{this.setState({fieldResult:e.target.value})}}
                                 label="Masukannamasekolah"
                                 placeholder="Masukan nama Sekolah/Kursusan"
                             />
-                            {this.state.fieldRsult ? <MessageGetAccessResult 
-                            name={this.state.fieldRsult} sumOf="5" fontSize="13px" /> : ""}
-                            <div id="firstLoadItemFromGetAccess" style={{marginTop:"300px"}}></div>
                         </section>
-                        <section id="mobileSDdanMI" className="tabcontendetail">
+                        <section>
+                            <div style={{marginTop:"10px"}}></div>
+                            {this.state.fieldResult === "" ?
+                            <ButtonPrimary
+                                name="CARI"
+                                id="buttonsearchcontact"
+                                background="#1A6EB2"
+                                onClick={()=>{console.log("Seach Button")}}
+                            /> : ""}
+                            {this.state.fieldResult === "" ?
+                            <div style={{marginTop:"300px"}}></div>
+                            :""}
+                        </section>
+                        <section>
+                                <div style={{marginTop:"-15px"}}></div>
+                                {this.state.fieldResult ? <MessageGetAccessResult 
+                                name={this.state.fieldResult} sumOf="5" fontSize="13px" /> : ""}
+                        </section>
+                        <section>
                             <div style={{marginTop: "48px"}}></div>
-                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldRsult!=="" && this.state.fieldRsult!=="notfound" ? 
+                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" && this.state.fieldResult!=="notfound" ? 
                             <CardImageTertiary store={storeMobile} /> : ""}
                         </section>
                         <section>
-                        {this.state.fieldRsult === "notfound" ? 
+                        {this.state.fieldResult === "notfound" ? 
                             <LabelMobileComponents
                                 label="Mohon maaf data tidak ditemukan"
                             />
@@ -176,9 +180,9 @@ class GetAccess extends Component {
                         </section>
                         <section >
                             <div style={{marginTop: "48px"}}></div>
-                            {storeMobile!==null && storeMobile.length > 0 || this.state.fieldRsult === "notfound" ? 
+                            {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
                                 <LineComponents marginTop="7px" marginBottom="25px" /> : ""}
-                            {storeMobile!==null && storeMobile.length > 0 || this.state.fieldRsult === "notfound" ? 
+                            {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
                                 <TitleBottomSecondary 
                                 name="Tidak Menemukan Data sekolah/Tempat kursus? Klik tombol dibawah untuk daftarkan sekolah/tempat kursus"
                                 link=""
@@ -187,8 +191,9 @@ class GetAccess extends Component {
                                 fontSize="13px"
                             /> : ""}
                         </section>
-                        <section id="mobileSDdanMI" className="tabcontendetail">
-                            { storeMobile!==null && storeMobile.length > 0 || this.state.fieldRsult === "notfound" ?<ButtonPrimary
+                        <section>
+                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ?
+                            <ButtonPrimary
                                 name="DAFTARKAN SEKOLAH/TEMPAT KURSUS"
                                 id="buttonmesaageFormcontact"
                                 background="#1A6EB2"

@@ -25,6 +25,23 @@ const FormGetAccessMobile = props => {
         return formIsValid;
     }
 
+    const IsPositionValid = () => {
+        let valueInput, text, formIsValid=true;
+      
+        // Get the value of the input field with id="numb"
+        valueInput = document.getElementById("positionFormContactComponent").value;
+          
+        if (!valueInput) {
+          text = "Position cannot be empty !";
+          formIsValid=false;
+        } 
+        else {
+          text = "";
+        }
+        document.getElementById("errorValuePosition").innerHTML = text;
+        return formIsValid;
+    }
+
     const IsPhoneValid = () => {
         let valueInput, text="", formIsValid=true;
       
@@ -118,6 +135,26 @@ const FormGetAccessMobile = props => {
                         </DivInput>
                         <div className="errorClassDiv">
                             <span id="errorValueName" ></span>
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <DivInput>
+                            <DivTitle>Jabatan</DivTitle>
+                            <div className="inputClass">
+                                <InputEmail 
+                                    id="positionFormContactComponent"
+                                    type="text" 
+                                    name="position"
+                                    placeholder="Masukan jabatan anda"
+                                    onChange={props.onChangePosition}
+                                    onBlur={()=>{IsPositionValid()}}
+                                />
+                            </div>
+                        </DivInput>
+                        <div className="errorClassDiv">
+                            <span id="errorValuePosition" ></span>
                         </div>
                     </Col>
                 </Row>
@@ -259,6 +296,7 @@ const InputMessage = styled.textarea`
 FormGetAccessMobile.propTypes = {
     title            : PropTypes.string,
     onChangeName     : PropTypes.func,
+    onChangePosition : PropTypes.func,
     onChangeEmail    : PropTypes.func,
     onChangePhone    : PropTypes.func,
     onClickButton    : PropTypes.func,

@@ -225,6 +225,7 @@ class GetAccessInput extends Component {
                             <FormGetAccessMobile 
                                 title="Atau Kirimkan pesan anda"
                                 onChangeName={(e)=>{console.log(e.target.value)}}
+                                onChangePosition={(e)=>{console.log(e.target.value)}}
                                 onChangeEmail={(e)=>{console.log(e.target.value)}}
                                 onChangePhone={(e)=>{console.log(e.target.value)}}
                                 onClickButton={()=>{console.log("Button Is Activated !")}}
