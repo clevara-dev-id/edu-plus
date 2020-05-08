@@ -13,6 +13,7 @@ import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMob
 import InputSearchMobile from '../components/base_components/InputSearch/Mobile/InputSearchMobile';
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
 import JumbotronMobile from '../components/base_components/Jumbotron/Mobile/JumbotronMobile';
+import JumbotronWithCarousel from '../components/base_components/Jumbotron/Mobile/JumbotronWithCarousel'
 import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 import CarouselMobileSecondary from '../components/base_components/Carousel/CarouselMobile/CarouselMobileSecondary';
 
@@ -157,10 +158,17 @@ class Home extends Component {
                         </section>
                     </OnDesktop>
                     <OnMobile>
-                        <section>
+                        {/* <section>
                             <JumbotronMobile
                                 onClickHeader={()=>{this.onClickSearchHandle()}}
                                 text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
+                            />
+                        </section> */}
+                        <section>
+                            <JumbotronWithCarousel
+                                onClickHeader={()=>{this.onClickSearchHandle()}}
+                                text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
+                                store={imageSliderStore}
                             />
                         </section>
                         <section>
