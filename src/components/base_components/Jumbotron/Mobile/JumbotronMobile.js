@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import logoeduplus from '../../../asset/logo/eduplusheader.svg';
-import Button from '../../Button/ButtonMobile/ButtonSecondary'
+import Button from '../../Button/ButtonMobile/ButtonSecondary';
 
 import './jumbotronmobile.css';
 
