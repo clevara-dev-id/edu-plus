@@ -8,17 +8,28 @@
     margin-left: 0px;
 }
 
-#footerMobileBlueContainer > .linkFooters {
-    margin-top: 59px;
-}
-
-#footerMobileBlueContainer > .linkFooters > .footersDaftar {
-    text-align: right;
-}
 
 @media screen and (min-width: 320px) {
     #footerMobileBlueContainer > .linkFooters > #footerlinkid > a{
-        font-size: 11px;
+        font-size: 11.5px;
+    }
+    #footerMobileBlueContainer > .linkFooters {
+        margin-top: 59px;
+    }
+    
+    #footerMobileBlueContainer > .linkFooters > .footersDaftar {
+        margin-left: 5px;
+    }
+    
+    #footerMobileBlueContainer > .linkFooters > .contactus {
+        margin-left: 5px;
+    }
+    
+    #footerMobileBlueContainer > .linkFooters > .login {
+        margin-left: -20px;
+    }
+    #footerMobileBlueContainer > .row > .col-12 > .description {
+        font-size: 13px;
     }
 }
 
@@ -26,11 +37,47 @@
     #footerMobileBlueContainer > .linkFooters > #footerlinkid > a{
         font-size: 13px;
     }
+    #footerMobileBlueContainer > .linkFooters {
+        margin-top: 59px;
+    }
+    
+    #footerMobileBlueContainer > .linkFooters > .footersDaftar {
+        margin-left: 10px;
+    }
+    
+    #footerMobileBlueContainer > .linkFooters > .contactus {
+        margin-left: 10px;
+    }
+    
+    #footerMobileBlueContainer > .linkFooters > .login {
+        margin-left: -20px;
+    }
+    #footerMobileBlueContainer > .row > .col-12 > .description {
+        font-size: 14px;
+    }
 }
 
 @media screen and (min-width: 375px) {
     #footerMobileBlueContainer > .linkFooters > #footerlinkid > a{
         font-size: 13px;
+    }
+    #footerMobileBlueContainer > .linkFooters {
+        margin-top: 59px;
+    }
+    
+    #footerMobileBlueContainer > .linkFooters > .footersDaftar {
+        margin-left: 10px;
+    }
+    
+    #footerMobileBlueContainer > .linkFooters > .contactus {
+        margin-left: 10px;
+    }
+    
+    #footerMobileBlueContainer > .linkFooters > .login {
+        margin-left: -20px;
+    }
+    #footerMobileBlueContainer > .row > .col-12 > .description {
+        font-size: 14px;
     }
 }
 

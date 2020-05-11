@@ -11,7 +11,7 @@ const FooterMobileBlue = props => {
   
     return (
         <>
-            <Container id="footerMobileBlueContainer" fluid>
+            <Container id="footerMobileBlueContainer">
                 <Row>
                     <Col xs={12} className="headclassfooter">
                         <DivLogo><img src={logoeduplus} width="138px" height="52px" /></DivLogo>
@@ -19,15 +19,20 @@ const FooterMobileBlue = props => {
                 </Row>
                 <Row >
                     <Col xs={12} >
-                    <DivDescr>Cari sekolah favorit untuk masa depan yang cerah semua ada di EDUKASI PLUS</DivDescr>
+                        <DivDescr className="description">
+                            Cari sekolah favorit untuk masa depan yang cerah semua ada di EDUKASI PLUS
+                        </DivDescr>
                     </Col>
                 </Row>
                 <Row className="linkFooters" >
-                    <Col xs={2} id="footerlinkid">
+                    <Col xs={1} id="footerlinkid">
                         <FooterLink href={props.homeLink}>Home</FooterLink>
                     </Col>
-                    <Col xs={4} id="footerlinkid" >
+                    <Col xs={4} id="footerlinkid" className="contactus" >
                         <FooterLink href={props.contactLink}>Hubungi Kami</FooterLink>
+                    </Col>
+                    <Col xs={1} id="footerlinkid" className="login" >
+                        <FooterLink href={props.loginLink}>Login</FooterLink>
                     </Col>
                     <Col xs={6} id="footerlinkid" className="footersDaftar" >
                         <FooterLink href={props.registerLink} >Daftarkan Sekolah Anda</FooterLink>
@@ -105,6 +110,7 @@ const CopyRight = styled.div`
 FooterMobileBlue.prototype = {
     homeLink     : PropTypes.string,
     contactLink  : PropTypes.string,
+    loginLink    : PropTypes.string,
     registerLink : PropTypes.string
 }
 

@@ -53,7 +53,8 @@ export default class ApplicationLayout extends Base {
                     <OnMobile>
                         <FooterMobileBlue
                             homeLink="/"
-                            contactLink="contactus"
+                            contactLink="/contactus"
+                            loginLink="/login"
                             registerLink="/register"
                         />
                     </OnMobile>
