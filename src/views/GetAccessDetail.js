@@ -115,22 +115,7 @@ const storeMobileFive = [
     },
 ];
 
-const storeMobileSix =[
-    {
-        name:"IPA",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:"",
-    },
-    {
-        name:"IPS",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:""
-    },
-];
+
 
 const storeMobileSeven =[
     {

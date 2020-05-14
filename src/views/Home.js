@@ -172,7 +172,7 @@ class Home extends Component {
                             />
                         </section>
                         <section>
-                            <div style={{marginTop:"25px"}}></div>
+                            <div style={{marginTop:"32px"}}></div>
                             <MobileHomePageTitle name="Promo Untuk Anda" />
                         </section>
                         <section>

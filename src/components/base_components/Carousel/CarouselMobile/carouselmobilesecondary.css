@@ -1,7 +1,17 @@
 #mobilecarouselsecondary{
     margin-bottom: 25px;
 }
-
+#mobilecarouselsecondary > .row > .col > .mobilecarouselsecondaryslider > .slick-list > .slick-track > .slick-slide{
+    height: 220px;
+}
+.mobilecarouselsecondaryslider > .slick-dots li.slick-active button::before {
+    opacity: .75;
+    color: #1A6EB2;
+}
+.mobilecarouselsecondaryslider > .slick-dots li button::before{
+    opacity: .75;
+    color: #e8e8e8;
+}
 @media screen and (min-width: 320px) {
     .mobilecarouselsecondaryslider > .slick-list > .slick-track { 
         height: 93px;

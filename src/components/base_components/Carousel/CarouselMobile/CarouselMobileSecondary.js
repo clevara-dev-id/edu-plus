@@ -13,7 +13,16 @@ const CarouselMobileSecondary = props => {
             infinite: true,
             speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            appendDots: dots => (
+                <div
+                  style={{
+                    borderRadius: "10px",
+                  }}
+                >
+                  <ul style={{ margin: "0px", paddingLeft: "0px" }}> {dots} </ul>
+                </div>
+            ),
         };
     return (
         <>
