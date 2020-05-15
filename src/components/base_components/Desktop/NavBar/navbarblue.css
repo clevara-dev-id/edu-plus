@@ -1,0 +1,135 @@
+@media screen and (min-width: 1024px){
+    #navbarDesktopBlueContainer{
+        max-width: none;
+        min-width: 1024px;
+        height: 120px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
+        padding-left: 60px;
+    } */
+}
+
+@media screen and (min-width: 1152px){
+    #navbarDesktopBlueContainer{
+        max-width: none;
+        min-width: 1152px;
+        height: 120px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
+        padding-left: 90px;
+    } */
+}
+@media screen and (min-width: 1280px){
+    #navbarDesktopBlueContainer{
+        max-width: none;
+        min-width: 1280px;
+        height: 120px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
+        padding-left: 100px;
+    } */
+}
+@media screen and (min-width: 1360px){
+    #navbarDesktopBlueContainer{
+        max-width: none;
+        min-width: 1360px;
+        height: 120px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
+        padding-left: 125px;
+    } */
+}
+
+@media screen and (min-width: 1366px){
+    #navbarDesktopBlueContainer{
+        max-width: none;
+        min-width: 1366px;
+        height: 120px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
+        padding-left: 135px;
+    } */
+}
+
+@media screen and (min-width: 1440px){
+    #navbarDesktopBlueContainer{
+        max-width: none;
+        min-width: 1440px;
+        height: 120px;
+        background: #96C8EB;
+        padding-right: 165px;
+        padding-left: 165px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
+        padding-left: 135px;
+    }
+    #buttonNavbarId {
+        padding-right: 20px;
+    } */
+}
+
+#navbarDesktopBlueContainer > .row > .colLogoNavBar {
+    text-align: left;
+    padding-top: 43px;
+}
+
+#navbarDesktopBlueContainer > .row > .colButtonNavBar{
+    padding-top: 36px;
+    text-align: right;
+}
+
+#navbarDesktopBlueContainer > .row > .colButtonNavBar > #buttonAssetDesktop{
+    justify-content: flex-end;
+    display: flex;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#navbarDesktopBlueContainer > .row > .colMenuBar {
+    padding-top: 35px;
+    padding-right: 35px;
+    text-align: right;
+    justify-content: flex-end;
+    display: flex;
+}
+
+#navbarDesktopBlueContainer > .row > .colMenuBar > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+  
+#navbarDesktopBlueContainer > .row > .colMenuBar > ul > li {
+    float: left;
+}
+  
+#navbarDesktopBlueContainer > .row > .colMenuBar > ul > li a {
+    display: block;
+    padding: 15px;
+    background: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 21px;
+    text-decoration: none;
+    /* white */
+    color: #FFFFFF;
+}
+
+#navbarDesktopBlueContainer > .row > .colMenuBar > ul > li a:hover{
+    text-decoration: none;
+} 

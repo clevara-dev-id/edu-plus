@@ -6,7 +6,8 @@ import Base from './Base';
 // import Whatsapp from '../component/base/whatsapp'
 // import { Spinner } from 'react-bootstrap'
 // import LoaderSpinner from '../component/base/loader/LoaderSpinner'
-import NavbarDesktop from '../components/base_components/Desktop/NavBar/Navbar'
+import NavbarDesktop from '../components/base_components/Desktop/NavBar/Navbar';
+import NavbarDesktopBlue from '../components/base_components/Desktop/NavBar/NavBarBlue'
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Mobile Import
@@ -35,7 +36,7 @@ export default class ApplicationLayout extends Base {
                 {/* <Whatsapp /> */}
                 <header>
                     <OnDesktop>
-                        <NavbarDesktop 
+                        <NavbarDesktopBlue 
                             store={store}
                             onClickButton={()=>{console.log("this is button !")}}
                         />
