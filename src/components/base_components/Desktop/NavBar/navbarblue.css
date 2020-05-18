@@ -3,12 +3,12 @@
         max-width: none;
         min-width: 1024px;
         height: 120px;
-        padding-right: 0px;
-        padding-left: 0px;
+        background: #96C8EB;
+        padding-right: 85px;
+        padding-left: 85px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
-    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
-        padding-left: 60px;
-    } */
 }
 
 @media screen and (min-width: 1152px){
@@ -16,36 +16,36 @@
         max-width: none;
         min-width: 1152px;
         height: 120px;
-        padding-right: 0px;
-        padding-left: 0px;
+        background: #96C8EB;
+        padding-right: 110px;
+        padding-left: 110px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
-    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
-        padding-left: 90px;
-    } */
 }
 @media screen and (min-width: 1280px){
     #navbarDesktopBlueContainer{
         max-width: none;
         min-width: 1280px;
         height: 120px;
-        padding-right: 0px;
-        padding-left: 0px;
+        background: #96C8EB;
+        padding-right: 125px;
+        padding-left: 125px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
-    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
-        padding-left: 100px;
-    } */
 }
 @media screen and (min-width: 1360px){
     #navbarDesktopBlueContainer{
         max-width: none;
         min-width: 1360px;
         height: 120px;
-        padding-right: 0px;
-        padding-left: 0px;
+        background: #96C8EB;
+        padding-right: 145px;
+        padding-left: 145px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
-    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
-        padding-left: 125px;
-    } */
 }
 
 @media screen and (min-width: 1366px){
@@ -53,12 +53,12 @@
         max-width: none;
         min-width: 1366px;
         height: 120px;
-        padding-right: 0px;
-        padding-left: 0px;
+        background: #96C8EB;
+        padding-right: 145px;
+        padding-left: 145px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
-    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
-        padding-left: 135px;
-    } */
 }
 
 @media screen and (min-width: 1440px){
@@ -72,13 +72,6 @@
         margin-left: 0px;
         margin-right: 0px;
     }
-
-    /* #navbarDesktopBlueContainer > .row > .col > .navbar > .labelNavbar {
-        padding-left: 135px;
-    }
-    #buttonNavbarId {
-        padding-right: 20px;
-    } */
 }
 
 #navbarDesktopBlueContainer > .row > .colLogoNavBar {
