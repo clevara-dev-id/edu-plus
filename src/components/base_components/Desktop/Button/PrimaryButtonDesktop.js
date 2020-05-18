@@ -37,7 +37,7 @@ const MyButton = styled.button(
         fontWeight: props.fontWeight ? props.fontWeight : "bold",
         fontSize: props.fontSize ? props.fontSize : "14px",
         lineHeight: props.lineHeight ? props.lineHeight : "17px",
-        transition: "0.3s all",
+        transition: "0.05s all",
     }
     )
 );

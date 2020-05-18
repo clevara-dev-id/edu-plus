@@ -4,6 +4,8 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
+import JumbotronDesktopBlue from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlue';
+import JumbotronWithCarouselDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronWithCarouselDesktop'
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 
@@ -76,6 +78,16 @@ const imageSliderStore = [
 ];
 
 //dummy Desktop
+// const widthDesktop = screen.width;
+const imageSliderStoreDesktop = [
+    {image : `https://via.placeholder.com/1440x480?text=First_Slide`},
+    {image : `https://via.placeholder.com/1440x480?text=Second_Slide`},
+    {image : `https://via.placeholder.com/1440x480?text=Third_Slide`},
+    {image : `https://via.placeholder.com/1440x480?text=Fourth_Slide`},
+    {image : `https://via.placeholder.com/1440x480?text=Fifth_Slide`}
+
+];
+
 const storeDesktop = [
     {
         image     : "https://via.placeholder.com/255x256",
@@ -128,9 +140,20 @@ class Home extends Component {
             <>
                 <div>
                     <OnDesktop>
-                        {/* <section>
-                            <JumbotronDesktop />
-                        </section> */}
+                            {/* <section>
+                                <JumbotronWithCarouselDesktop    
+                                    onClickHeader={()=>{this.onClickSearchHandle()}}
+                                    text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
+                                    store={imageSliderStore}
+                                />
+                            </section> */}
+                            <section>
+                                <JumbotronDesktopBlue    
+                                    onClickHeader={()=>{this.onClickSearchHandle()}}
+                                    text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
+                                    store={imageSliderStore}
+                                />
+                            </section>
                         <section>
                             <BadgesDesktop
                                 store={storeDesktop2}
