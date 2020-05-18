@@ -9,6 +9,13 @@
         margin-left: 0px;
         margin-right: 0px;
     }
+    #navbarDesktopBlueContainer > .row > .colMenuBar {
+        padding-top: 35px;
+        padding-right: 88px;
+        text-align: right;
+        justify-content: flex-end;
+        display: flex;
+    }
 }
 
 @media screen and (min-width: 1152px){
@@ -22,6 +29,13 @@
         margin-left: 0px;
         margin-right: 0px;
     }
+    #navbarDesktopBlueContainer > .row > .colMenuBar {
+        padding-top: 35px;
+        padding-right: 48px;
+        text-align: right;
+        justify-content: flex-end;
+        display: flex;
+    }
 }
 @media screen and (min-width: 1280px){
     #navbarDesktopBlueContainer{
@@ -34,6 +48,13 @@
         margin-left: 0px;
         margin-right: 0px;
     }
+    #navbarDesktopBlueContainer > .row > .colMenuBar {
+        padding-top: 35px;
+        padding-right: 35px;
+        text-align: right;
+        justify-content: flex-end;
+        display: flex;
+    }
 }
 @media screen and (min-width: 1360px){
     #navbarDesktopBlueContainer{
@@ -45,6 +66,13 @@
         padding-left: 145px;
         margin-left: 0px;
         margin-right: 0px;
+    }
+    #navbarDesktopBlueContainer > .row > .colMenuBar {
+        padding-top: 35px;
+        padding-right: 35px;
+        text-align: right;
+        justify-content: flex-end;
+        display: flex;
     }
 }
 
@@ -59,6 +87,13 @@
         margin-left: 0px;
         margin-right: 0px;
     }
+    #navbarDesktopBlueContainer > .row > .colMenuBar {
+        padding-top: 35px;
+        padding-right: 35px;
+        text-align: right;
+        justify-content: flex-end;
+        display: flex;
+    }
 }
 
 @media screen and (min-width: 1440px){
@@ -71,6 +106,14 @@
         padding-left: 165px;
         margin-left: 0px;
         margin-right: 0px;
+    }
+
+    #navbarDesktopBlueContainer > .row > .colMenuBar {
+        padding-top: 35px;
+        padding-right: 35px;
+        text-align: right;
+        justify-content: flex-end;
+        display: flex;
     }
 }
 
@@ -91,13 +134,6 @@
     padding-left: 0px;
 }
 
-#navbarDesktopBlueContainer > .row > .colMenuBar {
-    padding-top: 35px;
-    padding-right: 35px;
-    text-align: right;
-    justify-content: flex-end;
-    display: flex;
-}
 
 #navbarDesktopBlueContainer > .row > .colMenuBar > ul {
     list-style-type: none;
