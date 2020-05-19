@@ -5,6 +5,7 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 //Desktop
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
 import JumbotronDesktopBlue from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlue';
+import CarouselDesktopPrimary from '../components/base_components/Desktop/Carousel/CarouselDesktopPrimary'
 import JumbotronWithCarouselDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronWithCarouselDesktop'
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
@@ -147,14 +148,23 @@ class Home extends Component {
                                     store={imageSliderStore}
                                 />
                             </section> */}
-                            <section>
-                                <JumbotronDesktopBlue    
-                                    onClickHeader={()=>{this.onClickSearchHandle()}}
-                                    text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
-                                    store={imageSliderStore}
-                                />
-                            </section>
+                        {/* <section>
+                            <JumbotronDesktopBlue    
+                                onClickHeader={()=>{this.onClickSearchHandle()}}
+                                text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
+                                store={imageSliderStore}
+                            />
+                        </section> */}
                         <section>
+                            <div style={{marginTop:"40px"}}></div>
+                            <CarouselDesktopPrimary    
+                                onClickHeader={()=>{this.onClickSearchHandle()}}
+                                text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
+                                store={imageSliderStore}
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"80px"}}></div>
                             <BadgesDesktop
                                 store={storeDesktop2}
                             />

@@ -1,0 +1,223 @@
+.carouselDesktopPrimarySlider > .slick-dots{
+    position: inherit !important;
+    margin-top: 25px;
+    background: none;
+
+    
+}
+.carouselDesktopPrimarySlider > .slick-dots li {
+    margin: 0px;
+}
+.carouselDesktopPrimarySlider > .slick-dots li.slick-active button::before {
+    opacity: .75;
+    color: #1A6EB2;
+    font-size: 10px;
+}
+.carouselDesktopPrimarySlider > .slick-dots li button::before{
+    opacity: .75;
+    color: #DBDBDB;
+    font-size: 10px;
+}
+
+.carouselDesktopPrimarySlider > .slick-prev::before, .slick-next::before{
+    color: #1A6EB2;
+    font-size: 48px;
+    font-family: 'FontAwesome';
+}
+.carouselDesktopPrimarySlider > .slick-prev, .slick-next {
+    width: 48px;
+    height: 48px;
+    /* top: 43%; */
+}
+
+.carouselDesktopPrimarySlider > .slick-next::before {
+    /* right: -69px; */
+    content: '\f18e';
+}
+
+.carouselDesktopPrimarySlider > .slick-prev::before {
+    /* left: -69px; */
+    content: '\f190';
+}
+
+.carouselDesktopPrimarySlider > .slick-next {
+    right: -69px;
+}
+
+.carouselDesktopPrimarySlider > .slick-prev {
+    left: -69px;
+}
+
+.carouselDesktopPrimarySlider > .slick-list > .slick-track { 
+    height: 175px;
+}
+.carouselDesktopPrimaryImage { 
+    display: ruby !important;
+}
+
+@media screen and (min-width: 1024px){
+    #CarouselDesktopPrimaryContainer{
+        max-width: 100%;
+        width: 100%; 
+        min-width: 1024px;
+        margin-bottom: 50px;
+        padding-right: 85px;
+        padding-left: 85px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .carouselDesktopPrimaryImage > img {
+        width: 270px;
+        height: 194px;
+        border-radius: 8px;
+    }  
+    #CarouselDesktopPrimaryContainer > .row > .col > .carouselDesktopPrimarySlider > .slick-list > .slick-track > .slick-slide{
+        height: 194px;
+    }
+    #CarouselDesktopPrimaryContainer > .row > .col{
+        height: 194px;
+    }
+    .carouselDesktopPrimarySlider > .slick-prev, .slick-next {
+        top: 41%;
+    }
+}
+
+
+@media screen and (min-width: 1152px){
+    #CarouselDesktopPrimaryContainer{
+        max-width: 100%;
+        width: 100%; 
+        min-width: 1152px;
+        margin-bottom: 50px;
+        padding-right: 110px;
+        padding-left: 110px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .carouselDesktopPrimaryImage > img {
+        width: 295px;
+        height: 204px;
+        border-radius: 8px;
+    }  
+    #CarouselDesktopPrimaryContainer > .row > .col > .carouselDesktopPrimarySlider > .slick-list > .slick-track > .slick-slide{
+        height: 204px;
+    }
+    #CarouselDesktopPrimaryContainer > .row > .col{
+        height: 204px;
+    }
+    .carouselDesktopPrimarySlider > .slick-prev, .slick-next {
+        top: 41%;
+    }
+}
+
+
+@media screen and (min-width: 1280px){
+    #CarouselDesktopPrimaryContainer{
+        max-width: 100%;
+        width: 100%; 
+        min-width: 1280px;
+        margin-bottom: 50px;
+        padding-right: 125px;
+        padding-left: 125px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .carouselDesktopPrimaryImage > img {
+        width: 320px;
+        height: 214px;
+        border-radius: 8px;
+    }  
+    #CarouselDesktopPrimaryContainer > .row > .col > .carouselDesktopPrimarySlider > .slick-list > .slick-track > .slick-slide{
+        height: 214px;
+    }
+    #CarouselDesktopPrimaryContainer > .row > .col{
+        height: 214px;
+    }
+    .carouselDesktopPrimarySlider > .slick-prev, .slick-next {
+        top: 42%;
+    }
+}
+
+@media screen and (min-width: 1360px){
+    #CarouselDesktopPrimaryContainer{
+        max-width: 100%;
+        width: 100%; 
+        min-width: 1360px;
+        margin-bottom: 50px;
+        padding-right: 145px;
+        padding-left: 145px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .carouselDesktopPrimaryImage > img {
+        width: 335px;
+        height: 224px;
+        border-radius: 8px;
+    }  
+    #CarouselDesktopPrimaryContainer > .row > .col > .carouselDesktopPrimarySlider > .slick-list > .slick-track > .slick-slide{
+        height: 224px;
+    }
+    #CarouselDesktopPrimaryContainer > .row > .col{
+        height: 224px;
+    }
+    .carouselDesktopPrimarySlider > .slick-prev, .slick-next {
+        top: 43%;
+    }
+}
+
+@media screen and (min-width: 1366px){
+    #CarouselDesktopPrimaryContainer{
+        max-width: 100%;
+        width: 100%; 
+        min-width: 1366px;
+        margin-bottom: 50px;
+        padding-right: 145px;
+        padding-left: 145px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .carouselDesktopPrimaryImage > img {
+        width: 335px;
+        height: 224px;
+        border-radius: 8px;
+    }    
+    #CarouselDesktopPrimaryContainer > .row > .col > .carouselDesktopPrimarySlider > .slick-list > .slick-track > .slick-slide{
+        height: 224px;
+    }
+    #CarouselDesktopPrimaryContainer > .row > .col{
+        height: 224px;
+    }
+    .carouselDesktopPrimarySlider > .slick-prev, .slick-next {
+        top: 43%;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    #CarouselDesktopPrimaryContainer{
+        max-width: 100%;
+        width: 100%; 
+        min-width: 1440px;
+        margin-bottom: 50px;
+        padding-right: 165px;
+        padding-left: 165px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .carouselDesktopPrimaryImage > img {
+        width: 350px;
+        height: 224px;
+        border-radius: 8px;
+    }    
+    #CarouselDesktopPrimaryContainer > .row > .col > .carouselDesktopPrimarySlider > .slick-list > .slick-track > .slick-slide{
+        height: 224px;
+    }
+    #CarouselDesktopPrimaryContainer > .row > .col{
+        height: 224px;
+    }
+    .carouselDesktopPrimarySlider > .slick-prev, .slick-next {
+        top: 43%;
+    }
+
+}
