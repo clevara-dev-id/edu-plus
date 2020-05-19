@@ -148,13 +148,13 @@ class Home extends Component {
                                     store={imageSliderStore}
                                 />
                             </section> */}
-                        {/* <section>
+                        <section>
                             <JumbotronDesktopBlue    
                                 onClickHeader={()=>{this.onClickSearchHandle()}}
                                 text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
                                 store={imageSliderStore}
                             />
-                        </section> */}
+                        </section>
                         <section>
                             <div style={{marginTop:"40px"}}></div>
                             <CarouselDesktopPrimary    

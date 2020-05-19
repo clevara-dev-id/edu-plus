@@ -21,10 +21,10 @@ const DesktopBadges = props => {
         tablinks = document.getElementsByClassName("tablinksbadges");
         // console.log(tablinks);
         for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" activeClassBadges", "");
+          tablinks[i].className = tablinks[i].className.replace(" activeClassBadgesDesktop", "");
         }
         document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " activeClassBadges";
+        evt.currentTarget.className += " activeClassBadgesDesktop";
     }
     
     // useEffect(()=>{
@@ -59,15 +59,12 @@ const DesktopBadges = props => {
                         </div>
                     </div>
                 </Col>
-                <Col lg={1}>
-                    <Button variant="primary">Arrow</Button>{' '}
-                </Col>
-                <Col className="badgescolrightside" lg={3}>
-                    <InputGroup className="mb-3">
+                <Col className="badgescolrightside" lg={4}>
+                    <InputGroup>
                         {/* <InputGroup.Prepend>
                         <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
                         </InputGroup.Prepend> */}
-                        <Icon name="search" color="#B5B5B5" font="Feather" size={24} />
+                        <Icon name="search" color="#B5B5B5" font="Feather" size={22} />
                         <FormControl
                         className="inputTextBadges"
                         placeholder="Cari Provinsi"
@@ -89,47 +86,22 @@ const LinkBadge = styled.a`
     }
 `;
 
-const MyBadge = styled.span`
-    width: auto;
-    height: 30;
-    font-family: Rubik;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    background: #08A0E9;
-    border-radius: 4px;
-    padding-left: 14px;
-    padding-right: 14px;
-    padding-top: 8px;
-    padding-bottom: 7px;
-    margin-right: 9px;
-
-    display: inline-block;
-    white-space: nowrap;
-    vertical-align: baseline;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    
-`;
-
 const MyBadgeGray = styled.span`
     width: auto;
-    height: 30;
-    font-family: Rubik;
-    font-weight: normal;
+    height: 39px;
+    font-style: normal;
+    font-weight: 600;
     font-size: 16px;
     line-height: 19px;
     align-items: center;
     text-align: center;
     color: #B5B5B5;
     background: #F5F5F5;
-    border-radius: 4px;
-    padding-left: 14px;
-    padding-right: 14px;
-    padding-top: 8px;
-    padding-bottom: 7px;
+    border-radius: 36px;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-right: 9px;
 
     display: inline-block;
