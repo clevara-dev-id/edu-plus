@@ -6,9 +6,12 @@ import Base from './Base';
 // import Whatsapp from '../component/base/whatsapp'
 // import { Spinner } from 'react-bootstrap'
 // import LoaderSpinner from '../component/base/loader/LoaderSpinner'
+
+//Import Desktop
 import NavbarDesktop from '../components/base_components/Desktop/NavBar/Navbar';
 import NavbarDesktopBlue from '../components/base_components/Desktop/NavBar/NavBarBlue'
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import FooterDesktop from '../components/base_components/Desktop/Footers/FooterDesktop';
 
 //Mobile Import
 import HumbergerHeader from '../components/base_components/Header/Mobile/HumbergerHeader'
@@ -51,6 +54,14 @@ export default class ApplicationLayout extends Base {
                 </div>
 
                 <footer>
+                    <OnDesktop>
+                        <FooterDesktop 
+                            homeLink="/"
+                            contactLink="/contactus"
+                            loginLink="/login"
+                            registerLink="/register"
+                        />
+                    </OnDesktop>
                     <OnMobile>
                         <FooterMobileBlue
                             homeLink="/"

@@ -1,0 +1,234 @@
+@media screen and (min-width: 1024px) {
+    #footerDesktopContainer{
+        max-width: 100%;
+        min-width: 1024px;
+        background: #96C8EB;
+        height: 233px;
+        padding-right: 85px;
+        padding-left: 85px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    #footerDesktopContainer > .linkFooters > #footerlinkid > a{
+        font-size: 11.5px;
+    }
+    #footerDesktopContainer > .linkFooters {
+        margin-top: 59px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .footersDaftar {
+        margin-left: 5px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .contactus {
+        margin-left: 5px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .login {
+        margin-left: -20px;
+    }
+    #footerDesktopContainer > .row > .col-12 > .description {
+        font-size: 13px;
+    }
+}
+@media screen and (min-width: 1152px) {
+    #footerDesktopContainer{
+        max-width: 100%;
+        min-width: 1152px;
+        background: #96C8EB;
+        height: 233px;
+        padding-right: 110px;
+        padding-left: 110px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    #footerDesktopContainer > .linkFooters > #footerlinkid > a{
+        font-size: 11.5px;
+    }
+    #footerDesktopContainer > .linkFooters {
+        margin-top: 59px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .footersDaftar {
+        margin-left: 5px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .contactus {
+        margin-left: 5px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .login {
+        margin-left: -20px;
+    }
+    #footerDesktopContainer > .row > .col-12 > .description {
+        font-size: 13px;
+    }
+}
+@media screen and (min-width: 1280px) {
+    #footerDesktopContainer{
+        max-width: 100%;
+        min-width: 1280px;
+        background: #96C8EB;
+        height: 233px;
+        padding-right: 125px;
+        padding-left: 125px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    #footerDesktopContainer > .linkFooters > #footerlinkid > a{
+        font-size: 11.5px;
+    }
+    #footerDesktopContainer > .linkFooters {
+        margin-top: 59px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .footersDaftar {
+        margin-left: 5px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .contactus {
+        margin-left: 5px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .login {
+        margin-left: -20px;
+    }
+    #footerDesktopContainer > .row > .col-12 > .description {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 1360px) {
+    #footerDesktopContainer{
+        max-width: 100%;
+        min-width: 1360px;
+        background: #96C8EB;
+        height: 233px;
+        padding-right: 145px;
+        padding-left: 145px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    #footerDesktopContainer > .linkFooters > #footerlinkid > a{
+        font-size: 11.5px;
+    }
+    #footerDesktopContainer > .linkFooters {
+        margin-top: 59px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .footersDaftar {
+        margin-left: 5px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .contactus {
+        margin-left: 5px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .login {
+        margin-left: -20px;
+    }
+    #footerDesktopContainer > .row > .col-12 > .description {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    #footerDesktopContainer{
+        max-width: 100%;
+        min-width: 1366px;
+        background: #96C8EB;
+        height: 233px;
+        padding-right: 145px;
+        padding-left: 145px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    #footerDesktopContainer > .linkFooters > #footerlinkid > a{
+        font-size: 13px;
+    }
+    #footerDesktopContainer > .linkFooters {
+        margin-top: 59px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .footersDaftar {
+        margin-left: 10px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .contactus {
+        margin-left: 10px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .login {
+        margin-left: -20px;
+    }
+    #footerDesktopContainer > .row > .col-12 > .description {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #footerDesktopContainer{
+        max-width: 100%;
+        min-width: 1440px;
+        background: #96C8EB;
+        height: 233px;
+        padding-right: 165px;
+        padding-left: 165px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }    
+    #footerDesktopContainer > .linkFooters > #footerlinkid > a{
+        font-size: 13px;
+    }
+    #footerDesktopContainer > .linkFooters {
+        margin-top: 59px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .footersDaftar {
+        margin-left: 10px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .contactus {
+        margin-left: 10px;
+    }
+    
+    #footerDesktopContainer > .linkFooters > .login {
+        margin-left: -20px;
+    }
+    /* #footerDesktopContainer > .row > .col-12 > .description {
+        font-size: 14px;
+    } */
+}
+
+
+#footerDesktopContainer > .row > .colMenuBar > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 120px;
+    overflow: hidden;
+    right: 0px;
+    position: absolute;
+    left: auto;
+}
+  
+#footerDesktopContainer > .row > .colMenuBar > ul > li {
+    float: left;
+}
+  
+#footerDesktopContainer > .row > .colMenuBar > ul > li a {
+    display: block;
+    padding: 15px;
+    background: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 21px;
+    text-decoration: none;
+    /* white */
+    color: #FFFFFF;
+}
+
+#footerDesktopContainer > .row > .colMenuBar > ul > li a:hover{
+    text-decoration: none;
+} 
