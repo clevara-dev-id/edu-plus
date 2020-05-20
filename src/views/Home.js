@@ -5,11 +5,13 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 //Desktop
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
 import JumbotronDesktopBlue from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlue';
-import CarouselDesktopPrimary from '../components/base_components/Desktop/Carousel/CarouselDesktopPrimary'
-import JumbotronWithCarouselDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronWithCarouselDesktop'
+import CarouselDesktopPrimary from '../components/base_components/Desktop/Carousel/CarouselDesktopPrimary';
+import JumbotronWithCarouselDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronWithCarouselDesktop';
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import ButtonLoadMoreDesktop  from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
+import TitlePageDesktop from '../components/base_components/Desktop/TitlePage/TitlePageDesktop'
 
 //Mobile Item
 import CardImageMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageMobile';
@@ -157,7 +159,11 @@ class Home extends Component {
                             />
                         </section>
                         <section>
-                            <div style={{marginTop:"40px"}}></div>
+                            <div style={{marginTop:"65px"}}></div>
+                            <TitlePageDesktop name="Promo Untuk Anda" />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"30px"}}></div>
                             <CarouselDesktopPrimary    
                                 onClickHeader={()=>{this.onClickSearchHandle()}}
                                 text="Cari sekolah terbaik untuk masa depan yang cerah di Edukasi Plus"
@@ -165,7 +171,12 @@ class Home extends Component {
                             />
                         </section>
                         <section>
-                            <div style={{marginTop:"80px"}}></div>
+                            <div style={{marginTop:"120px"}}></div>
+                            <TitlePageDesktop name="Sekolah Favorite" />
+                        </section>
+
+                        <section>
+                            <div style={{marginTop:"30px"}}></div>
                             <BadgesDesktop
                                 store={storeDesktop2}
                             />
@@ -189,6 +200,16 @@ class Home extends Component {
                             <CardImageSecondaryDesktop 
                                 store={storeDesktop}
                             />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <ButtonLoadMoreDesktop 
+                                name="MUAT LEBIH BANYAK"
+                                width="277px"
+                                boxShadow="none"
+                                background="#f3f3f3"
+                            />
+                            <div style={{marginTop: "25px"}}></div>
                         </section>
                     </OnDesktop>
                     <OnMobile>

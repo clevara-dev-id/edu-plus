@@ -59,7 +59,7 @@ const DesktopBadges = props => {
                         </div>
                     </div>
                 </Col>
-                <Col className="badgescolrightside" lg={4}>
+                <Col className="badgescolrightside d-flex flex-row-reverse" lg={4}>
                     <InputGroup>
                         {/* <InputGroup.Prepend>
                         <InputGroup.Text id="basic-addon1">@</InputGroup.Text>

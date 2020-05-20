@@ -32,7 +32,7 @@ const FooterDesktop = props => {
                             <li><a href="/">Home</a></li>
                             <li><a href="/contactus">Hubungi Kami</a></li>
                             <li><a href="/login">Login</a></li>
-                            <li><a href="/register ">Daftarkan Sekolah Anda</a></li>
+                            <li><a href="/registerd">Daftarkan Sekolah Anda</a></li>
                         </ul>
                     </Col>
                 </Row>  

@@ -57,14 +57,14 @@
 
 @media screen and (min-width: 1024px){
     #CarouselDesktopPrimaryContainer{
-        max-width: 100%;
-        width: 100%; 
-        min-width: 1024px;
+        /* max-width: 100%;
+        width: 100%;  */
+        max-width: 1024px;
         margin-bottom: 50px;
         padding-right: 85px;
         padding-left: 85px;
-        margin-right: 0px;
-        margin-left: 0px;
+        margin-right: auto;
+        margin-left: auto;
     }
     .carouselDesktopPrimaryImage > img {
         width: 270px;
@@ -85,14 +85,14 @@
 
 @media screen and (min-width: 1152px){
     #CarouselDesktopPrimaryContainer{
-        max-width: 100%;
-        width: 100%; 
-        min-width: 1152px;
+        /* max-width: 100%;
+        width: 100%;  */
+        max-width: 1152px;
         margin-bottom: 50px;
         padding-right: 110px;
         padding-left: 110px;
-        margin-right: 0px;
-        margin-left: 0px;
+        margin-right: auto;
+        margin-left: auto;
     }
     .carouselDesktopPrimaryImage > img {
         width: 295px;
@@ -113,14 +113,14 @@
 
 @media screen and (min-width: 1280px){
     #CarouselDesktopPrimaryContainer{
-        max-width: 100%;
-        width: 100%; 
-        min-width: 1280px;
+        /* max-width: 100%;
+        width: 100%;  */
+        max-width: 1280px;
         margin-bottom: 50px;
         padding-right: 125px;
         padding-left: 125px;
-        margin-right: 0px;
-        margin-left: 0px;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     .carouselDesktopPrimaryImage > img {
@@ -141,14 +141,14 @@
 
 @media screen and (min-width: 1360px){
     #CarouselDesktopPrimaryContainer{
-        max-width: 100%;
-        width: 100%; 
-        min-width: 1360px;
+        /* max-width: 100%;
+        width: 100%;  */
+        max-width: 1360px;
         margin-bottom: 50px;
         padding-right: 145px;
         padding-left: 145px;
-        margin-right: 0px;
-        margin-left: 0px;
+        margin-right: auto;
+        margin-left: auto;
     }
     .carouselDesktopPrimaryImage > img {
         width: 335px;
@@ -168,14 +168,14 @@
 
 @media screen and (min-width: 1366px){
     #CarouselDesktopPrimaryContainer{
-        max-width: 100%;
-        width: 100%; 
-        min-width: 1366px;
+        /* max-width: 100%;
+        width: 100%;  */
+        max-width: 1366px;
         margin-bottom: 50px;
         padding-right: 145px;
         padding-left: 145px;
-        margin-right: 0px;
-        margin-left: 0px;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     .carouselDesktopPrimaryImage > img {
@@ -196,14 +196,14 @@
 
 @media screen and (min-width: 1440px){
     #CarouselDesktopPrimaryContainer{
-        max-width: 100%;
-        width: 100%; 
-        min-width: 1440px;
+        /* max-width: 100%;
+        width: 100%;  */
+        max-width: 1440px;
         margin-bottom: 50px;
         padding-right: 165px;
         padding-left: 165px;
-        margin-right: 0px;
-        margin-left: 0px;
+        margin-right: auto;
+        margin-left: auto;
     }
     .carouselDesktopPrimaryImage > img {
         width: 350px;

@@ -1,24 +1,31 @@
 @media screen and (min-width: 1024px){
-    /* #cardImageContainer{
-        max-width: 100% !important;
-        padding-right: 85px;
-        padding-left: 85px;
-    } */
     #desktopBadgesContainer{
+        /* max-width: 100%; */
         max-width: 1024px;
         margin-bottom: 15px;
         overflow-x: hidden;
         padding-right: 85px;
         padding-left: 85px;
     }
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        padding-top: 15px;
+        padding-right: 230px;
+    }
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 265px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
 }
 
 @media screen and (min-width: 1152px){
-    /* #cardImageContainer{
-        max-width: 100% !important;
-        padding-right: 110px;
-        padding-left: 110px;
-    } */
     #desktopBadgesContainer{
         max-width: 1152px;
         margin-bottom: 15px;
@@ -26,58 +33,129 @@
         padding-right: 110px;
         padding-left: 110px;
     }
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        padding-top: 15px;
+        padding-right: 257px;
+    }
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 291px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
 }
 @media screen and (min-width: 1280px){
     #desktopBadgesContainer{
+        /* max-width: 100%; */
         max-width: 1280px;
         margin-bottom: 15px;
         overflow-x: hidden;
         padding-right: 125px;
         padding-left: 125px;
     }
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        padding-top: 15px;
+        padding-right: 289px;
+    }
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 324px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
 }
 @media screen and (min-width: 1360px){
-    /* #cardImageContainer{
-        max-width: 100% !important;
-        padding-right: 145px;
-        padding-left: 145px;
-    } */
     #desktopBadgesContainer{
+        /* max-width: 100%; */
         max-width: 1360px;
         margin-bottom: 15px;
         overflow-x: hidden;
         padding-right: 145px;
         padding-left: 145px;
     }
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        padding-top: 15px;
+        padding-right: 304px;
+    }
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 337px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
 
 }
 @media screen and (min-width: 1366px){
-    
-    /* #cardImageContainer{
-        max-width: 100% !important;
-        padding-right: 145px;
-        padding-left: 145px;
-    } */
     #desktopBadgesContainer{
+        /* max-width: 100%; */
         max-width: 1366px;
         margin-bottom: 15px;
         overflow-x: hidden;
         padding-right: 145px;
         padding-left: 145px;
     }
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        padding-top: 15px;
+        padding-right: 304px;
+    }
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 339px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
 }
 @media screen and (min-width: 1440px){
     #desktopBadgesContainer{
+        /* max-width: 100%; */
         max-width: 1440px;
         margin-bottom: 15px;
         padding-right: 165px;
         padding-left: 165px;
+        /* margin-right: 0px;
+        margin-left: 0px; */
         overflow-x: hidden;
     }
-    #desktopBadgesContainer > .row > .badgescolrightside > .input-group{
-        margin-left: 10px;
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        padding-top: 15px;
+        padding-right: 309px;
     }
-
+    #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 345px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
 }
 #desktopBadgesContainer > .row > .badgescol {
     text-align: left;
@@ -87,25 +165,10 @@
     display: flex;
 }
 #desktopBadgesContainer > .row > .badgescolrightside > .input-group{
-    right: 0px;
-    left: auto;
+    /* right: 0px;
+    left: auto; */
     display: flex;
-}
-#desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
-    position: absolute;
-    z-index: 2;
-    padding-top: 15px;
-    padding-left: 10px;
-}
-#desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
-    max-width: 345px;
-    height: 49px;
-    padding-left: 44px;
-    background: #FFFFFF;
-    border: 1px solid #B5B5B5;
-    box-sizing: border-box;
-    border-radius: 16px;
-    z-index: 1;
+    justify-content: flex-end;
 }
 #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges:focus,.inputTextBadges:active{
     outline:0px !important;
