@@ -179,6 +179,8 @@ class Home extends Component {
                             <div style={{marginTop:"30px"}}></div>
                             <BadgesDesktop
                                 store={storeDesktop2}
+                                placeholderSearch="Cari Provinsi"
+                                onChangeSearch={(e)=>{console.log(e.target.value)}}
                             />
                         </section>
                         <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">

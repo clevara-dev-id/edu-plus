@@ -10,8 +10,8 @@
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
         position: absolute;
         z-index: 2;
-        padding-top: 15px;
-        padding-right: 230px;
+        margin-top: 15px;
+        margin-right: 230px;
     }
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
         max-width: 265px;
@@ -36,8 +36,8 @@
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
         position: absolute;
         z-index: 2;
-        padding-top: 15px;
-        padding-right: 257px;
+        margin-top: 15px;
+        margin-right: 257px;
     }
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
         max-width: 291px;
@@ -62,8 +62,8 @@
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
         position: absolute;
         z-index: 2;
-        padding-top: 15px;
-        padding-right: 289px;
+        margin-top: 15px;
+        margin-right: 289px;
     }
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
         max-width: 324px;
@@ -88,8 +88,8 @@
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
         position: absolute;
         z-index: 2;
-        padding-top: 15px;
-        padding-right: 304px;
+        margin-top: 15px;
+        margin-right: 304px;
     }
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
         max-width: 337px;
@@ -115,8 +115,8 @@
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
         position: absolute;
         z-index: 2;
-        padding-top: 15px;
-        padding-right: 304px;
+        margin-top: 15px;
+        margin-right: 304px;
     }
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
         max-width: 339px;
@@ -143,8 +143,8 @@
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > i{
         position: absolute;
         z-index: 2;
-        padding-top: 15px;
-        padding-right: 309px;
+        margin-top: 15px;
+        margin-right: 309px;
     }
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
         max-width: 345px;

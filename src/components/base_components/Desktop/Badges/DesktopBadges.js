@@ -67,8 +67,9 @@ const DesktopBadges = props => {
                         <Icon name="search" color="#B5B5B5" font="Feather" size={22} />
                         <FormControl
                         className="inputTextBadges"
-                        placeholder="Cari Provinsi"
-                        aria-label="CariProvinsi"
+                        placeholder={props.placeholderSearch}
+                        onChange={props.onChangeSearch}
+                        aria-label="Search"
                         aria-describedby="basic-addon1"
                         />
                     </InputGroup>

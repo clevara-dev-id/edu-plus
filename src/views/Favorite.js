@@ -5,6 +5,7 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 //Desktop
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
+import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 
 //Mobile Item
@@ -59,35 +60,30 @@ const storeMobile2 =[
 //dummy Desktop
 const storeDesktop = [
     {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "DKI Jakarta",
+        image     : JakartaImage,
+        titleCard : "Jakarta Utara",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Jawa Barat",
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Jakarta Pusat",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Jawa Tengah",
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "Jakarta Barat",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Bali",
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Jakarta Timur",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Sumatra Utara",
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "Jakarta Selatan",
         descrip   : "15 Sekolah"
     },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Kalimantan",
-        descrip   : "15 Sekolah"
-    }
 ];
 
 const storeDesktop2 =[
@@ -110,25 +106,27 @@ class Favorite extends Component {
                         <section>
                             <BadgesDesktop
                                 store={storeDesktop2}
+                                placeholderSearch="Cari Kota/Kabupaten"
+                                onChangeSearch={(e)=>{console.log(e.target.value)}}
                             />
                         </section>
                         <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
+                            <CardImageSecondaryDesktop 
                                 store={storeDesktop}
                             />
                         </section>
                         <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
+                            <CardImageSecondaryDesktop 
                                 store={storeDesktop}
                             />
                         </section>
                         <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
+                            <CardImageSecondaryDesktop 
                                 store={storeDesktop}
                             />
                         </section>
                         <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
+                            <CardImageSecondaryDesktop 
                                 store={storeDesktop}
                             />
                         </section>
