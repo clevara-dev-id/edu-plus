@@ -8,6 +8,7 @@ import JumbotronDesktopBlue from '../components/base_components/Desktop/Jumbotro
 import CarouselDesktopPrimary from '../components/base_components/Desktop/Carousel/CarouselDesktopPrimary'
 import JumbotronWithCarouselDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronWithCarouselDesktop'
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
+import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 
 //Mobile Item
@@ -170,22 +171,22 @@ class Home extends Component {
                             />
                         </section>
                         <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
+                            <CardImageSecondaryDesktop
                                 store={storeDesktop}
                             />
                         </section>
                         <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
+                            <CardImageSecondaryDesktop 
                                 store={storeDesktop}
                             />
                         </section>
                         <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
+                            <CardImageSecondaryDesktop 
                                 store={storeDesktop}
                             />
                         </section>
                         <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
+                            <CardImageSecondaryDesktop 
                                 store={storeDesktop}
                             />
                         </section>

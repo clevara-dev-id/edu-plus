@@ -103,6 +103,7 @@ const MyBadgeGray = styled.span`
     padding-top: 10px;
     padding-bottom: 10px;
     margin-right: 9px;
+    margin-top: 5px;
 
     display: inline-block;
     white-space: nowrap;
