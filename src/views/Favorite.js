@@ -8,6 +8,7 @@ import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 
 //Mobile Item
 import CardImageMobileSecondary from '../components/base_components/Card/CardMobile/CardImage/CardImageMobileSecondary';
@@ -108,6 +109,12 @@ class Favorite extends Component {
                             <JumbotronDesktopBlueSecondary
                                 primaryText="Sekolah Favorit"
                                 secondaryText="DKI Jakarta"
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"}]}
                             />
                         </section>
                         <section>
