@@ -4,6 +4,7 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
+import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlueSecondary';
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
@@ -103,6 +104,12 @@ class Favorite extends Component {
                         {/* <section>
                             <JumbotronDesktop />
                         </section> */}
+                        <section>
+                            <JumbotronDesktopBlueSecondary
+                                primaryText="Sekolah Favorit"
+                                secondaryText="DKI Jakarta"
+                            />
+                        </section>
                         <section>
                             <BadgesDesktop
                                 store={storeDesktop2}
