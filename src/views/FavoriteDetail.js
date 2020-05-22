@@ -4,8 +4,12 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
+import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlueSecondary';
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
+import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
+import DropDownListSingleDesktop from '../components/base_components/Desktop/DropDownList/DropDownListSingleDesktop';
 
 //Mobile Item
 import CardImageTertiary from '../components/base_components/Card/CardMobile/CardImage/CardImageTertiary';
@@ -109,7 +113,52 @@ class FavoriteDetail extends Component {
             <>
                 <div>
                     <OnDesktop>
-                        {/* Put here for Desktop*/} 
+                        <section>
+                            <JumbotronDesktopBlueSecondary
+                                primaryText="Sekolah Favorit"
+                                secondaryText="Jakarta Selatan"
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"},{name:"Jakarta Selatan", link:"#"}]}
+                            />
+                        </section>
+                        <section>
+                            <BadgesDesktop
+                                store={storeDesktop2}
+                                placeholderSearch="Cari Kota/Kabupaten"
+                                onChangeSearch={(e)=>{console.log(e.target.value)}}
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <DropDownListSingleDesktop 
+                                onClick={(e)=>{console.log(`this is array by ${e.target.value}`)}} 
+                            />
+                            <div style={{marginTop:"25px"}}></div>
+                        </section>
+                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImageSecondaryDesktop 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImageSecondaryDesktop 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImageSecondaryDesktop 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImageSecondaryDesktop 
+                                store={storeDesktop}
+                            />
+                        </section>
                     </OnDesktop>
                     <OnMobile>
                         <section>
