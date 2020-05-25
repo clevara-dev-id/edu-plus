@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
+//Desktop
+import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
+import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlueSecondary';
+import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
+import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
+import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
+
 //Mobile
 import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
 import OtherFacility from '../components/base_components/Accordion/Mobile/AccordionComponents';
@@ -213,6 +221,43 @@ const storeMobileEight =[
 ];
 
 
+//dummy desktop
+const storeDesktop = [
+    {
+        image     : JakartaImage,
+        titleCard : "Jakarta Utara",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Jakarta Pusat",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "Jakarta Barat",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Jakarta Timur",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "Jakarta Selatan",
+        descrip   : "15 Sekolah"
+    },
+];
+
+
+const storeDesktop2 =[
+    {name:"SD & MI", idContent: "desktopSDdanMI"},
+    {name:"SMP & MTS", idContent: "desktopSmpMts"},
+    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
+    {name:"Universitas", idContent: "desktopUniv"},
+];
+
 const store = [
     {image : slideImage1},
     {image : slideImage2},
@@ -320,6 +365,50 @@ class Detail extends Component {
             <>
                 
                 <div>
+                <OnDesktop>
+                        {/* <section>
+                            <JumbotronDesktop />
+                        </section> */}
+                        {/* <section>
+                            <JumbotronDesktopBlueSecondary
+                                primaryText="Sekolah Favorit"
+                                secondaryText="DKI Jakarta"
+                            />
+                        </section> */}
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"}]}
+                            />
+                        </section>
+                        <section>
+                            <BadgesDesktop
+                                store={storeDesktop2}
+                                placeholderSearch="Cari Kota/Kabupaten"
+                                onChangeSearch={(e)=>{console.log(e.target.value)}}
+                            />
+                        </section>
+                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImageSecondaryDesktop 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImageSecondaryDesktop 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImageSecondaryDesktop 
+                                store={storeDesktop}
+                            />
+                        </section>
+                        <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
+                            <CardImageSecondaryDesktop 
+                                store={storeDesktop}
+                            />
+                        </section>
+                    </OnDesktop>
                     <OnMobile>
                         <section>
                             <div style={{marginTop:"25px"}}></div>

@@ -123,9 +123,14 @@ const storeDesktop = [
         titleCard : "Kalimantan",
         descrip   : "15 Sekolah"
     }
-
-
+    ,
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "Prov. Kepulauan Bangka Belitung",
+        descrip   : "15 Sekolah"
+    }
 ];
+
 
 const storeDesktop2 =[
     {name:"SD & MI", idContent: "desktopSDdanMI"},

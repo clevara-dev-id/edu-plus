@@ -6,10 +6,12 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
 import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlueSecondary';
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
-import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
+import CardImageTertiarayDesktop from '../components/base_components/Desktop/CardImage/CardImageTertiarayDesktop';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 import DropDownListSingleDesktop from '../components/base_components/Desktop/DropDownList/DropDownListSingleDesktop';
+import ButtonLoadMoreDesktop  from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
+
 
 //Mobile Item
 import CardImageTertiary from '../components/base_components/Card/CardMobile/CardImage/CardImageTertiary';
@@ -72,8 +74,8 @@ const storeDesktop = [
     },
     {
         image     : "https://via.placeholder.com/256x255",
-        titleCard : "Jawa Barat",
-        descrip   : "15 Sekolah"
+        titleCard : "SD ISLAM TERPADU PONDOK PESANTREN UMAR BIN ABDUL AZIS WAHDAH ISLAMIYAH",
+        descrip   : "JL. POROS BARAKA - PASUI, RUMBO"
     },
     {
         image     : "https://via.placeholder.com/255x256",
@@ -82,8 +84,8 @@ const storeDesktop = [
     },
     {
         image     : "https://via.placeholder.com/256x255",
-        titleCard : "Bali",
-        descrip   : "15 Sekolah"
+        titleCard : "SMPTK Charisma Global School",
+        descrip   : "Jl. Villa Permata blok.C1 no.12-15 Lippo Karawaci, Kel. Bencongan Indah, Kec. Ke"
     },
     {
         image     : "https://via.placeholder.com/255x256",
@@ -140,24 +142,34 @@ class FavoriteDetail extends Component {
                             <div style={{marginTop:"25px"}}></div>
                         </section>
                         <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImageSecondaryDesktop 
+                            <CardImageTertiarayDesktop 
                                 store={storeDesktop}
                             />
                         </section>
                         <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImageSecondaryDesktop 
+                            <CardImageTertiarayDesktop 
                                 store={storeDesktop}
                             />
                         </section>
                         <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImageSecondaryDesktop 
+                            <CardImageTertiarayDesktop 
                                 store={storeDesktop}
                             />
                         </section>
                         <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImageSecondaryDesktop 
+                            <CardImageTertiarayDesktop 
                                 store={storeDesktop}
                             />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <ButtonLoadMoreDesktop 
+                                name="MUAT LEBIH BANYAK"
+                                width="277px"
+                                boxShadow="none"
+                                background="#f3f3f3"
+                            />
+                            <div style={{marginTop: "25px"}}></div>
                         </section>
                     </OnDesktop>
                     <OnMobile>
