@@ -5,16 +5,16 @@ import { Container, Row, Col, Badge, Button, InputGroup, FormControl } from 'rea
 import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
 import $ from 'jquery';
 
-import './desktopbadges.css';
+import './singledesktopbadges.css';
 import '../Icon/Icon'
 
 
-const DesktopBadges = props => {
-    // const getPath = window.location.pathname;
+const SingleDesktopBadges = props => {
+    const getPath = window.location.pathname;
     // console.log(getPath);
     const openPage = (evt, cityName) =>{
         var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontendetailDesktop");
+        tabcontent = document.getElementsByClassName("tabcontendetaildesktop");
         for (i = 0; i < tabcontent.length; i++) {
           tabcontent[i].style.display = "none";
         }
@@ -35,9 +35,9 @@ const DesktopBadges = props => {
 
     return (
         <>
-        <Container id="desktopBadgesContainer">
+        <Container id="singleDesktopBadgesContainer">
             <Row>
-                <Col className="badgescol" lg={8}>
+                <Col className="badgescol">
                     <div>
                         <div id="childBadgesDesktop" >
                             {props.store.map((data)=>{
@@ -58,21 +58,6 @@ const DesktopBadges = props => {
                             })}
                         </div>
                     </div>
-                </Col>
-                <Col className="badgescolrightside d-flex flex-row-reverse" lg={4}>
-                    <InputGroup>
-                        {/* <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-                        </InputGroup.Prepend> */}
-                        <Icon name="search" color="#B5B5B5" font="Feather" size={22} />
-                        <FormControl
-                        className="inputTextBadges"
-                        placeholder={props.placeholderSearch}
-                        onChange={props.onChangeSearch}
-                        aria-label="Search"
-                        aria-describedby="basic-addon1"
-                        />
-                    </InputGroup>
                 </Col>
             </Row>
         </Container>
@@ -113,8 +98,8 @@ const MyBadgeGray = styled.span`
     
 `;
 
-DesktopBadges.propTypes = {
+SingleDesktopBadges.propTypes = {
     name : PropTypes.object,
 }
 
-export default DesktopBadges;
+export default SingleDesktopBadges;

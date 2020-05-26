@@ -7,8 +7,10 @@ import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/Ju
 import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlueSecondary';
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import SingleDesktopBadges from '../components/base_components/Desktop/Badges/SingleDesktopBadges';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
+import DesktopDescriptionWithIcon from '../components/base_components/Desktop/Description/DesktopDescriptionWithIcon';
+import DesktopDescription from '../components/base_components/Desktop/Description/DesktopDescription';
 
 //Mobile
 import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
@@ -40,6 +42,15 @@ import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.p
 
 
 //dummy Mobile
+const mobileBadgesStore =[
+    {name:"Kontak Sekolah", idContent: "mobileSchoolsContactId"},
+    {name:"Informasi Sekolah", idContent: "mobileDescriptionId"},
+    {name:"Biaya Sekolah", idContent: "studentConstId"},
+    {name:"Pendaftaran", idContent: "registerTimeId"},
+    {name:"Fasilitas", idContent: "mobileprimaryFasilityId"},
+    {name:"Ekstrakulikuler", idContent: "extracurricularContentId"}
+];
+
 const storeMobile = [
     {
         image     : JakartaImage,
@@ -220,6 +231,12 @@ const storeMobileEight =[
     },
 ];
 
+const store = [
+    {image : slideImage1},
+    {image : slideImage2},
+    {image : slideImage1},
+    {image : slideImage2}
+];
 
 //dummy desktop
 const storeDesktop = [
@@ -252,112 +269,13 @@ const storeDesktop = [
 
 
 const storeDesktop2 =[
-    {name:"SD & MI", idContent: "desktopSDdanMI"},
-    {name:"SMP & MTS", idContent: "desktopSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
-    {name:"Universitas", idContent: "desktopUniv"},
+    {name:"Kontak Sekolah", idContent: "desktopSchoolsContactId"},
+    {name:"Informasi Sekolah", idContent: "desktopDescriptionId"},
+    {name:"Biaya Sekolah", idContent: "desktopstudentConstId"},
+    {name:"Pendaftaran", idContent: "desktopregisterTimeId"},
+    {name:"Fasilitas", idContent: "desktopprimaryFasilityId"},
+    {name:"Ekstrakulikuler", idContent: "desktopextracurricularContentId"}
 ];
-
-const store = [
-    {image : slideImage1},
-    {image : slideImage2},
-    {image : slideImage1},
-    {image : slideImage2}
-];
-
-const store3 = [
-    {iconname:"snowflake-o", name: "Air conditioning", fontFamily : "FontAwesome"}, 
-    {iconname:"desktop", name: "Lab. Komputer", fontFamily : "FontAwesome"},
-    {iconname:"wifi", name: "Akses Internet", fontFamily : "FontAwesome"}, 
-]
-
-const store4 =[
-    {name:"Lapangan Olahraga"},
-    {name:"Tempat Ibadah"},
-    {name:"Kantin"}
-];
-
-const store5 = {
-    center: {
-        lat: -6.2260798,
-        lng: 106.8536369
-    },
-    zoom: 15,
-    title:"Alamat Sekolah",
-    addr : "jl. sma barat no 4, clilitan, Kramat jati, jakarta timur"
-};
-
-const store6 = [
-    {iconname:"camera", name: "Fotografi", fontFamily : "FontAwesome"}, 
-    {iconname:"soccer-ball-o", name: "Futsal", fontFamily : "FontAwesome"},
-    {iconname:"dribbble", name: "BasketBall", fontFamily : "FontAwesome"}, 
-]
-
-const store7 =[
-    {name:"Orchestra"},
-    {name:"Paskibra"},
-    {name:"Tari Saman"}
-];
-
-const store8 =[
-    {name:"Kontak Sekolah", idContent: "mobileSchoolsContactId"},
-    {name:"Informasi Sekolah", idContent: "mobileDescriptionId"},
-    {name:"Biaya Sekolah", idContent: "studentConstId"},
-    {name:"Pendaftaran", idContent: "registerTimeId"},
-    {name:"Fasilitas", idContent: "mobileprimaryFasilityId"},
-    {name:"Ekstrakulikuler", idContent: "extracurricularContentId"}
-];
-
-const store9 = [
-    {   title:"Alamat", 
-        description : "Jl.Rawa Belong No.2 , Kebon Jeruk, Jakarta Barat"
-    },
-    {   title:"Kurikulum Sekolah", 
-        description : "International"
-    },
-    {   title:"Telepon", 
-        description : "021-26678321"
-    },
-    {   title:"Web", 
-        description : "www.smainternational.ac.id"
-    },
-    {   title:"Email", 
-        description : "smainternational@mail.ac.id"
-    },
-    {   title:"Web", 
-        description : "sdwidurijaya@blogspot.com"
-    },
-    {   title:"Jam Sekolah", 
-        description : "06:30 - 12:00"
-    },
-    {   title:"Kepala Sekolah", 
-        description : "Anita"
-    },
-    {   title:"Jumlah Siswa", 
-        description : "2000 Siswa"
-    }
-];
-
-const store10 = [
-    {   title:"Uang Pangkal", 
-        description : "Rp. 3,000,000"
-    },
-    {   title:"SPP Bulanan", 
-        description : "Rp. 550,000"
-    },
-    {   title:"Uang Kegiatan", 
-        description : "Rp. 1,550,000"
-    },
-    {   title:"Uang Buku", 
-        description : "Rp. 1,550,000"
-    },
-    {   title:"Potongan / Diskon", 
-        description : "Rp. 1,550,000"
-    },
-];
-
-
-
 
 class Detail extends Component {
     render() {
@@ -378,36 +296,61 @@ class Detail extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
-                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"}]}
+                                store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
                             />
                         </section>
                         <section>
-                            <BadgesDesktop
+                            <SingleDesktopBadges
                                 store={storeDesktop2}
-                                placeholderSearch="Cari Kota/Kabupaten"
-                                onChangeSearch={(e)=>{console.log(e.target.value)}}
                             />
                         </section>
-                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
+                        <section style={{display: "none"}} id="desktopSchoolsContactId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescriptionWithIcon
+                                store={storeMobileTwo}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section style={{display: "none"}} id="desktopDescriptionId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescription
+                                store={storeMobileFour}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section style={{display: "none"}} id="desktopstudentConstId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescription
+                                store={storeMobileThree}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section style={{display: "none"}} id="desktopregisterTimeId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescription
+                                store={storeMobileFive}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section style={{display: "none"}} id="desktopprimaryFasilityId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescriptionWithIcon
+                                store={storeMobileSeven}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section style={{display: "none"}} id="desktopextracurricularContentId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescriptionWithIcon
+                                store={storeMobileEight}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        {/* <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
                             <CardImageSecondaryDesktop 
                                 store={storeDesktop}
                             />
-                        </section>
-                        <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImageSecondaryDesktop 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImageSecondaryDesktop 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImageSecondaryDesktop 
-                                store={storeDesktop}
-                            />
-                        </section>
+                        </section> */}
                     </OnDesktop>
                     <OnMobile>
                         <section>
@@ -438,7 +381,7 @@ class Detail extends Component {
                             />
                         </section>
                         <section>
-                            <BadgesGroupSecondary store={store8} />
+                            <BadgesGroupSecondary store={mobileBadgesStore} />
                         </section>
                         <section style={{display: "none"}} id="mobileSchoolsContactId" className="tabcontendetail">
                             <div style={{marginTop: "30px"}} />
