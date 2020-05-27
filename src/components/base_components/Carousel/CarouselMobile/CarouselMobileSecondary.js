@@ -9,6 +9,7 @@ import "./carouselmobilesecondary.css"
 import { Container, Row, Col, Badge } from 'react-bootstrap';
 const CarouselMobileSecondary = props => {
     const settings = {
+            arrows: false,
             dots: true,
             infinite: true,
             speed: 500,

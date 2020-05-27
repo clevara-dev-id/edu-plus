@@ -3,14 +3,19 @@ import React, { Component } from 'react';
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
-import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlueSecondary';
+// import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
+// import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlueSecondary';
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
-import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
+import CardImageTertiarayDesktop from '../components/base_components/Desktop/CardImage/CardImageTertiarayDesktop';
 import SingleDesktopBadges from '../components/base_components/Desktop/Badges/SingleDesktopBadges';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 import DesktopDescriptionWithIcon from '../components/base_components/Desktop/Description/DesktopDescriptionWithIcon';
 import DesktopDescription from '../components/base_components/Desktop/Description/DesktopDescription';
+import TitlePageWithAddressDesktop from '../components/base_components/Desktop/TitlePage/TitlePageWithAddressDesktop';
+import DesktopIconWithTitle from '../components/base_components/Desktop/Icon/DesktopIconWithTitle ';
+import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
+import TitileCardDesktopViewAll from '../components/base_components/Desktop/TitlePage/TitileCardDesktopViewAll';
+
 
 //Mobile
 import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
@@ -284,20 +289,26 @@ class Detail extends Component {
                 
                 <div>
                 <OnDesktop>
-                        {/* <section>
-                            <JumbotronDesktop />
-                        </section> */}
-                        {/* <section>
-                            <JumbotronDesktopBlueSecondary
-                                primaryText="Sekolah Favorit"
-                                secondaryText="DKI Jakarta"
-                            />
-                        </section> */}
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
                                 store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
                             />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"38px"}}></div>
+                            <TitlePageWithAddressDesktop
+                                title="SD Sumbangsih"
+                                text="Jalan Duren Bangka No. 36, Bangka, Mampang Prapatan, Jakarta Selatan, DKI Jakarta"
+                            />
+                            <LineComponentsDesktop 
+                                // marginTop="-20px"
+                            />
+                            <div style={{marginBottom: "20px"}} />
+                            <DesktopIconWithTitle 
+                                name="Kurikulum K-13"
+                            />
+                            <div style={{marginBottom: "30px"}} />
                         </section>
                         <section>
                             <SingleDesktopBadges
@@ -346,11 +357,19 @@ class Detail extends Component {
                             />
                             <div style={{marginBottom: "30px"}} />
                         </section>
-                        {/* <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImageSecondaryDesktop 
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <TitileCardDesktopViewAll
+                                name="Daftar Sekolah Lainnya"
+                                link="#"
+                                linkName="Lihat Semua"
+                            />
+                        </section>
+                        <section>
+                            <CardImageTertiarayDesktop 
                                 store={storeDesktop}
                             />
-                        </section> */}
+                        </section>
                     </OnDesktop>
                     <OnMobile>
                         <section>
