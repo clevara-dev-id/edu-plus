@@ -105,7 +105,7 @@ class Search extends Component {
             <>
                 <div>
                     <OnDesktop>
-                        <section>
+                        {/* <section>
                             <BadgesDesktop
                                 store={storeDesktop2}
                             />
@@ -129,7 +129,7 @@ class Search extends Component {
                             <CardImage 
                                 store={storeDesktop}
                             />
-                        </section>
+                        </section> */}
                     </OnDesktop>
                     <OnMobile>
                         
