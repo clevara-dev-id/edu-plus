@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop'
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage'
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges'
+import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
+import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
+import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import DropDownListFilterFourDesktop from '../components/base_components/Desktop/DropDownList/DropDownListFilterFourDesktop';
 
 //Mobile Item
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
@@ -53,6 +54,17 @@ const store5 = [
 ];
 
 //dummy Desktop
+
+const RegionProv = [
+    {id:"001", name:'Jakarta'},
+    {id:"002", name:'Jawa Barat'},
+];
+
+const RegionCity = [
+    {id:"011", name:'Jakarta Barat'},
+    {id:"012", name:'Jakarta Selatan'},
+];
+
 const storeDesktop = [
     {
         image     : "https://via.placeholder.com/255x256",
@@ -105,7 +117,41 @@ class Search extends Component {
             <>
                 <div>
                     <OnDesktop>
-                        {/* <section>
+                    <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            {/* <TitleDropDownList name="Pilih Alamat"/> */}
+                            <DropDownListFilterFourDesktop
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={RegionProv} 
+                                placeholder="Pilih Provinsi"
+                                title="Provinsi"
+                                className="provdropdownclass"
+                                buttonClass="provbuttonclickprovregistercontent"
+                                onClickTwo={(e)=>{console.log(e.target.value)}}
+                                storeTwo={RegionCity} 
+                                placeholderTwo="Pilih Kab/Kota"
+                                titleTwo="Kabupaten / Kota"
+                                classNameTwo="citydropdownclass"
+                                buttonClassTwo="citybuttonclickprovregistercontent"
+                            />
+                            <div style={{marginTop: "25px"}}></div>
+                            <DropDownListFilterFourDesktop
+                                onClick={(e)=>{console.log(e.target.value)}}
+                                store={RegionProv} 
+                                placeholder="Pilih Kecamatan"
+                                title="Kecamatan"
+                                className="districtkecdropdownclass"
+                                buttonClass="districtButtonclickprovregistercontent"
+                                onClickTwo={(e)=>{console.log(e.target.value)}}
+                                storeTwo={RegionCity} 
+                                placeholderTwo="Pilih Kelurahan/Desa"
+                                titleTwo="Kelurahan / Desa"
+                                classNameTwo="villagedropdownclass"
+                                buttonClassTwo="villagebuttonclickprovregistercontent"
+                            />
+                            <div style={{marginBottom: "25px"}}></div>
+                        </section>
+                        <section>
                             <BadgesDesktop
                                 store={storeDesktop2}
                             />
@@ -129,7 +175,7 @@ class Search extends Component {
                             <CardImage 
                                 store={storeDesktop}
                             />
-                        </section> */}
+                        </section>
                     </OnDesktop>
                     <OnMobile>
                         

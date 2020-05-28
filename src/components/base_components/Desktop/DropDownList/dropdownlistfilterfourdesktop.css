@@ -1,0 +1,94 @@
+@media screen and (min-width: 1024px){
+    #dropdownfilterfourdesktopContainer{
+        max-width: 1024px;
+        width: 100%;
+        padding-right: 166px;
+        padding-left: 166px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1152px){
+    #dropdownfilterfourdesktopContainer{
+        max-width: 1152px;
+        width: 100%;
+        padding-right: 226px;
+        padding-left: 226px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 1280px){
+    #dropdownfilterfourdesktopContainer{
+        max-width: 1280px;
+        width: 100%;
+        padding-right: 296px;
+        padding-left: 296px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 1360px){
+    #dropdownfilterfourdesktopContainer{
+        max-width: 1360px;
+        width: 100%;
+        padding-right: 326px;
+        padding-left: 326px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1366px){
+    #dropdownfilterfourdesktopContainer{
+        max-width: 1366px;
+        width: 100%;
+        padding-right: 326px;
+        padding-left: 326px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    #dropdownfilterfourdesktopContainer{
+        max-width: 1440px;
+        width: 100%;
+        padding-right: 356px;
+        padding-left: 356px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+} 
+
+#myDropdownFilterFour > li{
+    color: #000000;
+    display: block;
+    width: auto;
+    height: 37px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+
+    /* link */
+}
+
+#myDropdownFilterFour > li:hover {
+    color: #FFFFFF;
+    background: #1A6EB2;
+}
+
+#myDropdownFilterFour > li:active {
+    color: #FFFFFF;
+    background: #1A6EB2;
+}
+
+#myDropdownFilterFour > li > option{
+    font-style: normal;
+    font-weight: normal !important;
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+}
