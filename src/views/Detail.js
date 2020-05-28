@@ -15,6 +15,8 @@ import TitlePageWithAddressDesktop from '../components/base_components/Desktop/T
 import DesktopIconWithTitle from '../components/base_components/Desktop/Icon/DesktopIconWithTitle ';
 import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
 import TitileCardDesktopViewAll from '../components/base_components/Desktop/TitlePage/TitileCardDesktopViewAll';
+import CarouselDesktopSecondary from '../components/base_components/Desktop/Carousel/CarouselDesktopSecondary';
+import ButtonAnotherSchoolsDesktop  from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
 
 
 //Mobile
@@ -39,8 +41,10 @@ import MobileIconWithTitle from '../components/base_components/Icon/Mobile/Mobil
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 
 
+//Import Image Desktop
+import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
 
-//Import Image
+//Import Image Mobile
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png';
 import slideImage2 from '../components/asset/images/CarouselSlider/slider2.png';
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -244,6 +248,14 @@ const store = [
 ];
 
 //dummy desktop
+
+const DesktopSlider = [
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1}
+];
+
 const storeDesktop = [
     {
         image     : JakartaImage,
@@ -294,6 +306,10 @@ class Detail extends Component {
                             <BreadCrumbDesktop 
                                 store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
                             />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "10px"}} />
+                            <CarouselDesktopSecondary store={DesktopSlider} />
                         </section>
                         <section>
                             <div style={{marginTop:"38px"}}></div>
@@ -369,6 +385,14 @@ class Detail extends Component {
                             <CardImageTertiarayDesktop 
                                 store={storeDesktop}
                             />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <ButtonAnotherSchoolsDesktop
+                                name="CARI SEKOLAH LAINNYA"
+                                width="277px"
+                            />
+                            <div style={{marginTop: "79px"}}></div>
                         </section>
                     </OnDesktop>
                     <OnMobile>
