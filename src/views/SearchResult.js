@@ -7,6 +7,7 @@ import ButtonAnotherSchoolsDesktop  from '../components/base_components/Desktop/
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
 import SingleDesktopBadgesWhite from '../components/base_components/Desktop/Badges/SingleDesktopBadgesWhite';
+import TitlePageWithSparatorDesktop from '../components/base_components/Desktop/TitlePage/TitlePageWithSparatorDesktop';
 
 
 //import mobile
@@ -118,6 +119,12 @@ class SearchResult extends Component {
                             color="#1A6EB2"
                             width="100%"
                             textAlign="left"
+                        />
+                    </section>
+                    <section>
+                        <div style={{marginTop:"8px"}}></div>
+                        <TitlePageWithSparatorDesktop
+                            store={["Bangka", "Mampang Prapatan", "Jakarta Selatan", "DKI Jakarta"]}
                         />
                     </section>
                     <section>
