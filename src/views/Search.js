@@ -7,7 +7,9 @@ import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/Ju
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import DropDownListFilterFourDesktop from '../components/base_components/Desktop/DropDownList/DropDownListFilterFourDesktop';
-
+import RadioButtonFiveDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonFiveDesktop';
+import RadioButtonTwoDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonTwoDesktop';
+ 
 //Mobile Item
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
@@ -150,6 +152,16 @@ class Search extends Component {
                                 buttonClassTwo="villagebuttonclickprovregistercontent"
                             />
                             <div style={{marginBottom: "25px"}}></div>
+                        </section>
+                        <section>
+                            <div style={{marginTop: "35px"}}></div>
+                            <RadioButtonFiveDesktop onClick={(e)=>{console.log(e.target.value)}} />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "35px"}}></div>
+                            <RadioButtonTwoDesktop 
+                            title="Filter Status Sekolah"
+                            onClick={(e)=>{console.log(e.target.value)}} />
                         </section>
                         <section>
                             <BadgesDesktop
