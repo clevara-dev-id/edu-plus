@@ -24,6 +24,7 @@ import DropdownListFilter from '../components/base_components/DropDwonList/Dropd
 import DropdownListFilterFour from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilterFour';
 import TitleDropDownList from '../components/base_components/TitlePage/TitleMobile/TitleDropDownList';
 import RadioButtonTwo from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonTwo';
+import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
 
 
 
@@ -164,6 +165,14 @@ class Search extends Component {
                             onClick={(e)=>{console.log(e.target.value)}} />
                         </section>
                         <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <SecondaryButtonDesktop 
+                                name="CARI SEKARANG"
+                                onClick={()=>{console.log("button cari")}}
+                            />
+                            <div style={{marginTop: "25px"}}></div>
+                        </section>
+                        <section>
                             <BadgesDesktop
                                 store={storeDesktop2}
                             />
@@ -188,6 +197,7 @@ class Search extends Component {
                                 store={storeDesktop}
                             />
                         </section>
+                        
                     </OnDesktop>
                     <OnMobile>
                         
