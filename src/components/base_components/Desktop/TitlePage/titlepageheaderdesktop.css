@@ -63,6 +63,6 @@
 } 
 
 #titlePageHeaderDesktopContainer > .row > .col{
-    justify-content: center;
-    display: flex;
+    /* justify-content: center;
+    display: flex; */
 }

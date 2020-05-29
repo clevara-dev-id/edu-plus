@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
+//import Desktop
+import CardImageTertiarayDesktop from '../components/base_components/Desktop/CardImage/CardImageTertiarayDesktop';
+import ButtonAnotherSchoolsDesktop  from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
+import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
+import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
+
+
+//import mobile
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitleWithSeparator from '../components/base_components/TitlePage/TitleMobile/TitleWithSeparator';
@@ -16,6 +24,9 @@ import SingleBadges from '../components/base_components/Badges/BadgesMobile/Sing
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 
 
+
+//Import Image Desktop
+import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
 
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -57,52 +68,76 @@ const storeMobile = [
 
 ];
 
+//dummy desktop
+const DesktopSlider = [
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1}
+];
 
-let store = [{
-        image   : CardImage1,
-        brand   : "NASIONAL",
-        title   : "SMAN 14 JAKARTA JAKARTA JAKARTAJAKARTA",
-        address : "Jl. SMA BARAT, CILILITAN",
-        phone   : "021 - 525 8721"
+const storeDesktop = [
+    {
+        image     : JakartaImage,
+        titleCard : "Jakarta Utara",
+        descrip   : "15 Sekolah"
     },
     {
-        image   : CardImage2,
-        brand   : "NASIONAL",
-        title   : "SMAN 51 JAKARTA",
-        address : "JL. BATU AMPAR 3 CONDET",
-        phone   : "021 - 525 8721"
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Jakarta Pusat",
+        descrip   : "15 Sekolah"
     },
     {
-        image   : CardImage3,
-        brand   : "NASIONAL",
-        title   : "SMAN 62 JAKARTA",
-        address : "JL. RAYA BOGOR KM.20",
-        phone   : "021 - 525 8721"
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "Jakarta Barat",
+        descrip   : "15 Sekolah"
     },
     {
-        image   : CardImage4,
-        brand   : "NASIONAL",
-        title   : "SMAN 93 JAKARTA",
-        address : "JL. RAYA BOGOR KOMP. PASWALPRES",
-        phone   : "021 - 525 8721"
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Jakarta Timur",
+        descrip   : "15 Sekolah"
+    },
+    {
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "Jakarta Selatan",
+        descrip   : "15 Sekolah"
     },
 ];
 
-const store2 =[{name:"4 SMA ditemukan"},{name:"Kramat Jati"},{name:"DKI Jakarta"}];
-const store3 =[
-    {name:"Home", link: "/home"},
-    {name:"Search", link: "/search"},
-    {name:"Informasi Sekolah", link: "/information"},
-    {name:"Kontak Sekolah", link: "/contact"},
-    {name:"Biaya Sekolah", link: "/payroll"},
-    {name:"About", link: "/about"}
-];
 
 class SearchResult extends Component {
     render() {
         return (
             <>
-                <OnDesktop></OnDesktop>
+                <OnDesktop>
+                    <section>
+                        <div style={{marginTop:"36px"}}></div>
+                        <TitlePageHeaderDesktop
+                            name={`Daftar SD ${"&"} MI Swasta`}
+                            color="#1A6EB2"
+                            width="100%"
+                            textAlign="left"
+                        />
+                    </section>
+                    <section>
+                            <div style={{marginTop:"15px"}}></div>
+                            <LineComponentsDesktop />
+                            <div style={{marginBottom: "20px"}} />
+                        </section>
+                    <section>   
+                        <CardImageTertiarayDesktop 
+                            store={storeDesktop}
+                        />
+                    </section>
+                    <section>
+                        <div style={{marginTop: "25px"}}></div>
+                        <ButtonAnotherSchoolsDesktop
+                            name="CARI SEKOLAH LAINNYA"
+                            width="277px"
+                        />
+                        <div style={{marginTop: "79px"}}></div>
+                    </section>
+                </OnDesktop>
                 <OnMobile>
                     {/* <section>
                         <div style={{marginTop: "48px"}}></div>
