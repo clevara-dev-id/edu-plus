@@ -6,6 +6,7 @@ import CardImageTertiarayDesktop from '../components/base_components/Desktop/Car
 import ButtonAnotherSchoolsDesktop  from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
+import SingleDesktopBadgesWhite from '../components/base_components/Desktop/Badges/SingleDesktopBadgesWhite';
 
 
 //import mobile
@@ -120,10 +121,15 @@ class SearchResult extends Component {
                         />
                     </section>
                     <section>
-                            <div style={{marginTop:"15px"}}></div>
-                            <LineComponentsDesktop />
-                            <div style={{marginBottom: "20px"}} />
-                        </section>
+                        <div style={{marginTop:"15px"}}></div>
+                        <LineComponentsDesktop />
+                        <div style={{marginBottom: "20px"}} />
+                    </section>
+                    <section>
+                        <SingleDesktopBadgesWhite
+                            store={[{name:"3 Data ditemukan", idContent: "desktopSchoolsContactId"}]}
+                        />
+                    </section>
                     <section>   
                         <CardImageTertiarayDesktop 
                             store={storeDesktop}
