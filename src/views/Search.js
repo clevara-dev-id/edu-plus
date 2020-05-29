@@ -9,7 +9,8 @@ import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopB
 import DropDownListFilterFourDesktop from '../components/base_components/Desktop/DropDownList/DropDownListFilterFourDesktop';
 import RadioButtonFiveDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonFiveDesktop';
 import RadioButtonTwoDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonTwoDesktop';
- 
+import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
+
 //Mobile Item
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
@@ -120,7 +121,15 @@ class Search extends Component {
             <>
                 <div>
                     <OnDesktop>
-                    <section>
+                        <section>
+                            <div style={{marginTop:"36px"}}></div>
+                            <TitlePageHeaderDesktop
+                                name="Mulai cari informasi sekolah disini"
+                                color="#1A6EB2"
+                                width="100%"
+                            />
+                        </section>
+                        <section>
                             <div style={{marginTop: "25px"}}></div>
                             {/* <TitleDropDownList name="Pilih Alamat"/> */}
                             <DropDownListFilterFourDesktop
@@ -172,32 +181,6 @@ class Search extends Component {
                             />
                             <div style={{marginTop: "25px"}}></div>
                         </section>
-                        <section>
-                            <BadgesDesktop
-                                store={storeDesktop2}
-                            />
-                        </section>
-                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        
                     </OnDesktop>
                     <OnMobile>
                         
