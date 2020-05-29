@@ -10,6 +10,7 @@ import DropDownListFilterFourDesktop from '../components/base_components/Desktop
 import RadioButtonFiveDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonFiveDesktop';
 import RadioButtonTwoDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonTwoDesktop';
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
+import TitleBottomDesktop from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktop';
 
 //Mobile Item
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
@@ -180,6 +181,15 @@ class Search extends Component {
                                 onClick={()=>{console.log("button cari")}}
                             />
                             <div style={{marginTop: "25px"}}></div>
+                        </section>
+                        <section>
+                            <div style={{marginTop: "7px"}}></div>
+                            <TitleBottomDesktop 
+                                name="Daftarkan Sekolah atau tempat kursus anda" 
+                                namelink="disini"
+                                link="/register" 
+                            />
+                            <div style={{marginBottom: "30px"}}></div>
                         </section>
                     </OnDesktop>
                     <OnMobile>

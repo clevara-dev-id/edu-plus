@@ -24,7 +24,7 @@ const SecondaryButtonDesktop = props => {
 
 const MyButton = styled.button(
     props => ({
-        width: props.width ? props.width : "269px",
+        width: props.width ? props.width : "343px",
         height: props.height ? props.height : "48px",
         left: props.left ? props.left : "17px",
         color : props.color ? props.color : "#ffffff",
