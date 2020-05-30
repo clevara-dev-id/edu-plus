@@ -9,6 +9,7 @@ import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopB
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
 import CardListWhatsAppDesktop from '../components/base_components/Desktop/CardList/CardListWhatsAppDesktop';
+import FormContactDesktop from '../components/base_components/Desktop/Form/FormContact/FormContactDesktop';
 
 //Mobile Item
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
@@ -126,6 +127,16 @@ class ContactUs extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <CardListWhatsAppDesktop />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <FormContactDesktop 
+                                title="Atau Kirimkan pesan anda"
+                                onChangeName={(e)=>{console.log(e.target.value)}}
+                                onChangeEmail={(e)=>{console.log(e.target.value)}}
+                                onChangeMessage={(e)=>{console.log(e.target.value)}}
+                                onClickButton={()=>{console.log("Button Is Activated !")}}
+                            />
                         </section>
                         <section>
                             <div style={{marginTop:"24px"}}></div>
