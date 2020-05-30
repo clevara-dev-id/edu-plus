@@ -1,5 +1,5 @@
 @media screen and (min-width: 1024px){
-    #bottomTitleDesktopSecondaryContainer{
+    #cardImgeWhatsappDesktopContainer{
         max-width: 1024px;
         padding-right: 85px;
         padding-left: 85px;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 1152px){
-    #bottomTitleDesktopSecondaryContainer{
+    #cardImgeWhatsappDesktopContainer{
         max-width: 1152px;
         padding-right: 110px;
         padding-left: 110px;
@@ -18,7 +18,7 @@
     }
 }
 @media screen and (min-width: 1280px){
-    #bottomTitleDesktopSecondaryContainer{
+    #cardImgeWhatsappDesktopContainer{
         max-width: 1280px;
         padding-right: 125px;
         padding-left: 125px;
@@ -27,7 +27,7 @@
     }
 }
 @media screen and (min-width: 1360px){
-    #bottomTitleDesktopSecondaryContainer{
+    #cardImgeWhatsappDesktopContainer{
         max-width: 1360px;
         padding-right: 145px;
         padding-left: 145px;
@@ -37,7 +37,7 @@
 }
 
 @media screen and (min-width: 1366px){
-    #bottomTitleDesktopSecondaryContainer{
+    #cardImgeWhatsappDesktopContainer{
         max-width: 1366px;
         padding-right: 145px;
         padding-left: 145px;
@@ -47,7 +47,7 @@
 }
 
 @media screen and (min-width: 1440px){
-    #bottomTitleDesktopSecondaryContainer{
+    #cardImgeWhatsappDesktopContainer{
         max-width: 1440px;
         padding-right: 165px;
         padding-left: 165px;
@@ -56,7 +56,22 @@
     }
 } 
 
-#bottomTitleDesktopSecondaryContainer > .row > .col {
+#cardImgeWhatsappDesktopContainer > .row > .col {
     justify-content: center;
     display: flex;
+}
+
+.cardimgewatappbodyDesktop > .contact {
+    font-size: 17px;
+}
+
+.card-horizontal-desktop {
+    display: flex;
+    flex: 1 1 auto;
+}
+.imageClassDesktop{
+    width: 56px;
+    height: 56px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px; 
 }

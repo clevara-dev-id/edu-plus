@@ -8,6 +8,7 @@ import CardImage from '../components/base_components/Desktop/CardImage/CardImage
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
+import CardListWhatsAppDesktop from '../components/base_components/Desktop/CardList/CardListWhatsAppDesktop';
 
 //Mobile Item
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
@@ -121,6 +122,10 @@ class ContactUs extends Component {
                                 color="#1A6EB2"
                                 width="100%"
                             />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <CardListWhatsAppDesktop />
                         </section>
                         <section>
                             <div style={{marginTop:"24px"}}></div>
