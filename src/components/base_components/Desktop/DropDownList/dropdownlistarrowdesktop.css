@@ -1,0 +1,177 @@
+@media screen and (min-width: 1024px){
+    #dropDownListArrowDesktopContainer{
+        /* max-width: none; */
+        max-width: 1024px;
+        padding-right: 85px;
+        padding-left: 85px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (min-width: 1152px){
+    #dropDownListArrowDesktopContainer{
+        /* max-width: none; */
+        max-width: 1152px;
+        padding-right: 110px;
+        padding-left: 110px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+    }
+}
+@media screen and (min-width: 1280px){
+    #dropDownListArrowDesktopContainer{
+        /* max-width: none; */
+        max-width: 1280px;
+        padding-right: 125px;
+        padding-left: 125px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+    }
+}
+@media screen and (min-width: 1360px){
+    #dropDownListArrowDesktopContainer{
+        /* max-width: none; */
+        max-width: 1360px;
+        padding-right: 145px;
+        padding-left: 145px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (min-width: 1366px){
+    #dropDownListArrowDesktopContainer{
+        /* max-width: none; */
+        max-width: 1366px;
+        padding-right: 145px;
+        padding-left: 145px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    #dropDownListArrowDesktopContainer{
+        /* max-width: none; */
+        max-width: 1440px;
+        padding-right: 165px;
+        padding-left: 165px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+    }
+} 
+
+.filterSearchDesktop{
+    text-align: left;
+    padding-left: 5px;
+}
+.dropbtnDesktop {
+    background-color: transparent;
+    color: #222222;
+    border: none;
+    cursor: pointer;
+    min-width: 160px;
+    height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    letter-spacing: 0.015em;
+    /* text-transform: uppercase; */
+    text-align: left;
+}
+
+.dropbtnDesktop:hover, .dropbtnDesktop:focus {
+    background-color: transparent;
+    outline:none;
+}
+
+.dropdownDesktop {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content-desktop {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 139px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    left: auto;
+}
+
+.dropdown-content-desktop a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#myDropdownLetterDesktop > option {
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 14px;
+    line-height: 17px;
+    width: 170px;
+    height: 37px;
+    letter-spacing: 0.0025em;
+    color: #000000;
+    padding : 10px 20px 5px 10px;
+    max-width: 170px;
+    max-height: 37px;
+}
+#myDropdownLetterDesktop > option:hover {
+    background: #1A6EB2;
+    color: #ffffff;
+}
+
+
+.dropdown-contentShow {
+    display: grid;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.fildfilterDesktop{
+    padding-left: 6px;
+    vertical-align: top;
+}
+
+#myDropdownAreaDesktop > option {
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 14px;
+    line-height: 17px;
+    width: 170px;
+    height: 37px;
+    letter-spacing: 0.0025em;
+    color: #000000;
+    padding : 10px 20px 5px 10px;
+    max-width: 170px;
+    max-height: 37px;
+}
+
+#myDropdownAreaDesktop > option:hover {
+    background: #1A6EB2;
+    color: #ffffff;
+}
+
+#myDropdownAreaDesktop > option > option {
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 14px;
+    line-height: 17px;
+}

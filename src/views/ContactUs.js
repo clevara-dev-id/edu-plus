@@ -6,6 +6,8 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
+import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
 
 //Mobile Item
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
@@ -112,6 +114,23 @@ class ContactUs extends Component {
             <>
                 <div>
                     <OnDesktop>
+                        <section>
+                            <div style={{marginTop:"36px"}}></div>
+                            <TitlePageHeaderDesktop
+                                name="Hubungi Kami"
+                                color="#1A6EB2"
+                                width="100%"
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"24px"}}></div>
+                            <TitleBottomDesktopSecondary 
+                                name="Pesan anda akan dikirim ke "
+                                link="#"
+                                namelink="halo@eduplus.com"
+                                nameSecondary=" dan akan segera kami balas"
+                            />
+                        </section>
                     </OnDesktop>
                     <OnMobile>
                         <section>

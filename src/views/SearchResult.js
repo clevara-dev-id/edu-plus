@@ -8,6 +8,7 @@ import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitleP
 import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
 import SingleDesktopBadgesWhite from '../components/base_components/Desktop/Badges/SingleDesktopBadgesWhite';
 import TitlePageWithSparatorDesktop from '../components/base_components/Desktop/TitlePage/TitlePageWithSparatorDesktop';
+import DropDownListArrowDesktop from '../components/base_components/Desktop/DropDownList/DropDownListArrowDesktop';
 
 
 //import mobile
@@ -131,6 +132,12 @@ class SearchResult extends Component {
                         <div style={{marginTop:"15px"}}></div>
                         <LineComponentsDesktop />
                         <div style={{marginBottom: "20px"}} />
+                    </section>
+                    <section>
+                        <DropDownListArrowDesktop 
+                            onClick={(e)=>{console.log(e.target.value)}}
+                            onClickArea={(e)=>{console.log(e.target.value)}}
+                        />
                     </section>
                     <section>
                         <SingleDesktopBadgesWhite
