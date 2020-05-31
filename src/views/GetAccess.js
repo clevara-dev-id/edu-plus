@@ -13,6 +13,9 @@ import MessageGetAccessResultDesktop from '../components/base_components/Desktop
 import CardImageTertiarayDesktop from '../components/base_components/Desktop/CardImage/CardImageTertiarayDesktop';
 import PrimaryButtonDesktop from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
 import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
+import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
+import LabelDesktopPrimary from '../components/base_components/Desktop/Label/LabelDesktopPrimary';
+import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 
 //Mobile Item
 // import CardImageMobileSecondary from '../components/base_components/Card/CardMobile/CardImage/CardImageMobileSecondary';
@@ -137,6 +140,14 @@ class GetAccess extends Component {
                 <div>
                     <OnDesktop>
                         <section>
+                            <div style={{marginTop:"36px"}}></div>
+                            <TitlePageHeaderDesktop
+                                name="Daftarkan Sekolah / Tempat Kursus"
+                                color="#1A6EB2"
+                                width="100%"
+                            />
+                        </section>
+                        <section>
                             <div style={{marginTop:"0px"}}></div>
                             <InputSearchDesktop 
                                 title="Cari sekolah/Tempat Kursus disini"
@@ -170,6 +181,13 @@ class GetAccess extends Component {
                             { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" && this.state.fieldResult!=="notfound" ? 
                             <CardImageTertiarayDesktop store={storeMobile} /> : ""}
                         </section>
+                        <section>
+                        {this.state.fieldResult === "notfound" ? 
+                            <LabelDesktopPrimary
+                                label="Mohon maaf data tidak ditemukan"
+                            />
+                            :""}
+                        </section>
                         <section >
                             <div style={{marginTop: "48px"}}></div>
                             {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
@@ -177,14 +195,15 @@ class GetAccess extends Component {
                                 marginTop="7px" 
                                 border="1px solid #DBDBDB"
                                 marginBottom="25px" /> : ""}
-                            {/* {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
-                                <TitleBottomSecondary 
+                            {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
+                                <TitleBottomDesktopSecondary 
                                 name="Tidak Menemukan Data sekolah/Tempat kursus? Klik tombol dibawah untuk daftarkan sekolah/tempat kursus"
                                 link=""
                                 namelink=""
                                 nameSecondary=""
                                 fontSize="13px"
-                            /> : ""} */}
+                                width="100%"
+                            /> : ""}
                         </section>
                         <section>
                             { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ?
