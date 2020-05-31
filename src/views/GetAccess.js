@@ -7,6 +7,12 @@ import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
 import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import InputSearchDesktop from '../components/base_components/Desktop/InputSearch/InputSearchDesktop';
+import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
+import MessageGetAccessResultDesktop from '../components/base_components/Desktop/Message/MessageGetAccessResultDesktop';
+import CardImageTertiarayDesktop from '../components/base_components/Desktop/CardImage/CardImageTertiarayDesktop';
+import PrimaryButtonDesktop from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
+import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
 
 //Mobile Item
 // import CardImageMobileSecondary from '../components/base_components/Card/CardMobile/CardImage/CardImageMobileSecondary';
@@ -130,6 +136,65 @@ class GetAccess extends Component {
             <>
                 <div>
                     <OnDesktop>
+                        <section>
+                            <div style={{marginTop:"0px"}}></div>
+                            <InputSearchDesktop 
+                                title="Cari sekolah/Tempat Kursus disini"
+                                onChange={(e)=>{this.setState({fieldResult:e.target.value})}}
+                                // onChange={(e)=>{console.log(e.target.value)}}
+                                label="Masukannamasekolah"
+                                placeholder="Masukan nama Sekolah/Kursusan"
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"10px"}}></div>
+                            {this.state.fieldResult === "" ?
+                            <SecondaryButtonDesktop
+                                name="CARI"
+                                id="buttonsearchcontact"
+                                background="#1A6EB2"
+                                width="343px"
+                                onClick={()=>{console.log("Seach Button")}}
+                            /> : ""}
+                            {this.state.fieldResult === "" ?
+                            <div style={{marginTop:"300px"}}></div>
+                            :""}
+                        </section>
+                        <section>
+                                <div style={{marginTop:"-15px"}}></div>
+                                {this.state.fieldResult ? <MessageGetAccessResultDesktop 
+                                name={this.state.fieldResult} sumOf="5" fontSize="13px" /> : ""}
+                        </section>
+                        <section>
+                            <div style={{marginTop: "48px"}}></div>
+                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" && this.state.fieldResult!=="notfound" ? 
+                            <CardImageTertiarayDesktop store={storeMobile} /> : ""}
+                        </section>
+                        <section >
+                            <div style={{marginTop: "48px"}}></div>
+                            {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
+                                <LineComponentsDesktop 
+                                marginTop="7px" 
+                                border="1px solid #DBDBDB"
+                                marginBottom="25px" /> : ""}
+                            {/* {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
+                                <TitleBottomSecondary 
+                                name="Tidak Menemukan Data sekolah/Tempat kursus? Klik tombol dibawah untuk daftarkan sekolah/tempat kursus"
+                                link=""
+                                namelink=""
+                                nameSecondary=""
+                                fontSize="13px"
+                            /> : ""} */}
+                        </section>
+                        <section>
+                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ?
+                            <PrimaryButtonDesktop
+                                width="343px"
+                                name="DAFTARKAN SEKOLAH/TEMPAT KURSUS"
+                                onClick={()=>{this.onClickRegisterHandle()}}
+                            /> : ""}
+                            <div style={{marginTop: "70px"}}></div>
+                        </section>
                     </OnDesktop>
                     <OnMobile>
                         <section>
