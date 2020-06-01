@@ -4,9 +4,19 @@ import $ from 'jquery'
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import SingleDesktopBadges from '../components/base_components/Desktop/Badges/SingleDesktopBadges';
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
+import DesktopDescriptionWithIcon from '../components/base_components/Desktop/Description/DesktopDescriptionWithIcon';
+import DesktopDescription from '../components/base_components/Desktop/Description/DesktopDescription';
+import TitlePageWithAddressDesktop from '../components/base_components/Desktop/TitlePage/TitlePageWithAddressDesktop';
+import DesktopIconWithTitle from '../components/base_components/Desktop/Icon/DesktopIconWithTitle ';
+import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
+import CarouselDesktopSecondary from '../components/base_components/Desktop/Carousel/CarouselDesktopSecondary';
+import PrimaryButtonDesktop from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
+import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
+import TitleBottomDesktopTertiary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopTertiary';
+import FormGetAccessDesktop from '../components/base_components/Desktop/Form/FormGetAccess/FormGetAccessDesktop';
+import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
@@ -15,6 +25,10 @@ import TitlePageWithAddress from '../components/base_components/TitlePage/TitleM
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 import TitleBotttomTertiary from '../components/base_components/TitleBottom/Mobile/TitleBotttomTertiary';
 import FormGetAccessMobile from '../components/base_components/Form/FormGetAccess/FormGetAccessMobile';
+
+//Import Image Desktop
+import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
+
 
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -175,6 +189,14 @@ const storeDesktop2 =[
     {name:"Universitas", idContent: "desktopUniv"},
 ];
 
+//dummy desktop
+
+const DesktopSlider = [
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1}
+];
 
 class GetAccessInput extends Component {
     constructor(props){
@@ -195,6 +217,79 @@ class GetAccessInput extends Component {
             <>
                 <div>
                     <OnDesktop>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
+                            />
+                        </section>
+                        <section>
+                            <TitlePageHeaderDesktop
+                                name="Dapatkan Akses"
+                                color="#1A6EB2"
+                                width="100%"
+                                textAlign="left"
+                            />
+                            <div style={{marginBottom:"25px"}}></div>
+                        </section>
+                        <section>
+                            <div style={{marginTop: "10px"}} />
+                            <CarouselDesktopSecondary store={DesktopSlider} />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"38px"}}></div>
+                            <TitlePageWithAddressDesktop
+                                title="SD Sumbangsih"
+                                text="Jalan Duren Bangka No. 36, Bangka, Mampang Prapatan, Jakarta Selatan, DKI Jakarta"
+                            />
+                            <LineComponentsDesktop 
+                                // marginTop="-20px"
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <FormGetAccessDesktop 
+                                title="Atau Kirimkan pesan anda"
+                                onChangeName={(e)=>{console.log(e.target.value)}}
+                                onChangePosition={(e)=>{console.log(e.target.value)}}
+                                onChangeEmail={(e)=>{console.log(e.target.value)}}
+                                onChangePhone={(e)=>{console.log(e.target.value)}}
+                                onClickButton={()=>{console.log("Button Is Activated !")}}
+                            />
+                        </section>
+                        <section >
+                            <div style={{marginTop: "32px"}}></div>
+                                <TitleBottomDesktopTertiary 
+                                width="535px"
+                                name="Pihak Eduplus melalui email"
+                                link=""
+                                namelink=" halo@eduplus.com "
+                                nameSecondary="atau no. telp. "
+                                linkSecondary=""
+                                namelinkSecondary=" +62 999 9999 9999 "
+                                nameTertiary="akan segera menghubungi anda untuk melakukan verifikasi lebih lanjut, Terimakasih"
+                                fontSize="13px"
+                                textAlign="center"
+                                />
+                            <div style={{marginBottom: "73px"}}></div>
+                        </section>
+                        {/* <section>
+                            {this.state.opsSekolah ? 
+                                <PrimaryButtonDesktop
+                                    name="LOGIN"
+                                    id="buttonmesaageFormcontact"
+                                    width="343px"
+                                    onClick={()=>{console.log("get Login")}}
+                                /> :
+                                <SecondaryButtonDesktop
+                                    name="DAPATKAN AKSES"
+                                    id="buttonmesaageFormcontact"
+                                    background="#1A6EB2"
+                                    onClick={()=>{this.onClickGetAccessHandle()}}
+                            /> }
+                            <div style={{marginBottom: "40px"}} />
+                        </section> */}
                     </OnDesktop>
                     <OnMobile>
                         <section>
@@ -231,7 +326,7 @@ class GetAccessInput extends Component {
                                 onClickButton={()=>{console.log("Button Is Activated !")}}
                             />
                         </section>
-                        <section >
+                        <section>
                             <div style={{marginTop: "48px"}}></div>
                                 <TitleBotttomTertiary 
                                 name="Pihak Eduplus melalui email"
@@ -242,7 +337,8 @@ class GetAccessInput extends Component {
                                 namelinkSecondary=" +62 999 9999 9999 "
                                 nameTertiary="akan segera menghubungi anda untuk melakukan verifikasi lebih lanjut, Terimakasih"
                                 fontSize="13px"
-                                textAlign="justify"/>
+                                textAlign="justify"
+                                />
                         </section>
                     </OnMobile>
                 </div>

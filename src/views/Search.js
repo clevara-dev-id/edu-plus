@@ -9,7 +9,9 @@ import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopB
 import DropDownListFilterFourDesktop from '../components/base_components/Desktop/DropDownList/DropDownListFilterFourDesktop';
 import RadioButtonFiveDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonFiveDesktop';
 import RadioButtonTwoDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonTwoDesktop';
- 
+import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
+import TitleBottomDesktop from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktop';
+
 //Mobile Item
 import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
@@ -24,6 +26,7 @@ import DropdownListFilter from '../components/base_components/DropDwonList/Dropd
 import DropdownListFilterFour from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilterFour';
 import TitleDropDownList from '../components/base_components/TitlePage/TitleMobile/TitleDropDownList';
 import RadioButtonTwo from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonTwo';
+import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
 
 
 
@@ -119,7 +122,15 @@ class Search extends Component {
             <>
                 <div>
                     <OnDesktop>
-                    <section>
+                        <section>
+                            <div style={{marginTop:"36px"}}></div>
+                            <TitlePageHeaderDesktop
+                                name="Mulai cari informasi sekolah disini"
+                                color="#1A6EB2"
+                                width="100%"
+                            />
+                        </section>
+                        <section>
                             <div style={{marginTop: "25px"}}></div>
                             {/* <TitleDropDownList name="Pilih Alamat"/> */}
                             <DropDownListFilterFourDesktop
@@ -164,29 +175,21 @@ class Search extends Component {
                             onClick={(e)=>{console.log(e.target.value)}} />
                         </section>
                         <section>
-                            <BadgesDesktop
-                                store={storeDesktop2}
+                            <div style={{marginTop: "25px"}}></div>
+                            <SecondaryButtonDesktop 
+                                name="CARI SEKARANG"
+                                onClick={()=>{console.log("button cari")}}
                             />
+                            <div style={{marginTop: "25px"}}></div>
                         </section>
-                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
+                        <section>
+                            <div style={{marginTop: "7px"}}></div>
+                            <TitleBottomDesktop 
+                                name="Daftarkan Sekolah atau tempat kursus anda" 
+                                namelink="disini"
+                                link="/register" 
                             />
-                        </section>
-                        <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
+                            <div style={{marginBottom: "30px"}}></div>
                         </section>
                     </OnDesktop>
                     <OnMobile>

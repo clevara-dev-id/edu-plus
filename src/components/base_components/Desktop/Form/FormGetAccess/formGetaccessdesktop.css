@@ -1,0 +1,68 @@
+@media screen and (min-width: 1024px){
+    #formGetAccessDesktopContainer{
+        max-width: 1024px;
+        padding-right: 154px;
+        padding-left: 154px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1152px){
+    #formGetAccessDesktopContainer{
+        max-width: 1152px;
+        padding-right: 218px;
+        padding-left: 218px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 1280px){
+    #formGetAccessDesktopContainer{
+        max-width: 1280px;
+        padding-right: 280px;
+        padding-left: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 1360px){
+    #formGetAccessDesktopContainer{
+        max-width: 1360px;
+        padding-right: 320px;
+        padding-left: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1366px){
+    #formGetAccessDesktopContainer{
+        max-width: 1366px;
+        padding-right: 325px;
+        padding-left: 325px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    #formGetAccessDesktopContainer{
+        max-width: 1440px;
+        padding-right: 357px;
+        padding-left: 357px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+} 
+
+#formGetAccessDesktopContainer > .row > .col{
+    justify-content: center;
+    display: flex;
+}
+
+#formGetAccessDesktopContainer > .row > .col > .errorClassDiv {
+    margin-bottom: 16px;
+    color: red;
+    font-size: 13px;
+}
