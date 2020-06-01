@@ -4,9 +4,18 @@ import $ from 'jquery'
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import SingleDesktopBadges from '../components/base_components/Desktop/Badges/SingleDesktopBadges';
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
+import DesktopDescriptionWithIcon from '../components/base_components/Desktop/Description/DesktopDescriptionWithIcon';
+import DesktopDescription from '../components/base_components/Desktop/Description/DesktopDescription';
+import TitlePageWithAddressDesktop from '../components/base_components/Desktop/TitlePage/TitlePageWithAddressDesktop';
+import DesktopIconWithTitle from '../components/base_components/Desktop/Icon/DesktopIconWithTitle ';
+import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
+import CarouselDesktopSecondary from '../components/base_components/Desktop/Carousel/CarouselDesktopSecondary';
+import PrimaryButtonDesktop from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
+import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
+import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
+
 
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
@@ -28,6 +37,9 @@ import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobi
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
 import MobileDescriptionWithIcon from '../components/base_components/Description/Mobile/MobileDescriptionWithIcon';
 
+
+//Import Image Desktop
+import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
 
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -283,47 +295,60 @@ const store10 = [
     },
 ];
 
+// const storeDesktop2 =[
+//     {name:"SD & MI", idContent: "desktopSDdanMI"},
+//     {name:"SMP & MTS", idContent: "desktopSmpMts"},
+//     {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
+//     {name:"Universitas", idContent: "desktopUniv"},
+// ];
 
-//dummy Desktop
+//dummy desktop
+
+const DesktopSlider = [
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1}
+];
+
 const storeDesktop = [
     {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "DKI Jakarta",
+        image     : JakartaImage,
+        titleCard : "Jakarta Utara",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Jawa Barat",
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Jakarta Pusat",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Jawa Tengah",
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "Jakarta Barat",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Bali",
+        image     : "https://via.placeholder.com/256x242",
+        titleCard : "Jakarta Timur",
         descrip   : "15 Sekolah"
     },
     {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Sumatra Utara",
+        image     : "https://via.placeholder.com/255x242",
+        titleCard : "Jakarta Selatan",
         descrip   : "15 Sekolah"
     },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Kalimantan",
-        descrip   : "15 Sekolah"
-    }
 ];
 
+
 const storeDesktop2 =[
-    {name:"SD & MI", idContent: "desktopSDdanMI"},
-    {name:"SMP & MTS", idContent: "desktopSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
-    {name:"Universitas", idContent: "desktopUniv"},
+    {name:"Kontak Sekolah", idContent: "desktopSchoolsContactId"},
+    {name:"Informasi Sekolah", idContent: "desktopDescriptionId"},
+    {name:"Biaya Sekolah", idContent: "desktopstudentConstId"},
+    {name:"Pendaftaran", idContent: "desktopregisterTimeId"},
+    {name:"Fasilitas", idContent: "desktopprimaryFasilityId"},
+    {name:"Ekstrakulikuler", idContent: "desktopextracurricularContentId"}
 ];
+
 
 
 class GetAccessDetail extends Component {
@@ -347,6 +372,115 @@ class GetAccessDetail extends Component {
             <>
                 <div>
                     <OnDesktop>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "10px"}} />
+                            <CarouselDesktopSecondary store={DesktopSlider} />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"38px"}}></div>
+                            <TitlePageWithAddressDesktop
+                                title="SD Sumbangsih"
+                                text="Jalan Duren Bangka No. 36, Bangka, Mampang Prapatan, Jakarta Selatan, DKI Jakarta"
+                            />
+                            <LineComponentsDesktop 
+                                // marginTop="-20px"
+                            />
+                            <div style={{marginBottom: "20px"}} />
+                            <DesktopIconWithTitle 
+                                name="Kurikulum K-13"
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section>
+                            <SingleDesktopBadges
+                                store={storeDesktop2}
+                            />
+                        </section>
+                        <section style={{display: "none"}} id="desktopSchoolsContactId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescriptionWithIcon
+                                store={storeMobileTwo}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section style={{display: "none"}} id="desktopDescriptionId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescription
+                                store={storeMobileFour}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section style={{display: "none"}} id="desktopstudentConstId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescription
+                                store={storeMobileThree}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section style={{display: "none"}} id="desktopregisterTimeId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescription
+                                store={storeMobileFive}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section style={{display: "none"}} id="desktopprimaryFasilityId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescriptionWithIcon
+                                store={storeMobileSeven}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section style={{display: "none"}} id="desktopextracurricularContentId" className="tabcontendetaildesktop">
+                            <div style={{marginTop: "30px"}} />
+                            <DesktopDescriptionWithIcon
+                                store={storeMobileEight}
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section >
+                            <div style={{marginTop: "48px"}}></div>
+                               <LineComponentsDesktop marginTop="7px" marginBottom="25px" /> 
+                               {this.state.opsSekolah ? 
+                               <TitleBottomDesktopSecondary  
+                                width="100%"
+                                name="Sekolah ini sudah memiliki Operator. Klik tombol"
+                                link=""
+                                namelink=" login "
+                                nameSecondary="untuk mengubah atau menambahkan data di sekolah ini"
+                                fontSize="13px"
+                                textAlign="center"/> : 
+                                <TitleBottomDesktopSecondary 
+                                width="100%"
+                                name="Sekolah ini belum terverifikasi. Klik tombol"
+                                link=""
+                                namelink=" dapatkan akses "
+                                nameSecondary="untuk mengubah atau menambahkan data di sekolah ini"
+                                fontSize="13px"
+                                textAlign="center"/>}
+                        </section>
+                        <section>
+                            {this.state.opsSekolah ? 
+                                <PrimaryButtonDesktop
+                                    name="LOGIN"
+                                    id="buttonmesaageFormcontact"
+                                    width="343px"
+                                    onClick={()=>{console.log("get Login")}}
+                                /> :
+                                <SecondaryButtonDesktop
+                                    name="DAPATKAN AKSES"
+                                    id="buttonmesaageFormcontact"
+                                    background="#1A6EB2"
+                                    onClick={()=>{this.onClickGetAccessHandle()}}
+                            /> }
+                            <div style={{marginBottom: "40px"}} />
+                        </section>
                     </OnDesktop>
                     <OnMobile>
                         <section>

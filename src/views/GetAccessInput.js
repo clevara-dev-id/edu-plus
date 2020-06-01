@@ -4,9 +4,17 @@ import $ from 'jquery'
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import SingleDesktopBadges from '../components/base_components/Desktop/Badges/SingleDesktopBadges';
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
+import DesktopDescriptionWithIcon from '../components/base_components/Desktop/Description/DesktopDescriptionWithIcon';
+import DesktopDescription from '../components/base_components/Desktop/Description/DesktopDescription';
+import TitlePageWithAddressDesktop from '../components/base_components/Desktop/TitlePage/TitlePageWithAddressDesktop';
+import DesktopIconWithTitle from '../components/base_components/Desktop/Icon/DesktopIconWithTitle ';
+import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
+import CarouselDesktopSecondary from '../components/base_components/Desktop/Carousel/CarouselDesktopSecondary';
+import PrimaryButtonDesktop from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
+import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
+import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
 
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
@@ -15,6 +23,10 @@ import TitlePageWithAddress from '../components/base_components/TitlePage/TitleM
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 import TitleBotttomTertiary from '../components/base_components/TitleBottom/Mobile/TitleBotttomTertiary';
 import FormGetAccessMobile from '../components/base_components/Form/FormGetAccess/FormGetAccessMobile';
+
+//Import Image Desktop
+import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
+
 
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -175,6 +187,14 @@ const storeDesktop2 =[
     {name:"Universitas", idContent: "desktopUniv"},
 ];
 
+//dummy desktop
+
+const DesktopSlider = [
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1},
+    {image : SlideImageDesktop1}
+];
 
 class GetAccessInput extends Component {
     constructor(props){
@@ -195,6 +215,64 @@ class GetAccessInput extends Component {
             <>
                 <div>
                     <OnDesktop>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
+                            />
+                        </section>
+                        <section>
+                            <div style={{marginTop: "10px"}} />
+                            <CarouselDesktopSecondary store={DesktopSlider} />
+                        </section>
+                        <section>
+                            <div style={{marginTop:"38px"}}></div>
+                            <TitlePageWithAddressDesktop
+                                title="SD Sumbangsih"
+                                text="Jalan Duren Bangka No. 36, Bangka, Mampang Prapatan, Jakarta Selatan, DKI Jakarta"
+                            />
+                            <LineComponentsDesktop 
+                                // marginTop="-20px"
+                            />
+                            <div style={{marginBottom: "30px"}} />
+                        </section>
+                        <section >
+                            <div style={{marginTop: "48px"}}></div>
+                               <LineComponentsDesktop marginTop="7px" marginBottom="25px" /> 
+                               {this.state.opsSekolah ? 
+                               <TitleBottomDesktopSecondary  
+                                width="100%"
+                                name="Sekolah ini sudah memiliki Operator. Klik tombol"
+                                link=""
+                                namelink=" login "
+                                nameSecondary="untuk mengubah atau menambahkan data di sekolah ini"
+                                fontSize="13px"
+                                textAlign="center"/> : 
+                                <TitleBottomDesktopSecondary 
+                                width="100%"
+                                name="Sekolah ini belum terverifikasi. Klik tombol"
+                                link=""
+                                namelink=" dapatkan akses "
+                                nameSecondary="untuk mengubah atau menambahkan data di sekolah ini"
+                                fontSize="13px"
+                                textAlign="center"/>}
+                        </section>
+                        <section>
+                            {this.state.opsSekolah ? 
+                                <PrimaryButtonDesktop
+                                    name="LOGIN"
+                                    id="buttonmesaageFormcontact"
+                                    width="343px"
+                                    onClick={()=>{console.log("get Login")}}
+                                /> :
+                                <SecondaryButtonDesktop
+                                    name="DAPATKAN AKSES"
+                                    id="buttonmesaageFormcontact"
+                                    background="#1A6EB2"
+                                    onClick={()=>{this.onClickGetAccessHandle()}}
+                            /> }
+                            <div style={{marginBottom: "40px"}} />
+                        </section>
                     </OnDesktop>
                     <OnMobile>
                         <section>
@@ -231,7 +309,7 @@ class GetAccessInput extends Component {
                                 onClickButton={()=>{console.log("Button Is Activated !")}}
                             />
                         </section>
-                        <section >
+                        <section>
                             <div style={{marginTop: "48px"}}></div>
                                 <TitleBotttomTertiary 
                                 name="Pihak Eduplus melalui email"
