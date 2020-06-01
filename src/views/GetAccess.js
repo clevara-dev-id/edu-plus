@@ -211,7 +211,8 @@ class GetAccess extends Component {
                                 width="343px"
                                 name="DAFTARKAN SEKOLAH/TEMPAT KURSUS"
                                 onClick={()=>{this.onClickRegisterHandle()}}
-                            /> : ""}
+                            /> : ""
+                            }
                             <div style={{marginTop: "70px"}}></div>
                         </section>
                     </OnDesktop>

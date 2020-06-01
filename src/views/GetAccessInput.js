@@ -14,7 +14,8 @@ import LineComponentsDesktop from '../components/base_components/Desktop/LineCom
 import CarouselDesktopSecondary from '../components/base_components/Desktop/Carousel/CarouselDesktopSecondary';
 import PrimaryButtonDesktop from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
 import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
-import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
+import TitleBottomDesktopTertiary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopTertiary';
+import FormGetAccessDesktop from '../components/base_components/Desktop/Form/FormGetAccess/FormGetAccessDesktop';
 
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
@@ -236,28 +237,34 @@ class GetAccessInput extends Component {
                             />
                             <div style={{marginBottom: "30px"}} />
                         </section>
-                        <section >
-                            <div style={{marginTop: "48px"}}></div>
-                               <LineComponentsDesktop marginTop="7px" marginBottom="25px" /> 
-                               {this.state.opsSekolah ? 
-                               <TitleBottomDesktopSecondary  
-                                width="100%"
-                                name="Sekolah ini sudah memiliki Operator. Klik tombol"
-                                link=""
-                                namelink=" login "
-                                nameSecondary="untuk mengubah atau menambahkan data di sekolah ini"
-                                fontSize="13px"
-                                textAlign="center"/> : 
-                                <TitleBottomDesktopSecondary 
-                                width="100%"
-                                name="Sekolah ini belum terverifikasi. Klik tombol"
-                                link=""
-                                namelink=" dapatkan akses "
-                                nameSecondary="untuk mengubah atau menambahkan data di sekolah ini"
-                                fontSize="13px"
-                                textAlign="center"/>}
-                        </section>
                         <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <FormGetAccessDesktop 
+                                title="Atau Kirimkan pesan anda"
+                                onChangeName={(e)=>{console.log(e.target.value)}}
+                                onChangePosition={(e)=>{console.log(e.target.value)}}
+                                onChangeEmail={(e)=>{console.log(e.target.value)}}
+                                onChangePhone={(e)=>{console.log(e.target.value)}}
+                                onClickButton={()=>{console.log("Button Is Activated !")}}
+                            />
+                        </section>
+                        <section >
+                            <div style={{marginTop: "32px"}}></div>
+                                <TitleBottomDesktopTertiary 
+                                width="535px"
+                                name="Pihak Eduplus melalui email"
+                                link=""
+                                namelink=" halo@eduplus.com "
+                                nameSecondary="atau no. telp. "
+                                linkSecondary=""
+                                namelinkSecondary=" +62 999 9999 9999 "
+                                nameTertiary="akan segera menghubungi anda untuk melakukan verifikasi lebih lanjut, Terimakasih"
+                                fontSize="13px"
+                                textAlign="center"
+                                />
+                            <div style={{marginBottom: "73px"}}></div>
+                        </section>
+                        {/* <section>
                             {this.state.opsSekolah ? 
                                 <PrimaryButtonDesktop
                                     name="LOGIN"
@@ -272,7 +279,7 @@ class GetAccessInput extends Component {
                                     onClick={()=>{this.onClickGetAccessHandle()}}
                             /> }
                             <div style={{marginBottom: "40px"}} />
-                        </section>
+                        </section> */}
                     </OnDesktop>
                     <OnMobile>
                         <section>
@@ -320,7 +327,8 @@ class GetAccessInput extends Component {
                                 namelinkSecondary=" +62 999 9999 9999 "
                                 nameTertiary="akan segera menghubungi anda untuk melakukan verifikasi lebih lanjut, Terimakasih"
                                 fontSize="13px"
-                                textAlign="justify"/>
+                                textAlign="justify"
+                                />
                         </section>
                     </OnMobile>
                 </div>
