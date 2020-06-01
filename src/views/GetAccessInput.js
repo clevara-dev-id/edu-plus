@@ -16,6 +16,7 @@ import PrimaryButtonDesktop from '../components/base_components/Desktop/Button/P
 import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
 import TitleBottomDesktopTertiary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopTertiary';
 import FormGetAccessDesktop from '../components/base_components/Desktop/Form/FormGetAccess/FormGetAccessDesktop';
+import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
@@ -221,6 +222,15 @@ class GetAccessInput extends Component {
                             <BreadCrumbDesktop 
                                 store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
                             />
+                        </section>
+                        <section>
+                            <TitlePageHeaderDesktop
+                                name="Dapatkan Akses"
+                                color="#1A6EB2"
+                                width="100%"
+                                textAlign="left"
+                            />
+                            <div style={{marginBottom:"25px"}}></div>
                         </section>
                         <section>
                             <div style={{marginTop: "10px"}} />
