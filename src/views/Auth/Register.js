@@ -7,8 +7,16 @@ import { OnDesktop, OnMobile, onTablet } from '../../constants/Breackpoint';
 //Desktop
 import BreadCrumbDesktop from '../../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 import TitlePageHeaderDesktop from '../../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
-import TitleBottomDesktopTertiary from '../../components/base_components/Desktop/TitleBottom/TitleBottomDesktopTertiary';
+import RadioButtonTwoTabDesktop from '../../components/base_components/Desktop/RadioButton/RadioButtonTwoTabDesktop';
+import RadioButtonTwoDesktopRegister from '../../components/base_components/Desktop/RadioButton/RadioButtonTwoDesktopRegister';
+import TitleDropDownListDesktop from '../../components/base_components/Desktop/TitlePage/TitleDropDownListDesktop';
+import FormRegisterSingleDesktop from '../../components/base_components/Desktop/Form/FormRegister/FormRegisterSingleDesktop';
+import FormRegisterSingleWithDropDownListDesktop from '../../components/base_components/Desktop/Form/FormRegister/FormRegisterSingleWithDropDownListDesktop';
+import FormRegisterWithDropDownListFourDesktop from '../../components/base_components/Desktop/Form/FormRegister/FormRegisterWithDropDownListFourDesktop';
 import ButtonSecondaryDesktop from '../../components/base_components/Desktop/Button/SecondaryButtonDesktop';
+import TitleBottomDesktopTertiary from '../../components/base_components/Desktop/TitleBottom/TitleBottomDesktopTertiary';
+import LineComponentsDesktop from '../../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
+import FormRegisterInputContactDesktop from '../../components/base_components/Desktop/Form/FormRegister/FormRegisterInputContactDesktop';
 
 
 //Mobile Item
@@ -82,106 +90,106 @@ class Register extends Component {
             village:"",
         }
     }
-    componentDidMount = () =>{
-        this.getProvinceName();
-    }
-    getProvinceName = async () =>{
-        let provinceData=[];
-        const data = {
-            "province" : "Jawa Barat",
-        };
-        const result =await axios.post(BACKEND_URL+'/api/location',data);
-        const convert = await result.data.province;        
-        convert.forEach((data,index)=>{
-            provinceData[index]={id:data.province, name:data.province}
-        });
-        this.setState({provinceList:provinceData});
-        return provinceData;
-    }
-    checkProvince = () =>{
-        let checklist = true;
-        if(this.state.province===""){
-            checklist=false;
-        }
+    // componentDidMount = () =>{
+    //     this.getProvinceName();
+    // }
+    // getProvinceName = async () =>{
+    //     let provinceData=[];
+    //     const data = {
+    //         "province" : "Jawa Barat",
+    //     };
+    //     const result =await axios.post(BACKEND_URL+'/api/location',data);
+    //     const convert = await result.data.province;        
+    //     convert.forEach((data,index)=>{
+    //         provinceData[index]={id:data.province, name:data.province}
+    //     });
+    //     this.setState({provinceList:provinceData});
+    //     return provinceData;
+    // }
+    // checkProvince = () =>{
+    //     let checklist = true;
+    //     if(this.state.province===""){
+    //         checklist=false;
+    //     }
 
-        return checklist;
-    }
-    getCityName = async () =>{
-        if(this.checkProvince()){
-            let cityData=[];
-            const data = {
-                "province" : this.state.province,
-                "city":this.state.city,
-            };
-            const result =await axios.post(BACKEND_URL+'/api/location',data);
-            const convert = await result.data.city;        
-            convert.forEach((data,index)=>{
-                cityData[index]={id:data.city, name:data.city}
-            });
-            this.setState({cityList:cityData});
-            return cityData;
-        }
-        else{
-            SweetAlert("Maaf !","Sebelun memilih Kabupaten/Kota anda harus memilih Provinsi terlebih dahulu", "error" );
-        }
-    }
-    checkCity = () =>{
-        let checklist = true;
-        if(this.state.city===""){
-            checklist=false;
-        }
+    //     return checklist;
+    // }
+    // getCityName = async () =>{
+    //     if(this.checkProvince()){
+    //         let cityData=[];
+    //         const data = {
+    //             "province" : this.state.province,
+    //             "city":this.state.city,
+    //         };
+    //         const result =await axios.post(BACKEND_URL+'/api/location',data);
+    //         const convert = await result.data.city;        
+    //         convert.forEach((data,index)=>{
+    //             cityData[index]={id:data.city, name:data.city}
+    //         });
+    //         this.setState({cityList:cityData});
+    //         return cityData;
+    //     }
+    //     else{
+    //         SweetAlert("Maaf !","Sebelun memilih Kabupaten/Kota anda harus memilih Provinsi terlebih dahulu", "error" );
+    //     }
+    // }
+    // checkCity = () =>{
+    //     let checklist = true;
+    //     if(this.state.city===""){
+    //         checklist=false;
+    //     }
 
-        return checklist;
-    }
-    getDistrictName= async ()=>{
-        if(this.checkCity()){
-            let dictrictData=[];
-            const data = {
-                "province" : this.state.province,
-                "city"     : this.state.city,
-            };
-            const result =await axios.post(BACKEND_URL+'/api/location',data);
-            const convert = await result.data.district;        
-            convert.forEach((data,index)=>{
-                dictrictData[index]={id:data.district, name:data.district}
-            });
-            this.setState({districtList:dictrictData});
-            return dictrictData;
-        }
-        else{
-            SweetAlert("Maaf !","Sebelun memilih Kecamatan anda harus memilih Kabupaten/Kota terlebih dahulu", "error" );
-        }
-    }
-    checkDistrict = () =>{
-        let checklist = true;
-        if(this.state.city===""){
-            checklist=false;
-        }
+    //     return checklist;
+    // }
+    // getDistrictName= async ()=>{
+    //     if(this.checkCity()){
+    //         let dictrictData=[];
+    //         const data = {
+    //             "province" : this.state.province,
+    //             "city"     : this.state.city,
+    //         };
+    //         const result =await axios.post(BACKEND_URL+'/api/location',data);
+    //         const convert = await result.data.district;        
+    //         convert.forEach((data,index)=>{
+    //             dictrictData[index]={id:data.district, name:data.district}
+    //         });
+    //         this.setState({districtList:dictrictData});
+    //         return dictrictData;
+    //     }
+    //     else{
+    //         SweetAlert("Maaf !","Sebelun memilih Kecamatan anda harus memilih Kabupaten/Kota terlebih dahulu", "error" );
+    //     }
+    // }
+    // checkDistrict = () =>{
+    //     let checklist = true;
+    //     if(this.state.city===""){
+    //         checklist=false;
+    //     }
 
-        return checklist;
-    }
-    getVillageName= async ()=>{
-        if(this.checkCity()){
-            let villageData=[];
-            const data = {
-                "province" : this.state.province,
-                "city"     : this.state.city,
-                "district" : this.state.district,
+    //     return checklist;
+    // }
+    // getVillageName= async ()=>{
+    //     if(this.checkCity()){
+    //         let villageData=[];
+    //         const data = {
+    //             "province" : this.state.province,
+    //             "city"     : this.state.city,
+    //             "district" : this.state.district,
 
-            };
-            const result =await axios.post(BACKEND_URL+'/api/location',data);
-            const convert = await result.data.village;        
-            convert.forEach((data,index)=>{
-                villageData[index]={id:data.village, name:data.village}
-            });
-            console.log(villageData)
-            this.setState({villageList:villageData});
-            return villageData;
-        }
-        else{
-            SweetAlert("Maaf !","Sebelun memilih Kecamatan anda harus memilih Kabupaten/Kota terlebih dahulu", "error" );
-        }
-    }
+    //         };
+    //         const result =await axios.post(BACKEND_URL+'/api/location',data);
+    //         const convert = await result.data.village;        
+    //         convert.forEach((data,index)=>{
+    //             villageData[index]={id:data.village, name:data.village}
+    //         });
+    //         console.log(villageData)
+    //         this.setState({villageList:villageData});
+    //         return villageData;
+    //     }
+    //     else{
+    //         SweetAlert("Maaf !","Sebelun memilih Kecamatan anda harus memilih Kabupaten/Kota terlebih dahulu", "error" );
+    //     }
+    // }
     IsSchoolNameValid = (inputcontetntnameid, errornamecontentid, messageText) =>{
         return $(document).ready(()=>{
             let valueInput, text, formIsValid=true;
@@ -378,18 +386,18 @@ class Register extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
-                            <RadioButtonTwoTab
+                            <RadioButtonTwoTabDesktop
                                 store={TabTwoData}
                             />
                         </section>
                         <div style={{display: "block"}} id="schoolsRegistrationForm" className="tabcontenRadioButtonRegister">
                             <section>
                                 <div style={{marginTop:"25px"}}></div>
-                                <TitleDropDownList name="Masukan Data Sekolah"/>
+                                <TitleDropDownListDesktop name="Masukan Data Sekolah"/>
                             </section>
                             <section id="schoolsnameforminputsection">
                                 <div style={{marginTop:"25px"}}></div>
-                                <FormRegisterSingle
+                                <FormRegisterSingleWithDropDownListDesktop
                                     title="Nama Sekolah"
                                     onChange={(e)=>{console.log(e.target.value)}}
                                     placeholderForm="Masukan Nama Sekolah"
@@ -397,32 +405,25 @@ class Register extends Component {
                                     idInputForm="registerforminputnameschoolscontent"
                                     idErrorMessage="registererrormessageschoolnamescontent"
                                     errorMessage="Shoools Name cannot be empty !"
-                                />
-                            </section>
-                            <section id="educationStageidSection">
-                                <DropdownListFilterFour
-                                    onClick={(e)=>{console.log(e.target.value)}}
                                     store={storeMobileTwo} 
                                     placeholder="Pilih Jenjang Pendidikan"
                                     title="Jenjang Pendidikan"
                                     className="jenjangpendidikandropdownclass"
                                     buttonClass="buttonclickStageregistercontent"
                                 />
-
                             </section>
                             <section>
-                                <div style={{marginTop: "25px"}}></div>
-                                <RadioButtonTwo 
-                                    title="Status Sekolah"
-                                    onClick={(e) => {console.log(e.target.value)}} 
-                                />
+                                <div style={{marginTop: "35px"}}></div>
+                                <RadioButtonTwoDesktopRegister 
+                                title="Status Sekolah"
+                                onClick={(e)=>{console.log(e.target.value)}} />
                             </section>
                             <section>
-                                <LineComponents 
+                                <LineComponentsDesktop 
                                     marginTop="10px"
                                     border="1.5px solid #DBDBDB"
                                 />
-                                <FormRegisterSingle
+                                <FormRegisterWithDropDownListFourDesktop
                                     title="ALamat"
                                     onChange={(e)=>{console.log(e.target.value)}}
                                     placeholderForm="Masukan Alamat Sekolah"
@@ -430,58 +431,38 @@ class Register extends Component {
                                     idInputForm="registerforminputadresscontent"
                                     idErrorMessage="registererrormessageadresscontent"
                                     errorMessage="Adress cannot be empty !"
+                                    storeProv={storeMobileTwo}
+                                    storeCity={storeMobileTwo}
+                                    storeDistrict={storeMobileTwo}
+                                    storeVillage={storeMobileTwo}
+                                    ProvOnClick={(e)=>{console.log(e.target.value)}}
+                                    CityOnClick={(e)=>{console.log(e.target.value)}}
+                                    DistrictOnClick={(e)=>{console.log(e.target.value)}}
+                                    VillageOnClick={(e)=>{console.log(e.target.value)}}
                                 />
                             </section>
                             <section>
-                                <DropdownListFilterFour
-                                    onClick={(e)=>{this.setState({province:e.target.value})}}
-                                    store={ this.state.provinceList } 
-                                    placeholder="Pilih Provinsi"
-                                    title="Provinsi"
-                                    className="provdropdownclass"
-                                    buttonClass="citybuttonclickprovregistercontent"
-                                />
-                                <DropdownListFilterFour
-                                    onClick={(e)=>{this.setState({city:e.target.value})}}
-                                    store={this.state.province ? this.state.cityList : [{id:"",name:""}]} 
-                                    placeholder="Pilih Kota / Kabupaten"
-                                    title="Kota / Kabupaten"
-                                    className="citydropdownclass"
-                                    buttonClass="citybuttonclickcityregistercontent"
-                                    onButtonClick={()=>{this.getCityName()}}
-                                />
-                                <DropdownListFilterFour
-                                    onClick={(e)=>{this.setState({district:e.target.value})}}
-                                    store={this.state.city ? this.state.districtList : [{id:"",name:""}]} 
-                                    placeholder="Pilih Kecamatan"
-                                    title="Kecamatan"
-                                    className="subcitydropdownclass"
-                                    buttonClass="citybuttonclickDistricregistercontent"
-                                    onButtonClick={()=>{this.getDistrictName()}}
-                                />
-                                <DropdownListFilterFour
-                                    onClick={(e)=>{this.setState({village:e.target.value})}}
-                                    store={this.state.district ? this.state.villageList : [{id:"",name:""}]} 
-                                    placeholder="Pilih Kelurahan / Desa"
-                                    title="Kelurahan / Desa"
-                                    className="secondsubcitydropdownclass"
-                                    buttonClass="citybuttonclickVilegeregistercontent"
-                                    onButtonClick={()=>{this.getVillageName()}}
-
-                                />
-                            </section>
-                            <section>
-                                <LineComponents 
+                                <LineComponentsDesktop 
                                     marginTop="25px"
                                     border="1.5px solid #DBDBDB"
                                 />
-                                <FormRegister 
+                            </section>
+                            <section>
+                                <div style={{marginTop:"25px"}}></div>
+                                <FormRegisterInputContactDesktop 
                                     title="Atau Kirimkan pesan anda"
                                     onChangeName={(e)=>{console.log(e.target.value)}}
+                                    onChangePosition={(e)=>{console.log(e.target.value)}}
                                     onChangeEmail={(e)=>{console.log(e.target.value)}}
                                     onChangePhone={(e)=>{console.log(e.target.value)}}
-                                    phonetitle="No. Telepon Sekolah"
-                                    emailtitle="Email Sekolah"
+                                    nameFormRegisterId="nameFormContactComponent"
+                                    errorNameFormRegisterId="errorValueName"
+                                    positionFormRegisterId="positionFormContactComponent"
+                                    errorPositionRegisterId="errorValuePosition"
+                                    emailFormRegisterId="emailFormContactComponent"
+                                    errorEmailFormRegisterId="errorValueEmail"
+                                    phoneFormRegisterId="phoneFormContactComponent"
+                                    errorPhoneFormRegisterId="errorValuePhone"
                                 />
                             </section>
                             <section>
@@ -489,7 +470,8 @@ class Register extends Component {
                                     name="Daftarkan sekarang"
                                     id="buttonRegisterForm"
                                     background="#1A6EB2"
-                                    onClick={()=>{this.handleButtonRegister()}}
+                                    // onClick={()=>{this.handleButtonRegister()}}
+                                    onClick={()=>{}}
                                 />
                             </section>
                             <section >
@@ -512,11 +494,11 @@ class Register extends Component {
                         <div style={{display: "none"}} id="traiingEducationRegistrationForm" className="tabcontenRadioButtonRegister">
                             <section>
                                 <div style={{marginTop:"25px"}}></div>
-                                <TitleDropDownList name="Tempat Kursus"/>
+                                <TitleDropDownListDesktop name="Tempat Kursus"/>
                             </section>
                             <section id="schoolsnameforminputsection">
                                 <div style={{marginTop:"25px"}}></div>
-                                <FormRegisterSingle
+                                <FormRegisterSingleDesktop
                                     title="Tempat Kursus"
                                     onChange={(e)=>{console.log(e.target.value)}}
                                     placeholderForm="Masukan Nama Tempat Kursus"
@@ -527,75 +509,58 @@ class Register extends Component {
                                 />
                             </section>
                             <section>
-                                <LineComponents 
+                                <LineComponentsDesktop 
                                     marginTop="10px"
                                     border="1.5px solid #DBDBDB"
                                 />
-                                <FormRegisterSingle
+                                <FormRegisterWithDropDownListFourDesktop
                                     title="ALamat"
                                     onChange={(e)=>{console.log(e.target.value)}}
-                                    placeholderForm="Masukan Alamat Tempat Kursus"
-                                    nameInputForm="addressname"
-                                    idInputForm="registerforminputadressCoursecontent"
-                                    idErrorMessage="registererrormessageadressCoursecontent"
+                                    placeholderForm="Masukan Alamat Kursus"
+                                    nameInputForm="addressnametraining"
+                                    idInputForm="trainingregisterforminputadresscontent"
+                                    idErrorMessage="trainingregistererrormessageadresscontent"
                                     errorMessage="Adress cannot be empty !"
+                                    storeProv={storeMobileTwo}
+                                    storeCity={storeMobileTwo}
+                                    storeDistrict={storeMobileTwo}
+                                    storeVillage={storeMobileTwo}
+                                    ProvOnClick={(e)=>{console.log(e.target.value)}}
+                                    CityOnClick={(e)=>{console.log(e.target.value)}}
+                                    DistrictOnClick={(e)=>{console.log(e.target.value)}}
+                                    VillageOnClick={(e)=>{console.log(e.target.value)}}
+                                    classNameProv="trainingprovdropdownclass"
+                                    buttonClassProv="trainingprovbuttonclickprovregistercontent"
+                                    classNameCity="trainingcitydropdownclass"
+                                    buttonClassCity="trainingcitysbuttonclickprovregistercontent"
+                                    classNameDistrict="trainingdistrictdropdownclass"
+                                    buttonClassDistrict="trainingdistrictbuttonclickprovregistercontent"
+                                    classNameVillage="trainigvillagedropdownclass"
+                                    buttonClassVillage="trainingvillagebuttonclickprovregistercontent"
                                 />
                             </section>
                             <section>
-                                <DropdownListFilterFour
-                                    onClick={(e)=>{this.setState({province:e.target.value})}}
-                                    store={ this.state.provinceList } 
-                                    placeholder="Pilih Provinsi"
-                                    title="Provinsi"
-                                    className="provdropdownclass"
-                                    buttonClass="citybuttonclickprovregistercontent"
-                                />
-                                <DropdownListFilterFour
-                                    onClick={(e)=>{this.setState({city:e.target.value})}}
-                                    store={this.state.province ? this.state.cityList : [{id:"",name:""}]} 
-                                    placeholder="Pilih Kota / Kabupaten"
-                                    title="Kota / Kabupaten"
-                                    className="citydropdownclass"
-                                    buttonClass="citybuttonclickcityregistercontent"
-                                    onButtonClick={()=>{this.getCityName()}}
-                                />
-                                <DropdownListFilterFour
-                                    onClick={(e)=>{this.setState({district:e.target.value})}}
-                                    store={this.state.city ? this.state.districtList : [{id:"",name:""}]} 
-                                    placeholder="Pilih Kecamatan"
-                                    title="Kecamatan"
-                                    className="subcitydropdownclass"
-                                    buttonClass="citybuttonclickDistricregistercontent"
-                                    onButtonClick={()=>{this.getDistrictName()}}
-                                />
-                                <DropdownListFilterFour
-                                    onClick={(e)=>{this.setState({village:e.target.value})}}
-                                    store={this.state.district ? this.state.villageList : [{id:"",name:""}]} 
-                                    placeholder="Pilih Kelurahan / Desa"
-                                    title="Kelurahan / Desa"
-                                    className="secondsubcitydropdownclass"
-                                    buttonClass="citybuttonclickVilegeregistercontent"
-                                    onButtonClick={()=>{this.getVillageName()}}
-
-                                />
-                            </section>
-                            <section>
-                                <LineComponents 
+                                <LineComponentsDesktop 
                                     marginTop="25px"
                                     border="1.5px solid #DBDBDB"
                                 />
-                                <FormRegister 
+                            </section>
+                            <section>
+                                <div style={{marginTop:"25px"}}></div>
+                                <FormRegisterInputContactDesktop 
+                                    title="Atau Kirimkan pesan anda"
                                     onChangeName={(e)=>{console.log(e.target.value)}}
+                                    onChangePosition={(e)=>{console.log(e.target.value)}}
                                     onChangeEmail={(e)=>{console.log(e.target.value)}}
                                     onChangePhone={(e)=>{console.log(e.target.value)}}
-                                    phonetitle="No. Telepon Tempat Kursus"
-                                    emailtitle="Email Tempat Kursus"                                
-                                    phoneid        ="formPhoneContentRegisterId"
-                                    phoneerrorid   ="errorFormPhoneContentRegisterId"
-                                    emailid        ="formEmailContentRegisterId"
-                                    emailerrorid   ="errorFormEmailContentRegisterId"
-                                    opratorid      ="formOpratorContentRegisterId"
-                                    opratorerrorid ="errorformOperatorContentRegisterId"
+                                    nameFormRegisterId="nameFormContactComponentTraining"
+                                    errorNameFormRegisterId="errorValueNameTraining"
+                                    positionFormRegisterId="positionFormContactComponentTraining"
+                                    errorPositionRegisterId="errorValuePositionTraining"
+                                    emailFormRegisterId="emailFormContactComponentTraining"
+                                    errorEmailFormRegisterId="errorValueEmailTraining"
+                                    phoneFormRegisterId="phoneFormContactComponentTraining"
+                                    errorPhoneFormRegisterId="errorValuePhoneTraining"
                                 />
                             </section>
                             <section>
@@ -603,7 +568,8 @@ class Register extends Component {
                                     name="Daftarkan sekarang"
                                     id="buttonRegisterForm"
                                     background="#1A6EB2"
-                                    onClick={()=>{this.handleButtonRegisterCourse()}}
+                                    // onClick={()=>{this.handleButtonRegisterCourse()}}
+                                    onClick={()=>{}}
                                 />
                             </section>
                             <section >
@@ -770,7 +736,6 @@ class Register extends Component {
                                     fontSize="13px"
                                     textAlign="justify"/>
                             </section>
-
                         </div>
                         <div style={{display: "none"}} id="traiingEducationRegistrationForm" className="tabcontenRadioButtonRegister">
                             <section>

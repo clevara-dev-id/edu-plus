@@ -1,0 +1,68 @@
+@media screen and (min-width: 1024px){
+    #formRegisterInputContactDesktopContainer{
+        max-width: 1024px;
+        padding-right: 85px;
+        padding-left: 85px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1152px){
+    #formRegisterInputContactDesktopContainer{
+        max-width: 1152px;
+        padding-right: 110px;
+        padding-left: 110px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 1280px){
+    #formRegisterInputContactDesktopContainer{
+        max-width: 1280px;
+        padding-right: 125px;
+        padding-left: 125px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 1360px){
+    #formRegisterInputContactDesktopContainer{
+        max-width: 1360px;
+        padding-right: 145px;
+        padding-left: 145px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1366px){
+    #formRegisterInputContactDesktopContainer{
+        max-width: 1366px;
+        padding-right: 145px;
+        padding-left: 145px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    #formRegisterInputContactDesktopContainer{
+        max-width: 1440px;
+        padding-right: 165px;
+        padding-left: 165px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+} 
+
+#formRegisterInputContactDesktopContainer > .row > .col{
+    justify-content: center;
+    display: flex;
+}
+
+#formRegisterInputContactDesktopContainer > .row > .col > .errorClassDiv {
+    margin-bottom: 16px;
+    color: red;
+    font-size: 13px;
+}
