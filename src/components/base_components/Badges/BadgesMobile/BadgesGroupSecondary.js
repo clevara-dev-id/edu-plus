@@ -25,9 +25,9 @@ const BadgesGroupSecondary = props => {
         evt.currentTarget.className += " activeClassBadges";
     }
 
-    const firstload = async () =>{
-        await document.getElementById("defaultOpen").click();
-    }
+    // const firstload = async () =>{
+    //     await document.getElementById("defaultOpen").click();
+    // }
     
     // useEffect(()=>{
     $(document).ready(function(){

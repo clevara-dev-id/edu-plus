@@ -3,15 +3,19 @@ import React, { Component } from 'react';
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
+import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
+import CardImagePromoDesktop from '../components/base_components/Desktop/CardPromo/CardImagePromoDesktop';
+import ButtonLoadMoreDesktop  from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
+
 
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 import CardImgePromo from '../components/base_components/Card/CardMobile/CardPromo/CardImgePromo';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 
+//Image Desktop
+import ImagePromo3 from '../components/asset/images/Promo/Promo3eduplus.png'
 
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -52,33 +56,35 @@ const storeMobile = [
 const storeDesktop = [
     {
         image     : "https://via.placeholder.com/255x256",
-        titleCard : "DKI Jakarta",
-        descrip   : "15 Sekolah"
+        titleCard : "#PROMO1",
+        descrip   : "labore deserunt amet minim nostrud dolor aute "
     },
     {
         image     : "https://via.placeholder.com/256x255",
-        titleCard : "Jawa Barat",
-        descrip   : "15 Sekolah"
+        titleCard : "#PROMO2",
+        descrip   : "labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla"
+    },
+    {
+        image     : ImagePromo3,
+        titleCard : "#PROMO3",
+        descrip   : `labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla. 
+                    labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla  
+                    labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla`
+    },
+    {
+        image     : "https://via.placeholder.com/256x255",
+        titleCard : "#PROMO4",
+        descrip   : "labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla"
     },
     {
         image     : "https://via.placeholder.com/255x256",
-        titleCard : "Jawa Tengah",
-        descrip   : "15 Sekolah"
+        titleCard : "#PROMO5",
+        descrip   : "labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla"
     },
     {
         image     : "https://via.placeholder.com/256x255",
-        titleCard : "Bali",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Sumatra Utara",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Kalimantan",
-        descrip   : "15 Sekolah"
+        titleCard : "#PROMO6",
+        descrip   : "labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla"
     }
 ];
 
@@ -96,33 +102,35 @@ class Promo extends Component {
             <>
                 <div>
                     <OnDesktop>
-                        {/* <section>
-                            <JumbotronDesktop />
-                        </section> */}
                         <section>
-                            <BadgesDesktop
-                                store={storeDesktop2}
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
                             />
                         </section>
-                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
+                        <section>
+                            <TitlePageHeaderDesktop
+                                name="Promo"
+                                color="#1A6EB2"
+                                width="100%"
+                                textAlign="left"
+                            />
+                            <div style={{marginBottom:"25px"}}></div>
+                        </section>
+                        <section>
+                            <CardImagePromoDesktop 
                                 store={storeDesktop}
                             />
                         </section>
-                        <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                            <ButtonLoadMoreDesktop 
+                                name="MUAT LEBIH BANYAK"
+                                width="277px"
+                                boxShadow="none"
+                                background="#f3f3f3"
                             />
-                        </section>
-                        <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
-                        </section>
-                        <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
-                            <CardImage 
-                                store={storeDesktop}
-                            />
+                            <div style={{marginTop: "25px"}}></div>
                         </section>
                     </OnDesktop>
                     <OnMobile>

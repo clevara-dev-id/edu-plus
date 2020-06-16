@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
@@ -22,6 +23,7 @@ import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/Br
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
 
+import { favoriteFetchData, favoriteFetchDataSMP, favoriteFetchDataSMA } from './redux/actions/favorite';
 
 //dummy Mobile
 const storeMobile = [
@@ -97,14 +99,63 @@ const storeDesktop2 =[
 
 
 class Favorite extends Component {
+    constructor(props) {
+        super(props);
+        this.state =  {
+          favoriteData:[],
+        };
+    }
+    componentDidMount=async ()=>{
+        this.getCityData();
+        this.getCityDataSMP();
+        this.getCityDataSMA();
+
+    }
+
+    getCityData=async()=>{
+        const data = await this.props.fetchData('http://localhost:8000/api/province/31/sd');
+    }
+    getCityDataSMP=async()=>{
+        const data = await this.props.fetchDataSMP('http://localhost:8000/api/province/31/smp');
+    }
+    getCityDataSMA=async()=>{
+        const data = await this.props.fetchDataSMA('http://localhost:8000/api/province/31/sma');
+    }
     render() {
+        if (this.props.hasError) {
+            return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
+        }
+
+        if (this.props.isLoading) {
+            return <p id="defaultOpenBadges">Loading…</p>;
+        }
+        let newArrayFaforite=[],newArrayFaforiteSMP=[], newArrayFaforiteSMA=[];
+        this.props.favorite.map((newData, index)=>{
+            newArrayFaforite[index]={
+                image     : "https://via.placeholder.com/255x242",
+                titleCard : newData.name,
+                descrip   : newData.schools_count+"  SEKOLAH"
+            }
+        });
+        this.props.favoriteSMP.map((newData, index)=>{
+            newArrayFaforiteSMP[index]={
+                image     : "https://via.placeholder.com/255x242",
+                titleCard : newData.name,
+                descrip   : newData.schools_count+"  SEKOLAH"
+            }
+        });
+        this.props.favoriteSMA.map((newData, index)=>{
+            newArrayFaforiteSMA[index]={
+                image     : "https://via.placeholder.com/255x242",
+                titleCard : newData.name,
+                descrip   : newData.schools_count+"  SEKOLAH"
+            }
+        });
+        console.log(newArrayFaforiteSMA);
         return (
             <>
                 <div>
                     <OnDesktop>
-                        {/* <section>
-                            <JumbotronDesktop />
-                        </section> */}
                         <section>
                             <JumbotronDesktopBlueSecondary
                                 primaryText="Sekolah Favorit"
@@ -126,17 +177,17 @@ class Favorite extends Component {
                         </section>
                         <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
                             <CardImageSecondaryDesktop 
-                                store={storeDesktop}
+                                store={newArrayFaforite}
                             />
                         </section>
                         <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
                             <CardImageSecondaryDesktop 
-                                store={storeDesktop}
+                                store={newArrayFaforiteSMP}
                             />
                         </section>
                         <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
                             <CardImageSecondaryDesktop 
-                                store={storeDesktop}
+                                store={newArrayFaforiteSMA}
                             />
                         </section>
                         <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
@@ -193,4 +244,25 @@ class Favorite extends Component {
     }
 }
 
-export default Favorite;
+
+const mapStateToProps = (state) => {
+    return {
+        favorite: state.favorite,
+        favoriteSMP: state.favoriteSMP,
+        favoriteSMA: state.favoriteSMA,
+        hasError: state.favoriteHaveError,
+        isLoading: state.favoriteAreLoading
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(favoriteFetchData(url)),
+        fetchDataSMP: (url) => dispatch(favoriteFetchDataSMP(url)),
+        fetchDataSMA: (url) => dispatch(favoriteFetchDataSMA(url))
+
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favorite);
+// export default Favorite;

@@ -68,7 +68,27 @@ const TabTwoData =[
 ];
 
 //dummy Desktop
+const storeDesktopProv = [
+    {id:"001", name:'Jakarta'},
+    {id:"002", name:'Jawa Barat'},
+];
 
+const storeDesktopCity = [
+    {id:"001", name:'Jakarta Barat'},
+    {id:"002", name:'Jakarta Timur'},
+    {id:"003", name:'Jakarta Utara'},
+    {id:"003", name:'Jakarta Selatan'},
+];
+
+const storeDesktopDistrict = [
+    {id:"001", name:'Tebet'},
+    {id:"002", name:'MAnggarai'},
+];
+
+const storeDesktopVillage = [
+    {id:"001", name:'Tebet Timur'},
+    {id:"002", name:'Tebet Utara'},
+];
 
 class Register extends Component {
     constructor(props){
@@ -431,10 +451,10 @@ class Register extends Component {
                                     idInputForm="registerforminputadresscontent"
                                     idErrorMessage="registererrormessageadresscontent"
                                     errorMessage="Adress cannot be empty !"
-                                    storeProv={storeMobileTwo}
-                                    storeCity={storeMobileTwo}
-                                    storeDistrict={storeMobileTwo}
-                                    storeVillage={storeMobileTwo}
+                                    storeProv={storeDesktopProv}
+                                    storeCity={storeDesktopCity}
+                                    storeDistrict={storeDesktopDistrict}
+                                    storeVillage={storeDesktopVillage}
                                     ProvOnClick={(e)=>{console.log(e.target.value)}}
                                     CityOnClick={(e)=>{console.log(e.target.value)}}
                                     DistrictOnClick={(e)=>{console.log(e.target.value)}}
@@ -521,10 +541,10 @@ class Register extends Component {
                                     idInputForm="trainingregisterforminputadresscontent"
                                     idErrorMessage="trainingregistererrormessageadresscontent"
                                     errorMessage="Adress cannot be empty !"
-                                    storeProv={storeMobileTwo}
-                                    storeCity={storeMobileTwo}
-                                    storeDistrict={storeMobileTwo}
-                                    storeVillage={storeMobileTwo}
+                                    storeProv={storeDesktopProv}
+                                    storeCity={storeDesktopCity}
+                                    storeDistrict={storeDesktopDistrict}
+                                    storeVillage={storeDesktopVillage}
                                     ProvOnClick={(e)=>{console.log(e.target.value)}}
                                     CityOnClick={(e)=>{console.log(e.target.value)}}
                                     DistrictOnClick={(e)=>{console.log(e.target.value)}}

@@ -1,0 +1,219 @@
+@media screen and (min-width: 1024px){
+    #cardImagePromoDesktopContainer{
+        max-width: 1024px;
+        padding-right: 85px;
+        padding-left: 85px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card{
+        width: 265px;
+        min-height: 237px;
+        /* border-radius: 8px !important;
+        box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.4); */
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4{
+        margin-bottom: 30px;
+        
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        width: 265px;
+        height: 169px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-body {
+        flex: 1 1 auto;
+        min-height: 79px;
+        padding: 0px;
+        padding-top: 24px;
+    }
+}
+
+@media screen and (min-width: 1152px){
+    #cardImagePromoDesktopContainer{
+        max-width: 1152px;
+        padding-right: 110px;
+        padding-left: 110px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card{
+        width: 290px;
+        min-height: 247px;
+        /* border-radius: 8px !important;
+        box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.4); */
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4{
+        margin-bottom: 30px;
+        
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        width: 290px;
+        height: 179px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-body {
+        flex: 1 1 auto;
+        min-height: 79px;
+        padding: 0px;
+        padding-top: 24px;
+    }
+}
+@media screen and (min-width: 1280px){
+    #cardImagePromoDesktopContainer{
+        max-width: 1280px;
+        padding-right: 125px;
+        padding-left: 125px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card{
+        width: 320px;
+        min-height: 257px;
+        /* border-radius: 8px !important;
+        box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.4); */
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4{
+        margin-bottom: 30px;
+        
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        width: 320px;
+        height: 189px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-body {
+        flex: 1 1 auto;
+        min-height: 79px;
+        padding: 0px;
+        padding-top: 24px;
+    }
+}
+@media screen and (min-width: 1360px){
+    #cardImagePromoDesktopContainer{
+        max-width: 1360px;
+        padding-right: 145px;
+        padding-left: 145px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card{
+        width: 335px;
+        min-height: 267px;
+        /* border-radius: 8px !important;
+        box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.4); */
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4{
+        margin-bottom: 30px;
+        
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        width: 335px;
+        height: 189px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-body {
+        flex: 1 1 auto;
+        min-height: 86px;
+        padding: 0px;
+        padding-top: 24px;
+    }
+}
+@media screen and (min-width: 1366px){
+    #cardImagePromoDesktopContainer{
+        max-width: 1366px;
+        padding-right: 145px;
+        padding-left: 145px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card{
+        width: 335px;
+        min-height: 267px;
+        /* border-radius: 8px !important;
+        box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.4); */
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4{
+        margin-bottom: 30px;
+        
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        width: 335px;
+        height: 189px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-body {
+        flex: 1 1 auto;
+        min-height: 86px;
+        padding: 0px;
+        padding-top: 24px;
+    }
+}
+@media screen and (min-width: 1440px){
+    #cardImagePromoDesktopContainer{
+        max-width: 1440px;
+        padding-right: 165px;
+        padding-left: 165px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card{
+        width: 350px;
+        min-height: 267px;
+        /* border-radius: 8px !important;
+        box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.4); */
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4{
+        margin-bottom: 30px;
+        
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        width: 350px;
+        height: 189px;
+    }
+    #cardImagePromoDesktopContainer > .row > .col-lg-4 > .card > .card-body {
+        flex: 1 1 auto;
+        min-height: 86px;
+        padding: 0px;
+        padding-top: 24px;
+    }
+}
+
+#cardImagePromoDesktopContainer > .row > .col-lg-4 > .card{
+    border: 0px !important;
+}
+
+#modalPromoDetailDesktopId > .modal-content > .modal-header{
+    border-bottom: 0px;
+    padding:0px;
+    padding-top: 24px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#modalPromoDetailDesktopId > .modal-content > .modal-body{
+    padding:0px;
+    padding-top: 24px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#modalPromoDetailDesktopId > .modal-content > .modal-body > div > img{
+    border-radius: 8px;
+    width: 480px;
+    height: 259px;
+}
+
+#modalPromoDetailDesktopId > .modal-content{
+    width: 540px;
+}
+
+#modalPromoDetailDesktopId{
+    max-width: 100%;
+    justify-content: center;
+}
