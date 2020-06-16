@@ -13,6 +13,7 @@ import ButtonLoadMoreDesktop  from '../components/base_components/Desktop/Button
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 import CardImgePromo from '../components/base_components/Card/CardMobile/CardPromo/CardImgePromo';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
+import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 
 //Image Desktop
 import ImagePromo3 from '../components/asset/images/Promo/Promo3eduplus.png'
@@ -155,7 +156,16 @@ class Promo extends Component {
                         <section>
                             <div style={{marginTop:"15px"}}></div>
                             <CardImgePromo store={storeMobile} />
-                            <div style={{marginTop:"75px"}}></div>
+                        </section>
+                        <section>
+                            <div style={{marginTop: "25px"}}></div>
+                                <ButtonLoadMore 
+                                    name="MUAT LEBIH BANYAK"
+                                    width="277px"
+                                    boxShadow="none"
+                                    background="#f3f3f3"
+                                />
+                            <div style={{marginBottom:"75px"}}></div>
                         </section>
                     </OnMobile>
                 </div>

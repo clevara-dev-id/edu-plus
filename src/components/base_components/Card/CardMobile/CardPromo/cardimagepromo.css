@@ -14,6 +14,45 @@
         max-width: 345px;
         max-height: 345px;
     }
+    
+    #modalPromoDetailMobileId > .modal-content > .modal-header{
+        border-bottom: 0px;
+        padding:0px;
+        padding-top: 24px;
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+
+    #modalPromoDetailMobileId > .modal-content > .modal-body{
+        padding:0px;
+        padding-top: 24px;
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+
+    #modalPromoDetailMobileId > .modal-content > .modal-body > div > img{
+        border-radius: 8px;
+        width: 270px;
+        height: 147px;
+    }
+    
+    #modalPromoDetailMobileId > .modal-content{
+        width: 307px;
+    }
+
+    #modalPromoDetailMobileId{
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    #modalPromoDetailMobileId > .modal-content > .modal-header > .modal-title{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.0125em;
+        color: #242424;
+    }
 }
 @media screen and (min-width: 360px){
     #cardImageMobilePromoContainer > .row > .col{
@@ -23,8 +62,6 @@
     #cardImageMobilePromoContainer{
         max-width: 360px;
         margin-bottom: 25px;
-        /* padding-right: 145px;
-        padding-left: 145px; */
     }
     #cardImageMobilePromoContainer > .row > .col > .card{
         border: 0px;
@@ -32,6 +69,44 @@
         max-height: 345px;
     }
 
+    #modalPromoDetailMobileId > .modal-content > .modal-header{
+        border-bottom: 0px;
+        padding:0px;
+        padding-top: 24px;
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+    
+    #modalPromoDetailMobileId > .modal-content > .modal-body{
+        padding:0px;
+        padding-top: 24px;
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+    
+    #modalPromoDetailMobileId > .modal-content > .modal-body > div > img{
+        border-radius: 8px;
+        width: 290px;
+        height: 157px;
+    }
+    
+    #modalPromoDetailMobileId > .modal-content{
+        width: 327px;
+    }
+    
+    #modalPromoDetailMobileId{
+        max-width: 100%;
+        justify-content: center;
+    }
+    
+    #modalPromoDetailMobileId > .modal-content > .modal-header > .modal-title{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.0125em;
+        color: #242424;
+    }
 }
 @media screen and (min-width: 375px){
 
@@ -49,10 +124,49 @@
         max-width: 345px;
         max-height: 189px;
     }
+    
+    #modalPromoDetailMobileId > .modal-content > .modal-header{
+        border-bottom: 0px;
+        padding:0px;
+        padding-top: 24px;
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+
+    #modalPromoDetailMobileId > .modal-content > .modal-body{
+        padding:0px;
+        padding-top: 24px;
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+
+    #modalPromoDetailMobileId > .modal-content > .modal-body > div > img{
+        border-radius: 8px;
+        width: 310px;
+        height: 167px;
+    }
+
+    #modalPromoDetailMobileId > .modal-content{
+        width: 347px;
+    }
+
+    #modalPromoDetailMobileId{
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    #modalPromoDetailMobileId > .modal-content > .modal-header > .modal-title{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.0125em;
+        color: #242424;
+    }
 }
 
 #cardImageMobilePromoContainer > .row > .col > .card > .card-img {
-    /* background-color: none !important; */
     background: rgba(153, 202, 243, 0.05);
     border-radius: 8px;
 }
+
