@@ -10,25 +10,28 @@ import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopB
 import InputSearchDesktop from '../components/base_components/Desktop/InputSearch/InputSearchDesktop';
 import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
 import MessageGetAccessResultDesktop from '../components/base_components/Desktop/Message/MessageGetAccessResultDesktop';
-import CardImageWithButtonDesktop from '../components/base_components/Desktop/CardImage/CardImageWithButtonDesktop';
-import CardImageNotFoundDesktop from '../components/base_components/Desktop/CardImage/CardImageNotFoundDesktop'
+import CardImageTertiarayDesktop from '../components/base_components/Desktop/CardImage/CardImageTertiarayDesktop';
 import PrimaryButtonDesktop from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
 import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
 import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
 import LabelDesktopPrimary from '../components/base_components/Desktop/Label/LabelDesktopPrimary';
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 
-
 //Mobile Item
+// import CardImageMobileSecondary from '../components/base_components/Card/CardMobile/CardImage/CardImageMobileSecondary';
+// import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 import InputSearchMobileSecondary from '../components/base_components/InputSearch/Mobile/InputSearchMobileSecondary';
+// import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
+// import JumbotronMobileSecondary from '../components/base_components/Jumbotron/Mobile/JumbotronMobileSecondary';
+// import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
+// import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
-import CardImageWithButtonMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageWithButtonMobile';
-// import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
-// import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
+import CardImageTertiary from '../components/base_components/Card/CardMobile/CardImage/CardImageTertiary';
+import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
+import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
 import MessageGetAccessResult from '../components/base_components/Message/Mobile/MessageGetAccessResult';
-// import LabelMobileComponents from '../components/base_components/Label/Mobile/LabelMobileComponents';
-import CardImageNotFoundMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageNotFoundMobile'
+import LabelMobileComponents from '../components/base_components/Label/Mobile/LabelMobileComponents';
 
 
 //Image
@@ -39,47 +42,39 @@ import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.p
 // const storeMobile = [];
 const storeMobile = [
     {
-        uuid      : "123xyz",
         image     : JakartaImage,
         titleCard : "SDN Islam Harapan Ibu",
         descrip   : "Jalan Batu Merah No. 71, Pejaten Timur",
         link      : "/getaccessdetail",
-        operator  : false,
     },
     {
-        uuid      : "456xyz",
         image     : "https://via.placeholder.com/256x242",
         titleCard : "SDIT Insan Mandiri Jakarta",
         descrip   : "Jalan Batu Merah No. 71, Pejaten Timur",
         link      : "/getaccessdetail",
-        operator  : true,
     },
     {
-        uuid      : "789xyz",
         image     : "https://via.placeholder.com/255x242",
         titleCard : "SDS Islam Harapan Ibu",
         descrip   : "Jl. H. Banan No. 1, Kebayoran Lama",
         link      : "/getaccessdetail",
-        operator  : true,
     },
     {
-        uuid      : "123abc",
         image     : "https://via.placeholder.com/256x242",
         titleCard : "SDS Pangudi Luhur Jakarta",
         descrip   : "Jl. H. Nawi Raya No. 21, Cilandak",
         link      : "/getaccessdetail",
-        operator  : true,
     },
     {
-        uuid      : "456abc",
         image     : "https://via.placeholder.com/255x242",
         titleCard : "SD Charitas",
         descrip   : "Jalan Swakarya C.13 A No. 1 4, Cilandak",
         link      : "/getaccessdetail",
-        operator  : false,
     },
 
 ];
+
+
 
 class GetAccess extends Component {
     constructor(props){
@@ -135,13 +130,43 @@ class GetAccess extends Component {
                                 name={this.state.fieldResult} sumOf="5" fontSize="13px" /> : ""}
                         </section>
                         <section>
-                            {this.state.fieldResult === "notfound" ? 
-                            <div style={{marginTop: "90px"}}></div>:
-                            <div style={{marginTop: "48px"}}></div>}
+                            <div style={{marginTop: "48px"}}></div>
                             { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" && this.state.fieldResult!=="notfound" ? 
-                            <CardImageWithButtonDesktop store={storeMobile} /> : ""}
-                            {this.state.fieldResult === "notfound" ? <CardImageNotFoundDesktop /> : ""}
-                            <div style={{marginTop: "170px"}}></div>
+                            <CardImageTertiarayDesktop store={storeMobile} /> : ""}
+                        </section>
+                        <section>
+                        {this.state.fieldResult === "notfound" ? 
+                            <LabelDesktopPrimary
+                                label="Mohon maaf data tidak ditemukan"
+                            />
+                            :""}
+                        </section>
+                        <section >
+                            <div style={{marginTop: "48px"}}></div>
+                            {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
+                                <LineComponentsDesktop 
+                                marginTop="7px" 
+                                border="1px solid #DBDBDB"
+                                marginBottom="25px" /> : ""}
+                            {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
+                                <TitleBottomDesktopSecondary 
+                                name="Tidak Menemukan Data sekolah/Tempat kursus? Klik tombol dibawah untuk daftarkan sekolah/tempat kursus"
+                                link=""
+                                namelink=""
+                                nameSecondary=""
+                                fontSize="13px"
+                                width="100%"
+                            /> : ""}
+                        </section>
+                        <section>
+                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ?
+                            <PrimaryButtonDesktop
+                                width="343px"
+                                name="DAFTARKAN SEKOLAH/TEMPAT KURSUS"
+                                onClick={()=>{this.onClickRegisterHandle()}}
+                            /> : ""
+                            }
+                            <div style={{marginTop: "70px"}}></div>
                         </section>
                     </OnDesktop>
                     <OnMobile>
@@ -180,15 +205,39 @@ class GetAccess extends Component {
                                 name={this.state.fieldResult} sumOf="5" fontSize="13px" /> : ""}
                         </section>
                         <section>
-                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" && this.state.fieldResult!=="notfound" ?
-                                <div style={{marginTop: "36px"}}></div> : ""}
-                            {this.state.fieldResult==="notfound" ? <div style={{marginTop: "76px"}}></div> : "" }
+                            <div style={{marginTop: "48px"}}></div>
                             { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" && this.state.fieldResult!=="notfound" ? 
-                            <CardImageWithButtonMobile store={storeMobile} /> : ""}
-                            {this.state.fieldResult==="notfound" ? <CardImageNotFoundMobile /> : ""}
-                            <div style={{marginBottom: "70px"}}></div>
+                            <CardImageTertiary store={storeMobile} /> : ""}
                         </section>
-
+                        <section>
+                        {this.state.fieldResult === "notfound" ? 
+                            <LabelMobileComponents
+                                label="Mohon maaf data tidak ditemukan"
+                            />
+                            :""}
+                        </section>
+                        <section >
+                            <div style={{marginTop: "48px"}}></div>
+                            {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
+                                <LineComponents marginTop="7px" marginBottom="25px" /> : ""}
+                            {storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ? 
+                                <TitleBottomSecondary 
+                                name="Tidak Menemukan Data sekolah/Tempat kursus? Klik tombol dibawah untuk daftarkan sekolah/tempat kursus"
+                                link=""
+                                namelink=""
+                                nameSecondary=""
+                                fontSize="13px"
+                            /> : ""}
+                        </section>
+                        <section>
+                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" || this.state.fieldResult === "notfound" ?
+                            <ButtonPrimary
+                                name="DAFTARKAN SEKOLAH/TEMPAT KURSUS"
+                                id="buttonmesaageFormcontact"
+                                background="#1A6EB2"
+                                onClick={()=>{this.onClickRegisterHandle()}}
+                            /> : ""}
+                        </section>
                     </OnMobile>
                 </div>
             </>

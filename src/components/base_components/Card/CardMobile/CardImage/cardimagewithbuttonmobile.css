@@ -1,0 +1,71 @@
+@media screen and (min-width: 320px){
+    #cardImageWithButtonMobileContainer > .row > .col {
+        margin-bottom: 25px;
+        
+    }
+    #cardImageWithButtonMobileContainer{
+        max-width: 320px;
+        /* padding-right: 145px;
+        padding-left: 145px; */
+    }
+    #cardImageWithButtonMobileContainer > .row > .col > .card{
+        border: 0px;
+        max-width: 345px;
+        min-height: 267px;
+    }
+
+    #cardImageWithButtonMobileContainer > .row > .col > .card > .card-body > div > #buttonAsset > div > div > button{
+        width: 260px;
+    }
+}
+@media screen and (min-width: 360px){
+    #cardImageWithButtonMobileContainer > .row > .col{
+        margin-bottom: 25px;
+        
+    }
+    #cardImageWithButtonMobileContainer{
+        max-width: 360px;
+        /* padding-right: 145px;
+        padding-left: 145px; */
+    }
+    #cardImageWithButtonMobileContainer > .row > .col > .card{
+        border: 0px;
+        max-width: 345px;
+        min-height: 267px;
+    }
+    #cardImageWithButtonMobileContainer > .row > .col > .card > .card-body > div > #buttonAsset > div > div > button{
+        width: 287px;
+    }
+
+}
+@media screen and (min-width: 375px){
+
+    #cardImageWithButtonMobileContainer > .row > .col{
+        margin-bottom: 30px;
+        
+    }
+    #cardImageWithButtonMobileContainer{
+        max-width: 375px;
+    }
+
+    #cardImageWithButtonMobileContainer > .row > .col > .card{
+        border: 0px;
+        width: 345px;
+        min-height: 267px;
+    }
+
+    #cardImageWithButtonMobileContainer > .row > .col > .card > .card-body > div > #buttonAsset > div > div > button{
+        width: 297px;
+    }
+
+}
+
+#cardImageWithButtonMobileContainer > .row > .col > .card{
+    border-radius: 8px !important;
+    box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.4);
+}
+
+#cardImageWithButtonMobileContainer > .row > .col > .card > .card-body > div > #buttonAsset{
+    margin-top: 34px;
+    margin-bottom: 19px;
+}

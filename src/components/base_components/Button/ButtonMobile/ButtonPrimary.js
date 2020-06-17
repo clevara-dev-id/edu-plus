@@ -29,7 +29,7 @@ const MyButton = styled.button(
         height: props.height ? props.height : "48px",
         left: props.left ? props.left : "17px",
         color : props.color ? props.color : "#ffffff",
-        background: props.background ? props.background : "#3273DC",
+        background: props.background ? props.background : "#1A6EB2",
         boxShadow: props.boxShadow ? props.boxShadow : "0px 4px 8px rgba(50, 115, 220, 0.25)",
         borderRadius: props.borderRadius ? props.borderRadius : "25px",
         borderWeight : props.borderWeight ? props.borderWeight : "0px",

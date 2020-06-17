@@ -51,7 +51,7 @@ const CardCount = styled.div`
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.0125em;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     text-align: left;
 
     color: #242424;
