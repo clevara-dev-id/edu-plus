@@ -148,7 +148,7 @@ class GetAccess extends Component {
                         <section>
                             <div style={{marginTop:"36px"}}></div>
                             <TitlePageMobile
-                                name="Hubungi Kami"
+                                name="Dapatkan Accesss"
                                 color="#1A6EB2"
                             />
                         </section>

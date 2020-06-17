@@ -66,3 +66,7 @@
     color: red;
     font-size: 13px;
 }
+
+#formGetAccessDesktopContainer > .row > .col input{
+    width: 90% !important;
+}
