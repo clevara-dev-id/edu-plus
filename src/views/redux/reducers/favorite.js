@@ -21,7 +21,7 @@ export function favoriteAreLoading(state = false, action) {
 export function favorite(state = [], action) {
     switch (action.type) {
         case 'FAVORITE_FETCH_DATA_SUCCESS':
-            return action.api.school.data;
+            return action.api.school;
 
         default:
             return state;
@@ -31,7 +31,7 @@ export function favorite(state = [], action) {
 export function favoriteSMP(state = [], action) {
     switch (action.type) {
         case 'FAVORITE_FETCH_DATA_SUCCESS_SMP':
-            return action.api.school.data;
+            return action.api.school;
 
         default:
             return state;
@@ -41,7 +41,47 @@ export function favoriteSMP(state = [], action) {
 export function favoriteSMA(state = [], action) {
     switch (action.type) {
         case 'FAVORITE_FETCH_DATA_SUCCESS_SMA':
-            return action.api.school.data;
+            return action.api.school;
+
+        default:
+            return state;
+    }
+}
+
+// export function currentfavorite(state = [], action) {
+//     switch (action.type) {
+//         case 'FAVORITE_FETCH_DATA_SUCCESS':
+//             return action.api.school.current_page;
+
+//         default:
+//             return state;
+//     }
+// }
+
+// export function currentfavoriteSMP(state = [], action) {
+//     switch (action.type) {
+//         case 'FAVORITE_FETCH_DATA_SUCCESS_SMP':
+//             return action.api.school.current_page;
+
+//         default:
+//             return state;
+//     }
+// }
+
+// export function currentfavoriteSMA(state = [], action) {
+//     switch (action.type) {
+//         case 'FAVORITE_FETCH_DATA_SUCCESS_SMA':
+//             return action.api.school.current_page;
+
+//         default:
+//             return state;
+//     }
+// }
+
+export function getProvinceName(state = [], action) {
+    switch (action.type) {
+        case 'FAVORITE_FETCH_DATA_SUCCESS':
+            return action.api.province_name.name;
 
         default:
             return state;

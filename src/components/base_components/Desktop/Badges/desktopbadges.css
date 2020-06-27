@@ -144,7 +144,9 @@
         position: absolute;
         z-index: 2;
         margin-top: 15px;
-        margin-right: 309px;
+        /* margin-right: 309px; */
+        left:0px;
+        padding-left: 17px;
     }
     #desktopBadgesContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
         max-width: 345px;

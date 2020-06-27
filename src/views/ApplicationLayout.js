@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import { NavigationBar, MobileNavigationBar, Footer, MobileFooter } from '../component/base_component/'
 
 // import { OnDesktop, OnMobileAndTablet } from '../constants/'
-import Base from './Base';
+// import Base from './Base';
 // import Whatsapp from '../component/base/whatsapp'
 // import { Spinner } from 'react-bootstrap'
 // import LoaderSpinner from '../component/base/loader/LoaderSpinner'
@@ -32,7 +32,7 @@ const store = [
     }
 ]
 
-export default class ApplicationLayout extends Base {
+export default class ApplicationLayout extends Component {
     render() {
         return (
             <div>
@@ -59,7 +59,7 @@ export default class ApplicationLayout extends Base {
                             homeLink="/"
                             contactLink="/contactus"
                             loginLink="/login"
-                            registerLink="/register"
+                            registerLink="/getaccess"
                         />
                     </OnDesktop>
                     <OnMobile>
@@ -67,7 +67,7 @@ export default class ApplicationLayout extends Base {
                             homeLink="/"
                             contactLink="/contactus"
                             loginLink="/login"
-                            registerLink="/register"
+                            registerLink="/getaccess"
                         />
                     </OnMobile>
                     

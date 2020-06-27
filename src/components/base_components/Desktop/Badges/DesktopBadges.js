@@ -26,13 +26,24 @@ const DesktopBadges = props => {
         document.getElementById(cityName).style.display = "block";
         evt.currentTarget.className += " activeClassBadgesDesktop";
     }
-    
-    // useEffect(()=>{
+    const setHashtag =async(idBadges)=>{
+        await idBadges !== undefined ? window.location.href = `#${idBadges}` : window.location.href = '#default';
+        // console.log(idBadges);
+        // window.location.href = '#';
+    }
     $(document).ready(function(){
-        document.getElementById("defaultOpenBadges").click();  
+        // if(window.location.hash && window.location.hash !=="#default" && window.location.hash !== "#undefined"){
+        //     $(document).ready(function(){
+        //         document.getElementById(window.location.hash.replace("#","")).click();  
+        //     });
+        // }
+        // else{
+        //     document.getElementById("defaultOpenBadges").click();  
+        // }
+        if(window.location.hash===""){
+            document.getElementById("defaultOpenBadges").click();  
+        }
     })
-    // });
-
     return (
         <>
         <Container id="desktopBadgesContainer">
@@ -50,7 +61,11 @@ const DesktopBadges = props => {
                                     </MyBadgeGray>
                                     :
                                     // <LinkBadge href={data.link}>
-                                    <MyBadgeGray className="tablinksbadges" onClick={(e)=>{openPage(e,data.idContent)}}>
+                                    <MyBadgeGray 
+                                        id={data.idBadges ? data.idBadges : "default"}
+                                        className="tablinksbadges" 
+                                        onClick={(e)=>{openPage(e,data.idContent); setHashtag(data.idBadges)}}
+                                    >
                                         {data.name}
                                     </MyBadgeGray>  
                                     //   </LinkBadge>      

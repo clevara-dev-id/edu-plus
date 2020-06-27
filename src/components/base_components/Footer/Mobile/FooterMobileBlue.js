@@ -20,7 +20,7 @@ const FooterMobileBlue = props => {
                 <Row >
                     <Col xs={12} >
                         <DivDescr className="description">
-                            Cari sekolah favorit untuk masa depan yang cerah semua ada di EDUKASI PLUS
+                            Cari sekolah sesuai kebutuhan Anda di Edukasi Plus
                         </DivDescr>
                     </Col>
                 </Row>
@@ -45,7 +45,7 @@ const FooterMobileBlue = props => {
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <CopyRight>2020 © Clevara. All rights reserved.</CopyRight>
+                        <CopyRight>2020 © EDUKASI PLUS. All rights reserved.</CopyRight>
                     </Col>
                 </Row>
             </Container>

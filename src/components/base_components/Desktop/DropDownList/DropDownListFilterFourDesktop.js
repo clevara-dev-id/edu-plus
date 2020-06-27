@@ -14,7 +14,6 @@ const DropDownListFilterFourDesktop = props => {
     const [pickItem, setMyPickItem]=useState(props.placeholder);
     const [visibleTwo, setVisibleTwo]=useState(false);
     const [pickItemTwo, setMyPickItemTwo]=useState(props.placeholderTwo);
-    
     const show = () =>{
         $(`.${props.className}`).css({"display":"block"});
         setVisible(true);
@@ -32,20 +31,23 @@ const DropDownListFilterFourDesktop = props => {
         setVisibleTwo(false);
     }
     $(document).ready(()=> {
-        $(`.${props.buttonClass}`).click(()=>{
-            visible === false ? show() : hide();
-        });
-        $(`.${props.buttonClassTwo}`).click(()=>{
-            visibleTwo === false ? showTwo() : hideTwo();
-        });
+        if(props.disabledButton!==true){
+            $(`.${props.buttonClass}`).click(()=>{
+                visible === false ? show() : hide();
+            });
+        }
+        if(props.disabledButtonTwo!==true){
+            $(`.${props.buttonClassTwo}`).click(()=>{
+                visibleTwo === false ? showTwo() : hideTwo();
+            });
+        }
     });
-
     return (
         <>
             <Container id="dropdownfilterfourdesktopContainer">
                 <Row>
                     <Col>
-                        <CardDropdown>
+                        <CardDropdown style={{background: props.disabledButton ? "#E3E3E3" : "#FFFFFF"}}>
                             <Row>
                                 <Col>
                                     <TitleCard>{props.title}</TitleCard>
@@ -82,7 +84,7 @@ const DropDownListFilterFourDesktop = props => {
                         </CardDropdown>
                     </Col>
                     <Col>
-                        <CardDropdown>
+                        <CardDropdownTwo style={{background: props.disabledButtonTwo ? "#E3E3E3" : "#FFFFFF"}}>
                             <Row>
                                 <Col>
                                     <TitleCard>{props.titleTwo}</TitleCard>
@@ -91,8 +93,9 @@ const DropDownListFilterFourDesktop = props => {
                             <Row>
                                 <Col sm={12}>
                                     <MyDropDownDiv> 
-                                        <MyDropDownButton id="mybuttonFilter" 
-                                        className={props.buttonClassTwo ? props.buttonClassTwo : "defaultclassbuttontwo"}>
+                                        <MyDropDownButton 
+                                            id="mybuttonFilter" 
+                                            className={props.buttonClassTwo ? props.buttonClassTwo : "defaultclassbuttontwo"}>
                                             <Col className="placeholderclass" xs={11}>
                                                 {pickItemTwo}
                                             </Col>
@@ -116,7 +119,7 @@ const DropDownListFilterFourDesktop = props => {
                                     </MyDropDownDiv>
                                 </Col>
                             </Row>
-                        </CardDropdown>
+                        </CardDropdownTwo>
                     </Col>
                 </Row>
             </Container>
@@ -139,15 +142,27 @@ const TitleDiv = styled.div`
     color: #000000;
 `;
 
-const CardDropdown = styled.div`
-    max-width: 343px;
-    height: 64px;
+const CardDropdown = styled.div(
+    props => ({
+        maxWidth: "343px",
+        height: "64px",
+        background: "#FFFFFF",
+        boxShadow: "0px 1px 8px rgba(0, 0, 0, 0.1)",
+        borderRadius: "4px",
 
-    /* White */
-    background: #FFFFFF;
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-`;
+    })
+);
+
+const CardDropdownTwo = styled.div(
+    props => ({
+        maxWidth: "343px",
+        height: "64px",
+        background: "#FFFFFF",
+        boxShadow: "0px 1px 8px rgba(0, 0, 0, 0.1)",
+        borderRadius: "4px",
+
+    })
+);
 
 const TitleCard = styled.div`
     font-style: normal;

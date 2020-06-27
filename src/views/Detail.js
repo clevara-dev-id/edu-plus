@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Desktop
-// import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
-// import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlueSecondary';
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import CardImageTertiarayDesktop from '../components/base_components/Desktop/CardImage/CardImageTertiarayDesktop';
 import SingleDesktopBadges from '../components/base_components/Desktop/Badges/SingleDesktopBadges';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
@@ -20,18 +18,10 @@ import ButtonAnotherSchoolsDesktop  from '../components/base_components/Desktop/
 
 
 //Mobile
-import PrimaryFacility from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
-import OtherFacility from '../components/base_components/Accordion/Mobile/AccordionComponents';
-import Ekstrakulikuler from '../components/base_components/Facility/MobileFacility/PrimaryFacility';
-import InformasiSekolah from '../components/base_components/Footer/Mobile/InformasiSekolah';
-import MapsComponents from '../components/base_components/MapsComponents/Mobile/MapsComopnets';
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 import MobileDescription from '../components/base_components/Description/Mobile/MobileDescription';
-import PriceListMobile from '../components/base_components/PriceList/Mobile/PriceListMobile';
-import ButtonGray from '../components/base_components/Button/ButtonMobile/ButtonGray';
 import CarouselMobileSecondary from '../components/base_components/Carousel/CarouselMobile/CarouselMobileSecondary';
-import TitleDetail from '../components/base_components/TitlePage/TitleMobile/TitleDetail';
 import TitleCardImageScroll from '../components/base_components/TitlePage/TitleMobile/TitleCardImageScroll';
 import CardImageMobileScroll from '../components/base_components/Card/CardMobile/CardImage/CardImageMobileScroll';
 import MobileDescriptionWithIcon from '../components/base_components/Description/Mobile/MobileDescriptionWithIcon';
@@ -39,6 +29,12 @@ import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/Br
 import TitlePageWithAddress from '../components/base_components/TitlePage/TitleMobile/TitlePageWithAddress';
 import MobileIconWithTitle from '../components/base_components/Icon/Mobile/MobileIconWithTitle';
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
+
+//Detail Fetch Redux
+import { 
+    detailFetchData, 
+    fetchDataCity,
+} from './redux/actions/detail';
 
 
 //Import Image Desktop
@@ -48,6 +44,9 @@ import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
 import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png';
 import slideImage2 from '../components/asset/images/CarouselSlider/slider2.png';
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
+
+//Image For School List
+import ImageSchool from '../asset/image/SchoolLists/schoolsILustrator.png';
 
 
 //dummy Mobile
@@ -161,22 +160,6 @@ const storeMobileFive = [
     },
 ];
 
-const storeMobileSix =[
-    {
-        name:"IPA",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:"",
-    },
-    {
-        name:"IPS",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:""
-    },
-];
 
 const storeMobileSeven =[
     {
@@ -251,39 +234,10 @@ const store = [
 
 const DesktopSlider = [
     {image : SlideImageDesktop1},
-    {image : SlideImageDesktop1},
-    {image : SlideImageDesktop1},
-    {image : SlideImageDesktop1}
+    // {image : SlideImageDesktop1},
+    // {image : SlideImageDesktop1},
+    // {image : SlideImageDesktop1}
 ];
-
-const storeDesktop = [
-    {
-        image     : JakartaImage,
-        titleCard : "Jakarta Utara",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "Jakarta Pusat",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x242",
-        titleCard : "Jakarta Barat",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "Jakarta Timur",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x242",
-        titleCard : "Jakarta Selatan",
-        descrip   : "15 Sekolah"
-    },
-];
-
 
 const storeDesktop2 =[
     {name:"Kontak Sekolah", idContent: "desktopSchoolsContactId"},
@@ -295,12 +249,66 @@ const storeDesktop2 =[
 ];
 
 class Detail extends Component {
+    constructor(props) {
+        super(props);
+        this.state =  {
+          favoriteData:[],
+        };
+    }
+    componentDidMount=async ()=>{
+        this.getDetailData(1);
+        this.getCityData(1);
+    }
+    getDetailData=async(page)=>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamId = urlParams.get('uuid');
+        const data = await this.props.fetchData(`http://localhost:8000/api/schools/${myParamId}`);
+    }
+    getCityData=async(page)=>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamId = urlParams.get('schid');
+        const myEduStage = urlParams.get('edustage');
+        let ParameterPostData = {
+            "stage":myEduStage,
+            "status":"1",
+            "province":myParamId.substr(0,2),
+            "regency":myParamId,
+        }
+        const data = await this.props.fetchSchoolsCity(`http://localhost:8000/api/search/?page=${page}`,ParameterPostData);
+    }
     render() {
+        if (this.props.hasError) {
+            return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
+        }
+        if (this.props.isLoading) {
+            return <p id="defaultOpenBadges">Loading…</p>;
+        }
+        // let schoolAddresss=[
+        //     this.props.detail.address,
+        //     this.props.
+        //  ];
+        let newArraySchoolsDetail=[], schoolsDetailPageIndex=0, imageForSchools;
+        this.props.getDataSchools.forEach((newData, index)=>{
+            if(newData.images!==undefined && newData.images.length>0){
+                imageForSchools=newData.image;
+            }
+            else{
+                imageForSchools=ImageSchool;
+            }
+            newArraySchoolsDetail[schoolsDetailPageIndex]={
+                image     : imageForSchools,
+                titleCard : newData.name,
+                descrip   : newData.address,
+                link      : `#`,
+            }
+            schoolsDetailPageIndex++;
+        
+        });
+        // console.log(newArraySchoolsDetail);
         return (
-            <>
-                
+            <> 
                 <div>
-                <OnDesktop>
+                    <OnDesktop>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
@@ -314,15 +322,21 @@ class Detail extends Component {
                         <section>
                             <div style={{marginTop:"38px"}}></div>
                             <TitlePageWithAddressDesktop
-                                title="SD Sumbangsih"
-                                text="Jalan Duren Bangka No. 36, Bangka, Mampang Prapatan, Jakarta Selatan, DKI Jakarta"
+                                title={this.props.detail.name}
+                                text={[
+                                    this.props.detail.address,
+                                    this.props.detail.village_id,
+                                    this.props.detail.district_id,
+                                    this.props.detail.regency_id,
+                                    this.props.detail.province_id,
+                                ].join(", ")}
                             />
                             <LineComponentsDesktop 
                                 // marginTop="-20px"
                             />
                             <div style={{marginBottom: "20px"}} />
                             <DesktopIconWithTitle 
-                                name="Kurikulum K-13"
+                                name={this.props.detail.status === 1 ? "Kurikulum K-13" : this.props.detail.curriculum}
                             />
                             <div style={{marginBottom: "30px"}} />
                         </section>
@@ -334,14 +348,52 @@ class Detail extends Component {
                         <section style={{display: "none"}} id="desktopSchoolsContactId" className="tabcontendetaildesktop">
                             <div style={{marginTop: "30px"}} />
                             <DesktopDescriptionWithIcon
-                                store={storeMobileTwo}
+                                store={[
+                                    {
+                                        name:this.props.detail.phone_number ? this.props.detail.phone_number : "[Data Belum di Update]",
+                                        icon:"phone",
+                                        iconColor:"",
+                                        fontFamily:"Feather",
+                                        size:"",
+                                    },
+                                    {
+                                        name:this.props.detail.email ? this.props.detail.email : "[Data Belum di Update]",
+                                        icon:"mail",
+                                        iconColor:"",
+                                        fontFamily:"Feather",
+                                        size:""
+                                    },
+                                    {
+                                        name:this.props.detail.website ? this.props.detail.website : "[Data Belum di Update]",
+                                        icon:"globe",
+                                        iconColor:"",
+                                        fontFamily:"Feather",
+                                        size:""
+                                    }
+                                ]}
                             />
                             <div style={{marginBottom: "30px"}} />
                         </section>
                         <section style={{display: "none"}} id="desktopDescriptionId" className="tabcontendetaildesktop">
                             <div style={{marginTop: "30px"}} />
                             <DesktopDescription
-                                store={storeMobileFour}
+                                store={[
+                                    {   title:"Kepala Sekolah", 
+                                        description : this.props.detail.headmaster ? this.props.detail.headmaster : "[Data Belum di Update]"
+                                    },
+                                    {   title:"Jumlah Siswa", 
+                                        description : this.props.detail.total_student ? this.props.detail.total_student : "[Data Belum di Update]"
+                                    },
+                                    {   title:"Akreditasi", 
+                                        description : this.props.detail.accreditation ? this.props.detail.accreditation : "[Data Belum di Update]"
+                                    },
+                                    {   title:"Status", 
+                                        description : this.props.detail.status === 1 ? "Negeri" : this.props.detail.status === 0 ? "Swasta" : "[Data Belum di Update]"
+                                    },
+                                    {   title:"Jam Sekolah", 
+                                        description : this.props.detail.schools_hour ? this.props.detail.schools_hour : "[Data Belum di Update]"
+                                    },
+                                ]}
                             />
                             <div style={{marginBottom: "30px"}} />
                         </section>
@@ -383,7 +435,7 @@ class Detail extends Component {
                         </section>
                         <section>
                             <CardImageTertiarayDesktop 
-                                store={storeDesktop}
+                                store={newArraySchoolsDetail.slice(0,6)}
                             />
                         </section>
                         <section>
@@ -491,6 +543,20 @@ class Detail extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        detail: state.detail,
+        getDataSchools: state.getCityDataSchools,
+        hasError: state.detailHaveError,
+        isLoading: state.detailAreLoading,
+    };
+};
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url, data) => dispatch(detailFetchData(url, data)),
+        fetchSchoolsCity: (url, data) => dispatch(fetchDataCity(url, data)),
+    };
+};
 
-export default Detail;
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);

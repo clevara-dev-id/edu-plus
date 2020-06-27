@@ -9,7 +9,7 @@ import './navbarblue.css'
 
 const NavBarBlue = props => {
     const onClickRegisterHandle = () =>{
-        window.location="/register";
+        window.location="/getaccess";
     }
     return (
         <>

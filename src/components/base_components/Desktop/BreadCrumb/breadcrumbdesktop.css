@@ -67,7 +67,12 @@
 }
 #breadCrumbDesktopContainer > .row > .col > nav > .breadcrumb > .breadcrumb-item > a{
     color: #B5B5B5;
+    /* text-transform: lowercase; */
 }
 #breadCrumbDesktopContainer > .row > .col > nav > .breadcrumb > .breadcrumb-item, .active{
     color: #1A6EB2;
+}
+
+#breadCrumbDesktopContainer > .row > .col > nav > .breadcrumb > .breadcrumb-item::first-letter, .active::first-letter{
+    /* text-transform: uppercase; */
 }

@@ -25,6 +25,10 @@ import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.p
 
 import { favoriteFetchData, favoriteFetchDataSMP, favoriteFetchDataSMA } from './redux/actions/favorite';
 
+//Image Ilustrator
+import ImageCity1 from '../asset/image/Favorite/city1.png';
+import ImageCity2 from '../asset/image/Favorite/city2.png';
+import ImageCity3 from '../asset/image/Favorite/city3.png';
 //dummy Mobile
 const storeMobile = [
     {
@@ -91,35 +95,63 @@ const storeDesktop = [
 ];
 
 const storeDesktop2 =[
-    {name:"SD & MI", idContent: "desktopSDdanMI"},
-    {name:"SMP & MTS", idContent: "desktopSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
-    {name:"Universitas", idContent: "desktopUniv"},
+    {   name:"SD & MI", 
+        idContent: "desktopSDdanMI",
+        idBadges:"firstTabOnFavoritePage",
+    },
+    {
+        name:"SMP & MTS", 
+        idContent: "desktopSmpMts",
+        idBadges:"secondTabOnFavoritePage",
+    },
+    {
+        name:"SMA, SMK, & MA", 
+        idContent: "desktopSmaSmkMa",
+        idBadges:"thirdTabOnFavoritePage",
+    },
+    {
+        name:"Universitas", 
+        idContent: "desktopUniv",
+        idBadges:"FourthTabOnFavoritePage",
+    },
 ];
 
+let dataCityMaptoProps=[];
+let dataCityMaptoPropsSMP=[];
+let dataCityMaptoPropsSMA=[];
 
 class Favorite extends Component {
     constructor(props) {
         super(props);
         this.state =  {
           favoriteData:[],
+          favoriteSearch:'',
+          limitPerPage: 8,
+          limitPerPageSMP: 8,
+          limitPerPageSMA: 8,
         };
     }
     componentDidMount=async ()=>{
-        this.getCityData();
-        this.getCityDataSMP();
-        this.getCityDataSMA();
-
+        this.getCityData(1);
+        this.getCityDataSMP(1);
+        this.getCityDataSMA(1);
     }
 
-    getCityData=async()=>{
-        const data = await this.props.fetchData('http://localhost:8000/api/province/31/sd');
+    getCityData=async(page)=>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamId = urlParams.get('id');
+        // console.log(myParam);
+        const data = await this.props.fetchData(`http://localhost:8000/api/province/${myParamId}/sd`);
     }
-    getCityDataSMP=async()=>{
-        const data = await this.props.fetchDataSMP('http://localhost:8000/api/province/31/smp');
+    getCityDataSMP=async(page)=>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamId = urlParams.get('id');
+        const data = await this.props.fetchDataSMP(`http://localhost:8000/api/province/${myParamId}/smp`);
     }
-    getCityDataSMA=async()=>{
-        const data = await this.props.fetchDataSMA('http://localhost:8000/api/province/31/sma');
+    getCityDataSMA=async(page)=>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamId = urlParams.get('id');
+        const data = await this.props.fetchDataSMA(`http://localhost:8000/api/province/${myParamId}/sma`);
     }
     render() {
         if (this.props.hasError) {
@@ -129,29 +161,90 @@ class Favorite extends Component {
         if (this.props.isLoading) {
             return <p id="defaultOpenBadges">Loading…</p>;
         }
-        let newArrayFaforite=[],newArrayFaforiteSMP=[], newArrayFaforiteSMA=[];
+        let newArrayFaforite=[], titleImageForCity="FirstImage", imageForCity, nextImage="";
+        let newArrayFaforiteSMP=[], faforitePageIndexSMP=0; 
+        let newArrayFaforiteSMA=[], faforitePageIndexSMA=0;
+        let newArrayWithFilterSearch=[], newArrayWithFilterSearchSMP=[], newArrayWithFilterSearchSMA=[];
         this.props.favorite.map((newData, index)=>{
-            newArrayFaforite[index]={
-                image     : "https://via.placeholder.com/255x242",
-                titleCard : newData.name,
-                descrip   : newData.schools_count+"  SEKOLAH"
+            if(titleImageForCity==="FirstImage"){
+                imageForCity=ImageCity1;
+                nextImage="SecondImage";
             }
+            if(titleImageForCity==="SecondImage"){
+                imageForCity=ImageCity2;
+                nextImage="ThirdImage";
+            }
+            if(titleImageForCity==="ThirdImage"){
+                imageForCity=ImageCity3;
+                nextImage="FirstImage";
+            }
+            newArrayFaforite[index]={
+                image     : imageForCity,
+                titleCard : newData.name,
+                descrip   : newData.schools_count+"  SEKOLAH",
+                link      : `/favoritedetail?id=${newData.id}`,
+            }
+            titleImageForCity=nextImage;
         });
         this.props.favoriteSMP.map((newData, index)=>{
-            newArrayFaforiteSMP[index]={
-                image     : "https://via.placeholder.com/255x242",
-                titleCard : newData.name,
-                descrip   : newData.schools_count+"  SEKOLAH"
+            if(titleImageForCity==="FirstImage"){
+                imageForCity=ImageCity1;
+                nextImage="SecondImage";
             }
+            if(titleImageForCity==="SecondImage"){
+                imageForCity=ImageCity2;
+                nextImage="ThirdImage";
+            }
+            if(titleImageForCity==="ThirdImage"){
+                imageForCity=ImageCity3;
+                nextImage="FirstImage";
+            }
+            newArrayFaforiteSMP[index]={
+                image     : imageForCity,
+                titleCard : newData.name,
+                descrip   : newData.schools_count+"  SEKOLAH",
+                link      : `/favoritedetail?id=${newData.id}`,
+            }
+            faforitePageIndexSMP++;
+            titleImageForCity=nextImage;
         });
         this.props.favoriteSMA.map((newData, index)=>{
-            newArrayFaforiteSMA[index]={
-                image     : "https://via.placeholder.com/255x242",
-                titleCard : newData.name,
-                descrip   : newData.schools_count+"  SEKOLAH"
+            if(titleImageForCity==="FirstImage"){
+                imageForCity=ImageCity1;
+                nextImage="SecondImage";
             }
+            if(titleImageForCity==="SecondImage"){
+                imageForCity=ImageCity2;
+                nextImage="ThirdImage";
+            }
+            if(titleImageForCity==="ThirdImage"){
+                imageForCity=ImageCity3;
+                nextImage="FirstImage";
+            }
+            newArrayFaforiteSMA[index]={
+                image     : imageForCity,
+                titleCard : newData.name,
+                descrip   : newData.schools_count+"  SEKOLAH",
+                link      : `/favoritedetail?id=${newData.id}`,
+            }
+            faforitePageIndexSMA++;
+            titleImageForCity=nextImage;
         });
-        console.log(newArrayFaforiteSMA);
+        if(newArrayFaforite.length>0){
+            newArrayFaforite.filter(name => name.titleCard.includes(this.state.favoriteSearch.toUpperCase())).map((data,index)=>{
+                newArrayWithFilterSearch[index]=data;
+            });
+        }
+        if(newArrayFaforiteSMP.length>0){
+            newArrayFaforiteSMP.filter(name => name.titleCard.includes(this.state.favoriteSearch.toUpperCase())).map((data,index)=>{
+                newArrayWithFilterSearchSMP[index]=data;
+            });
+        }
+        if(newArrayFaforiteSMA.length>0){
+            newArrayFaforiteSMA.filter(name => name.titleCard.includes(this.state.favoriteSearch.toUpperCase())).map((data,index)=>{
+                newArrayWithFilterSearchSMA[index]=data;
+            });
+        }
         return (
             <>
                 <div>
@@ -159,36 +252,65 @@ class Favorite extends Component {
                         <section>
                             <JumbotronDesktopBlueSecondary
                                 primaryText="Sekolah Favorit"
-                                secondaryText="DKI Jakarta"
+                                secondaryText={this.props.getProvinceName}
                             />
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
-                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"}]}
+                                store={[{name:"Home"},{name:this.props.getProvinceName, link:"#"}]}
                             />
                         </section>
                         <section>
                             <BadgesDesktop
-                                store={storeDesktop2}
+                                store={[
+                                    {   name:"SD & MI", 
+                                        idContent: "desktopSDdanMI",
+                                        idBadges:"firstTabOnFavoritePage",
+                                    },
+                                    {
+                                        name:"SMP & MTS", 
+                                        idContent: "desktopSmpMts",
+                                        idBadges:"secondTabOnFavoritePage",
+                                    },
+                                    {
+                                        name:"SMA, SMK, & MA", 
+                                        idContent: "desktopSmaSmkMa",
+                                        idBadges:"thirdTabOnFavoritePage",
+                                    },
+                                    // {
+                                    //     name:"Universitas", 
+                                    //     idContent: "desktopUniv",
+                                    //     idBadges:"FourthTabOnFavoritePage",
+                                    // },
+                                ]}
                                 placeholderSearch="Cari Kota/Kabupaten"
-                                onChangeSearch={(e)=>{console.log(e.target.value)}}
+                                onChangeSearch={(e)=>{this.setState({favoriteSearch:e.target.value})}}
                             />
                         </section>
                         <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
                             <CardImageSecondaryDesktop 
-                                store={newArrayFaforite}
+                                store={newArrayWithFilterSearch.slice(0,this.state.limitPerPage)}
+                                loadmoreEnable={true}
+                                onClickLoadmore={()=>{this.setState({limitPerPage : this.state.limitPerPage+8})}}
                             />
+                            <div style={{marginBottom: "45px"}}></div>
                         </section>
                         <section id="desktopSmpMts" style={{display:"none"}} className="tabcontendetailDesktop">
                             <CardImageSecondaryDesktop 
-                                store={newArrayFaforiteSMP}
+                                store={newArrayWithFilterSearchSMP.slice(0,this.state.limitPerPageSMP)}
+                                loadmoreEnable={true}
+                                onClickLoadmore={()=>{this.setState({limitPerPageSMP :this.state.limitPerPageSMP+8})}}
                             />
+                            <div style={{marginBottom: "45px"}}></div>
                         </section>
                         <section id="desktopSmaSmkMa" style={{display:"none"}} className="tabcontendetailDesktop">
                             <CardImageSecondaryDesktop 
-                                store={newArrayFaforiteSMA}
+                                store={newArrayWithFilterSearchSMA.slice(0,this.state.limitPerPageSMA)}
+                                loadmoreEnable={true}
+                                onClickLoadmore={()=>{this.setState({limitPerPageSMA : this.state.limitPerPageSMA+8})}}
                             />
+                            <div style={{marginBottom: "45px"}}></div>
                         </section>
                         <section id="desktopUniv" style={{display:"none"}} className="tabcontendetailDesktop">
                             <CardImageSecondaryDesktop 
@@ -223,15 +345,15 @@ class Favorite extends Component {
                         </section>
                         <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobileSecondary store={storeMobile} />
+                            <CardImageMobileSecondary store={newArrayFaforite} />
                         </section>
                         <section style={{display: "none"}} id="mobileSmpMts" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobileSecondary store={storeMobile} />
+                            <CardImageMobileSecondary store={newArrayFaforiteSMP} />
                         </section>
                         <section style={{display: "none"}} id="mobileSmaSmkMa" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobileSecondary store={storeMobile} />
+                            <CardImageMobileSecondary store={newArrayFaforiteSMA} />
                         </section>
                         <section style={{display: "none"}} id="mobileUniv" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
@@ -246,10 +368,14 @@ class Favorite extends Component {
 
 
 const mapStateToProps = (state) => {
+    // dataCityMaptoProps[state.currentfavorite]=state.favorite;
+    // dataCityMaptoPropsSMP[state.currentfavoriteSMP]=state.favoriteSMP;
+    // dataCityMaptoPropsSMA[state.currentfavoriteSMA]=state.favoriteSMA;
     return {
         favorite: state.favorite,
         favoriteSMP: state.favoriteSMP,
         favoriteSMA: state.favoriteSMA,
+        getProvinceName:state.getProvinceName,
         hasError: state.favoriteHaveError,
         isLoading: state.favoriteAreLoading
     };
@@ -265,4 +391,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorite);
-// export default Favorite;

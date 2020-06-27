@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+
+//Redux 
+import { 
+    searchResultFetchData, 
+} from './redux/actions/serachresult';
 
 //import Desktop
 import CardImageTertiarayDesktop from '../components/base_components/Desktop/CardImage/CardImageTertiarayDesktop';
@@ -9,24 +15,16 @@ import LineComponentsDesktop from '../components/base_components/Desktop/LineCom
 import SingleDesktopBadgesWhite from '../components/base_components/Desktop/Badges/SingleDesktopBadgesWhite';
 import TitlePageWithSparatorDesktop from '../components/base_components/Desktop/TitlePage/TitlePageWithSparatorDesktop';
 import DropDownListArrowDesktop from '../components/base_components/Desktop/DropDownList/DropDownListArrowDesktop';
-
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 
 //import mobile
-import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitleWithSeparator from '../components/base_components/TitlePage/TitleMobile/TitleWithSeparator';
-import CardList from '../components/base_components/Card/CardMobile/CardList/CardList';
-import CardListSecondary from '../components/base_components/Card/CardMobile/CardList/CardListSecondary';
-import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 import DropDownList from '../components/base_components/DropDwonList/DropdownMobile/DropDownList';
-import BadgesGroup from '../components/base_components/Badges/BadgesMobile/BadgesGroup';
-import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 import CardImageTertiary from '../components/base_components/Card/CardMobile/CardImage/CardImageTertiary';
 import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges';
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
-
-
 
 //Import Image Desktop
 import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
@@ -40,6 +38,8 @@ import CardImage2 from '../components/asset/images/CardList/SMAN51JAKARTA.png';
 import CardImage3 from '../components/asset/images/CardList/SMAN62JAKARTA.png';
 import CardImage4 from '../components/asset/images/CardList/SMAN93JAKARTA.png';
 
+//Image For School List
+import ImageSchool from '../asset/image/SchoolLists/schoolsILustrator.png';
 
 //dummy Mobile
 const storeMobile = [
@@ -107,12 +107,71 @@ const storeDesktop = [
     },
 ];
 
+let dataSearchResultMaptoProps=[];
 
 class SearchResult extends Component {
+    constructor(props) {
+        super(props);
+        this.state =  {
+          favoriteData:[],
+        };
+    }
+    componentDidMount=async ()=>{
+        this.getSchoolsData(1);
+    }
+    getSchoolsData=async(page)=>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamId = urlParams.get('district_id');
+        const stage = urlParams.get('educationstage');
+        const status = urlParams.get('status');
+        let ParameterPostData = {
+            "stage":stage,
+            "status":status ==="negeri" ? 1 : status === "swasta" ? 0 : null,
+            "province":myParamId.substr(0,2),
+            "regency":myParamId.substr(0,4),
+            "district" : myParamId,
+        }
+        const data = await this.props.fetchData(`http://localhost:8000/api/search/?page=${page}`,ParameterPostData);
+    }
     render() {
+        if (this.props.hasError) {
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>
+                Sorry! There was an error loading the items</p>;
+        }
+        if (this.props.isLoading) {
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>Loading…</p>;
+        }
+        let newArraySearchResult=[], searchResultIndex=0, imageForSchools;
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamId = urlParams.get('id');
+        this.props.searchResultData.forEach((data, index)=>{
+            data.map((newData)=>{
+                if(newData.images!==undefined && newData.images.length>0){
+                    imageForSchools=newData.image;
+                }
+                else{
+                    imageForSchools=ImageSchool;
+                }
+                newArraySearchResult[searchResultIndex]={
+                    image     : imageForSchools,
+                    titleCard : newData.name,
+                    descrip   : newData.address,
+                    link      : `/detail?uuid=${newData.uuid}&&schid=${myParamId}&&edustage=sd`,
+                }
+                searchResultIndex++;
+            });
+
+        });
+        console.log(newArraySearchResult);
         return (
             <>
                 <OnDesktop>
+                    <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Home"},{name:"Search", link:"#"},{name:"Hasil Pencarian", link:"#"}]}
+                            />
+                        </section>
                     <section>
                         <div style={{marginTop:"36px"}}></div>
                         <TitlePageHeaderDesktop
@@ -141,12 +200,12 @@ class SearchResult extends Component {
                     </section>
                     <section>
                         <SingleDesktopBadgesWhite
-                            store={[{name:"3 Data ditemukan", idContent: "desktopSchoolsContactId"}]}
+                            store={[{name:`${newArraySearchResult.length} Data ditemukan`, idContent: "desktopSchoolsContactId"}]}
                         />
                     </section>
                     <section>   
                         <CardImageTertiarayDesktop 
-                            store={storeDesktop}
+                            store={newArraySearchResult}
                         />
                     </section>
                     <section>
@@ -210,5 +269,21 @@ class SearchResult extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    dataSearchResultMaptoProps[state.currentSearchResult]=state.searchResult;
+    console.log()
+    return {
+        searchResultData: dataSearchResultMaptoProps,
+        currentSearchResult : state.currentSearchResult,
+        hasError: state.searchResultHaveError,
+        isLoading: state.searchResultAreLoading
+    };
+};
 
-export default SearchResult;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url, data) => dispatch(searchResultFetchData(url, data)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResult);

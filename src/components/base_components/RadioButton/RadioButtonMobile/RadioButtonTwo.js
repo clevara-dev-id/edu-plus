@@ -13,7 +13,7 @@ const RadioButtonTwo = props =>{
     const [icon,setIcon]=useState('');
     return(
         <>
-            <Container id="radioTwoid">
+            <Container id="radioTwoMobileid">
                 <div className="radio-toolbarTwo">
                     <Row><Col className="radioTitle">{props.title}</Col></Row>
                     <Row>
@@ -32,7 +32,7 @@ const RadioButtonTwo = props =>{
                                 </div>
                             </label>
                         </Col>
-                        <Col className="bsjpTwo" xs={4} style={{paddingLeft : "5px", paddingRight : "5px"}} id="midConten">
+                        <Col className="bsjpTwo" xs={5} style={{paddingLeft : "5px", paddingRight : "5px"}} id="midConten">
                             <Input 
                                 type="radio" id="inputswasta" 
                                 name="radioTwoMobile" 
@@ -46,7 +46,7 @@ const RadioButtonTwo = props =>{
                                 </div>
                             </label>
                         </Col>
-                        <Col className="bsjpTwo" xs={4} style={{paddingLeft : "0px"}} >
+                        <Col className="bsjpTwo" xs={2} style={{paddingLeft : "0px"}} >
                         </Col>
                     </Row>
                 </div>

@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
+//Redux
+import { 
+    searchpageFetchProvData, 
+    searchpageFetchCityData,
+    searchpageFetchDistrictData,
+} from './redux/actions/searchpage';
+
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import DropDownListFilterFourDesktop from '../components/base_components/Desktop/DropDownList/DropDownListFilterFourDesktop';
 import RadioButtonFiveDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonFiveDesktop';
 import RadioButtonTwoDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonTwoDesktop';
@@ -13,18 +19,11 @@ import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitleP
 import TitleBottomDesktop from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktop';
 
 //Mobile Item
-import Title from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
-import RadioButtonThree from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonThree';
 import RadioButtonFive from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonFive'
 import ButtonPrimary from '../components/base_components/Button/ButtonMobile/ButtonPrimary';
-import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
-import ButtonGray from '../components/base_components/Button/ButtonMobile/ButtonGray';
-import AccordionAddress from '../components/base_components/Accordion/Mobile/AccordionAddress';
 import BottomTitle from '../components/base_components/TitleBottom/Mobile/TitleBottom';
-import DropdownListFilter from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilter';
 import DropdownListFilterFour from '../components/base_components/DropDwonList/DropdownMobile/DropDownListFilterFour';
-import TitleDropDownList from '../components/base_components/TitlePage/TitleMobile/TitleDropDownList';
 import RadioButtonTwo from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonTwo';
 import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
 
@@ -114,10 +113,45 @@ const storeDesktop2 =[
 
 
 class Search extends Component {
+    constructor(props) {
+        super(props);
+        this.state =  {
+          homepageSearch:'',
+          province_id: 0,
+          city_id: 0,
+          district_id:0,
+          cityDisable: true,
+          districtDisable: true,
+          villageDisable: true,
+          education_stage: '',
+          status: '',
+        };
+    }
+    componentDidMount=async ()=>{
+        this.getProvinceData(1);
+        // this.getCityData();
+        // this.getDistrictData();
+    }
+    getProvinceData=async(page)=>{ 
+        const data = await this.props.fetchData(`http://localhost:8000/api/search/init`);
+    }
+    getCityData=async(getProvId)=>{
+        const data = await this.props.fetchDataCity(`http://localhost:8000/api/search/get-regency/${getProvId}`);
+    }
+    getDistrictData=async(getCityId)=>{
+        const data = await this.props.fetchDataDistrict(`http://localhost:8000/api/search/get-district/${getCityId}`);
+    }
     onClickSearchDetailHandle = () =>{
-        window.location="/searchresult";
+        window.location=`/searchresult?district_id=${this.state.district_id}&&educationstage=${this.state.education_stage}&&status=${this.state.status}`;
     }
     render() {
+        if (this.props.hasError) {
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>
+                Sorry! There was an error loading the items</p>;
+        }
+        if (this.props.isLoading) {
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>Loading…</p>;
+        }
         return (
             <>
                 <div>
@@ -125,32 +159,44 @@ class Search extends Component {
                         <section>
                             <div style={{marginTop:"36px"}}></div>
                             <TitlePageHeaderDesktop
-                                name="Mulai cari informasi sekolah disini"
+                                // name="Mulai cari informasi sekolah disini"
+                                name={"Mulai cari informasi sekolah disini"+this.state.district_id}
                                 color="#1A6EB2"
                                 width="100%"
                             />
                         </section>
                         <section>
                             <div style={{marginTop: "25px"}}></div>
-                            {/* <TitleDropDownList name="Pilih Alamat"/> */}
                             <DropDownListFilterFourDesktop
-                                onClick={(e)=>{console.log(e.target.value)}}
-                                store={RegionProv} 
+                                onClick={(e)=>{
+                                    this.setState({province_id : e.target.value, cityDisable:false});
+                                    this.getCityData(e.target.value);
+                                }}
+                                store={this.props.searchpageprov} 
                                 placeholder="Pilih Provinsi"
                                 title="Provinsi"
                                 className="provdropdownclass"
                                 buttonClass="provbuttonclickprovregistercontent"
-                                onClickTwo={(e)=>{console.log(e.target.value)}}
-                                storeTwo={RegionCity} 
+                                onClickTwo={(e)=>{
+                                    this.setState({city_id : e.target.value, districtDisable:false});
+                                    this.getDistrictData(e.target.value);
+                                }}
+                                storeTwo={this.props.searchpagecity.length!==0 ? this.props.searchpagecity : []} 
                                 placeholderTwo="Pilih Kab/Kota"
                                 titleTwo="Kabupaten / Kota"
                                 classNameTwo="citydropdownclass"
                                 buttonClassTwo="citybuttonclickprovregistercontent"
+                                disabledButton={false}
+                                disabledButtonTwo={this.state.cityDisable}
+                                disabledButtonClass="disableButtonClassProv"
+                                disabledButtonClassTwo="disableButtonClassCity"
                             />
                             <div style={{marginTop: "25px"}}></div>
                             <DropDownListFilterFourDesktop
-                                onClick={(e)=>{console.log(e.target.value)}}
-                                store={RegionProv} 
+                                onClick={(e)=>{
+                                    this.setState({district_id : e.target.value});
+                                }}
+                                store={this.props.searchpagedistrict.length !== 0 ? this.props.searchpagedistrict : []} 
                                 placeholder="Pilih Kecamatan"
                                 title="Kecamatan"
                                 className="districtkecdropdownclass"
@@ -161,24 +207,28 @@ class Search extends Component {
                                 titleTwo="Kelurahan / Desa"
                                 classNameTwo="villagedropdownclass"
                                 buttonClassTwo="villagebuttonclickprovregistercontent"
+                                disabledButton={this.state.districtDisable}
+                                disabledButtonTwo={this.state.villageDisable}
+                                disabledButtonClass="disableButtonClassDistrict"
+                                disabledButtonClassTwo="disableButtonClassVillage"
                             />
                             <div style={{marginBottom: "25px"}}></div>
                         </section>
                         <section>
                             <div style={{marginTop: "35px"}}></div>
-                            <RadioButtonFiveDesktop onClick={(e)=>{console.log(e.target.value)}} />
+                            <RadioButtonFiveDesktop onClick={(e)=>{this.setState({education_stage:e.target.value})}} />
                         </section>
                         <section>
                             <div style={{marginTop: "35px"}}></div>
                             <RadioButtonTwoDesktop 
                             title="Filter Status Sekolah"
-                            onClick={(e)=>{console.log(e.target.value)}} />
+                            onClick={(e)=>{this.setState({status:e.target.value})}} />
                         </section>
                         <section>
                             <div style={{marginTop: "25px"}}></div>
                             <SecondaryButtonDesktop 
                                 name="CARI SEKARANG"
-                                onClick={()=>{console.log("button cari")}}
+                                onClick={(e)=>{this.onClickSearchDetailHandle()}}
                             />
                             <div style={{marginTop: "25px"}}></div>
                         </section>
@@ -193,11 +243,6 @@ class Search extends Component {
                         </section>
                     </OnDesktop>
                     <OnMobile>
-                        
-                        {/* <section>
-                            <div style={{marginTop: "48px"}}></div>
-                            <Title name="Mulai cari informasi sekolah disini" />
-                        </section> */}
                         <section>
                             <div style={{marginTop:"36px"}}></div>
                             <TitlePageMobile
@@ -205,18 +250,8 @@ class Search extends Component {
                                 color="#1A6EB2"
                             />
                         </section>
-                        {/* <section>
-                            <div style={{marginTop: "25px"}}></div>
-                            <DropdownListFilter 
-                                onClick={(e)=>{console.log(e.target.value)}}
-                                store={store} 
-                                placeholder="Pilih Pendidikan"
-                                title="Pendidikan"
-                            />
-                        </section> */}
                         <section>
                             <div style={{marginTop: "25px"}}></div>
-                            {/* <TitleDropDownList name="Pilih Alamat"/> */}
                             <DropdownListFilterFour
                                 onClick={(e)=>{console.log(e.target.value)}}
                                 store={store2} 
@@ -250,10 +285,6 @@ class Search extends Component {
                                 buttonClass="citybuttonclickVilegeregistercontent"
                             />
                         </section>
-                        {/* <section>
-                            <div style={{marginTop: "25px"}}></div>
-                            <AccordionAddress clickProvinsi={(e)=>{console.log(e.target.value)}} clickKecamatan={(e)=>{console.log(e.target.value)}} />
-                        </section> */}
                         <section>
                             <div style={{marginTop: "35px"}}></div>
                             <RadioButtonFive onClick={(e)=>{console.log(e.target.value)}} />
@@ -264,15 +295,7 @@ class Search extends Component {
                                     title="Filter Status  Sekolah"
                                     onClick={(e) => {console.log(e.target.value)}} 
                                 />
-                            </section>
-                        {/* <section>
-                            <div style={{marginTop: "25px"}}></div>
-                            <RadioButtonThreeGray onClick={(e) => {console.log(e.target.value)}} />
-                        </section> */}
-                        {/* <section>
-                            <div style={{marginTop: "25px"}}></div>
-                            <ButtonPrimary name="CARI SEKARANG" onClick={(e)=>{console.log("this is button !")}} />
-                        </section> */}
+                        </section>
                         <section>
                             <div style={{marginTop: "25px"}}></div>
                             <ButtonPrimary
@@ -296,4 +319,22 @@ class Search extends Component {
     }
 }
 
-export default Search;
+const mapStateToProps = (state) => {
+    return {
+        searchpageprov: state.searchpageprov,
+        searchpagecity: state.searchpagecity,
+        searchpagedistrict: state.searchpagedistrict,
+        hasError: state.searchpageHaveError,
+        isLoading: state.searchpageAreLoading,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(searchpageFetchProvData(url)),
+        fetchDataCity: (url) => dispatch(searchpageFetchCityData(url)),
+        fetchDataDistrict: (url) => dispatch(searchpageFetchDistrictData(url)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
