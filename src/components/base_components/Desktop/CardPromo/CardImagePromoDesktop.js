@@ -22,7 +22,7 @@ const MyVerticallyCenteredModal=(props)=> {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <div><img src={props.sourceImage} width="480px" height="259px" /></div>
+            <div><img src={props.sourceImageModal} width="480px" height="259px" /></div>
             <DivLine></DivLine>
             <TitleModal>{props.TitleCard}</TitleModal>
             <DescriptionModal>{props.descripModal}</DescriptionModal>
@@ -71,7 +71,7 @@ const CardImagePromoDesktop = props => {
                         <MyVerticallyCenteredModal
                             show={modalShow}
                             onHide={() => setModalShow(false)}
-                            sourceImage={modalImage}
+                            sourceImageModal={modalImage}
                             TitleCard={modalTitle}
                             descripModal={modalDescription}
                     />
@@ -112,7 +112,7 @@ const CardCount = styled.div`
 const LinkCard = styled.a`
     font-family: Rubik;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px;
     line-height: 14px;
     letter-spacing: 0.0125em;
@@ -122,6 +122,7 @@ const LinkCard = styled.a`
     display: flex;
     color: #1A6EB2 !important;
     margin-top: 8px;
+    cursor:pointer;
 `;
 
 const DivLine = styled.div`

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
@@ -8,6 +8,7 @@ import ButtonPrimary from '../../Button/ButtonMobile/ButtonPrimary';
 import './formGetaccessmobile.css';
 
 const FormGetAccessMobile = props => {
+    const [buttonEnable, setButtonEnable]=useState(false);
     const IsSchoolsNameValid = () => {
         let valueInput, text, formIsValid=true;
       
@@ -151,7 +152,7 @@ const FormGetAccessMobile = props => {
     $(document).ready(()=> {
         $("#buttonmesaageFormcontact").click(()=>{
             if(buttonClickHandle()){
-                $("#buttonmesaageFormcontact").attr("onclick",props.onClickButton);
+                setButtonEnable(true);
             }
 
         });
@@ -289,6 +290,7 @@ const FormGetAccessMobile = props => {
                             name="DAPATKAN AKSES"
                             id="buttonmesaageFormcontact"
                             background="#1A6EB2"
+                            onClick={buttonEnable === true ? props.onClickButton : false}
                         />
                     </Col>
                 </Row>

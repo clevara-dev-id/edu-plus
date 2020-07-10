@@ -62,7 +62,7 @@
     }
 } 
 
-#myDropdownFilterFour > li{
+#myDropdownFilterFour > option{
     color: #000000;
     display: block;
     width: auto;
@@ -75,17 +75,48 @@
     /* link */
 }
 
-#myDropdownFilterFour > li:hover {
+#myDropdownFilterFour > option:hover {
     color: #FFFFFF;
     background: #1A6EB2;
 }
 
-#myDropdownFilterFour > li:active {
+#myDropdownFilterFour > option:active {
     color: #FFFFFF;
     background: #1A6EB2;
 }
 
-#myDropdownFilterFour > li > option{
+#myDropdownFilterFour > option{
+    font-style: normal;
+    font-weight: normal !important;
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+}
+
+#myDropdownFourSecondary > option{
+    color: #000000;
+    display: block;
+    width: auto;
+    height: 37px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+
+    /* link */
+}
+
+#myDropdownFourSecondary > option:hover {
+    color: #FFFFFF;
+    background: #1A6EB2;
+}
+
+#myDropdownFourSecondary > option:active {
+    color: #FFFFFF;
+    background: #1A6EB2;
+}
+
+#myDropdownFourSecondary > option{
     font-style: normal;
     font-weight: normal !important;
     font-size: 15px;

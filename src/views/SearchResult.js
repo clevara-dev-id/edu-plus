@@ -143,7 +143,8 @@ class SearchResult extends Component {
         }
         let newArraySearchResult=[], searchResultIndex=0, imageForSchools;
         const urlParams = new URLSearchParams(window.location.search);
-        const myParamId = urlParams.get('id');
+        const myParamId = urlParams.get('district_id');
+        const myParamEduStage = urlParams.get('educationstage');
         this.props.searchResultData.forEach((data, index)=>{
             data.map((newData)=>{
                 if(newData.images!==undefined && newData.images.length>0){
@@ -156,7 +157,7 @@ class SearchResult extends Component {
                     image     : imageForSchools,
                     titleCard : newData.name,
                     descrip   : newData.address,
-                    link      : `/detail?uuid=${newData.uuid}&&schid=${myParamId}&&edustage=sd`,
+                    link      : `/detail?uuid=${newData.uuid}&&schid=${myParamId.substr(0, 4)}&&edustage=${myParamEduStage}&&page_from=searchresult`,
                 }
                 searchResultIndex++;
             });
@@ -200,7 +201,7 @@ class SearchResult extends Component {
                     </section>
                     <section>
                         <SingleDesktopBadgesWhite
-                            store={[{name:`${newArraySearchResult.length} Data ditemukan`, idContent: "desktopSchoolsContactId"}]}
+                            store={[{name:`${this.props.countSearchResult} Data ditemukan`, idContent: "desktopSchoolsContactId"}]}
                         />
                     </section>
                     <section>   
@@ -255,11 +256,11 @@ class SearchResult extends Component {
                          <CardListSecondary store={store} />
                     </section> */}
                     <section>
-                         <SingleBadges name="3 data ditemukan" />
+                         <SingleBadges name={`${this.props.countSearchResult} Data ditemukan`} />
                     </section>
                     <section>
                         <div style={{marginTop: "48px"}}></div>
-                        <CardImageTertiary store={storeMobile} />
+                        <CardImageTertiary store={newArraySearchResult} />
                     </section>
                     <section>
                         <ButtonSecondary name="CARI SEKOLAH LAINNYA" onClick={(e)=>{console.log("this is button Secondary Button !")}} />
@@ -275,6 +276,7 @@ const mapStateToProps = (state) => {
     return {
         searchResultData: dataSearchResultMaptoProps,
         currentSearchResult : state.currentSearchResult,
+        countSearchResult: state.countSearchResult,
         hasError: state.searchResultHaveError,
         isLoading: state.searchResultAreLoading
     };

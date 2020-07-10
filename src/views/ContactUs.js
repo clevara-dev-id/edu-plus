@@ -1,117 +1,60 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
+//Get Aceess Input Fetch Redux
+import { 
+    contactUsSendData,
+} from './redux/actions/contactus';
+
+
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
 import CardListWhatsAppDesktop from '../components/base_components/Desktop/CardList/CardListWhatsAppDesktop';
 import FormContactDesktop from '../components/base_components/Desktop/Form/FormContact/FormContactDesktop';
 
 //Mobile Item
-import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
-import JumbotronMobile from '../components/base_components/Jumbotron/Mobile/JumbotronMobile';
 import CardListWatsApp from '../components/base_components/Card/CardMobile/CardList/CardListWatsApp';
 import FormContactComponents from '../components/base_components/Form/FormContact/FormContactComponents';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
 
-//Image
-import JakartaImage from '../components/asset/images/HomePage/CardImage/Jakarta.png'
-
-
-//dummy Mobile
-const storeMobile = [
-    {
-        image     : JakartaImage,
-        titleCard : "DKI Jakarta",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Jawa Barat",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Jawa Tengah",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Bali",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Sumatra Utara",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Kalimantan",
-        descrip   : "15 Sekolah"
-    }
-
-
-];
-
-const storeMobile2 =[
-    {name:"SD & MI", idContent: "mobileSDdanMI"},
-    {name:"SMP & MTS", idContent: "mobileSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "mobileSmaSmkMa"},
-    {name:"Universitas", idContent: "mobileUniv"},
-];
-
-//dummy Desktop
-const storeDesktop = [
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "DKI Jakarta",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Jawa Barat",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Jawa Tengah",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Bali",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Sumatra Utara",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Kalimantan",
-        descrip   : "15 Sekolah"
-    }
-
-
-];
-
-const storeDesktop2 =[
-    {name:"SD & MI", idContent: "desktopSDdanMI"},
-    {name:"SMP & MTS", idContent: "desktopSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
-    {name:"Universitas", idContent: "desktopUniv"},
-];
-
+const getUrlBackend = "http://localhost:8000/"
 
 class ContactUs extends Component {
+    constructor(props){
+        super(props);
+ 
+        this.state = {
+            nameValue: "",
+            emailValue: "",
+            messageValue: "",
+            isSchoolResgistered: true,
+        }
+    }
+    componentDidMount = () =>{
+        
+    }
+    postSchoolsData = async() =>{
+        const sendData = {
+            name: this.state.nameValue,
+            email: this.state.emailValue,
+            message: this.state.messageValue
+        }
+        const data = await this.props.fetchData(`${getUrlBackend}api/contact/`, sendData);
+    }
+    onHandelClickButton=()=>{
+        this.postSchoolsData();
+    }
     render() {
+        if (this.props.hasError) {
+            return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
+        }
+        if (this.props.isLoading || this.props.isLoadingSend) {
+            return <p id="defaultOpenBadges">Loading…</p>;
+        }
         return (
             <>
                 <div>
@@ -132,10 +75,10 @@ class ContactUs extends Component {
                             <div style={{marginTop:"25px"}}></div>
                             <FormContactDesktop 
                                 title="Atau Kirimkan pesan anda"
-                                onChangeName={(e)=>{console.log(e.target.value)}}
-                                onChangeEmail={(e)=>{console.log(e.target.value)}}
-                                onChangeMessage={(e)=>{console.log(e.target.value)}}
-                                onClickButton={()=>{console.log("Button Is Activated !")}}
+                                onChangeName={(e)=>{this.setState({nameValue: e.target.value})}}
+                                onChangeEmail={(e)=>{this.setState({emailValue: e.target.value})}}
+                                onChangeMessage={(e)=>{this.setState({messageValue: e.target.value})}}
+                                onClickButton={()=>{this.onHandelClickButton()}}
                             />
                         </section>
                         <section>
@@ -164,10 +107,10 @@ class ContactUs extends Component {
                             <div style={{marginTop:"25px"}}></div>
                             <FormContactComponents 
                                 title="Atau Kirimkan pesan anda"
-                                onChangeName={(e)=>{console.log(e.target.value)}}
-                                onChangeEmail={(e)=>{console.log(e.target.value)}}
-                                onChangeMessage={(e)=>{console.log(e.target.value)}}
-                                onClickButton={()=>{console.log("Button Is Activated !")}}
+                                onChangeName={(e)=>{this.setState({nameValue: e.target.value})}}
+                                onChangeEmail={(e)=>{this.setState({emailValue: e.target.value})}}
+                                onChangeMessage={(e)=>{this.setState({messageValue: e.target.value})}}
+                                onClickButton={()=>{this.onHandelClickButton()}}
                             />
                         </section>
                         <section>
@@ -186,4 +129,18 @@ class ContactUs extends Component {
     }
 }
 
-export default ContactUs;
+const mapStateToProps = (state) => {
+    return {
+        sendData: state.getaccessInputSendData,
+        hasError: state.getaccessInputSendHaveError,
+        isLoading: state.getaccessInputSendAreLoading,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url, data) => dispatch(contactUsSendData(url, data)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactUs);

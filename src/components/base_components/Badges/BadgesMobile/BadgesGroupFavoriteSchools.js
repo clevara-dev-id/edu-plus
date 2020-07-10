@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { Container, Row, Col, Badge } from 'react-bootstrap';
 import $ from 'jquery';
 
-import './badgesgroupsecondary.css';
+import './badgesgroupfavoriteschools.css';
 
 
-const BadgesGroupSecondary = props => {
+const BadgesGroupFavoriteSchools = props => {
     const getPath = window.location.pathname;
     // console.log(getPath);
     const openPage = (evt, cityName) =>{
@@ -25,28 +25,31 @@ const BadgesGroupSecondary = props => {
         evt.currentTarget.className += " activeClassBadges";
     }
 
+    const setHashtag =async(idBadges)=>{
+        await idBadges !== undefined ? window.location.href = `#${idBadges}` : window.location.href = '#default';
+    }
     $(document).ready(function(){
-        document.getElementById("defaultOpenBadges").click();  
+        if(window.location.hash===""){
+            document.getElementById("defaultOpenBadges").click();  
+        }
     })
-    // });
-
     return (
         <>
-        <Container id="badgesgroupSecondary">
+        <Container id="badgesgroupFavoriteSchools">
             <Row>
                 <Col>
-                    <div className="scrollmenu">
-                        <div id="childscrollSecondary" >
+                    <div className="scrollmenuFavoriteSchools">
+                        <div id="childscrollFavoriteSchools" >
                             {props.store.map((data)=>{
                                 return(
                                     props.store[0].name === data.name ?
                                     <MyBadgeGray id="defaultOpenBadges" 
                                         className="tablinksbadges" 
-                                        onClick={(e)=>{openPage(e,data.idContent)}}>
+                                        onClick={(e)=>{openPage(e,data.idContent); setHashtag(data.idBadges);}}>
                                         {data.name}
                                     </MyBadgeGray>
                                     :
-                                    <MyBadgeGray className="tablinksbadges" onClick={(e)=>{openPage(e,data.idContent)}}>
+                                    <MyBadgeGray className="tablinksbadges" onClick={(e)=>{openPage(e,data.idContent); setHashtag(data.idBadges);}}>
                                         {data.name}
                                     </MyBadgeGray>    
                                 );
@@ -86,8 +89,8 @@ const MyBadgeGray = styled.span`
     
 `;
 
-BadgesGroupSecondary.propTypes = {
+BadgesGroupFavoriteSchools.propTypes = {
     store : PropTypes.object,
 }
 
-export default BadgesGroupSecondary;
+export default BadgesGroupFavoriteSchools;

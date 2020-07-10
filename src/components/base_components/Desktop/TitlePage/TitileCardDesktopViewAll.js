@@ -15,7 +15,7 @@ const TitileCardDesktopViewAll = props => {
                         <H5>{props.name}</H5>
                     </Col>
                     <Col lg={3} className="viewAllCol">
-                        <ViewAll href={props.link}>{props.linkName}</ViewAll>
+                        <ViewAll href={props.link} onClick={props.onClickLink}>{props.linkName}</ViewAll>
                     </Col>
                 </Row>
             </Container>

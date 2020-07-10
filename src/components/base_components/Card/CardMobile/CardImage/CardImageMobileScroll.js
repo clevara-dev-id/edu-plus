@@ -19,8 +19,8 @@ const CardImageMobileScroll = props => {
                                         <Card>
                                             <Card.Img variant="top" src={data.image} width={286} height={180}/>
                                             <Card.Body>
-                                                <CardTitle>{data.titleCard}</CardTitle>
-                                                <CardCount>{data.descrip}</CardCount>
+                                                <CardTitle>{data.titleCard.substr(0, 20)}{data.titleCard.length > 19 ? " ..." : ""}</CardTitle>
+                                                <CardCount>{data.descrip.substr(0, 25)}{data.titleCard.descrip > 25 ? " ..." : ""}</CardCount>
                                             </Card.Body>
                                         </Card>
                                     </Col>
@@ -45,6 +45,8 @@ const CardTitle = styled.h3`
     text-align: left;
     margin-top: 0px;
 
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 `;
 const CardCount = styled.div`
     font-style: normal;
@@ -58,6 +60,10 @@ const CardCount = styled.div`
     /* black */
     color: #0A0A0A;
     text-align: left;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
 `;
 
 

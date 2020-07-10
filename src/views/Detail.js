@@ -276,6 +276,22 @@ class Detail extends Component {
         }
         const data = await this.props.fetchSchoolsCity(`http://localhost:8000/api/search/?page=${page}`,ParameterPostData);
     }
+    handleClickViewAll=async()=>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamPageFrom = urlParams.get('page_from');
+        const myParamSchID = urlParams.get('schid');
+        const myParamEducationStage = urlParams.get('edustage');
+        let status="";
+        if(myParamPageFrom.length > 1){
+            this.props.detail.status === 1 ? status="negeri" : status="swasta"; 
+            if(myParamPageFrom === "searchresult"){
+                window.location.href=`/searchresult?district_id=${this.props.detail.district_id_number}&&educationstage=${myParamEducationStage}&&status=${status}`;
+            }
+            if(myParamPageFrom === "favoritedetail"){
+                window.location.href=`/favoritedetail?id=${myParamSchID}`;
+            }  
+        }
+    }
     render() {
         if (this.props.hasError) {
             return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
@@ -283,11 +299,16 @@ class Detail extends Component {
         if (this.props.isLoading) {
             return <p id="defaultOpenBadges">Loading…</p>;
         }
-        // let schoolAddresss=[
-        //     this.props.detail.address,
-        //     this.props.
-        //  ];
         let newArraySchoolsDetail=[], schoolsDetailPageIndex=0, imageForSchools;
+        let newArrayCost=[];
+        let newArrayImage=[];
+        let newArrayFacilities=[];
+        let newArrayExtracurricular=[];
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamUUID = urlParams.get('uuid');
+        const myParamSchID = urlParams.get('schid');
+        const myParamEducationStage = urlParams.get('edustage');
+        const myParamPageFrom = urlParams.get('page_from');
         this.props.getDataSchools.forEach((newData, index)=>{
             if(newData.images!==undefined && newData.images.length>0){
                 imageForSchools=newData.image;
@@ -299,12 +320,52 @@ class Detail extends Component {
                 image     : imageForSchools,
                 titleCard : newData.name,
                 descrip   : newData.address,
-                link      : `#`,
+                link      : `/detail?uuid=${newData.uuid}&&schid=${myParamSchID}&&edustage=${myParamEducationStage}&&page_from=${myParamPageFrom}`,
             }
             schoolsDetailPageIndex++;
         
         });
-        // console.log(newArraySchoolsDetail);
+
+        //Cost
+        if(this.props.schoolsCost.length > 0){
+            this.props.schoolsCost.map((data, index)=>{
+                const newCost = parseInt(data.cost);
+                newArrayCost[index]={   
+                    title:data.name, 
+                    description : newCost.toLocaleString("id-ID", {style: "currency", currency: "IDR"})
+                }
+            });
+        }
+        if(this.props.schoolsImage.length > 0){
+            this.props.schoolsImage.map((data, index)=>{
+                newArrayImage[index]={
+                    image : data.image
+                }
+            });
+        }
+        if(this.props.schoolFacilities.length > 0){
+            this.props.schoolFacilities.map((data, index)=>{
+                newArrayFacilities[index]= {
+                    name:data.name,
+                    icon:"check-circle",
+                    fontFamily:"Feather",
+                }
+            });
+        }
+        if(this.props.schoolsExtracurricular.length > 0){
+            this.props.schoolsExtracurricular.map((data, index)=>{
+                newArrayExtracurricular[index]= {
+                    name:data.name,
+                    icon:"check-circle",
+                    fontFamily:"Feather",
+                }
+            });
+        }
+        // console.log(this.props.schoolsExtracurricular);
+    //     {   title:"Uang Pangkal", schoolFacilities
+    //     description : "Rp. 3,000,000"
+    // },
+        console.log(this.props.detail);
         return (
             <> 
                 <div>
@@ -317,7 +378,9 @@ class Detail extends Component {
                         </section>
                         <section>
                             <div style={{marginTop: "10px"}} />
-                            <CarouselDesktopSecondary store={DesktopSlider} />
+                            <CarouselDesktopSecondary store={this.props.schoolsImage.length > 0 ? newArrayImage : [
+                                    {image : ImageSchool}
+                            ]} />
                         </section>
                         <section>
                             <div style={{marginTop:"38px"}}></div>
@@ -350,21 +413,21 @@ class Detail extends Component {
                             <DesktopDescriptionWithIcon
                                 store={[
                                     {
-                                        name:this.props.detail.phone_number ? this.props.detail.phone_number : "[Data Belum di Update]",
+                                        name:this.props.detail.phone_number ? this.props.detail.phone_number : "-",
                                         icon:"phone",
                                         iconColor:"",
                                         fontFamily:"Feather",
                                         size:"",
                                     },
                                     {
-                                        name:this.props.detail.email ? this.props.detail.email : "[Data Belum di Update]",
+                                        name:this.props.detail.email ? this.props.detail.email : "-",
                                         icon:"mail",
                                         iconColor:"",
                                         fontFamily:"Feather",
                                         size:""
                                     },
                                     {
-                                        name:this.props.detail.website ? this.props.detail.website : "[Data Belum di Update]",
+                                        name:this.props.detail.website ? this.props.detail.website : "-",
                                         icon:"globe",
                                         iconColor:"",
                                         fontFamily:"Feather",
@@ -379,19 +442,19 @@ class Detail extends Component {
                             <DesktopDescription
                                 store={[
                                     {   title:"Kepala Sekolah", 
-                                        description : this.props.detail.headmaster ? this.props.detail.headmaster : "[Data Belum di Update]"
+                                        description : this.props.detail.headmaster ? this.props.detail.headmaster : "-"
                                     },
                                     {   title:"Jumlah Siswa", 
-                                        description : this.props.detail.total_student ? this.props.detail.total_student : "[Data Belum di Update]"
+                                        description : this.props.detail.total_student ? this.props.detail.total_student : "-"
                                     },
                                     {   title:"Akreditasi", 
-                                        description : this.props.detail.accreditation ? this.props.detail.accreditation : "[Data Belum di Update]"
+                                        description : this.props.detail.accreditation ? this.props.detail.accreditation : "-"
                                     },
                                     {   title:"Status", 
-                                        description : this.props.detail.status === 1 ? "Negeri" : this.props.detail.status === 0 ? "Swasta" : "[Data Belum di Update]"
+                                        description : this.props.detail.status === 1 ? "Negeri" : this.props.detail.status === 0 ? "Swasta" : "-"
                                     },
                                     {   title:"Jam Sekolah", 
-                                        description : this.props.detail.schools_hour ? this.props.detail.schools_hour : "[Data Belum di Update]"
+                                        description : this.props.detail.schools_hour ? this.props.detail.schools_hour : "-"
                                     },
                                 ]}
                             />
@@ -400,7 +463,12 @@ class Detail extends Component {
                         <section style={{display: "none"}} id="desktopstudentConstId" className="tabcontendetaildesktop">
                             <div style={{marginTop: "30px"}} />
                             <DesktopDescription
-                                store={storeMobileThree}
+                                store={this.props.schoolsCost.length > 0 ? newArrayCost : [
+                                    {   
+                                        title:"Uang Pangkal", 
+                                        description : "-"
+                                    }  
+                                ]}
                             />
                             <div style={{marginBottom: "30px"}} />
                         </section>
@@ -414,14 +482,22 @@ class Detail extends Component {
                         <section style={{display: "none"}} id="desktopprimaryFasilityId" className="tabcontendetaildesktop">
                             <div style={{marginTop: "30px"}} />
                             <DesktopDescriptionWithIcon
-                                store={storeMobileSeven}
+                                store={ this.props.schoolFacilities.length > 0 ? newArrayFacilities :[{
+                                        name:"-",
+                                        icon:"check-circle",
+                                        fontFamily:"Feather",
+                                    }]}
                             />
                             <div style={{marginBottom: "30px"}} />
                         </section>
                         <section style={{display: "none"}} id="desktopextracurricularContentId" className="tabcontendetaildesktop">
                             <div style={{marginTop: "30px"}} />
                             <DesktopDescriptionWithIcon
-                                store={storeMobileEight}
+                                store={this.props.schoolsExtracurricular.length > 0 ? newArrayExtracurricular :[{
+                                    name:"-",
+                                    icon:"check-circle",
+                                    fontFamily:"Feather",
+                                }]}
                             />
                             <div style={{marginBottom: "30px"}} />
                         </section>
@@ -431,11 +507,12 @@ class Detail extends Component {
                                 name="Daftar Sekolah Lainnya"
                                 link="#"
                                 linkName="Lihat Semua"
+                                onClickLink={()=>{this.handleClickViewAll()}}
                             />
                         </section>
                         <section>
                             <CardImageTertiarayDesktop 
-                                store={newArraySchoolsDetail.slice(0,6)}
+                                store={newArraySchoolsDetail.slice(0,3)}
                             />
                         </section>
                         <section>
@@ -456,23 +533,28 @@ class Detail extends Component {
                         </section>
                         <section>
                             <div style={{marginTop: "10px"}} />
-                            <CarouselMobileSecondary store={store} />
+                            <CarouselMobileSecondary 
+                                store={this.props.schoolsImage.length > 0 ? newArrayImage : [
+                                {image : ImageSchool}]} 
+                            />
                         </section>
-                        {/* <section>
-                            <div style={{marginTop: "18px"}} />
-                            <TitleDetail name="SMA INTERNATIONAL" />
-                        </section> */}
                         <section>
                             <div style={{marginTop:"38px"}}></div>
                             <TitlePageWithAddress
-                                title="SD Sumbangsih"
-                                text="Jalan Duren Bangka No. 36, Bangka, Mampang Prapatan, Jakarta Selatan, DKI Jakarta"
+                                title={this.props.detail.name}
+                                text={[
+                                    this.props.detail.address,
+                                    this.props.detail.village_id,
+                                    this.props.detail.district_id,
+                                    this.props.detail.regency_id,
+                                    this.props.detail.province_id,
+                                ].join(", ")}
                             />
                             <LineComponents 
                                 marginTop="-20px"
                             />
                             <MobileIconWithTitle 
-                                name="Kurikulum K-13"
+                                name={this.props.detail.status === 1 ? "Kurikulum K-13" : this.props.detail.curriculum}
                             />
                         </section>
                         <section>
@@ -481,37 +563,84 @@ class Detail extends Component {
                         <section style={{display: "none"}} id="mobileSchoolsContactId" className="tabcontendetail">
                             <div style={{marginTop: "30px"}} />
                             <MobileDescriptionWithIcon
-                                store={storeMobileTwo}
+                                store={[
+                                    {
+                                        name:this.props.detail.phone_number ? this.props.detail.phone_number : "-",
+                                        icon:"phone",
+                                        iconColor:"",
+                                        fontFamily:"Feather",
+                                        size:"",
+                                    },
+                                    {
+                                        name:this.props.detail.email ? this.props.detail.email : "-",
+                                        icon:"mail",
+                                        iconColor:"",
+                                        fontFamily:"Feather",
+                                        size:""
+                                    },
+                                    {
+                                        name:this.props.detail.website ? this.props.detail.website : "-",
+                                        icon:"globe",
+                                        iconColor:"",
+                                        fontFamily:"Feather",
+                                        size:""
+                                    }
+                                ]}
                             />
                         </section>
                         <section style={{display: "none"}} id="mobileDescriptionId" className="tabcontendetail">
                             <div style={{marginTop: "18px"}} />
-                            <MobileDescription store={storeMobileFour} />
+                            <MobileDescription 
+                                store={[
+                                    {   title:"Kepala Sekolah", 
+                                        description : this.props.detail.headmaster ? this.props.detail.headmaster : "-"
+                                    },
+                                    {   title:"Jumlah Siswa", 
+                                        description : this.props.detail.total_student ? this.props.detail.total_student : "-"
+                                    },
+                                    {   title:"Akreditasi", 
+                                        description : this.props.detail.accreditation ? this.props.detail.accreditation : "-"
+                                    },
+                                    {   title:"Status", 
+                                        description : this.props.detail.status === 1 ? "Negeri" : this.props.detail.status === 0 ? "Swasta" : "-"
+                                    },
+                                    {   title:"Jam Sekolah", 
+                                        description : this.props.detail.schools_hour ? this.props.detail.schools_hour : "-"
+                                    },
+                                ]} 
+                            />
                         </section>
                         <section style={{display: "none"}} id="studentConstId" className="tabcontendetail">
                             <div style={{marginTop: "18px"}} />
-                            <MobileDescription store={storeMobileThree} />
+                            <MobileDescription store={this.props.schoolsCost.length > 0 ? newArrayCost : [
+                                    {   
+                                        title:"Uang Pangkal", 
+                                        description : "-"
+                                    }  
+                                ]} />
                         </section>
                         <section style={{display: "none"}} id="registerTimeId" className="tabcontendetail">
                             <div style={{marginTop: "18px"}} />
                             <MobileDescription store={storeMobileFive} />
                         </section>
-                        {/* <section style={{display: "none"}} id="mobileDirectionId" className="tabcontendetail">
-                            <div style={{marginTop: "30px"}} />
-                            <MobileDescriptionWithIcon
-                                store={storeMobileSix}
-                            />
-                        </section> */}
                         <section style={{display: "none"}} id="mobileprimaryFasilityId" className="tabcontendetail">
                             <div style={{marginTop: "30px"}} />
                             <MobileDescriptionWithIcon
-                                store={storeMobileSeven}
+                                store={ this.props.schoolFacilities.length > 0 ? newArrayFacilities :[{
+                                    name:"-",
+                                    icon:"check-circle",
+                                    fontFamily:"Feather",
+                                }]}
                             />
                         </section>
                         <section style={{display: "none"}} id="extracurricularContentId" className="tabcontendetail">
                             <div style={{marginTop: "30px"}} />
                             <MobileDescriptionWithIcon
-                                store={storeMobileEight}
+                                store={this.props.schoolsExtracurricular.length > 0 ? newArrayExtracurricular :[{
+                                    name:"-",
+                                    icon:"check-circle",
+                                    fontFamily:"Feather",
+                                }]}
                             />
                         </section>
                         <section>
@@ -524,7 +653,7 @@ class Detail extends Component {
                         </section>
                         <section>
                             <div style={{marginTop: "25px"}}></div>
-                            <CardImageMobileScroll store={storeMobile}  />
+                            <CardImageMobileScroll store={newArraySchoolsDetail.slice(0,3)}  />
                         </section>
                         <section>
                             <div style={{marginTop: "0px"}}></div>
@@ -546,7 +675,12 @@ class Detail extends Component {
 const mapStateToProps = (state) => {
     return {
         detail: state.detail,
+        schoolsImage: state.schoolsImage,
+        schoolsCost: state.schoolsCost,
+        schoolFacilities: state.schoolFacilities,
+        schoolsExtracurricular: state.schoolsExtracurricular,
         getDataSchools: state.getCityDataSchools,
+        schoolsStatus: state.schoolsStatus,
         hasError: state.detailHaveError,
         isLoading: state.detailAreLoading,
     };

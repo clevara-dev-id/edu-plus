@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
@@ -8,6 +8,7 @@ import ButtonPrimary from '../../Button/SecondaryButtonDesktop';
 import './formGetaccessdesktop.css';
 
 const FormGetAccessDesktop = props => {
+    const [buttonEnable, setButtonEnable]=useState(false);
     const IsSchoolsNameValid = () => {
         let valueInput, text, formIsValid=true;
       
@@ -149,9 +150,9 @@ const FormGetAccessDesktop = props => {
         return formIsValid;
     }
     $(document).ready(()=> {
-        $("#buttonmesaageFormcontact").click(()=>{
+        $(`#buttonGetAccessDataInput`).click(()=>{
             if(buttonClickHandle()){
-                $("#buttonmesaageFormcontact").attr("onclick",props.onClickButton);
+                setButtonEnable(true);
             }
 
         });
@@ -299,8 +300,10 @@ const FormGetAccessDesktop = props => {
                     <Col>
                         <ButtonPrimary
                             name="DAPATKAN AKSES"
-                            id="buttonmesaageFormcontact"
+                            id="buttonGetAccessDataInput"
                             background="#1A6EB2"
+                            // disabled={true}
+                            onClick={buttonEnable ? props.onClickButton : false}
                         />
                     </Col>
                 </Row>

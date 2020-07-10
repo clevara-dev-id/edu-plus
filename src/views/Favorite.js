@@ -181,7 +181,7 @@ class Favorite extends Component {
             newArrayFaforite[index]={
                 image     : imageForCity,
                 titleCard : newData.name,
-                descrip   : newData.schools_count+"  SEKOLAH",
+                descrip   : newData.favorite_count+"  SEKOLAH",
                 link      : `/favoritedetail?id=${newData.id}`,
             }
             titleImageForCity=nextImage;
@@ -202,7 +202,7 @@ class Favorite extends Component {
             newArrayFaforiteSMP[index]={
                 image     : imageForCity,
                 titleCard : newData.name,
-                descrip   : newData.schools_count+"  SEKOLAH",
+                descrip   : newData.favorite_count+"  SEKOLAH",
                 link      : `/favoritedetail?id=${newData.id}`,
             }
             faforitePageIndexSMP++;
@@ -224,7 +224,7 @@ class Favorite extends Component {
             newArrayFaforiteSMA[index]={
                 image     : imageForCity,
                 titleCard : newData.name,
-                descrip   : newData.schools_count+"  SEKOLAH",
+                descrip   : newData.favorite_count+"  SEKOLAH",
                 link      : `/favoritedetail?id=${newData.id}`,
             }
             faforitePageIndexSMA++;
@@ -322,13 +322,13 @@ class Favorite extends Component {
                         <section>
                             <JumbotronMobileSecondary
                                 primaryText="Sekolah Favorit"
-                                secondaryText="DKI Jakarta"
+                                secondaryText={this.props.getProvinceName}
                             />
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbMobile 
-                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"}]}
+                                store={[{name:"Home"},{name:this.props.getProvinceName, link:"#"}]}
                             />
                         </section>
                         <section>
@@ -338,22 +338,37 @@ class Favorite extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <InputSearchMobile 
-                                onChange={(e)=>{console.log(e.target.value)}}
+                                onChange={(e)=>{this.setState({favoriteSearch:e.target.value})}}
                                 label="CariKabupaten"
                                 placeholder="Cari Kabupaten"
                             />
                         </section>
                         <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobileSecondary store={newArrayFaforite} />
+                            <CardImageMobileSecondary 
+                                store={newArrayWithFilterSearch.slice(0,this.state.limitPerPage)}
+                                loadmoreEnable={true}
+                                onClickLoadmore={()=>{this.setState({limitPerPage : this.state.limitPerPage+8})}}
+                            />
+                            <div style={{marginBottom: "45px"}}></div>
                         </section>
                         <section style={{display: "none"}} id="mobileSmpMts" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobileSecondary store={newArrayFaforiteSMP} />
+                            <CardImageMobileSecondary 
+                                store={newArrayWithFilterSearchSMP.slice(0,this.state.limitPerPageSMP)}
+                                loadmoreEnable={true}
+                                onClickLoadmore={()=>{this.setState({limitPerPageSMP :this.state.limitPerPageSMP+8})}}
+                            />
+                            <div style={{marginBottom: "45px"}}></div>
                         </section>
                         <section style={{display: "none"}} id="mobileSmaSmkMa" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobileSecondary store={newArrayFaforiteSMA} />
+                            <CardImageMobileSecondary 
+                                store={newArrayWithFilterSearchSMA.slice(0,this.state.limitPerPageSMA)}
+                                loadmoreEnable={true}
+                                onClickLoadmore={()=>{this.setState({limitPerPageSMA : this.state.limitPerPageSMA+8})}}
+                            />
+                            <div style={{marginBottom: "45px"}}></div>
                         </section>
                         <section style={{display: "none"}} id="mobileUniv" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>

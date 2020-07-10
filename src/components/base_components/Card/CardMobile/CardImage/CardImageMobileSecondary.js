@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
 
+import ButtonLoadMore from '../../../Button/ButtonMobile/ButtonSecondary';
 import './cardimagemobilesecondary.css'
 
 const CardImageMobileSecondary = props => {
@@ -12,7 +13,7 @@ const CardImageMobileSecondary = props => {
             <Container id="cardImageMobileSecondaryContainer">
             {props.store.map((data)=>{
                 return(
-                    <LinkCards href={data.link ? data.link+`?city=${data.titleCard}` :`/favoritedetail?city=${data.titleCard}`}>
+                    <LinkCards href={data.link ? data.link : false}>
                         <Row>
                             <Col>
                                 <Card>
@@ -28,6 +29,17 @@ const CardImageMobileSecondary = props => {
                   );
                 })
             }
+            <Row>
+                {props.loadmoreEnable === true ? <div style={{marginTop: "25px"}}></div> : ""}
+                {props.loadmoreEnable === true ?<ButtonLoadMore 
+                    name="MUAT LEBIH BANYAK"
+                    width="277px"
+                    boxShadow="none"
+                    background="#f3f3f3"
+                    onClick={props.onClickLoadmore}
+
+                /> : ""}
+            </Row>
             </Container>
         </>
     );

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
@@ -8,6 +8,7 @@ import ButtonPrimary from '../../Button/ButtonMobile/ButtonPrimary';
 import './formcontactcomponents.css';
 
 const FormContactComponents = props => {
+    const [enableButton, setEnableButton] = useState(false);
     const IsNameValid = () => {
         let valueInput, text, formIsValid=true;
       
@@ -78,9 +79,9 @@ const FormContactComponents = props => {
         return formIsValid;
     }
     $(document).ready(()=> {
-        $("#buttonmesaageFormcontact").click(()=>{
+        $("#buttonmesaageFormcontactMobile").click(()=>{
             if(buttonClickHandle()){
-                $("#buttonmesaageFormcontact").attr("onclick",props.onClickButton);
+                setEnableButton(true);
             }
 
         });
@@ -104,7 +105,7 @@ const FormContactComponents = props => {
                                     name="name"
                                     placeholder="Masukan nama anda"
                                     onChange={props.onChangeName}
-                                    onBlur={()=>{IsNameValid()}}
+                                    onKeyUp={()=>{IsNameValid()}}
                                 />
                             </div>
                         </DivInput>
@@ -124,7 +125,7 @@ const FormContactComponents = props => {
                                     name="email"
                                     placeholder="Masukan email anda"
                                     onChange={props.onChangeEmail}
-                                    onBlur={()=>{IsEmailValid()}}
+                                    onKeyUp={()=>{IsEmailValid()}}
                                 />
                             </div>
                         </DivInput>
@@ -143,7 +144,7 @@ const FormContactComponents = props => {
                                     name="name"
                                     placeholder="Masukan nama anda"
                                     onChange={props.onChangeMessage}
-                                    onBlur={()=>{IsMessageValid()}}>
+                                    onKeyUp={()=>{IsMessageValid()}}>
                                 </InputMessage>
                                 
                             </div>
@@ -157,8 +158,9 @@ const FormContactComponents = props => {
                     <Col>
                         <ButtonPrimary
                             name="KIRIM"
-                            id="buttonmesaageFormcontact"
+                            id="buttonmesaageFormcontactMobile"
                             background="#1A6EB2"
+                            onClick={enableButton === true ? props.onClickButton : false}
                         />
                     </Col>
                 </Row>

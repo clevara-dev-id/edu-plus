@@ -22,9 +22,11 @@ const DropDownListFilterFour = props => {
         setVisible(false);
     }
     $(document).ready(()=> {
-        $(`.${props.buttonClass}`).click(()=>{
-            visible === false ? show() : hide();
-        });
+        if(props.disabledButton!==true){
+            $(`.${props.buttonClass}`).click(()=>{
+                visible === false ? show() : hide();
+            });
+        }
     });
 
     return (
@@ -32,7 +34,7 @@ const DropDownListFilterFour = props => {
             <Container id="dropdownfilter">
                 <Row>
                     <Col>
-                        <CardDropdown>
+                        <CardDropdown style={{background: props.disabledButton ? "#E3E3E3" : "#FFFFFF"}}>
                             <Row>
                                 <Col>
                                     <TitleCard>{props.title}</TitleCard>

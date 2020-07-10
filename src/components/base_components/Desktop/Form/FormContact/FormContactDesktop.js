@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
@@ -8,6 +8,7 @@ import ButtonPrimary from '../../Button/SecondaryButtonDesktop';
 import './formcontactdesktop.css';
 
 const FormContactDesktop = props => {
+    const [enableButton, setEnableButton]=useState(false);
     const IsNameValid = () => {
         let valueInput, text, formIsValid=true;
       
@@ -80,7 +81,7 @@ const FormContactDesktop = props => {
     $(document).ready(()=> {
         $("#buttonmesaageFormcontact").click(()=>{
             if(buttonClickHandle()){
-                $("#buttonmesaageFormcontact").attr("onclick",props.onClickButton);
+                setEnableButton(true);
             }
 
         });
@@ -104,7 +105,7 @@ const FormContactDesktop = props => {
                                     name="name"
                                     placeholder="Masukan nama anda"
                                     onChange={props.onChangeName}
-                                    onBlur={()=>{IsNameValid()}}
+                                    onKeyUp={()=>{IsNameValid()}}
                                 />
                             </div>
                         </DivInput>
@@ -128,7 +129,7 @@ const FormContactDesktop = props => {
                                     name="email"
                                     placeholder="Masukan email anda"
                                     onChange={props.onChangeEmail}
-                                    onBlur={()=>{IsEmailValid()}}
+                                    onKeyUp={()=>{IsEmailValid()}}
                                 />
                             </div>
                         </DivInput>
@@ -151,7 +152,7 @@ const FormContactDesktop = props => {
                                     name="name"
                                     placeholder="Masukan nama anda"
                                     onChange={props.onChangeMessage}
-                                    onBlur={()=>{IsMessageValid()}}>
+                                    onKeyUp={()=>{IsMessageValid()}}>
                                 </InputMessage>
                                 
                             </div>
@@ -171,6 +172,7 @@ const FormContactDesktop = props => {
                             name="KIRIM"
                             id="buttonmesaageFormcontact"
                             background="#1A6EB2"
+                            onClick={enableButton === true ? props.onClickButton : false }
                         />
                     </Col>
                 </Row>

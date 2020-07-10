@@ -41,6 +41,15 @@ const DropDownListFilterFourDesktop = props => {
                 visibleTwo === false ? showTwo() : hideTwo();
             });
         }
+        $(`.${props.className} > option`).click((event)=>{
+            hide();
+            setMyPickItem(event.target.innerHTML)
+            console.log(event.target.innerHTML);
+        });
+        $(`.${props.classNameTwo} > option`).click((event)=>{
+            setMyPickItemTwo(event.target.innerHTML);
+            hideTwo()
+        });
     });
     return (
         <>
@@ -72,9 +81,9 @@ const DropDownListFilterFourDesktop = props => {
                                         <DropDownListContent id="myDropdownFilterFour" className={props.className} >
                                             {props.store.map((data)=>{
                                                 return(
-                                                    <li onClick={()=>{setMyPickItem(data.name);hide()}}>
+                                                    // <li onClick={()=>{setMyPickItem(data.name);hide()}}>
                                                         <option value={data.id} onClick={props.onClick}>{data.name}</option>
-                                                    </li>
+                                                    // </li>
                                                 );
                                             })}
                                         </DropDownListContent>                
@@ -107,12 +116,12 @@ const DropDownListFilterFourDesktop = props => {
                                                 />
                                             </Col>
                                         </MyDropDownButton>
-                                        <DropDownListContent id="myDropdownSecondary" className={props.classNameTwo} >
+                                        <DropDownListContent id="myDropdownFourSecondary" className={props.classNameTwo} >
                                             {props.storeTwo.map((data)=>{
                                                 return(
-                                                    <li onClick={()=>{setMyPickItemTwo(data.name);hideTwo()}}>
+                                                    // <li onClick={()=>{setMyPickItemTwo(data.name);hideTwo()}}>
                                                         <option value={data.id} onClick={props.onClickTwo}>{data.name}</option>
-                                                    </li>
+                                                    // </li>
                                                 );
                                             })}
                                         </DropDownListContent>                

@@ -28,6 +28,56 @@ export function detail(state = [], action) {
     }
 }
 
+export function schoolsCost(state = [], action) {
+    switch (action.type) {
+        case 'DETAIL_FETCH_DATA_SUCCESS':
+            return action.api.costs;
+
+        default:
+            return state;
+    }
+}
+
+export function schoolsImage(state = [], action) {
+    switch (action.type) {
+        case 'DETAIL_FETCH_DATA_SUCCESS':
+            return action.api.images;
+
+        default:
+            return state;
+    }
+}
+
+export function schoolFacilities(state = [], action) {
+    switch (action.type) {
+        case 'DETAIL_FETCH_DATA_SUCCESS':
+            return action.api.facilities;
+
+        default:
+            return state;
+    }
+}
+
+export function schoolsStatus(state = [], action) {
+    switch (action.type) {
+        case 'DETAIL_FETCH_DATA_SUCCESS':
+            return action.api.status;
+
+        default:
+            return state;
+    }
+}
+
+export function schoolsExtracurricular(state = [], action) {
+    switch (action.type) {
+        case 'DETAIL_FETCH_DATA_SUCCESS':
+            return action.api.extracurricular;
+
+        default:
+            return state;
+    }
+}
+
 export function getCityDataSchools(state = [], action) {
     switch (action.type) {
         case 'FETCH_DATA_CITY_SUCCESS':
@@ -37,3 +87,4 @@ export function getCityDataSchools(state = [], action) {
             return state;
     }
 }
+

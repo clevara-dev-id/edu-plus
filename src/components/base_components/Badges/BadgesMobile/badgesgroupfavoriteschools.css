@@ -1,0 +1,83 @@
+@media screen and (min-width: 320px){
+    #badgesgroupFavoriteSchools{
+        max-width: 320px;
+        overflow: hidden;
+        position: relative;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;
+    }
+    div.scrollmenuFavoriteSchools {
+        position: relative;
+        background-color:transparent;
+        white-space: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Firefox */
+    }
+}
+@media screen and (min-width: 360px){
+    #badgesgroupFavoriteSchools{
+        max-width: 360px;
+        overflow: hidden;
+        position: relative;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        /* scrollbar-width: none; */
+    }
+    #badgesgroupFavoriteSchools::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+        width: 0 !important
+    }
+    div.scrollmenuFavoriteSchools {
+        position: relative;
+        background-color:transparent;
+        white-space: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Firefox */
+    }
+
+}
+@media screen and (min-width: 375px){
+
+    #badgesgroupFavoriteSchools{
+        max-width: 375px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    div.scrollmenuFavoriteSchools {
+        position: relative;
+        background-color:transparent;
+        white-space: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Firefox */
+    }
+}
+
+.activeClassBadges{
+    color: #FFFFFF !important;
+    background: #1A6EB2 !important;
+}
+
+/* div.scrollmenuFavoriteSchools a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 0px;
+}
+
+div.scrollmenuFavoriteSchools a:hover {
+    background: none;
+} */
+
+div.scrollmenuFavoriteSchools::-webkit-scrollbar { 
+    display: none;  
+}
+
+#childscrollFavoriteSchools > span:hover{
+    cursor: pointer !important;
+}
+
+#badgesgroupFavoriteSchools{
+    margin-bottom: 15px;
+    padding-right: 0px;
+}

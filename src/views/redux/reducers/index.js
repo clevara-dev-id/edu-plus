@@ -9,6 +9,13 @@ import {
     promo,
 } 
 from './homepage';
+
+import {
+    promoHaveError,
+    promoAreLoading,
+    promoPage,
+} from './promo'
+
 import {
     favoriteHaveError, 
     favoriteAreLoading, 
@@ -40,7 +47,12 @@ import {
     detailHaveError,
     detailAreLoading,
     detail, 
+    schoolsCost,
+    schoolsImage,
+    schoolFacilities,
+    schoolsExtracurricular,
     getCityDataSchools,
+    schoolsStatus,
 } from './detail' 
 
 import {
@@ -55,8 +67,35 @@ import {
     searchResultHaveError,
     searchResultAreLoading,
     searchResult,
-    currentSearchResult
+    currentSearchResult,
+    countSearchResult,
 } from './searchresult';
+
+import {
+    getAccessHaveError,
+    getAccessAreLoading,
+    getAccess,
+    IsSchoolsFound,
+}from './getaccess';
+
+import{
+    getaccessInputHaveError,
+    getaccessInputAreLoading,
+    getaccessInput,
+}from './getaccessinput';
+
+import{
+    getaccessInputSendHaveError,
+    getaccessInputSendAreLoading,
+    getaccessInputSendData,
+}from './getaccessinputsend';
+
+import{
+    contactUsSendHaveError,
+    contactUsSendAreLoading,
+    contactUsSendData,
+}from './contactus'
+
 
 export default combineReducers({
     //favorite 
@@ -65,9 +104,6 @@ export default combineReducers({
     favorite,
     favoriteSMP,
     favoriteSMA,
-    // currentfavorite, 
-    // currentfavoriteSMP, 
-    // currentfavoriteSMA,
     getProvinceName,
 
     favoriteDetailHaveError, 
@@ -88,10 +124,19 @@ export default combineReducers({
     homepageSMA,
     promo,
 
+    promoHaveError,
+    promoAreLoading,
+    promoPage,
+
     detailHaveError,
     detailAreLoading,
     detail,
+    schoolsCost,
+    schoolsImage,
+    schoolFacilities,
+    schoolsExtracurricular,
     getCityDataSchools,
+    schoolsStatus,
 
     searchpageHaveError, 
     searchpageAreLoading,
@@ -103,5 +148,23 @@ export default combineReducers({
     searchResultAreLoading,
     searchResult,
     currentSearchResult,
+    countSearchResult,
+
+    getAccessHaveError,
+    getAccessAreLoading,
+    getAccess,
+    IsSchoolsFound,
+
+    getaccessInputHaveError,
+    getaccessInputAreLoading,
+    getaccessInput,
+    
+    getaccessInputSendHaveError,
+    getaccessInputSendAreLoading,
+    getaccessInputSendData,
+
+    contactUsSendHaveError,
+    contactUsSendAreLoading,
+    contactUsSendData,
 });
 

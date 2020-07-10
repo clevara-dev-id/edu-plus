@@ -33,3 +33,12 @@ export function currentSearchResult(state = [], action) {
             return state;
     }
 }
+
+export function countSearchResult(state = [], action) {
+    switch (action.type) {
+        case 'SEARCH_RESULT_DATA_SUCCESS':
+            return action.api.result_count;
+        default:
+            return state;
+    }
+}

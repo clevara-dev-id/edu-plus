@@ -59,6 +59,7 @@ export function detailFetchData (url, data) {
                             created_at: response.data.created_at,
                             curriculum: response.data.curriculum,
                             district_id: newDataDistrict,
+                            district_id_number: response.data.district_id,
                             educational_stage: response.data.educational_stage,
                             email: response.data.email,
                             extracurricular: response.data.extracurricular,
@@ -83,7 +84,7 @@ export function detailFetchData (url, data) {
                             village_id: response.data.village_id,
                             website: response.data.website,
                     }
-                    console.log(newArrayDetailSekolah);
+                    // console.log(newArrayDetailSekolah);
                     dispatch(detailFetchDataSuccess(newArrayDetailSekolah))
                 })
                 .catch(() => dispatch(detailHaveError(true)));
@@ -116,4 +117,3 @@ export function fetchDataCity (url, data) {
         }, 500);
     };
 }
-

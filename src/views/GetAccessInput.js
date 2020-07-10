@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import $ from 'jquery'
+import { connect } from 'react-redux';
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+
+//Get Aceess Input Fetch Redux
+import { 
+    getaccessInputFetchData, 
+} from './redux/actions/getaccessinput';
+
+import { 
+    getaccessInputSendhData,
+} from './redux/actions/getaccessinputsend';
+
+
 
 //Desktop
 // import SingleDesktopBadges from '../components/base_components/Desktop/Badges/SingleDesktopBadges';
@@ -26,35 +38,84 @@ import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
 
-
-//dummy Mobile
-// const storeMobile = [];
-const storeMobile = [
-    {
-        image     : JakartaImage,
-        titleCard : "DKI Jakarta",
-        descrip   : "15 Sekolah"
-    },
-];
+//Const Http dummy
+const getUrlBackend = "http://localhost:8000/"
 
 class GetAccessInput extends Component {
     constructor(props){
         super(props);
  
         this.state = {
-            opsSekolah: false,
-            operator: true,
-            valueSchoolsName:"",
-            valueSchoolsId:"",
+            valueSchoolsName: "",
+            valueSchoolsId: "",
+            nameValue: "",
+            positionValue: "",
+            emailValue: "",
+            phoneValue: "",
+            isSchoolResgistered: true,
         }
     }
-    
-    handleOnChange = () => {
-        $(document).ready(()=>{
-            $("#firstLoadItemFromGetAccess").hide();
-        }); 
+    componentDidMount = () =>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const uuidParam = urlParams.get('uuid');
+        if(uuidParam===null || uuidParam===""){
+            this.setState({isSchoolResgistered : false});
+        }
+        if(uuidParam!==null && uuidParam!==""){
+            this.getDetailData();
+        }
+    }
+    getDetailData=async(page)=>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamId = urlParams.get('uuid');
+        const data = await this.props.fetchData(`${getUrlBackend}api/schools/${myParamId}`);
+    }
+    postSchoolsData = async() =>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const uuidParam = urlParams.get('uuid');
+        let schoolname, npsn;
+        if(uuidParam===null || uuidParam===""){
+            const sendData = {
+                name:this.state.nameValue,
+                school_name: this.state.valueSchoolsName,
+                npsn: this.state.valueSchoolsId,
+                email:this.state.emailValue,
+                position: this.state.positionValue,
+                phone_number: this.state.phoneValue,
+            }
+            const data = await this.props.fetchInputData(`${getUrlBackend}api/attempt/get-access`, sendData);
+        }
+        if(uuidParam!==null && uuidParam!==""){
+            const sendData = {
+                name:this.state.nameValue,
+                school_name: this.props.getaccessInput.name,
+                npsn: this.props.getaccessInput.npsn,
+                email:this.state.emailValue,
+                position: this.state.positionValue,
+                phone_number: this.state.phoneValue,
+                uuid: uuidParam,
+            }
+            const data = await this.props.fetchInputData(`${getUrlBackend}api/attempt/get-access`, sendData);
+        }
+        
+    }
+
+    onClickButton = () =>{
+        this.postSchoolsData();
     }
     render() {
+        if (this.props.hasError) {
+            return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
+        }
+        if (this.props.isLoading || this.props.isLoadingSend) {
+            return <p id="defaultOpenBadges">Loading…</p>;
+        }
+
+        // if(this.props.sendData.length !== 0){
+        //     console.log(this.props.sendData);     
+        //     alert(this.props.sendData);       
+        // }
+        // console.log(this.props.sendData.length);
         return (
             <>
                 <div>
@@ -80,14 +141,15 @@ class GetAccessInput extends Component {
                                 title="Atau Kirimkan pesan anda"
                                 onChangeSchoolsName={(e)=>{this.setState({valueSchoolsName:e.target.value})}}
                                 onChangeSchoolsId={(e)=>{this.setState({valueSchoolsId:e.target.value})}}
-                                onChangeName={(e)=>{console.log(e.target.value)}}
-                                onChangePosition={(e)=>{console.log(e.target.value)}}
-                                onChangeEmail={(e)=>{console.log(e.target.value)}}
-                                onChangePhone={(e)=>{console.log(e.target.value)}}
-                                onClickButton={()=>{console.log("Button Is Activated !")}}
-                                schoolsDisable={this.state.operator===true ? true : false}
-                                valueSchoolsName={this.state.operator===true ?"SDN Palangkaraya 1":this.state.valueSchoolsName}
-                                valueSchoolsId={this.state.operator===true ?"44123": this.state.valueSchoolsId}
+                                onChangeName={(e)=>{this.setState({nameValue : e.target.value})}}
+                                onChangePosition={(e)=>{this.setState({positionValue : e.target.value})}}
+                                onChangeEmail={(e)=>{this.setState({emailValue : e.target.value})}}
+                                onChangePhone={(e)=>{this.setState({phoneValue : e.target.value})}}
+                                onClickButton={()=>{this.onClickButton()}}
+                                getAccessInputButtonId="buttonIdForGetAccessInput"
+                                schoolsDisable={this.state.isSchoolResgistered===true ? true : false}
+                                valueSchoolsName={this.state.isSchoolResgistered===true ?this.props.getaccessInput.name:this.state.valueSchoolsName}
+                                valueSchoolsId={this.state.isSchoolResgistered===true ?this.props.getaccessInput.npsn: this.state.valueSchoolsId}
                             />
                         </section>
                         <section >
@@ -130,14 +192,14 @@ class GetAccessInput extends Component {
                                 title="Atau Kirimkan pesan anda"
                                 onChangeSchoolsName={(e)=>{this.setState({valueSchoolsName:e.target.value})}}
                                 onChangeSchoolsId={(e)=>{this.setState({valueSchoolsId:e.target.value})}}
-                                onChangeName={(e)=>{console.log(e.target.value)}}
-                                onChangePosition={(e)=>{console.log(e.target.value)}}
-                                onChangeEmail={(e)=>{console.log(e.target.value)}}
-                                onChangePhone={(e)=>{console.log(e.target.value)}}
-                                onClickButton={()=>{console.log("Button Is Activated !")}}
-                                schoolsDisable={this.state.operator===true ? true : false}
-                                valueSchoolsName={this.state.operator===true ?"SDN Palangkaraya 1":this.state.valueSchoolsName}
-                                valueSchoolsId={this.state.operator===true ?"44123": this.state.valueSchoolsId}
+                                onChangeName={(e)=>{this.setState({nameValue : e.target.value})}}
+                                onChangePosition={(e)=>{this.setState({positionValue : e.target.value})}}
+                                onChangeEmail={(e)=>{this.setState({emailValue : e.target.value})}}
+                                onChangePhone={(e)=>{this.setState({phoneValue : e.target.value})}}
+                                onClickButton={()=>{this.onClickButton()}}
+                                schoolsDisable={this.state.isSchoolResgistered===true ? true : false}
+                                valueSchoolsName={this.state.isSchoolResgistered===true ?this.props.getaccessInput.name:this.state.valueSchoolsName}
+                                valueSchoolsId={this.state.isSchoolResgistered===true ?this.props.getaccessInput.npsn: this.state.valueSchoolsId}
                             />
                         </section>
                         <section>
@@ -161,4 +223,22 @@ class GetAccessInput extends Component {
     }
 }
 
-export default GetAccessInput;
+const mapStateToProps = (state) => {
+    return {
+        getaccessInput: state.getaccessInput,
+        hasError: state.getaccessInputHaveError,
+        isLoading: state.getaccessInputAreLoading,
+        sendData: state.getaccessInputSendData,
+        hasErrorSend: state.getaccessInputSendHaveError,
+        isLoadingSend: state.getaccessInputSendAreLoading,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(getaccessInputFetchData(url)),
+        fetchInputData: (url, data) => dispatch(getaccessInputSendhData(url, data)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GetAccessInput);

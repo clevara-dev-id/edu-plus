@@ -17,11 +17,12 @@ import JumbotronDesktopBlue from '../components/base_components/Desktop/Jumbotro
 import CarouselDesktopPrimary from '../components/base_components/Desktop/Carousel/CarouselDesktopPrimary';
 import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
-import TitlePageDesktop from '../components/base_components/Desktop/TitlePage/TitlePageDesktop'
+import TitlePageDesktop from '../components/base_components/Desktop/TitlePage/TitlePageDesktop';
+import TitlePageDesktopPromo from '../components/base_components/Desktop/TitlePage/TitlePageDesktopPromo';
 
 //Mobile Item
 import CardImageMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageMobile';
-import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
+import BadgesGroupFavoriteSchools from '../components/base_components/Badges/BadgesMobile/BadgesGroupFavoriteSchools';
 import InputSearchMobile from '../components/base_components/InputSearch/Mobile/InputSearchMobile';
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
 import JumbotronWithCarousel from '../components/base_components/Jumbotron/Mobile/JumbotronWithCarousel'
@@ -407,7 +408,11 @@ class Home extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"65px"}}></div>
-                            <TitlePageDesktop name="Promo Untuk Anda" />
+                            <TitlePageDesktopPromo 
+                                name="Promo Untuk Anda"
+                                link="/promo" 
+                                linkName="Lihat Semua"
+                            />
                         </section>
                         <section>
                             <div style={{marginTop:"30px"}}></div>
@@ -503,7 +508,24 @@ class Home extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
-                            <BadgesGroupSecondary store={storeMobile2} />
+                            <BadgesGroupFavoriteSchools store={[
+                                {
+                                    name:"SD & MI", 
+                                    idContent: "mobileSDdanMI",
+                                    idBadges:"firstTabOnHomePageMobile",
+                                },
+                                {
+                                    name:"SMP & MTS", 
+                                    idContent: "mobileSmpMts",
+                                    idBadges:"secondTabOnHomePageMobile",
+                                },
+                                {
+                                    name:"SMA, SMK, & MA", 
+                                    idContent: "mobileSmaSmkMa",
+                                    idBadges:"thirdTabOnHomePageMobile",
+                                },
+                                // {name:"Universitas", idContent: "mobileUniv"},
+                            ]} />
                         </section>
                         <section>
                             <div style={{marginTop:"35px"}}></div>
@@ -515,29 +537,33 @@ class Home extends Component {
                         </section>
                         <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "25px"}}></div>
-                            <CardImageMobile store={newArrayWithFilterSearch} />
+                            <CardImageMobile 
+                                store={newArrayWithFilterSearch.slice(0,this.state.limitPerPage)}
+                                loadmoreEnable={true}
+                                onClickLoadmore={(e)=>{this.setState({limitPerPage : this.state.limitPerPage+8})}}
+                            />
+                            <div style={{marginBottom:"25px"}}></div>
                         </section>
                         <section style={{display: "none"}} id="mobileSmpMts" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobile store={newArrayWithFilterSearchSMP} />
+                            <CardImageMobile store={newArrayWithFilterSearchSMP.slice(0,this.state.limitPerPageSMP)} 
+                                loadmoreEnable={true}
+                                onClickLoadmore={(e)=>{this.setState({limitPerPageSMP : this.state.limitPerPageSMP+8})}}
+                            />
+                            <div style={{marginBottom:"25px"}}></div>                            
                         </section>
                         <section style={{display: "none"}} id="mobileSmaSmkMa" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
-                            <CardImageMobile store={newArrayWithFilterSearchSMA} />
+                            <CardImageMobile store={newArrayWithFilterSearchSMA.slice(0,this.state.limitPerPageSMA)} 
+                                loadmoreEnable={true}
+                                onClickLoadmore={(e)=>{this.setState({limitPerPageSMA : this.state.limitPerPageSMA+8})}}
+                            />
+                            <div style={{marginBottom:"25px"}}></div>        
                         </section>
                         <section style={{display: "none"}} id="mobileUniv" className="tabcontendetail">
                             <div style={{marginTop: "48px"}}></div>
                             <CardImageMobile store={storeMobile} />
                         </section>     
-                        <section>
-                            <div style={{marginTop: "25px"}}></div>
-                                <ButtonLoadMore 
-                                    name="MUAT LEBIH BANYAK"
-                                    width="277px"
-                                    boxShadow="none"
-                                    background="#f3f3f3"
-                                />
-                        </section>
                     </OnMobile>
                 </div>
             </>
@@ -545,18 +571,10 @@ class Home extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    // dataProvMaptoProps[state.currentHomepage]=state.homepage;
-    // dataProvMaptoPropsSMP[state.currentHomepageSMP]=state.homepageSMP;
-    // dataProvMaptoPropsSMA[state.currentHomepageSMA]=state.homepageSMA;
-    // console.log(state);
-    return {
+const mapStateToProps = (state) => {    return {
         homepage: state.homepage,
         homepageSMP: state.homepageSMP,
         homepageSMA: state.homepageSMA,
-        // currentpage: state.currentHomepage,
-        // currentpageSMP: state.currentHomepageSMP,
-        // currentpageSMA: state.currentHomepageSMA,
         promo : state.promo,
         hasError: state.homepageHaveError,
         isLoading: state.homepageAreLoading

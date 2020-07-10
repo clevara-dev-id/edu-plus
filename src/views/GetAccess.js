@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import $ from 'jquery'
+import { connect } from 'react-redux';
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
+//Get Aceess Input Fetch Redux
+import { 
+    getAccessFetchData, 
+} from './redux/actions/getaccess';
+
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import InputSearchDesktop from '../components/base_components/Desktop/InputSearch/InputSearchDesktop';
 import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
 import MessageGetAccessResultDesktop from '../components/base_components/Desktop/Message/MessageGetAccessResultDesktop';
 import CardImageWithButtonDesktop from '../components/base_components/Desktop/CardImage/CardImageWithButtonDesktop';
 import CardImageNotFoundDesktop from '../components/base_components/Desktop/CardImage/CardImageNotFoundDesktop'
-import PrimaryButtonDesktop from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
-import LineComponentsDesktop from '../components/base_components/Desktop/LineComponents/LineComponentsDesktop';
-import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
-import LabelDesktopPrimary from '../components/base_components/Desktop/Label/LabelDesktopPrimary';
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 
 
@@ -33,6 +32,10 @@ import CardImageNotFoundMobile from '../components/base_components/Card/CardMobi
 
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
+
+//Image For School List
+import ImageSchool from '../asset/image/SchoolLists/schoolsILustrator.png';
+
 
 
 //dummy Mobile
@@ -81,6 +84,8 @@ const storeMobile = [
 
 ];
 
+const getUrlBackend = "http://localhost:8000/"
+
 class GetAccess extends Component {
     constructor(props){
         super(props);
@@ -89,10 +94,48 @@ class GetAccess extends Component {
             fieldResult: "",
         }
     }
+    componentDidMount = () =>{
+        // this.getDetailData();
+    }
+    getDetailData=async(keyWord)=>{
+        const paramData = {
+            "name":keyWord
+        }
+        const data = await this.props.fetchData(`${getUrlBackend}api/search/schools/`, paramData);
+    }
+    onButtonSearchClick=async()=>{
+        await this.getDetailData(this.state.fieldResult);
+    }
     onClickRegisterHandle = () =>{
-        window.location="/register";
+        window.location="/getaccess";
     }
     render() {
+        if (this.props.hasError) {
+            return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
+        }
+        if (this.props.isLoading || this.props.isLoadingSend) {
+            return <p id="defaultOpenBadges">Loading…</p>;
+        }
+        let newArrayGetAccess=[], operator, imageForSchools;
+        if(this.props.getAccess.length>0){
+            this.props.getAccess.map((data, index)=>{
+                data.user === null ? operator=false:operator=true;
+                if(data.images!==undefined && data.images.length>0){
+                    imageForSchools=data.image;
+                }
+                else{
+                    imageForSchools=ImageSchool;
+                }
+                newArrayGetAccess[index]={
+                    uuid      : data.uuid,
+                    image     : imageForSchools,
+                    titleCard : data.name,
+                    descrip   : data.address,
+                    link      : "/getaccessdetail",
+                    operator  : operator,
+                }
+            });
+        }
         return (
             <>
                 <div>
@@ -117,30 +160,30 @@ class GetAccess extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"10px"}}></div>
-                            {this.state.fieldResult === "" ?
+                            {this.props.getAccess.length<1 && this.props.IsSchoolsFound.length===0 ?
                             <SecondaryButtonDesktop
                                 name="CARI"
                                 id="buttonsearchcontact"
                                 background="#1A6EB2"
                                 width="343px"
-                                onClick={()=>{console.log("Seach Button")}}
+                                onClick={()=>{this.onButtonSearchClick()}}
                             /> : ""}
-                            {this.state.fieldResult === "" ?
+                            {this.props.getAccess.length>0 === "" ?
                             <div style={{marginTop:"300px"}}></div>
                             :""}
                         </section>
                         <section>
                                 <div style={{marginTop:"-15px"}}></div>
-                                {this.state.fieldResult ? <MessageGetAccessResultDesktop 
-                                name={this.state.fieldResult} sumOf="5" fontSize="13px" /> : ""}
+                                {this.props.getAccess.length > 0 ? <MessageGetAccessResultDesktop 
+                                name={this.state.fieldResult} sumOf={this.props.IsSchoolsFound} fontSize="13px" /> : ""}
                         </section>
                         <section>
-                            {this.state.fieldResult === "notfound" ? 
+                            {this.props.IsSchoolsFound === 0 ? 
                             <div style={{marginTop: "90px"}}></div>:
                             <div style={{marginTop: "48px"}}></div>}
-                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" && this.state.fieldResult!=="notfound" ? 
-                            <CardImageWithButtonDesktop store={storeMobile} /> : ""}
-                            {this.state.fieldResult === "notfound" ? <CardImageNotFoundDesktop /> : ""}
+                            { this.props.IsSchoolsFound > 0 ? 
+                            <CardImageWithButtonDesktop store={newArrayGetAccess.slice(0, 18)} /> : ""}
+                            {this.props.IsSchoolsFound === 0 ? <CardImageNotFoundDesktop /> : ""}
                             <div style={{marginTop: "170px"}}></div>
                         </section>
                     </OnDesktop>
@@ -163,12 +206,12 @@ class GetAccess extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"10px"}}></div>
-                            {this.state.fieldResult === "" ?
+                            {this.props.getAccess.length<1 && this.props.IsSchoolsFound.length===0 ?
                             <ButtonPrimary
                                 name="CARI"
                                 id="buttonsearchcontact"
                                 background="#1A6EB2"
-                                onClick={()=>{console.log("Seach Button")}}
+                                onClick={()=>{this.onButtonSearchClick()}}
                             /> : ""}
                             {this.state.fieldResult === "" ?
                             <div style={{marginTop:"300px"}}></div>
@@ -176,16 +219,16 @@ class GetAccess extends Component {
                         </section>
                         <section>
                                 <div style={{marginTop:"-15px"}}></div>
-                                {this.state.fieldResult ? <MessageGetAccessResult 
-                                name={this.state.fieldResult} sumOf="5" fontSize="13px" /> : ""}
+                                {this.props.getAccess.length > 0 ? <MessageGetAccessResult 
+                                name={this.state.fieldResult} sumOf={this.props.IsSchoolsFound} fontSize="13px" /> : ""}
                         </section>
                         <section>
-                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" && this.state.fieldResult!=="notfound" ?
+                            {this.props.IsSchoolsFound > 0 ?
                                 <div style={{marginTop: "36px"}}></div> : ""}
-                            {this.state.fieldResult==="notfound" ? <div style={{marginTop: "76px"}}></div> : "" }
-                            { storeMobile!==null && storeMobile.length > 0 && this.state.fieldResult!=="" && this.state.fieldResult!=="notfound" ? 
-                            <CardImageWithButtonMobile store={storeMobile} /> : ""}
-                            {this.state.fieldResult==="notfound" ? <CardImageNotFoundMobile /> : ""}
+                            {this.props.IsSchoolsFound === 0 ? <div style={{marginTop: "76px"}}></div> : "" }
+                            {this.props.IsSchoolsFound > 0 ? 
+                            <CardImageWithButtonMobile store={newArrayGetAccess.slice(0, 18)} /> : ""}
+                            {this.props.IsSchoolsFound === 0 ? <CardImageNotFoundMobile /> : ""}
                             <div style={{marginBottom: "70px"}}></div>
                         </section>
 
@@ -196,4 +239,19 @@ class GetAccess extends Component {
     }
 }
 
-export default GetAccess;
+const mapStateToProps = (state) => {
+    return {
+        getAccess: state.getAccess,
+        IsSchoolsFound : state.IsSchoolsFound,
+        hasError: state.getAccessHaveError,
+        isLoading: state.getAccessAreLoading,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url, data) => dispatch(getAccessFetchData(url, data)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GetAccess);

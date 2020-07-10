@@ -33,6 +33,9 @@ const store = [
 ]
 
 export default class ApplicationLayout extends Component {
+    onHandleClickButtonGetAccess =()=>{
+        window.location.href="/getaccess";
+    }
     render() {
         return (
             <div>
@@ -45,7 +48,9 @@ export default class ApplicationLayout extends Component {
                         />
                     </OnDesktop>
                     <OnMobile>
-                        <HumbergerHeader primaryText="test" secondaryText="test" />
+                        <HumbergerHeader 
+                            onClickHeader={()=>{this.onHandleClickButtonGetAccess()}}
+                        />
                     </OnMobile>
                 </header>
 

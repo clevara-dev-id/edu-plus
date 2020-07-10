@@ -160,7 +160,7 @@ class Search extends Component {
                             <div style={{marginTop:"36px"}}></div>
                             <TitlePageHeaderDesktop
                                 // name="Mulai cari informasi sekolah disini"
-                                name={"Mulai cari informasi sekolah disini"+this.state.district_id}
+                                name={"Mulai cari informasi sekolah disini"}
                                 color="#1A6EB2"
                                 width="100%"
                             />
@@ -237,7 +237,7 @@ class Search extends Component {
                             <TitleBottomDesktop 
                                 name="Daftarkan Sekolah atau tempat kursus anda" 
                                 namelink="disini"
-                                link="/register" 
+                                link="/getaccess" 
                             />
                             <div style={{marginBottom: "30px"}}></div>
                         </section>
@@ -253,28 +253,39 @@ class Search extends Component {
                         <section>
                             <div style={{marginTop: "25px"}}></div>
                             <DropdownListFilterFour
-                                onClick={(e)=>{console.log(e.target.value)}}
-                                store={store2} 
+                                onClick={(e)=>{
+                                    this.setState({province_id : e.target.value, cityDisable:false});
+                                    this.getCityData(e.target.value);
+                                }}
+                                store={this.props.searchpageprov} 
                                 placeholder="Pilih Provinsi"
                                 title="Provinsi"
                                 className="provdropdownclass"
                                 buttonClass="citybuttonclickprovregistercontent"
+                                disabledButton={false}
                             />
                             <DropdownListFilterFour
-                                onClick={(e)=>{console.log(e.target.value)}}
-                                store={store3} 
+                                onClick={(e)=>{
+                                    this.setState({city_id : e.target.value, districtDisable:false});
+                                    this.getDistrictData(e.target.value);
+                                }}
+                                store={this.props.searchpagecity.length!==0 ? this.props.searchpagecity : []} 
                                 placeholder="Pilih Kota / Kabupaten"
                                 title="Kota / Kabupaten"
                                 className="citydropdownclass"
                                 buttonClass="citybuttonclickcityregistercontent"
+                                disabledButton={this.state.cityDisable}
                             />
                             <DropdownListFilterFour
-                                onClick={(e)=>{console.log(e.target.value)}}
-                                store={store4} 
+                                onClick={(e)=>{
+                                    this.setState({district_id : e.target.value});
+                                }}
+                                store={this.props.searchpagedistrict.length !== 0 ? this.props.searchpagedistrict : []} 
                                 placeholder="Pilih Kecamatan"
                                 title="Kecamatan"
                                 className="subcitydropdownclass"
                                 buttonClass="citybuttonclickDistricregistercontent"
+                                disabledButton={this.state.districtDisable}
                             />
                             <DropdownListFilterFour
                                 onClick={(e)=>{console.log(e.target.value)}}
@@ -283,17 +294,18 @@ class Search extends Component {
                                 title="Kelurahan / Desa"
                                 className="secondsubcitydropdownclass"
                                 buttonClass="citybuttonclickVilegeregistercontent"
+                                disabledButton={this.state.villageDisable}
                             />
                         </section>
                         <section>
                             <div style={{marginTop: "35px"}}></div>
-                            <RadioButtonFive onClick={(e)=>{console.log(e.target.value)}} />
+                            <RadioButtonFive onClick={(e)=>{this.setState({education_stage:e.target.value})}} />
                         </section>
                         <section>
                                 <div style={{marginTop: "25px"}}></div>
                                 <RadioButtonTwo 
                                     title="Filter Status  Sekolah"
-                                    onClick={(e) => {console.log(e.target.value)}} 
+                                    onClick={(e) => {this.setState({status:e.target.value})}} 
                                 />
                         </section>
                         <section>

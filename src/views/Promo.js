@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+
+//Get Aceess Input Fetch Redux
+import { 
+    promoFetchData, 
+} from './redux/actions/promo';
+
 
 //Desktop
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
@@ -21,6 +28,8 @@ import ImagePromo3 from '../components/asset/images/Promo/Promo3eduplus.png'
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
 
+//Image Promo
+import ImagePromo1 from '../asset/image/Promo/Promo1.png'
 
 //dummy Mobile
 const storeMobile = [
@@ -89,16 +98,47 @@ const storeDesktop = [
     }
 ];
 
-const storeDesktop2 =[
-    {name:"SD & MI", idContent: "desktopSDdanMI"},
-    {name:"SMP & MTS", idContent: "desktopSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
-    {name:"Universitas", idContent: "desktopUniv"},
-];
-
+const getUrlBackend = "http://localhost:8000/"
 
 class Promo extends Component {
-    render() {
+    constructor(props) {
+        super(props);
+        this.state =  {
+          favoriteData:[],
+        };
+    }
+    componentDidMount=async ()=>{
+        this.getPromoData(1);
+    }
+    getPromoData=async(page)=>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParamId = urlParams.get('uuid');
+        const data = await this.props.fetchData(`${getUrlBackend}api/promo`);
+    }
+    render(){
+        if (this.props.hasError) {
+            return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
+        }
+        if (this.props.isLoading || this.props.isLoadingSend) {
+            return <p id="defaultOpenBadges">Loading…</p>;
+        }
+        let newArrayPromo = [], imageForPromo;
+        if(this.props.promoPage.length > 0){
+            this.props.promoPage.map((data, index)=>{
+                if(data.image!==""){
+                    imageForPromo=data.image;
+                }
+                else{
+                    imageForPromo=ImagePromo1;
+                }
+                console.log(data.image);
+                newArrayPromo[index]={
+                    image     : imageForPromo,
+                    titleCard : data.name,
+                    descrip   : data.description
+                }
+            });
+        }
         return (
             <>
                 <div>
@@ -120,7 +160,7 @@ class Promo extends Component {
                         </section>
                         <section>
                             <CardImagePromoDesktop 
-                                store={storeDesktop}
+                                store={newArrayPromo}
                             />
                         </section>
                         <section>
@@ -174,4 +214,18 @@ class Promo extends Component {
     }
 }
 
-export default Promo;
+const mapStateToProps = (state) => {
+    return {
+        promoPage: state.promoPage,
+        hasError: state.promoHaveError,
+        isLoading: state.promoAreLoading,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(promoFetchData(url)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Promo);

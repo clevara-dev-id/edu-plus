@@ -11,7 +11,7 @@
     #cardImageMobileSecondaryContainer > a > .row > .col > .card{
         border: 0px;
         max-width: 345px;
-        max-height: 345px;
+        min-height: 345px;
     }
 }
 @media screen and (min-width: 360px){
@@ -27,7 +27,7 @@
     #cardImageMobileSecondaryContainer > a > .row > .col > .card{
         border: 0px;
         max-width: 345px;
-        max-height: 345px;
+        min-height: 345px;
     }
 
 }
@@ -43,8 +43,8 @@
 
     #cardImageMobileSecondaryContainer > a > .row > .col > .card{
         border: 0px;
-        width: 345px;
-        height: 345px;
+        max-width: 345px;
+        min-height: 345px;
     }
 }
 
