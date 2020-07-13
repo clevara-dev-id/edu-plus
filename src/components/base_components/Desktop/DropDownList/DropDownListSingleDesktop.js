@@ -25,18 +25,14 @@ const DropDownListSingleDesktop = props => {
     //     $("#myDropdownArea").hide();   
     // }
     $( document ).ready(function(){
-        $("#azbutton").click( function()
-           {
-             setFilter('Abjad A-Z');
-             $(".dropdown-content-desktop").css({"display" :"none"});
-           }
-        );
-        $("#zabutton").click( function()
-           {
-             setFilter('Abjad Z-A');
-             $(".dropdown-content-desktop").css({"display" :"none"});
-           }
-        );
+        $("#azbuttonSingleDropDOwn").click(()=>{
+            setFilter("Abjad A-Z");
+            hidefunction();
+        });
+        $("#zabuttonSingleDropDOwn").click(()=>{
+            setFilter("Abjad Z-A");
+            hidefunction();
+        });
     });
     return (
         <>
@@ -55,12 +51,12 @@ const DropDownListSingleDesktop = props => {
                             </MyButton>
                             <div id="myDropdownLetterDesktop" class="dropdown-content-desktop">
                                 <option
-                                    id="azbutton"
+                                    id="azbuttonSingleDropDOwn"
                                     value="az" 
                                     onClick={props.onClick}
                                     >Abjad A-Z</option>
                                 <option 
-                                    id="zabutton"
+                                    id="zabuttonSingleDropDOwn"
                                     value="za" 
                                     onClick={props.onClick}
                                     >Abjad Z-A

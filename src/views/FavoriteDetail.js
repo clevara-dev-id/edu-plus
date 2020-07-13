@@ -203,8 +203,8 @@ class FavoriteDetail extends Component {
                 return 0;
             });
             return data.reverse(function(a, b){
-                var x = a.type.toLowerCase();
-                var y = b.type.toLowerCase();
+                var x = a.titleCard.toLowerCase();
+                var y = b.titleCard.toLowerCase();
                 if (x < y) {return -1;}
                 if (x > y) {return 1;}
                 return 0;

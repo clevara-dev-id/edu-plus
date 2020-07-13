@@ -42,3 +42,12 @@ export function countSearchResult(state = [], action) {
             return state;
     }
 }
+
+export function stageSearchResult(state = [], action) {
+    switch (action.type) {
+        case 'SEARCH_RESULT_DATA_SUCCESS':
+            return action.api.stage;
+        default:
+            return state;
+    }
+}

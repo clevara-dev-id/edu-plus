@@ -108,12 +108,13 @@
     left: auto;
 }
 
-.dropdown-content-desktop a {
+/* .dropdown-content-desktop a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-}
+} */
+
 
 #myDropdownLetterDesktop > option {
     font-style: normal !important;
@@ -132,3 +133,6 @@
     background: #1A6EB2;
     color: #ffffff;
 }
+/* #myDropdownLetterDesktop{
+    display: none;
+} */

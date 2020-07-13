@@ -111,6 +111,20 @@ const storeDesktop2 =[
     {name:"Universitas", idContent: "desktopUniv"},
 ];
 
+const provArray=[        
+    {
+        "id": 31,
+        "name": "DKI JAKARTA"
+    },
+    {
+        "id": 32,
+        "name": "JAWA BARAT"
+    },
+    {
+        "id": 36,
+        "name": "BANTEN"
+    },
+]
 
 class Search extends Component {
     constructor(props) {
@@ -124,7 +138,8 @@ class Search extends Component {
           districtDisable: true,
           villageDisable: true,
           education_stage: '',
-          status: '',
+          searchpagecity: [],
+          searchpagedistrict: [],
         };
     }
     componentDidMount=async ()=>{
@@ -136,13 +151,18 @@ class Search extends Component {
         const data = await this.props.fetchData(`http://localhost:8000/api/search/init`);
     }
     getCityData=async(getProvId)=>{
+
         const data = await this.props.fetchDataCity(`http://localhost:8000/api/search/get-regency/${getProvId}`);
+        
     }
     getDistrictData=async(getCityId)=>{
         const data = await this.props.fetchDataDistrict(`http://localhost:8000/api/search/get-district/${getCityId}`);
     }
     onClickSearchDetailHandle = () =>{
         window.location=`/searchresult?district_id=${this.state.district_id}&&educationstage=${this.state.education_stage}&&status=${this.state.status}`;
+    }
+    resetEveryClick =()=>{
+        
     }
     render() {
         if (this.props.hasError) {
@@ -152,6 +172,7 @@ class Search extends Component {
         if (this.props.isLoading) {
             return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>Loading…</p>;
         }
+        // console.log(this.props.searchpageprov);
         return (
             <>
                 <div>
@@ -171,8 +192,9 @@ class Search extends Component {
                                 onClick={(e)=>{
                                     this.setState({province_id : e.target.value, cityDisable:false});
                                     this.getCityData(e.target.value);
+                                    this.resetEveryClick();
                                 }}
-                                store={this.props.searchpageprov} 
+                                store={provArray} 
                                 placeholder="Pilih Provinsi"
                                 title="Provinsi"
                                 className="provdropdownclass"

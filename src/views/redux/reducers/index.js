@@ -69,6 +69,7 @@ import {
     searchResult,
     currentSearchResult,
     countSearchResult,
+    stageSearchResult,
 } from './searchresult';
 
 import {
@@ -77,6 +78,13 @@ import {
     getAccess,
     IsSchoolsFound,
 }from './getaccess';
+
+import {
+    getAccessAutoCompleteHaveError,
+    getAccessAutoCompleteAreLoading,
+    getAccessAutoComplete,
+
+} from './getaccessautocomplete';
 
 import{
     getaccessInputHaveError,
@@ -143,6 +151,7 @@ export default combineReducers({
     searchpageprov,
     searchpagecity,
     searchpagedistrict,
+    stageSearchResult,
 
     searchResultHaveError,
     searchResultAreLoading,
@@ -154,6 +163,10 @@ export default combineReducers({
     getAccessAreLoading,
     getAccess,
     IsSchoolsFound,
+
+    getAccessAutoCompleteHaveError,
+    getAccessAutoCompleteAreLoading,
+    getAccessAutoComplete,
 
     getaccessInputHaveError,
     getaccessInputAreLoading,

@@ -44,7 +44,7 @@ export default class ApplicationLayout extends Component {
                     <OnDesktop>
                         <NavbarDesktopBlue 
                             store={store}
-                            onClickButton={()=>{console.log("this is button !")}}
+                            onClickModule={(e)=>{console.log(e.target.value)}}
                         />
                     </OnDesktop>
                     <OnMobile>

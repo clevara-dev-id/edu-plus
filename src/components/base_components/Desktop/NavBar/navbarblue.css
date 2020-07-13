@@ -162,3 +162,63 @@
 #navbarDesktopBlueContainer > .row > .colMenuBar > ul > li a:hover{
     text-decoration: none;
 } 
+
+.guideBookNavbar > i {
+    position: absolute;
+    margin-left: 8px;
+    /* margin-top: 15px; */
+}
+
+.dropbtnNavbarDesktop {
+    background-color: transparent;
+    color: #222222;
+    border: none;
+    cursor: pointer;
+    min-width: 160px;
+    height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    letter-spacing: 0.015em;
+    /* text-transform: uppercase; */
+    text-align: left;
+}
+
+.dropdown-contentNavBarDesktop {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 139px;
+    /* overflow: auto; */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    left: auto;
+    border-radius: 8px;
+}
+
+#myDropdownNavbarDesktop > option{
+    color: #000000;
+    /* display: block; */
+    min-width: 200px;
+    height: 37px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+    word-wrap: break-word;
+
+    /* link */
+}
+
+#myDropdownNavbarDesktop > option:hover {
+    color: #FFFFFF;
+    background: #1A6EB2;
+    border-radius: 8px;
+
+}
+
+#myDropdownNavbarDesktop > option:active {
+    color: #FFFFFF;
+    background: #1A6EB2;
+}

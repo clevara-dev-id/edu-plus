@@ -41,6 +41,7 @@ export function getAccessFetchData (url, data) {
                     dispatch(getAccessFetchDataSuccess(response.data))
                 })
                 .catch(() => dispatch(getAccessHaveError(true)));
-        }, 250);
+        }, 100);
     };
 }
+

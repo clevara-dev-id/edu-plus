@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
 
+import SweetAlert from '../SweetAlertDesktop/SweetAlertDesktop';
 import ButtonLoadMoreDesktop  from '../Button/PrimaryButtonDesktop';
 import './cardimagesecondarydesktop.css'
 
@@ -15,7 +16,13 @@ const CardImageSecondaryDesktop = props => {
                     {props.store.map((data)=>{
                         return(
                         <Col lg={3}>
-                            <LinkCardImage href={data.link}>
+                            <LinkCardImage 
+                                href={data.link} 
+                                onClick={()=>{
+                                    if(data.messageIfCommingSoon !== false){
+                                        SweetAlert("Comming Soon !",data.messageIfCommingSoon, "warning" );
+                                    }
+                                }}>
                                 <Card>
                                     <Card.Img variant="top" src={data.image} />
                                     <Card.Body>

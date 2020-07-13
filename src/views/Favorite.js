@@ -166,6 +166,7 @@ class Favorite extends Component {
         let newArrayFaforiteSMA=[], faforitePageIndexSMA=0;
         let newArrayWithFilterSearch=[], newArrayWithFilterSearchSMP=[], newArrayWithFilterSearchSMA=[];
         this.props.favorite.map((newData, index)=>{
+            let schoolCount='', linkCard='', messageCommingSoon;
             if(titleImageForCity==="FirstImage"){
                 imageForCity=ImageCity1;
                 nextImage="SecondImage";
@@ -178,15 +179,27 @@ class Favorite extends Component {
                 imageForCity=ImageCity3;
                 nextImage="FirstImage";
             }
+            if(newData.favorite_count > 0){
+                schoolCount= newData.favorite_count+"  SEKOLAH";
+                linkCard=`/favoritedetail?id=${newData.id}`;
+                messageCommingSoon=false
+            }
+            else{
+                schoolCount="Coming Soon !"
+                linkCard='#thirdTabOnHomePage';
+                messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
+            }
             newArrayFaforite[index]={
-                image     : imageForCity,
-                titleCard : newData.name,
-                descrip   : newData.favorite_count+"  SEKOLAH",
-                link      : `/favoritedetail?id=${newData.id}`,
+                image                : imageForCity,
+                titleCard            : newData.name,
+                descrip              : schoolCount,
+                link                 : linkCard,
+                messageIfCommingSoon : messageCommingSoon,
             }
             titleImageForCity=nextImage;
         });
         this.props.favoriteSMP.map((newData, index)=>{
+            let schoolCount='', linkCard='', messageCommingSoon;
             if(titleImageForCity==="FirstImage"){
                 imageForCity=ImageCity1;
                 nextImage="SecondImage";
@@ -199,16 +212,28 @@ class Favorite extends Component {
                 imageForCity=ImageCity3;
                 nextImage="FirstImage";
             }
+            if(newData.favorite_count > 0){
+                schoolCount= newData.favorite_count+"  SEKOLAH";
+                linkCard=`/favoritedetail?id=${newData.id}`;
+                messageCommingSoon=false
+            }
+            else{
+                schoolCount="Coming Soon !"
+                linkCard='#thirdTabOnHomePage';
+                messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
+            }
             newArrayFaforiteSMP[index]={
-                image     : imageForCity,
-                titleCard : newData.name,
-                descrip   : newData.favorite_count+"  SEKOLAH",
-                link      : `/favoritedetail?id=${newData.id}`,
+                image                : imageForCity,
+                titleCard            : newData.name,
+                descrip              : schoolCount,
+                link                 : linkCard,
+                messageIfCommingSoon : messageCommingSoon,
             }
             faforitePageIndexSMP++;
             titleImageForCity=nextImage;
         });
         this.props.favoriteSMA.map((newData, index)=>{
+            let schoolCount='', linkCard='', messageCommingSoon;
             if(titleImageForCity==="FirstImage"){
                 imageForCity=ImageCity1;
                 nextImage="SecondImage";
@@ -221,11 +246,22 @@ class Favorite extends Component {
                 imageForCity=ImageCity3;
                 nextImage="FirstImage";
             }
+            if(newData.favorite_count > 0){
+                schoolCount= newData.favorite_count+"  SEKOLAH";
+                linkCard=`/favoritedetail?id=${newData.id}`;
+                messageCommingSoon=false
+            }
+            else{
+                schoolCount="Coming Soon !"
+                linkCard='#thirdTabOnHomePage';
+                messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
+            }
             newArrayFaforiteSMA[index]={
-                image     : imageForCity,
-                titleCard : newData.name,
-                descrip   : newData.favorite_count+"  SEKOLAH",
-                link      : `/favoritedetail?id=${newData.id}`,
+                image                : imageForCity,
+                titleCard            : newData.name,
+                descrip              : schoolCount,
+                link                 : linkCard,
+                messageIfCommingSoon : messageCommingSoon,
             }
             faforitePageIndexSMA++;
             titleImageForCity=nextImage;

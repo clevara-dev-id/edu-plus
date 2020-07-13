@@ -21,17 +21,16 @@ export function getAccessAreLoading(state = false, action) {
 export function getAccess(state = [], action) {
     switch (action.type) {
         case 'GETACCESS_FETCH_DATA_SUCCESS':
-            console.log(action);
             return action.api.data.data;
         default:
             return state;
     }
 }
 
+
 export function IsSchoolsFound(state = [], action) {
     switch (action.type) {
         case 'GETACCESS_FETCH_DATA_SUCCESS':
-            console.log(action);
             return action.api.school_count;
 
         default:

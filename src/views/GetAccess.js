@@ -9,6 +9,11 @@ import {
     getAccessFetchData, 
 } from './redux/actions/getaccess';
 
+import { 
+    getAccessFetchDataSearch,
+} from './redux/actions/getaccessautocomplete';
+
+
 //Desktop
 import InputSearchDesktop from '../components/base_components/Desktop/InputSearch/InputSearchDesktop';
 import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
@@ -84,6 +89,15 @@ const storeMobile = [
 
 ];
 
+const autocompletesearch = [
+    {name:"about"},
+    {name:"home"},
+    {name:"title"},
+    {name:"brithday"},
+    {name:"news"}
+
+];
+
 const getUrlBackend = "http://localhost:8000/"
 
 class GetAccess extends Component {
@@ -92,6 +106,7 @@ class GetAccess extends Component {
  
         this.state = {
             fieldResult: "",
+            
         }
     }
     componentDidMount = () =>{
@@ -103,8 +118,16 @@ class GetAccess extends Component {
         }
         const data = await this.props.fetchData(`${getUrlBackend}api/search/schools/`, paramData);
     }
-    onButtonSearchClick=async()=>{
-        await this.getDetailData(this.state.fieldResult);
+    searchAoutoComplete = async (keyWord) =>{
+        if(keyWord.length > 0){
+            const paramData = {
+                "name":keyWord
+            }
+            const data = await this.props.fetchDataSearch(`${getUrlBackend}api/search/schools/`, paramData);    
+        }
+    }
+    onButtonSearchClick=async(data)=>{
+        await this.getDetailData(data !==undefined && data !== "" ? data : this.state.fieldResult);
     }
     onClickRegisterHandle = () =>{
         window.location="/getaccess";
@@ -136,6 +159,7 @@ class GetAccess extends Component {
                 }
             });
         }
+        // console.log(this.props.getAccessAutoComplete);
         return (
             <>
                 <div>
@@ -152,8 +176,24 @@ class GetAccess extends Component {
                             <div style={{marginTop:"0px"}}></div>
                             <InputSearchDesktop 
                                 title="Cari sekolah/Tempat Kursus disini"
-                                onChange={(e)=>{this.setState({fieldResult:e.target.value})}}
+                                onChange={(e)=>{
+                                    this.setState({fieldResult:e.target.value});
+                                    this.searchAoutoComplete(e.target.value);
+                                }}
+                                onKeyPress={(e)=>{
+                                    if(e.key === 'enter' || e.key === 'Enter'){
+                                        this.onButtonSearchClick();
+                                    }
+                                }}
+                                valueSearch={this.state.fieldResult}
                                 // onChange={(e)=>{console.log(e.target.value)}}
+                                autocompletedata={this.props.getAccessAutoComplete.length > 0 ? this.props.getAccessAutoComplete : []}
+                                onClickAutoComplete={(e)=>{
+                                    this.setState({fieldResult:e.target.value});
+                                    if(this.props.getAccess.length > 0){
+                                        this.onButtonSearchClick(e.target.value)
+                                    }
+                                }}
                                 label="Masukannamasekolah"
                                 placeholder="Masukan nama Sekolah/Kursusan"
                             />
@@ -168,8 +208,8 @@ class GetAccess extends Component {
                                 width="343px"
                                 onClick={()=>{this.onButtonSearchClick()}}
                             /> : ""}
-                            {this.props.getAccess.length>0 === "" ?
-                            <div style={{marginTop:"300px"}}></div>
+                            {this.props.getAccess.length === 0 ?
+                            <div style={{marginTop:"700px"}}></div>
                             :""}
                         </section>
                         <section>
@@ -245,12 +285,17 @@ const mapStateToProps = (state) => {
         IsSchoolsFound : state.IsSchoolsFound,
         hasError: state.getAccessHaveError,
         isLoading: state.getAccessAreLoading,
+        getAccessAutoComplete: state.getAccessAutoComplete,
+        getAccessAutoCompleteHaveError : state.getAccessAutoCompleteHaveError,
+        getAccessAutoCompleteAreLoading: state.getAccessAutoCompleteAreLoading
+        
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchData: (url, data) => dispatch(getAccessFetchData(url, data)),
+        fetchDataSearch: (url, data) => dispatch(getAccessFetchDataSearch(url, data)),
     };
 };
 

@@ -114,6 +114,7 @@ class SearchResult extends Component {
         super(props);
         this.state =  {
           favoriteData:[],
+          sortBy:'',
         };
     }
     componentDidMount=async ()=>{
@@ -133,6 +134,59 @@ class SearchResult extends Component {
         }
         const data = await this.props.fetchData(`http://localhost:8000/api/search/?page=${page}`,ParameterPostData);
     }
+    dataArrayToAsc=(data)=> {
+        if(data.length > 1){
+            // console.log(data);
+            return data.sort((a, b)=>{
+                let x = a.titleCard.toLowerCase();
+                let y = b.titleCard.toLowerCase();
+                if (x < y) {return -1;}
+                if (x > y) {return 1;}
+                return 0;
+            });
+        }
+    }
+    dataArrayToDesc=(data)=> {
+        if(data.length > 1){
+            // console.log(data);
+            data.sort((a, b)=>{
+                let x = a.titleCard.toLowerCase();
+                let y = b.titleCard.toLowerCase();
+                if (x < y) {return -1;}
+                if (x > y) {return 1;}
+                return 0;
+            });
+            return data.reverse(function(a, b){
+                var x = a.titleCard.toLowerCase();
+                var y = b.titleCard.toLowerCase();
+                if (x < y) {return -1;}
+                if (x > y) {return 1;}
+                return 0;
+            });
+        }
+    }
+    printStageSearchResult=(data)=>{
+        if(data==="sd"){
+            return "SD & MI"
+        }
+        else if(data === "smp"){
+            return "SMP & MTS"
+        }
+        else if(data === "sma"){
+            return "SMA, SMK & ALIYAH"
+        }
+    }
+    printSchoolsStatus=(data)=>{
+        if(data==="negeri"){
+            return "Negeri";
+        }
+        else{
+            return "Swasta";
+        }
+    }
+    searchAnotherSchools=()=>{
+        window.location.href="/search";
+    }
     render() {
         if (this.props.hasError) {
             return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>
@@ -142,9 +196,11 @@ class SearchResult extends Component {
             return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>Loading…</p>;
         }
         let newArraySearchResult=[], searchResultIndex=0, imageForSchools;
+        let newArrayWithFilterSearchResult=[];
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('district_id');
         const myParamEduStage = urlParams.get('educationstage');
+        const schoolsStatus = urlParams.get('status');
         this.props.searchResultData.forEach((data, index)=>{
             data.map((newData)=>{
                 if(newData.images!==undefined && newData.images.length>0){
@@ -163,7 +219,10 @@ class SearchResult extends Component {
             });
 
         });
-        console.log(newArraySearchResult);
+        // if(newArraySearchResult.length > 0){
+            
+        // }
+        // console.log(this.state.sortBy);
         return (
             <>
                 <OnDesktop>
@@ -176,7 +235,7 @@ class SearchResult extends Component {
                     <section>
                         <div style={{marginTop:"36px"}}></div>
                         <TitlePageHeaderDesktop
-                            name={`Daftar SD ${"&"} MI Swasta`}
+                            name={`Daftar ${this.printStageSearchResult(this.props.stageSearchResult)} ${this.printSchoolsStatus(schoolsStatus)}`}
                             color="#1A6EB2"
                             width="100%"
                             textAlign="left"
@@ -195,7 +254,7 @@ class SearchResult extends Component {
                     </section>
                     <section>
                         <DropDownListArrowDesktop 
-                            onClick={(e)=>{console.log(e.target.value)}}
+                            onClick={(e)=>{this.setState({sortBy : e.target.value})}}
                             onClickArea={(e)=>{console.log(e.target.value)}}
                         />
                     </section>
@@ -206,7 +265,10 @@ class SearchResult extends Component {
                     </section>
                     <section>   
                         <CardImageTertiarayDesktop 
-                            store={newArraySearchResult}
+                            store={newArraySearchResult.length > 0 && this.state.sortBy === "az" ? this.dataArrayToAsc(newArraySearchResult) :
+                                   newArraySearchResult.length > 0 && this.state.sortBy === "za" ? this.dataArrayToDesc(newArraySearchResult):
+                                   newArraySearchResult
+                            }
                         />
                     </section>
                     <section>
@@ -214,6 +276,7 @@ class SearchResult extends Component {
                         <ButtonAnotherSchoolsDesktop
                             name="CARI SEKOLAH LAINNYA"
                             width="277px"
+                            onClick={()=>{this.searchAnotherSchools()}}
                         />
                         <div style={{marginTop: "79px"}}></div>
                     </section>
@@ -277,6 +340,7 @@ const mapStateToProps = (state) => {
         searchResultData: dataSearchResultMaptoProps,
         currentSearchResult : state.currentSearchResult,
         countSearchResult: state.countSearchResult,
+        stageSearchResult: state.stageSearchResult,
         hasError: state.searchResultHaveError,
         isLoading: state.searchResultAreLoading
     };

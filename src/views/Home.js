@@ -347,31 +347,65 @@ class Home extends Component {
         let newArrayPromo=[];
         this.props.homepage.map((newData, index)=>{
             let imageForCard=this.getImageName(newData.id);
-            
+            let schoolCount='', linkCard='', messageCommingSoon;
+            if(newData.favorite_count > 0){
+                schoolCount= newData.favorite_count+"  SEKOLAH";
+                linkCard=`/favorite?id=${newData.id}`;
+                messageCommingSoon=false
+            }
+            else{
+                schoolCount="Coming Soon !"
+                linkCard='#firstTabOnHomePage';
+                messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
+            }
             newArrayHomepage[index]={
-                image     : imageForCard,
-                titleCard : newData.name,
-                descrip   : newData.favorite_count+"  SEKOLAH",
-                link      : `/favorite?id=${newData.id}`,
+                image                : imageForCard,
+                titleCard            : newData.name,
+                descrip              : schoolCount,
+                link                 : linkCard,
+                messageIfCommingSoon : messageCommingSoon,
             }
         })
         this.props.homepageSMP.map((newData, index)=>{
             let imageForCard=this.getImageName(newData.id);
+            let schoolCount='', linkCard='', messageCommingSoon;
+            if(newData.favorite_count > 0){
+                schoolCount= newData.favorite_count+"  SEKOLAH";
+                linkCard=`/favorite?id=${newData.id}`;
+                messageCommingSoon=false
+            }
+            else{
+                schoolCount="Coming Soon !"
+                linkCard='#secondTabOnHomePage';
+                messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
+            }
             newArrayHomepageSMP[index]={
-                image     : imageForCard,
-                titleCard : newData.name,
-                descrip   : newData.favorite_count+"  SEKOLAH",
-                link      : `/favorite?id=${newData.id}`,
-
+                image                : imageForCard,
+                titleCard            : newData.name,
+                descrip              : schoolCount,
+                link                 : linkCard,
+                messageIfCommingSoon : messageCommingSoon,
             }
         })
         this.props.homepageSMA.map((newData, index)=>{
             let imageForCard=this.getImageName(newData.id);
+            let schoolCount='', linkCard='', messageCommingSoon;
+            if(newData.favorite_count > 0){
+                schoolCount= newData.favorite_count+"  SEKOLAH";
+                linkCard=`/favorite?id=${newData.id}`;
+                messageCommingSoon=false
+            }
+            else{
+                schoolCount="Coming Soon !"
+                linkCard='#thirdTabOnHomePage';
+                messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
+            }
             newArrayHomepageSMA[index]={
-                image     : imageForCard,
-                titleCard : newData.name,
-                descrip   : newData.favorite_count+"  SEKOLAH",
-                link      : `/favorite?id=${newData.id}`,
+                image                : imageForCard,
+                titleCard            : newData.name,
+                descrip              : schoolCount,
+                link                 : linkCard,
+                messageIfCommingSoon : messageCommingSoon,
             }
         })
         this.props.promo.map((data, index)=>{

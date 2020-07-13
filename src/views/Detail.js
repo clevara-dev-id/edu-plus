@@ -292,6 +292,9 @@ class Detail extends Component {
             }  
         }
     }
+    searchAnotherSchools=()=>{
+        window.location.href="/search";
+    }
     render() {
         if (this.props.hasError) {
             return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
@@ -520,6 +523,7 @@ class Detail extends Component {
                             <ButtonAnotherSchoolsDesktop
                                 name="CARI SEKOLAH LAINNYA"
                                 width="277px"
+                                onClick={()=>{this.searchAnotherSchools()}}
                             />
                             <div style={{marginTop: "79px"}}></div>
                         </section>
