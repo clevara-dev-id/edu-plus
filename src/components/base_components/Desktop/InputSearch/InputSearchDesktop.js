@@ -38,6 +38,7 @@ const InputSearchDesktop = props => {
         $('#dropDownContentGetAccessList > option').click(()=>{
             $('#dropDownContentGetAccessList').css({"display" : "none"});
         });
+        // $('#searchFormInputGetAceess').keyup(handleOnkeyUP());
     });
     return (
         <>
@@ -53,6 +54,7 @@ const InputSearchDesktop = props => {
                 <Col>
                     <InputGroup className="mb-3">
                         <FormControl
+                            autocomplete="off"
                             id="searchFormInputGetAceess"
                             className="inputTextBadges"
                             placeholder={props.placeholder}

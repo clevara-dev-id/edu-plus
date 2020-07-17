@@ -31,6 +31,7 @@ export function searchpageprov(state = [], action) {
 export function searchpagecity(state = [], action) {
     switch (action.type) {
         case 'SEARCHPAGE_FETCH_DATA_SUCCESS_CITY':
+            console.log(action);
             return action.api.data;
 
         default:
@@ -41,6 +42,7 @@ export function searchpagecity(state = [], action) {
 export function searchpagedistrict(state = [], action) {
     switch (action.type) {
         case 'SEARCHPAGE_FETCH_DATA_SUCCESS_DISTRICT':
+            console.log(action);
             return action.api.data;
         default:
             return state;

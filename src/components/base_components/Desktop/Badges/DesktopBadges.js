@@ -41,8 +41,17 @@ const DesktopBadges = props => {
         //     document.getElementById("defaultOpenBadges").click();  
         // }
         if(window.location.hash===""){
-            document.getElementById("defaultOpenBadges").click();  
+            // document.getElementById("defaultOpenBadges").click();  
+            $('.tablinksbadges').first().click();
         }
+        // setTimeout(function() {
+        //     if(window.location.hash!=="" && window.location.hash !==undefined && window.location.hash !=="#default" && window.location.hash !==null ){
+        //         // document.getElementById("defaultOpenBadges").click();  
+        //         $(`${window.location.hash}`).click();
+        //         $('.navbar1').one('click', function(e) {
+
+        //     }
+        // },100);
     })
     return (
         <>
@@ -56,7 +65,7 @@ const DesktopBadges = props => {
                                     props.store[0].name === data.name ?
                                     <MyBadgeGray id="defaultOpenBadges" 
                                         className="tablinksbadges" 
-                                        onClick={(e)=>{openPage(e,data.idContent)}}>
+c                                        onClick={(e)=>{openPage(e,data.idContent)}}>
                                         {data.name}
                                     </MyBadgeGray>
                                     :

@@ -63,7 +63,7 @@ const RadioButtonFiveDesktop = props => {
                             </label>
                         </Col>
                         <Col className="bsjpFive" lg={3}>
-                            <Input 
+                            {/* <Input 
                                 type="radio" 
                                 id="inputUniv" 
                                 name="radioFruit" 
@@ -76,7 +76,7 @@ const RadioButtonFiveDesktop = props => {
                                     <FontAwesome name={icon === 'univ' ? 'check-circle' : "circle-o"} color='black' size={24} />
                                     <div>Universitas</div>
                                 </div>
-                            </label>
+                            </label> */}
                         </Col>
                     </Row>
                     {/* <Row>

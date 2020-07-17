@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
@@ -307,6 +308,7 @@ class Detail extends Component {
         let newArrayImage=[];
         let newArrayFacilities=[];
         let newArrayExtracurricular=[];
+        let newArrayRegistration=[];
         const urlParams = new URLSearchParams(window.location.search);
         const myParamUUID = urlParams.get('uuid');
         const myParamSchID = urlParams.get('schid');
@@ -330,22 +332,57 @@ class Detail extends Component {
         });
 
         //Cost
-        if(this.props.schoolsCost.length > 0){
-            this.props.schoolsCost.map((data, index)=>{
-                const newCost = parseInt(data.cost);
-                newArrayCost[index]={   
-                    title:data.name, 
-                    description : newCost.toLocaleString("id-ID", {style: "currency", currency: "IDR"})
+        // if(this.props.schoolsCost !==null){
+        //     this.props.schoolsCost.map((data, index)=>{
+        //         const newCost = parseInt(data.cost);
+        //         newArrayCost[index]={   
+        //             title:data.name, 
+        //             description : newCost.toLocaleString("id-ID", {style: "currency", currency: "IDR"})
+        //         }
+        //     });
+        // }
+        
+        if(this.props.schoolsCost !==null){
+            const downPayment = parseInt(this.props.schoolsCost.etf_cost);
+            const monthlyFee = parseInt(this.props.schoolsCost.spp_cost);
+            const advenceCost = parseInt(this.props.schoolsCost.activities_cost);
+            const otherCostForBook = parseInt(this.props.schoolsCost.book_cost);
+            newArrayCost=[
+                {   
+                    title:"Uang Pangkal", 
+                    description : Number.isInteger(downPayment) ? downPayment.toLocaleString("id-ID", {style: "currency", currency: "IDR"}) :"-"
+                },
+                {   
+                    title:"SPP Bulanan", 
+                    description : Number.isInteger(monthlyFee) ? monthlyFee.toLocaleString("id-ID", {style: "currency", currency: "IDR"}) :"-"
+                },
+                {   
+                    title:"Uang Kegiatan", 
+                    description : Number.isInteger(advenceCost) ? advenceCost.toLocaleString("id-ID", {style: "currency", currency: "IDR"}) :"-"
+                },
+                {   
+                    title:"Uang Buku", 
+                    description : Number.isInteger(otherCostForBook) ? otherCostForBook.toLocaleString("id-ID", {style: "currency", currency: "IDR"}) :"-"
+                },
+                {   
+                    title:"Potongan / Diskon", 
+                    description : this.props.schoolsCost.discount ? this.props.schoolsCost.discount : "-"
                 }
-            });
+            ];
         }
-        if(this.props.schoolsImage.length > 0){
-            this.props.schoolsImage.map((data, index)=>{
-                newArrayImage[index]={
-                    image : data.image
-                }
-            });
-        }
+        
+
+        //Registration newArrayRegistration
+        // if(this.props.schoolsRegistration !==null){
+        //     this.props.schoolsRegistration.map((data, index)=>{
+        //         // const newCost = parseInt(data.cost);
+        //         newArrayRegistration[index]={   
+        //             title:data.name, 
+        //             description : data.registration
+        //         }
+        //     });
+        // }
+
         if(this.props.schoolFacilities.length > 0){
             this.props.schoolFacilities.map((data, index)=>{
                 newArrayFacilities[index]= {
@@ -368,7 +405,7 @@ class Detail extends Component {
     //     {   title:"Uang Pangkal", schoolFacilities
     //     description : "Rp. 3,000,000"
     // },
-        console.log(this.props.detail);
+        // console.log(this.props.schoolsRegistration);
         return (
             <> 
                 <div>
@@ -391,11 +428,12 @@ class Detail extends Component {
                                 title={this.props.detail.name}
                                 text={[
                                     this.props.detail.address,
-                                    this.props.detail.village_id,
-                                    this.props.detail.district_id,
-                                    this.props.detail.regency_id,
-                                    this.props.detail.province_id,
+                                    // this.props.detail.village_id,
+                                    this.props.schoolsAdressDistrict.name,
+                                    this.props.schoolsAdressRegency.name,
+                                    this.props.schoolsAdressProvince.name,
                                 ].join(", ")}
+                                // text={"test address"}
                             />
                             <LineComponentsDesktop 
                                 // marginTop="-20px"
@@ -466,11 +504,11 @@ class Detail extends Component {
                         <section style={{display: "none"}} id="desktopstudentConstId" className="tabcontendetaildesktop">
                             <div style={{marginTop: "30px"}} />
                             <DesktopDescription
-                                store={this.props.schoolsCost.length > 0 ? newArrayCost : [
-                                    {   
-                                        title:"Uang Pangkal", 
-                                        description : "-"
-                                    }  
+                                store={this.props.schoolsCost !==null ? newArrayCost : [
+                                        {   
+                                            title:"Potongan / Diskon", 
+                                            description : "-"
+                                        }  
                                 ]}
                             />
                             <div style={{marginBottom: "30px"}} />
@@ -478,7 +516,22 @@ class Detail extends Component {
                         <section style={{display: "none"}} id="desktopregisterTimeId" className="tabcontendetaildesktop">
                             <div style={{marginTop: "30px"}} />
                             <DesktopDescription
-                                store={storeMobileFive}
+                                store={this.props.schoolsRegistration !==null ? [
+                                    {   title:"Pendaftaran", 
+                                        description : moment(this.props.schoolsRegistration.registration).format('DD MMMM YYYY')
+                                    },
+                                    {   title:"Pengumuman", 
+                                        description : moment(this.props.schoolsRegistration.annoucement).format('DD MMMM YYYY')
+                                    },
+                                    {   title:"Daftar Ulang", 
+                                        description : moment(this.props.schoolsRegistration.re_registration).format('DD MMMM YYYY')
+                                    },
+
+                                ]:[
+                                    {   title:"Pendaftaran", 
+                                        description : "-"
+                                    },
+                                ]}
                             />
                             <div style={{marginBottom: "30px"}} />
                         </section>
@@ -548,10 +601,10 @@ class Detail extends Component {
                                 title={this.props.detail.name}
                                 text={[
                                     this.props.detail.address,
-                                    this.props.detail.village_id,
-                                    this.props.detail.district_id,
-                                    this.props.detail.regency_id,
-                                    this.props.detail.province_id,
+                                    // this.props.detail.village_id,
+                                    this.props.schoolsAdressDistrict.name,
+                                    this.props.schoolsAdressRegency.name,
+                                    this.props.schoolsAdressProvince.name,
                                 ].join(", ")}
                             />
                             <LineComponents 
@@ -616,7 +669,7 @@ class Detail extends Component {
                         </section>
                         <section style={{display: "none"}} id="studentConstId" className="tabcontendetail">
                             <div style={{marginTop: "18px"}} />
-                            <MobileDescription store={this.props.schoolsCost.length > 0 ? newArrayCost : [
+                            <MobileDescription store={this.props.schoolsCost !==null ? newArrayCost : [
                                     {   
                                         title:"Uang Pangkal", 
                                         description : "-"
@@ -685,6 +738,10 @@ const mapStateToProps = (state) => {
         schoolsExtracurricular: state.schoolsExtracurricular,
         getDataSchools: state.getCityDataSchools,
         schoolsStatus: state.schoolsStatus,
+        schoolsRegistration: state.schoolsRegistration,
+        schoolsAdressProvince: state.schoolsAdressProvince, 
+        schoolsAdressRegency: state.schoolsAdressRegency, 
+        schoolsAdressDistrict: state.schoolsAdressDistrict,
         hasError: state.detailHaveError,
         isLoading: state.detailAreLoading,
     };

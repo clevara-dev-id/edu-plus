@@ -113,6 +113,7 @@ class GetAccess extends Component {
         // this.getDetailData();
     }
     getDetailData=async(keyWord)=>{
+        console.log("this function running after 500 ms");
         const paramData = {
             "name":keyWord
         }
@@ -132,6 +133,16 @@ class GetAccess extends Component {
     onClickRegisterHandle = () =>{
         window.location="/getaccess";
     }
+    delayAutoComplete=(callback, ms)=> {
+        var timer = 0;
+        return function() {
+          var context = this, args = arguments;
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            callback.apply(context, args);
+          }, ms || 0);
+        };
+      }
     render() {
         if (this.props.hasError) {
             return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
@@ -159,7 +170,6 @@ class GetAccess extends Component {
                 }
             });
         }
-        // console.log(this.props.getAccessAutoComplete);
         return (
             <>
                 <div>
@@ -178,13 +188,15 @@ class GetAccess extends Component {
                                 title="Cari sekolah/Tempat Kursus disini"
                                 onChange={(e)=>{
                                     this.setState({fieldResult:e.target.value});
-                                    this.searchAoutoComplete(e.target.value);
+                                    // this.delayAutoComplete();
+                                    this.searchAoutoComplete(e.target.value)
                                 }}
                                 onKeyPress={(e)=>{
                                     if(e.key === 'enter' || e.key === 'Enter'){
                                         this.onButtonSearchClick();
                                     }
                                 }}
+                                // onKeyUp={(e)=>{this.searchAoutoComplete(e.target.value)}}
                                 valueSearch={this.state.fieldResult}
                                 // onChange={(e)=>{console.log(e.target.value)}}
                                 autocompletedata={this.props.getAccessAutoComplete.length > 0 ? this.props.getAccessAutoComplete : []}
@@ -209,7 +221,7 @@ class GetAccess extends Component {
                                 onClick={()=>{this.onButtonSearchClick()}}
                             /> : ""}
                             {this.props.getAccess.length === 0 ?
-                            <div style={{marginTop:"700px"}}></div>
+                            <div style={{marginTop:"150px"}}></div>
                             :""}
                         </section>
                         <section>
@@ -225,6 +237,11 @@ class GetAccess extends Component {
                             <CardImageWithButtonDesktop store={newArrayGetAccess.slice(0, 18)} /> : ""}
                             {this.props.IsSchoolsFound === 0 ? <CardImageNotFoundDesktop /> : ""}
                             <div style={{marginTop: "170px"}}></div>
+                        </section>
+                        <section>
+                            {this.props.getAccess.length === 0 && this.props.IsSchoolsFound.length===0 ?
+                            <div style={{marginTop:"450px"}}></div>
+                            :""}
                         </section>
                     </OnDesktop>
                     <OnMobile>

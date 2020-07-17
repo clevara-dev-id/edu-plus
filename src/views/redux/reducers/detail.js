@@ -31,6 +31,7 @@ export function detail(state = [], action) {
 export function schoolsCost(state = [], action) {
     switch (action.type) {
         case 'DETAIL_FETCH_DATA_SUCCESS':
+            console.log(action.api.costs)
             return action.api.costs;
 
         default:
@@ -72,6 +73,46 @@ export function schoolsExtracurricular(state = [], action) {
     switch (action.type) {
         case 'DETAIL_FETCH_DATA_SUCCESS':
             return action.api.extracurricular;
+
+        default:
+            return state;
+    }
+}
+
+export function schoolsRegistration(state = [], action) {
+    switch (action.type) {
+        case 'DETAIL_FETCH_DATA_SUCCESS':
+            return action.api.registration;
+
+        default:
+            return state;
+    }
+}
+
+export function schoolsAdressProvince(state = [], action) {
+    switch (action.type) {
+        case 'DETAIL_FETCH_DATA_SUCCESS':
+            return action.api.province;
+
+        default:
+            return state;
+    }
+}
+
+export function schoolsAdressRegency(state = [], action) {
+    switch (action.type) {
+        case 'DETAIL_FETCH_DATA_SUCCESS':
+            return action.api.regency;
+
+        default:
+            return state;
+    }
+}
+
+export function schoolsAdressDistrict(state = [], action) {
+    switch (action.type) {
+        case 'DETAIL_FETCH_DATA_SUCCESS':
+            return action.api.district;
 
         default:
             return state;

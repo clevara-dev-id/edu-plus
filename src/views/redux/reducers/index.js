@@ -35,9 +35,9 @@ import {
     favoriteDetail, 
     favoriteDetailSMP, 
     favoriteDetailSMA,
-    currentfavoriteDetail, 
-    currentfavoriteDetailSMP, 
-    currentfavoriteDetailSMA,
+    // currentfavoriteDetail, 
+    // currentfavoriteDetailSMP, 
+    // currentfavoriteDetailSMA,
     getCityName,
     getProvName,
 } 
@@ -53,6 +53,10 @@ import {
     schoolsExtracurricular,
     getCityDataSchools,
     schoolsStatus,
+    schoolsAdressProvince, 
+    schoolsAdressRegency, 
+    schoolsAdressDistrict,
+    schoolsRegistration,
 } from './detail' 
 
 import {
@@ -119,9 +123,9 @@ export default combineReducers({
     favoriteDetail, 
     favoriteDetailSMP, 
     favoriteDetailSMA,
-    currentfavoriteDetail, 
-    currentfavoriteDetailSMP, 
-    currentfavoriteDetailSMA,
+    // currentfavoriteDetail, 
+    // currentfavoriteDetailSMP, 
+    // currentfavoriteDetailSMA,
     getCityName,
     getProvName,
 
@@ -145,6 +149,10 @@ export default combineReducers({
     schoolsExtracurricular,
     getCityDataSchools,
     schoolsStatus,
+    schoolsAdressProvince, 
+    schoolsAdressRegency, 
+    schoolsAdressDistrict,
+    schoolsRegistration,
 
     searchpageHaveError, 
     searchpageAreLoading,

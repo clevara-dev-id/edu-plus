@@ -156,6 +156,7 @@ class Search extends Component {
         
     }
     getDistrictData=async(getCityId)=>{
+        // getCityId=3101;
         const data = await this.props.fetchDataDistrict(`http://localhost:8000/api/search/get-district/${getCityId}`);
     }
     onClickSearchDetailHandle = () =>{
@@ -172,7 +173,16 @@ class Search extends Component {
         if (this.props.isLoading) {
             return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>Loading…</p>;
         }
-        // console.log(this.props.searchpageprov);
+        // let newCityArray=[];
+        // if(this.props.searchpagecity.length > 0){
+        //     this.props.searchpagecity.map((data, index)=>{
+        //         newCityArray[index]={
+        //             id: data.regency_id,
+        //             name: data.name,
+        //         }
+        //     });
+        // }
+        // console.log(this.props.searchpagedistrict);
         return (
             <>
                 <div>
