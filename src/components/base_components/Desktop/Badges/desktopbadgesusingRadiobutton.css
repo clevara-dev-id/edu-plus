@@ -1,0 +1,257 @@
+@media screen and (min-width: 1024px){
+    #desktopBadgesUsingRadiobuttonContainer{
+        /* max-width: 100%; */
+        max-width: 1024px;
+        margin-bottom: 15px;
+        overflow-x: hidden;
+        padding-right: 85px;
+        padding-left: 85px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        margin-top: 15px;
+        margin-right: 230px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 265px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
+}
+
+@media screen and (min-width: 1152px){
+    #desktopBadgesUsingRadiobuttonContainer{
+        max-width: 1152px;
+        margin-bottom: 15px;
+        overflow-x: hidden;
+        padding-right: 110px;
+        padding-left: 110px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        margin-top: 15px;
+        margin-right: 257px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 291px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
+}
+@media screen and (min-width: 1280px){
+    #desktopBadgesUsingRadiobuttonContainer{
+        /* max-width: 100%; */
+        max-width: 1280px;
+        margin-bottom: 15px;
+        overflow-x: hidden;
+        padding-right: 125px;
+        padding-left: 125px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        margin-top: 15px;
+        margin-right: 289px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 324px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
+}
+@media screen and (min-width: 1360px){
+    #desktopBadgesUsingRadiobuttonContainer{
+        /* max-width: 100%; */
+        max-width: 1360px;
+        margin-bottom: 15px;
+        overflow-x: hidden;
+        padding-right: 145px;
+        padding-left: 145px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        margin-top: 15px;
+        margin-right: 304px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 337px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
+
+}
+@media screen and (min-width: 1366px){
+    #desktopBadgesUsingRadiobuttonContainer{
+        /* max-width: 100%; */
+        max-width: 1366px;
+        margin-bottom: 15px;
+        overflow-x: hidden;
+        padding-right: 145px;
+        padding-left: 145px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        margin-top: 15px;
+        margin-right: 304px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 339px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
+}
+@media screen and (min-width: 1440px){
+    #desktopBadgesUsingRadiobuttonContainer{
+        /* max-width: 100%; */
+        max-width: 1440px;
+        margin-bottom: 15px;
+        padding-right: 165px;
+        padding-left: 165px;
+        /* margin-right: 0px;
+        margin-left: 0px; */
+        overflow-x: hidden;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > i{
+        position: absolute;
+        z-index: 2;
+        margin-top: 15px;
+        /* margin-right: 309px; */
+        left:0px;
+        padding-left: 17px;
+    }
+    #desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > .inputTextBadges{
+        max-width: 345px;
+        height: 49px;
+        padding-left: 44px;
+        background: #FFFFFF;
+        border: 1px solid #B5B5B5;
+        box-sizing: border-box;
+        border-radius: 16px;
+        z-index: 1;
+    }
+}
+#desktopBadgesUsingRadiobuttonContainer > .row > .badgescol {
+    text-align: left;
+}
+#desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside {
+    align-content: flex-end;
+    display: flex;
+}
+#desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group{
+    /* right: 0px;
+    left: auto; */
+    display: flex;
+    justify-content: flex-end;
+}
+#desktopBadgesUsingRadiobuttonContainer > .row > .badgescolrightside > .input-group > .inputTextBadges:focus,.inputTextBadges:active{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+div.scrollmenu {
+    position: relative;
+    width: 100%;
+    background-color:transparent;
+    white-space: nowrap;
+    /* overflow-x: scroll;
+    scrollbar-width: none;  */
+}
+
+.activeClassBadgesDesktop{
+    color: #FFFFFF !important;
+    background: #1A6EB2 !important;
+}
+
+#childBadgesDesktop > span:hover{
+    cursor: pointer !important;
+}
+
+#desktopBadgesUsingRadiobuttonContainer > .row > .badgescol > .radio-toolbarTwo > .row >.bsjp2{
+    min-width: 200px;
+}
+
+#desktopBadgesUsingRadiobuttonContainer > .row > .badgescol > .radio-toolbarTwo input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+  
+#desktopBadgesUsingRadiobuttonContainer > .row > .badgescol > .radio-toolbarTwo label {
+    width: auto;
+    height: 39px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-align: center;
+    color: #B5B5B5;
+    background: #F5F5F5;
+    border-radius: 36px;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 9px;
+    margin-top: 5px;
+
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: baseline;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+  }
+  
+#desktopBadgesUsingRadiobuttonContainer > .row > .badgescol > .radio-toolbarTwo > label > div > i{
+    left: 0px;
+    padding: 0px;
+}
+
+#desktopBadgesUsingRadiobuttonContainer > .row > .badgescol > .radio-toolbarTwo > .row > .bsjp2 > label > div > div {
+    padding: 0px;
+    display: inline-block;
+    position: absolute;
+    padding-left: 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px; 
+} 
+#desktopBadgesUsingRadiobuttonContainer > .row > .badgescol > .radio-toolbarTwo input[type="radio"]:checked + label {
+    background-color:#1A6EB2;
+    color: #FFFFFF;
+    border: 0px;
+}
+  
+#desktopBadgesUsingRadiobuttonContainer  > .row > .badgescol > .radio-toolbarTwo input[type="radio"]:checked + label > div > i {
+    color:  #FFFFFF !important;
+}

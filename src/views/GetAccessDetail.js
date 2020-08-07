@@ -349,6 +349,8 @@ const storeDesktop2 =[
     {name:"Ekstrakulikuler", idContent: "desktopextracurricularContentId"}
 ];
 
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
 
 
 class GetAccessDetail extends Component {

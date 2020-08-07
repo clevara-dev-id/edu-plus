@@ -65,7 +65,7 @@ const DesktopBadges = props => {
                                     props.store[0].name === data.name ?
                                     <MyBadgeGray id="defaultOpenBadges" 
                                         className="tablinksbadges" 
-c                                        onClick={(e)=>{openPage(e,data.idContent)}}>
+                                        onClick={(e)=>{openPage(e,data.idContent)}}>
                                         {data.name}
                                     </MyBadgeGray>
                                     :

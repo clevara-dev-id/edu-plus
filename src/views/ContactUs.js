@@ -21,7 +21,8 @@ import FormContactComponents from '../components/base_components/Form/FormContac
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
 
-const getUrlBackend = "http://localhost:8000/"
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
 
 class ContactUs extends Component {
     constructor(props){

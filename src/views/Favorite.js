@@ -120,6 +120,9 @@ let dataCityMaptoProps=[];
 let dataCityMaptoPropsSMP=[];
 let dataCityMaptoPropsSMA=[];
 
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
+
 class Favorite extends Component {
     constructor(props) {
         super(props);
@@ -141,17 +144,17 @@ class Favorite extends Component {
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
         // console.log(myParam);
-        const data = await this.props.fetchData(`http://localhost:8000/api/province/${myParamId}/sd`);
+        const data = await this.props.fetchData(`${getUrlBackend}api/province/${myParamId}/sd`);
     }
     getCityDataSMP=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchDataSMP(`http://localhost:8000/api/province/${myParamId}/smp`);
+        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/province/${myParamId}/smp`);
     }
     getCityDataSMA=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchDataSMA(`http://localhost:8000/api/province/${myParamId}/sma`);
+        const data = await this.props.fetchDataSMA(`${getUrlBackend}api/province/${myParamId}/sma`);
     }
     render() {
         if (this.props.hasError) {

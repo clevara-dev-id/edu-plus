@@ -39,7 +39,8 @@ import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
 
 //Const Http dummy
-const getUrlBackend = "http://localhost:8000/"
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
 
 class GetAccessInput extends Component {
     constructor(props){

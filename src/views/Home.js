@@ -16,9 +16,9 @@ import {
 import JumbotronDesktopBlue from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlue';
 import CarouselDesktopPrimary from '../components/base_components/Desktop/Carousel/CarouselDesktopPrimary';
 import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import TitlePageDesktop from '../components/base_components/Desktop/TitlePage/TitlePageDesktop';
 import TitlePageDesktopPromo from '../components/base_components/Desktop/TitlePage/TitlePageDesktopPromo';
+import DesktopBadgeUsingRadioButton from '../components/base_components/Desktop/Badges/DesktopBadgeUsingRadioButton';
 
 //Mobile Item
 import CardImageMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageMobile';
@@ -190,6 +190,9 @@ let dataProvMaptoProps=[];
 let dataProvMaptoPropsSMP=[];
 let dataProvMaptoPropsSMA=[];
 
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -211,16 +214,16 @@ class Home extends Component {
 
     }
     getProvinceData=async(page)=>{
-        const data = await this.props.fetchData(`http://localhost:8000/api/mainpage/sd`);
+        const data = await this.props.fetchData(`${getUrlBackend}api/mainpage/sd`);
     }
     getProvinceDataSMP=async(page)=>{
-        const data = await this.props.fetchDataSMP(`http://localhost:8000/api/mainpage/smp`);
+        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/mainpage/smp`);
     }
     getProvinceDataSMA=async(page)=>{
-        const data = await this.props.fetchDataSMA(`http://localhost:8000/api/mainpage/sma`);
+        const data = await this.props.fetchDataSMA(`${getUrlBackend}api/mainpage/sma`);
     }
     getPromoData=async(page)=>{
-        const data = await this.props.fetchDataPromo(`http://localhost:8000/api/promo`);
+        const data = await this.props.fetchDataPromo(`${getUrlBackend}api/promo`);
     }
     getImageName=(imageid)=>{
         let imageForCard;
@@ -463,21 +466,24 @@ class Home extends Component {
 
                         <section>
                             <div style={{marginTop:"30px"}}></div>
-                            <BadgesDesktop
+                            <DesktopBadgeUsingRadioButton
                                 store={[
                                     {   name:"SD & MI", 
                                         idContent: "desktopSDdanMI",
                                         idBadges:"firstTabOnHomePage",
+                                        otherId: "idForRadioButtonSD"
                                     },
                                     {
                                         name:"SMP & MTS", 
                                         idContent: "desktopSmpMts",
                                         idBadges:"secondTabOnHomePage",
+                                        otherId: "idForRadioButtonSMP"
                                     },
                                     {
                                         name:"SMA, SMK, & MA", 
                                         idContent: "desktopSmaSmkMa",
                                         idBadges:"thirdTabOnHomePage",
+                                        otherId: "idForRadioButtonSMA"
                                     },
                                     // {
                                     //     name:"Universitas", 
@@ -489,7 +495,7 @@ class Home extends Component {
                                 onChangeSearch={(eventsearch)=>{this.setState({homepageSearch:eventsearch.target.value})}}
                             />
                         </section>
-                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
+                        <section id="desktopSDdanMI" style={{display:"block"}} className="tabcontendetailDesktop">
                             <CardImageSecondaryDesktop
                                 store={newArrayWithFilterSearch.slice(0,this.state.limitPerPage)}
                                 loadmoreEnable={true}

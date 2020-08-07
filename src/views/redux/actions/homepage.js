@@ -50,7 +50,7 @@ export function homepageFetchData(url) {
         setTimeout(() => {
             axios.get(url)
                 .then((response) => {
-                    // console.log(response.data);
+                    console.log(response.data);
                     if (response.status !== 200) {
                         throw Error(response.statusText);
                     }
@@ -73,7 +73,7 @@ export function homepageFetchDataSMP(url) {
         setTimeout(() => {
             axios.get(url)
                 .then((response) => {
-                    // console.log(response.data);
+                    console.log(response.data);
                     if (response.status !== 200) {
                         throw Error(response.statusText);
                     }

@@ -249,6 +249,10 @@ const storeDesktop2 =[
     {name:"Ekstrakulikuler", idContent: "desktopextracurricularContentId"}
 ];
 
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
+
+
 class Detail extends Component {
     constructor(props) {
         super(props);
@@ -263,7 +267,7 @@ class Detail extends Component {
     getDetailData=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('uuid');
-        const data = await this.props.fetchData(`http://localhost:8000/api/schools/${myParamId}`);
+        const data = await this.props.fetchData(`${getUrlBackend}api/schools/${myParamId}`);
     }
     getCityData=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
@@ -275,7 +279,7 @@ class Detail extends Component {
             "province":myParamId.substr(0,2),
             "regency":myParamId,
         }
-        const data = await this.props.fetchSchoolsCity(`http://localhost:8000/api/search/?page=${page}`,ParameterPostData);
+        const data = await this.props.fetchSchoolsCity(`${getUrlBackend}api/search/?page=${page}`,ParameterPostData);
     }
     handleClickViewAll=async()=>{
         const urlParams = new URLSearchParams(window.location.search);

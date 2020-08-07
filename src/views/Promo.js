@@ -98,7 +98,8 @@ const storeDesktop = [
     }
 ];
 
-const getUrlBackend = "http://localhost:8000/"
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
 
 class Promo extends Component {
     constructor(props) {

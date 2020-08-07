@@ -9,7 +9,8 @@ import CardImageTertiarayDesktop from '../components/base_components/Desktop/Car
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 import DropDownListSingleDesktop from '../components/base_components/Desktop/DropDownList/DropDownListSingleDesktop';
-import ButtonLoadMoreDesktop  from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
+import DesktopBadgeUsingRadioButton from '../components/base_components/Desktop/Badges/DesktopBadgeUsingRadioButton';
+
 
 
 //Mobile Item
@@ -120,6 +121,9 @@ let dataCityMaptoProps=[];
 let dataCityMaptoPropsSMP=[];
 let dataCityMaptoPropsSMA=[];
 
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
+
 class FavoriteDetail extends Component {
     constructor(props) {
         super(props);
@@ -144,51 +148,40 @@ class FavoriteDetail extends Component {
         const myParamId = urlParams.get('id');
         let ParameterPostData = {
             "stage":"sd",
-            // "status":"1",
-            // "province":myParamId.substr(0,2),
             "regency":myParamId,
         }
-        // const data = await this.props.fetchData(`http://localhost:8000/api/search/?page=${page}`,ParameterPostData);
-        const data = await this.props.fetchData(`http://localhost:8000/api/search/favorite`, ParameterPostData);
+        const data = await this.props.fetchData(`${getUrlBackend}api/search/favorite`, ParameterPostData);
     }
     getCityDataSMP=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
         let ParameterPostData = {
             "stage":"smp",
-            // "status":"1",
-            // "province":myParamId.substr(0,2),
             "regency":myParamId,
         }
-        // const data = await this.props.fetchDataSMP(`http://localhost:8000/api/search/?page=${page}`,ParameterPostData);
-        const data = await this.props.fetchDataSMP(`http://localhost:8000/api/search/favorite`,ParameterPostData);
+        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/search/favorite`,ParameterPostData);
     }
     getCityDataSMA=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
         let ParameterPostData = {
             "stage":"sma",
-            // "status":"1",
-            // "province":myParamId.substr(0,2),
             "regency":myParamId,
         }
-        // console.log(myParam);
-        // const data = await this.props.fetchDataSMA(`http://localhost:8000/api/search/?page=${page}`,ParameterPostData);
-        const data = await this.props.fetchDataSMA(`http://localhost:8000/api/search/favorite`,ParameterPostData);
+        const data = await this.props.fetchDataSMA(`${getUrlBackend}api/search/favorite`,ParameterPostData);
     }
     getCityName=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchCityName(`http://localhost:8000/api/regency/${myParamId}/sd?page=1`);
+        const data = await this.props.fetchCityName(`${getUrlBackend}api/regency/${myParamId}/sd?page=1`);
     }
     getProvName=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchProvName(`http://localhost:8000/api/province/${myParamId.substr(0,2)}/sd`);
+        const data = await this.props.fetchProvName(`${getUrlBackend}api/province/${myParamId.substr(0,2)}/sd`);
     }
     dataArrayToAsc=(data)=> {
         if(data.length > 1){
-            // console.log(data);
             return data.sort((a, b)=>{
                 let x = a.titleCard.toLowerCase();
                 let y = b.titleCard.toLowerCase();
@@ -324,24 +317,26 @@ class FavoriteDetail extends Component {
                             />
                         </section>
                         <section>
-                            <BadgesDesktop
+                            <DesktopBadgeUsingRadioButton
                                 store={[
                                     {
                                         name:"SD & MI",
                                         idContent: "desktopSDdanMI",
-                                        idBadges: "firstIdBadgesForFavoriteDetail"
+                                        idBadges: "firstIdBadgesForFavoriteDetail",
+                                        otherId: "idForRadioButtonSD"
                                     },
                                     {
                                         name:"SMP & MTS", 
                                         idContent: "desktopSmpMts",
-                                        idBadges: "secondIdBadgesForFavoriteDetail"
+                                        idBadges: "secondIdBadgesForFavoriteDetail",
+                                        otherId: "idForRadioButtonSMP"
                                     },
                                     {
                                         name:"SMA, SMK, & MA", 
                                         idContent: "desktopSmaSmkMa",
-                                        idBadges: "thirdIdBadgesForFavoriteDetail"
+                                        idBadges: "thirdIdBadgesForFavoriteDetail",
+                                        otherId: "idForRadioButtonSMA"
                                     },
-                                    // {name:"Universitas", idContent: "desktopUniv"},
                                 ]}
                                 placeholderSearch="Cari Sekolah"
                                 onChangeSearch={(e)=>{this.setState({favoriteSearch:e.target.value})}}
@@ -354,7 +349,7 @@ class FavoriteDetail extends Component {
                             />
                             <div style={{marginTop:"25px"}}></div>
                         </section>
-                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
+                        <section id="desktopSDdanMI" style={{display:"block"}} className="tabcontendetailDesktop">
                             <CardImageTertiarayDesktop 
                                 store={newArrayFaforiteDetail.length > 0 && this.state.sortBy === "az" ? this.dataArrayToAsc(newArrayWithFilterSearch).slice(0,this.state.limitPerPage) : 
                                 newArrayFaforiteDetail.length > 0 && this.state.sortBy === "za" ? this.dataArrayToDesc(newArrayWithFilterSearch).slice(0,this.state.limitPerPage) : 

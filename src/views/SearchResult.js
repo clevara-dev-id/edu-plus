@@ -109,6 +109,10 @@ const storeDesktop = [
 
 let dataSearchResultMaptoProps=[];
 
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
+
+
 class SearchResult extends Component {
     constructor(props) {
         super(props);
@@ -132,7 +136,7 @@ class SearchResult extends Component {
             "regency":myParamId.substr(0,4),
             "district" : myParamId,
         }
-        const data = await this.props.fetchData(`http://localhost:8000/api/search/?page=${page}`,ParameterPostData);
+        const data = await this.props.fetchData(`${getUrlBackend}api/search/?page=${page}`,ParameterPostData);
     }
     dataArrayToAsc=(data)=> {
         if(data.length > 1){

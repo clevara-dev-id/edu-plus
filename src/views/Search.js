@@ -124,7 +124,10 @@ const provArray=[
         "id": 36,
         "name": "BANTEN"
     },
-]
+];
+
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
 
 class Search extends Component {
     constructor(props) {
@@ -148,16 +151,16 @@ class Search extends Component {
         // this.getDistrictData();
     }
     getProvinceData=async(page)=>{ 
-        const data = await this.props.fetchData(`http://localhost:8000/api/search/init`);
+        const data = await this.props.fetchData(`${getUrlBackend}api/search/init`);
     }
     getCityData=async(getProvId)=>{
 
-        const data = await this.props.fetchDataCity(`http://localhost:8000/api/search/get-regency/${getProvId}`);
+        const data = await this.props.fetchDataCity(`${getUrlBackend}api/search/get-regency/${getProvId}`);
         
     }
     getDistrictData=async(getCityId)=>{
         // getCityId=3101;
-        const data = await this.props.fetchDataDistrict(`http://localhost:8000/api/search/get-district/${getCityId}`);
+        const data = await this.props.fetchDataDistrict(`${getUrlBackend}api/search/get-district/${getCityId}`);
     }
     onClickSearchDetailHandle = () =>{
         window.location=`/searchresult?district_id=${this.state.district_id}&&educationstage=${this.state.education_stage}&&status=${this.state.status}`;

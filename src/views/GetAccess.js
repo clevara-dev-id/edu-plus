@@ -98,7 +98,8 @@ const autocompletesearch = [
 
 ];
 
-const getUrlBackend = "http://localhost:8000/"
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://139.180.184.84/"
 
 class GetAccess extends Component {
     constructor(props){
