@@ -210,7 +210,20 @@ class Search extends Component {
                                     this.getCityData(e.target.value);
                                     this.resetEveryClick();
                                 }}
-                                store={provArray} 
+                                store={[        
+                                    {
+                                        "id": 31,
+                                        "name": "DKI JAKARTA"
+                                    },
+                                    {
+                                        "id": 32,
+                                        "name": "JAWA BARAT"
+                                    },
+                                    {
+                                        "id": 36,
+                                        "name": "BANTEN"
+                                    },
+                                ]} 
                                 placeholder="Pilih Provinsi"
                                 title="Provinsi"
                                 className="provdropdownclass"
