@@ -127,7 +127,10 @@ const provArray=[
 ];
 
 // const getUrlBackend = "http://localhost:8000/"
-const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "https://admin.edukasiplus.com/"
+const getUrlBackend = "https://backend.edukasiplus.com/"
+
 
 class Search extends Component {
     constructor(props) {
@@ -291,13 +294,14 @@ class Search extends Component {
                                 onClick={(e)=>{
                                     this.setState({province_id : e.target.value, cityDisable:false});
                                     this.getCityData(e.target.value);
-                                }}
-                                store={this.props.searchpageprov} 
+                                    this.resetEveryClick();
+                                }}                                
+                                store={provArray} 
                                 placeholder="Pilih Provinsi"
                                 title="Provinsi"
                                 className="provdropdownclass"
                                 buttonClass="citybuttonclickprovregistercontent"
-                                disabledButton={false}
+                                // disabledButton={false}
                             />
                             <DropdownListFilterFour
                                 onClick={(e)=>{
@@ -356,7 +360,7 @@ class Search extends Component {
                             <BottomTitle 
                                 name="Daftarkan Sekolah atau tempat kursus anda" 
                                 namelink="disini"
-                                link="/register" 
+                                link="/getaccess" 
                             />
                         </section>
                     </OnMobile>

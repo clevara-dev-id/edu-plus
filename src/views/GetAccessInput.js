@@ -40,7 +40,10 @@ import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.p
 
 //Const Http dummy
 // const getUrlBackend = "http://localhost:8000/"
-const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://edukasiplus.com/"
+// const getUrlBackend = "https://admin.edukasiplus.com/"
+const getUrlBackend = "https://backend.edukasiplus.com/"
 
 class GetAccessInput extends Component {
     constructor(props){
@@ -80,6 +83,7 @@ class GetAccessInput extends Component {
                 name:this.state.nameValue,
                 school_name: this.state.valueSchoolsName,
                 npsn: this.state.valueSchoolsId,
+                npsn: "60709165",
                 email:this.state.emailValue,
                 position: this.state.positionValue,
                 phone_number: this.state.phoneValue,
@@ -90,12 +94,22 @@ class GetAccessInput extends Component {
             const sendData = {
                 name:this.state.nameValue,
                 school_name: this.props.getaccessInput.name,
-                npsn: this.props.getaccessInput.npsn,
+                npsn: this.state.valueSchoolsId,
                 email:this.state.emailValue,
                 position: this.state.positionValue,
                 phone_number: this.state.phoneValue,
                 uuid: uuidParam,
             }
+            // let formData = new FormData();
+            // formData.append("name", this.state.nameValue);
+            // formData.append("school_name", this.props.getaccessInput.name);
+            // formData.append("npsn", this.state.nameValue);
+            // formData.append("email", this.state.nameValue);
+            // formData.append("position", this.state.nameValue);
+            // formData.append("phone_number", this.state.nameValue);
+            // formData.append("uuid", this.state.nameValue);
+
+
             const data = await this.props.fetchInputData(`${getUrlBackend}api/attempt/get-access`, sendData);
         }
         
@@ -150,7 +164,7 @@ class GetAccessInput extends Component {
                                 getAccessInputButtonId="buttonIdForGetAccessInput"
                                 schoolsDisable={this.state.isSchoolResgistered===true ? true : false}
                                 valueSchoolsName={this.state.isSchoolResgistered===true ?this.props.getaccessInput.name:this.state.valueSchoolsName}
-                                valueSchoolsId={this.state.isSchoolResgistered===true ?this.props.getaccessInput.npsn: this.state.valueSchoolsId}
+                                // valueSchoolsId={this.state.isSchoolResgistered===true ?this.props.getaccessInput.npsn: this.state.valueSchoolsId}
                             />
                         </section>
                         <section >

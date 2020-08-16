@@ -179,7 +179,7 @@ const FormGetAccessDesktop = props => {
                         </DivInputSchools>
                     </Col>
                     <Col>
-                        <DivInputSchools {...props}>
+                        <DivInput {...props}>
                             <DivTitle>NPSN</DivTitle>
                             <div className="inputClass">
                                 <InputEmail 
@@ -189,11 +189,11 @@ const FormGetAccessDesktop = props => {
                                     placeholder="Nomor Pokok Sekolah Nasional"
                                     onChange={props.onChangeSchoolsId}
                                     onKeyUp={()=>{IsSchoolsIdValid()}}
-                                    disabled={props.schoolsDisable}
-                                    value={props.valueSchoolsId}
+                                    // disabled={props.schoolsDisable}
+                                    // value={props.valueSchoolsId}
                                 />
                             </div>
-                        </DivInputSchools>
+                        </DivInput>
                     </Col>
                 </Row>
                 <Row>

@@ -250,7 +250,9 @@ const storeDesktop2 =[
 ];
 
 // const getUrlBackend = "http://localhost:8000/"
-const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "https://admin.edukasiplus.com/"
+const getUrlBackend = "https://backend.edukasiplus.com/"
 
 
 class Detail extends Component {
@@ -262,7 +264,7 @@ class Detail extends Component {
     }
     componentDidMount=async ()=>{
         this.getDetailData(1);
-        this.getCityData(1);
+        // this.getCityData(1);
     }
     getDetailData=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
@@ -509,10 +511,10 @@ class Detail extends Component {
                             <div style={{marginTop: "30px"}} />
                             <DesktopDescription
                                 store={this.props.schoolsCost !==null ? newArrayCost : [
-                                        {   
-                                            title:"Potongan / Diskon", 
-                                            description : "-"
-                                        }  
+                                    {   
+                                        title:"Potongan / Diskon", 
+                                        description : "-"
+                                    }  
                                 ]}
                             />
                             <div style={{marginBottom: "30px"}} />
@@ -722,7 +724,7 @@ class Detail extends Component {
                                 name="Cari Sekolah lainnya"
                                 id="buttonDetailForm"
                                 width="227px"
-                                onClick={()=>{console.log("this is button")}}
+                                onClick={()=>{this.searchAnotherSchools()}}
                             />
                             <div style={{marginTop: "25px"}}></div>
                         </section>

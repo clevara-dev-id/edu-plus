@@ -11,7 +11,7 @@ import Detail from './views/Detail';
 // import DetailSecondary from './views/DetailSecondary';
 import ContactUs from './views/ContactUs';
 import GetAccess from './views/GetAccess';
-import GetAccessDetail from './views/GetAccessDetail';
+// import GetAccessDetail from './views/GetAccessDetail';
 import GetAccessInput from './views/GetAccessInput';
 import Login from './views/Auth/Login';
 import Register from './views/Auth/Register';
@@ -31,7 +31,7 @@ const BaseRoute = () => {
                 {/* <Route exact path="/detailsecondary" component={DetailSecondary} /> */}
                 <Route exact path="/contactus" component={ContactUs} />
                 <Route exact path="/getaccess" component={GetAccess} />
-                <Route exact path="/getaccessdetail" component={GetAccessDetail} />
+                {/* <Route exact path="/getaccessdetail" component={GetAccessDetail} /> */}
                 <Route exact path="/getaccessinput" component={GetAccessInput} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />

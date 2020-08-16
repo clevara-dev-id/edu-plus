@@ -110,7 +110,9 @@ const storeDesktop = [
 let dataSearchResultMaptoProps=[];
 
 // const getUrlBackend = "http://localhost:8000/"
-const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "https://admin.edukasiplus.com/"
+const getUrlBackend = "https://backend.edukasiplus.com/"
 
 
 class SearchResult extends Component {
@@ -315,7 +317,7 @@ class SearchResult extends Component {
                     </section> */}
                     <section>
                         <DropDownList 
-                            onClick={(e)=>{console.log(e.target.value)}}
+                            onClick={(e)=>{this.setState({sortBy : e.target.value})}}
                             onClickArea={(e)=>{console.log(e.target.value)}}
                         />
                     </section>
@@ -327,10 +329,18 @@ class SearchResult extends Component {
                     </section>
                     <section>
                         <div style={{marginTop: "48px"}}></div>
-                        <CardImageTertiary store={newArraySearchResult} />
+                        <CardImageTertiary 
+                            store={newArraySearchResult.length > 0 && this.state.sortBy === "az" ? this.dataArrayToAsc(newArraySearchResult) :
+                            newArraySearchResult.length > 0 && this.state.sortBy === "za" ? this.dataArrayToDesc(newArraySearchResult):
+                            newArraySearchResult
+                            }                        
+                        />
                     </section>
                     <section>
-                        <ButtonSecondary name="CARI SEKOLAH LAINNYA" onClick={(e)=>{console.log("this is button Secondary Button !")}} />
+                        <ButtonSecondary 
+                            name="CARI SEKOLAH LAINNYA" 
+                            onClick={()=>{this.searchAnotherSchools()}}
+                        />
                     </section>
                 </OnMobile>                    
             </>

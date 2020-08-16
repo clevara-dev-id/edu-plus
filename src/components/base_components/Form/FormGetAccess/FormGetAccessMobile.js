@@ -184,7 +184,7 @@ const FormGetAccessMobile = props => {
                 </Row>
                 <Row>
                     <Col>
-                        <DivInputSchools {...props}>
+                        <DivInput {...props}>
                             <DivTitle>NPSN</DivTitle>
                             <div className="inputClass">
                                 <InputEmail 
@@ -194,11 +194,12 @@ const FormGetAccessMobile = props => {
                                     placeholder="Nomor Pokok Sekolah Nasional"
                                     onChange={props.onChangeSchoolsId}
                                     onKeyUp={()=>{IsSchoolsIdValid()}}
-                                    disabled={props.schoolsDisable}
-                                    value={props.valueSchoolsId}
+                                    autoComplete="off"
+                                    // disabled={props.schoolsDisable}
+                                    // value={props.valueSchoolsId}
                                 />
                             </div>
-                        </DivInputSchools>
+                        </DivInput>
                         <div className="errorClassDiv">
                             <span id="errorValueSchoolsId" ></span>
                         </div>
@@ -216,6 +217,7 @@ const FormGetAccessMobile = props => {
                                     placeholder="Masukan nama anda"
                                     onChange={props.onChangeName}
                                     onKeyUp={()=>{IsNameValid()}}
+                                    autoComplete="off"
                                 />
                             </div>
                         </DivInput>
@@ -236,6 +238,7 @@ const FormGetAccessMobile = props => {
                                     placeholder="Jabatan anda di sekolah ini"
                                     onChange={props.onChangePosition}
                                     onKeyUp={()=>{IsPositionValid()}}
+                                    autoComplete="off"
                                 />
                             </div>
                         </DivInput>
@@ -256,6 +259,7 @@ const FormGetAccessMobile = props => {
                                     placeholder="Masukan email anda"
                                     onChange={props.onChangeEmail}
                                     onKeyUp={()=>{IsEmailValid()}}
+                                    autoComplete="off"
                                 />
                             </div>
                         </DivInput>
@@ -276,6 +280,7 @@ const FormGetAccessMobile = props => {
                                     placeholder="Masukan nomor telepon"
                                     onChange={props.onChangePhone}
                                     onKeyUp={()=>{IsPhoneValid()}}
+                                    autoComplete="off"
                                 />
                             </div>
                         </DivInput>

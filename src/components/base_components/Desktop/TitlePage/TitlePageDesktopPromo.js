@@ -24,6 +24,7 @@ const TitlePageDesktopPromo = props => {
 
 const TitleDiv = styled.h5(
     props => ({
+    width: "370px",
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: "24px",

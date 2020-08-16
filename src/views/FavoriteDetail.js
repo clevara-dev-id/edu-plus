@@ -122,7 +122,10 @@ let dataCityMaptoPropsSMP=[];
 let dataCityMaptoPropsSMA=[];
 
 // const getUrlBackend = "http://localhost:8000/"
-const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "https://admin.edukasiplus.com/"
+const getUrlBackend = "https://backend.edukasiplus.com/"
+
 
 class FavoriteDetail extends Component {
     constructor(props) {
@@ -138,10 +141,10 @@ class FavoriteDetail extends Component {
     }
     componentDidMount=async ()=>{
         this.getCityData(1);
-        this.getCityDataSMP(1);
-        this.getCityDataSMA(1);
-        this.getProvName();
-        this.getCityName();
+        // this.getCityDataSMP(1);
+        // this.getCityDataSMA(1);
+        // this.getProvName();
+        // this.getCityName();
     }
     getCityData=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
@@ -150,7 +153,8 @@ class FavoriteDetail extends Component {
             "stage":"sd",
             "regency":myParamId,
         }
-        const data = await this.props.fetchData(`${getUrlBackend}api/search/favorite`, ParameterPostData);
+        // const data = await this.props.fetchData(`${getUrlBackend}api/search/favorite`, ParameterPostData);
+        const data = await this.props.fetchData (`${getUrlBackend}api/favorite/${myParamId}/mts`);
     }
     getCityDataSMP=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
@@ -159,7 +163,9 @@ class FavoriteDetail extends Component {
             "stage":"smp",
             "regency":myParamId,
         }
-        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/search/favorite`,ParameterPostData);
+        // const data = await this.props.fetchDataSMP(`${getUrlBackend}api/search/favorite`,ParameterPostData);
+        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/favorite/${myParamId}/sd`);
+
     }
     getCityDataSMA=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
@@ -305,7 +311,7 @@ class FavoriteDetail extends Component {
                         <section>
                             <JumbotronDesktopBlueSecondary
                                 primaryText="Sekolah Favorit"
-                                secondaryText={this.props.getCityName}
+                                secondaryText={this.props.getProvName}
                             />
                         </section>
                         <section>
@@ -313,7 +319,8 @@ class FavoriteDetail extends Component {
                             <BreadCrumbDesktop 
                                 store={[{name:"Home"},
                                 {name:this.props.getProvName, link:"#"},
-                                {name:this.props.getCityName, link:"#"}]}
+                                // {name:this.props.getCityName, link:"#"}
+                            ]}
                             />
                         </section>
                         <section>

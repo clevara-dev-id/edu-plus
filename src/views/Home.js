@@ -191,7 +191,11 @@ let dataProvMaptoPropsSMP=[];
 let dataProvMaptoPropsSMA=[];
 
 // const getUrlBackend = "http://localhost:8000/"
-const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://edukasiplus.com/"
+// const getUrlBackend = "https://admin.edukasiplus.com/"
+const getUrlBackend = "https://backend.edukasiplus.com/"
+
 
 class Home extends Component {
     constructor(props) {
@@ -353,7 +357,7 @@ class Home extends Component {
             let schoolCount='', linkCard='', messageCommingSoon;
             if(newData.favorite_count > 0){
                 schoolCount= newData.favorite_count+"  SEKOLAH";
-                linkCard=`/favorite?id=${newData.id}`;
+                linkCard=`/favoritedetail?id=${newData.id}`;
                 messageCommingSoon=false
             }
             else{
@@ -374,7 +378,7 @@ class Home extends Component {
             let schoolCount='', linkCard='', messageCommingSoon;
             if(newData.favorite_count > 0){
                 schoolCount= newData.favorite_count+"  SEKOLAH";
-                linkCard=`/favorite?id=${newData.id}`;
+                linkCard=`/favoritedetail?id=${newData.id}`;
                 messageCommingSoon=false
             }
             else{
@@ -395,7 +399,7 @@ class Home extends Component {
             let schoolCount='', linkCard='', messageCommingSoon;
             if(newData.favorite_count > 0){
                 schoolCount= newData.favorite_count+"  SEKOLAH";
-                linkCard=`/favorite?id=${newData.id}`;
+                linkCard=`/favoritedetail?id=${newData.id}`;
                 messageCommingSoon=false
             }
             else{
@@ -539,7 +543,7 @@ class Home extends Component {
                         </section>
                         <section>
                             <div style={{marginTop: "10px"}} />
-                            <CarouselMobileSecondary store={imageSliderStore} />
+                            <CarouselMobileSecondary store={newArrayPromo} />
                         </section>
 
                         <section>
@@ -575,7 +579,7 @@ class Home extends Component {
                                 placeholder="Cari Provinsi"
                             />
                         </section>
-                        <section style={{display: "none"}} id="mobileSDdanMI" className="tabcontendetail">
+                        <section style={{display: "block"}} id="mobileSDdanMI" className="tabcontendetail">
                             <div style={{marginTop: "25px"}}></div>
                             <CardImageMobile 
                                 store={newArrayWithFilterSearch.slice(0,this.state.limitPerPage)}

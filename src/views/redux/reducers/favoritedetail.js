@@ -21,13 +21,14 @@ export function favoriteDetailAreLoading(state = false, action) {
 export function favoriteDetail(state = [], action) {
     switch (action.type) {
         case 'FAVORITEDETAIL_FETCH_DATA_SUCCESS':
-            console.log(action);
-            return action.api.data;
+            console.log(action.api);
+            return action.api.school[0].schools;
 
         default:
             return state;
     }
 }
+
 
 export function favoriteDetailSMP(state = [], action) {
     switch (action.type) {
@@ -91,7 +92,7 @@ export function getCityName(state = [], action) {
 
 export function getProvName(state = [], action) {
     switch (action.type) {
-        case 'FAVORITEDETAIL_FETCH_PROVNAME_SUCCESS':
+        case 'FAVORITEDETAIL_FETCH_DATA_SUCCESS':
             return action.api.province_name.name;
 
         default:

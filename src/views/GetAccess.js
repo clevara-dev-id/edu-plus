@@ -99,7 +99,9 @@ const autocompletesearch = [
 ];
 
 // const getUrlBackend = "http://localhost:8000/"
-const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "https://admin.edukasiplus.com/"
+const getUrlBackend = "https://backend.edukasiplus.com/"
 
 class GetAccess extends Component {
     constructor(props){
@@ -260,6 +262,27 @@ class GetAccess extends Component {
                                 onChange={(e)=>{this.setState({fieldResult:e.target.value})}}
                                 label="Masukannamasekolah"
                                 placeholder="Masukan nama Sekolah/Kursusan"
+
+                                onChange={(e)=>{
+                                    this.setState({fieldResult:e.target.value});
+                                    // this.delayAutoComplete();
+                                    this.searchAoutoComplete(e.target.value);
+                                }}
+                                onKeyPress={(e)=>{
+                                    if(e.key === 'enter' || e.key === 'Enter'){
+                                        this.onButtonSearchClick();
+                                    }
+                                }}
+                                // onKeyUp={(e)=>{this.searchAoutoComplete(e.target.value)}}
+                                valueSearch={this.state.fieldResult}
+                                // onChange={(e)=>{console.log(e.target.value)}}
+                                autocompletedata={this.props.getAccessAutoComplete.length > 0 ? this.props.getAccessAutoComplete : []}
+                                onClickAutoComplete={(e)=>{
+                                    this.setState({fieldResult:e.target.value});
+                                    if(this.props.getAccess.length > 0){
+                                        this.onButtonSearchClick(e.target.value)
+                                    }
+                                }}
                             />
                         </section>
                         <section>

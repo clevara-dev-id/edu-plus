@@ -44,3 +44,38 @@ export function getaccessInputSendhData (url, data) {
         }, 250);
     };
 }
+
+// export function getaccessInputSendhData(url, data) {
+//     return (dispatch) => {
+//         dispatch(getaccessInputSendAreLoading(true));
+
+//         setTimeout(async() => {
+//             const requestOptions = {
+//                 method: 'POST',
+//                 headers: { 
+//                     'Content-Type': 'application/json',
+//                     // 'Authorization': `Bearer ${valueToken}`,
+//                     'My-Custom-Header': 'foobar'
+//                 },
+//                 body: data
+//             };
+//             fetch(url, requestOptions)
+//             .then(response => {
+//                 // console.log(response);
+//                 if (response.status !== 200) {
+//                     throw Error(response.statusText);
+//                 }
+//                 dispatch(getaccessInputSendAreLoading(false));
+//                 return response.json();
+//             })
+//             .then(responseJSON => {
+//                 console.log(responseJSON);
+//                 dispatch(getaccessInputSendDataSuccess(responseJSON))
+
+//             })
+//             .catch((error)=>{
+//                 dispatch(getaccessInputSendHaveError(true));
+//             })
+//         }, 500);
+//     };
+// }

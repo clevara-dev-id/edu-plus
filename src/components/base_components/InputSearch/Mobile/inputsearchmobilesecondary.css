@@ -5,6 +5,9 @@
     #inputSearchSecondaryContainer > .row > .col > .input-group > input {
         font-size: 14px;
     }
+    #dropDownContentGetAccessListMobile{
+        width: 290px;
+    }
 }
 @media screen and (min-width: 360px){
     #inputSearchSecondaryContainer{
@@ -13,6 +16,9 @@
     #inputSearchSecondaryContainer > .row > .col > .input-group > input {
         font-size: 16px;
     }
+    #dropDownContentGetAccessListMobile{
+        width: 330px;
+    }
 }
 @media screen and (min-width: 375px){
     #inputSearchSecondaryContainer{
@@ -20,6 +26,9 @@
     }
     #inputSearchSecondaryContainer > .row > .col > .input-group > input {
         font-size: 16px;
+    }
+    #dropDownContentGetAccessListMobile{
+        width: 345px;
     }
 }
 #inputSearchSecondaryContainer > .row > .col > .input-group > input{
@@ -50,4 +59,33 @@
     outline:0px !important;
     -webkit-appearance:none;
     box-shadow: none !important;
+}
+
+#inputSearchSecondaryContainer > .row > .col > .input-group{
+    z-index: 3;
+}
+
+#dropDownContentGetAccessListMobile{
+    margin-top: -28px;
+    z-index: 2;
+}
+
+#dropDownContentGetAccessListMobile option {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 17px;
+    color: black;
+    padding: 12px 16px;
+    padding-left:0px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#dropDownContentGetAccessListMobile option:hover {
+    color: #ffffff;
+    background: #1A6EB2;
 }

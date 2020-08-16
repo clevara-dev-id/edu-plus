@@ -25,7 +25,7 @@ export function getaccessInputSendData(state = [], action) {
         case 'GETACCESS_INPUT_SEND_DATA_SUCCESS':
             console.log(action);
             if(action.api.success===true){
-                SweetAlert("Berhasil Dapatkan Akses !","Anda Telah Berhasil Daftar", "success" );
+                SweetAlert("Berhasil Dapatkan Akses !","Berhasil dapatkan Akses. Pihak Eduplus melalui email halo@eduplus.com atau no. telp. +62 999 9999 9999 akan segera menghubungi anda untuk melakukan verifikasi lebih lanjut, Terimakasih", "success" );
             }
             else
             {

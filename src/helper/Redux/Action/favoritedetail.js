@@ -55,9 +55,9 @@ export function favoriteDetailFetchData(url, data) {
         dispatch(favoriteDetailAreLoading(true));
 
         setTimeout(() => {
-            axios.get(url,data)
+            axios.post(url,data)
                 .then((response) => {
-                    console.log(response.data);
+                    // console.log(response.data);
                     if (response.status !== 200) {
                         throw Error(response.statusText);
                     }
@@ -79,7 +79,7 @@ export function favoriteDetailFetchDataSMP(url, data) {
         dispatch(favoriteDetailAreLoading(true));
 
         setTimeout(() => {
-            axios.get(url, data)
+            axios.post(url, data)
                 .then((response) => {
                     // console.log(response.data);
                     if (response.status !== 200) {
@@ -103,7 +103,7 @@ export function favoriteDetailFetchDataSMA(url, data) {
         dispatch(favoriteDetailAreLoading(true));
 
         setTimeout(() => {
-            axios.get(url, data)
+            axios.post(url, data)
                 .then((response) => {
                     // console.log(response.data);
                     if (response.status !== 200) {
