@@ -396,7 +396,7 @@ class FavoriteDetail extends Component {
                         <section>
                             <JumbotronMobileSecondary
                                 primaryText="Sekolah Favorit"
-                                secondaryText={this.props.getCityName}
+                                secondaryText={this.props.getProvName}
                             />
                         </section>
                         <section>
@@ -404,7 +404,7 @@ class FavoriteDetail extends Component {
                             <BreadCrumbMobile 
                                 store={[{name:"Home"},
                                     {name:this.props.getProvName, link:"#"},
-                                    {name:this.props.getCityName, link:"#"}
+                                    // {name:this.props.getCityName, link:"#"}
                                 ]}                            
                             />
                         </section>
