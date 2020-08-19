@@ -8,8 +8,23 @@ import Icon from 'react-web-vector-icons';
 import './dropdownlistfilterfourdesktop.css';
 import '../../Icon/Mobile/Icon';
 
+const store=[        
+    {
+        id: 31,
+        name: "DKI JAKARTA"
+    },
+    {
+        id: 32,
+        name: "JAWA BARAT"
+    },
+    {
+        id: 36,
+        name: "BANTEN"
+    },
+];
 
-const DropDownListFilterFourDesktop = props => {
+
+const DropDownListFilterFourDesktop = (props) => {
     const [visible, setVisible]=useState(false);
     const [pickItem, setMyPickItem]=useState(props.placeholder);
     const [visibleTwo, setVisibleTwo]=useState(false);
@@ -48,9 +63,11 @@ const DropDownListFilterFourDesktop = props => {
         });
         $(`.${props.classNameTwo} > option`).click((event)=>{
             setMyPickItemTwo(event.target.innerHTML);
-            hideTwo()
+            hideTwo();
         });
     });
+    console.log("this drop down")
+    console.log(props.store);
     return (
         <>
             <Container id="dropdownfilterfourdesktopContainer">
@@ -81,11 +98,11 @@ const DropDownListFilterFourDesktop = props => {
                                         <DropDownListContent id="myDropdownFilterFour" className={props.className} >
                                             {props.store.map((data)=>{
                                                 return(
-                                                    // <li onClick={()=>{setMyPickItem(data.name);hide()}}>
+                                                    <>
                                                         <option value={data.id} onClick={props.onClick}>{data.name}</option>
-                                                    // </li>
-                                                );
-                                            })}
+                                                    </>
+                                                );}
+                                            )}
                                         </DropDownListContent>                
                                     </MyDropDownDiv>
                                 </Col>
@@ -119,9 +136,9 @@ const DropDownListFilterFourDesktop = props => {
                                         <DropDownListContent id="myDropdownFourSecondary" className={props.classNameTwo} >
                                             {props.storeTwo.map((data)=>{
                                                 return(
-                                                    // <li onClick={()=>{setMyPickItemTwo(data.name);hideTwo()}}>
+                                                    <>
                                                         <option value={data.id} onClick={props.onClickTwo}>{data.name}</option>
-                                                    // </li>
+                                                    </>
                                                 );
                                             })}
                                         </DropDownListContent>                

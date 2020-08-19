@@ -149,7 +149,7 @@ class Search extends Component {
         };
     }
     componentDidMount=async ()=>{
-        this.getProvinceData(1);
+        await this.getProvinceData(1);
         // this.getCityData();
         // this.getDistrictData();
     }
@@ -179,6 +179,12 @@ class Search extends Component {
         if (this.props.isLoading) {
             return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>Loading…</p>;
         }
+        let newArrayForProvlist=[];
+        if(this.props.searchpageprov.length !== 0){
+            this.props.searchpageprov.map((data,index)=>{
+                newArrayForProvlist[index]=data;
+            });
+        }
         // let newCityArray=[];
         // if(this.props.searchpagecity.length > 0){
         //     this.props.searchpagecity.map((data, index)=>{
@@ -188,7 +194,7 @@ class Search extends Component {
         //         }
         //     });
         // }
-        // console.log(this.props.searchpagedistrict);
+        console.log(this.props.searchpageprov);
         return (
             <>
                 <div>
@@ -210,20 +216,7 @@ class Search extends Component {
                                     this.getCityData(e.target.value);
                                     this.resetEveryClick();
                                 }}
-                                store={[        
-                                    {
-                                        "id": 31,
-                                        "name": "DKI JAKARTA"
-                                    },
-                                    {
-                                        "id": 32,
-                                        "name": "JAWA BARAT"
-                                    },
-                                    {
-                                        "id": 36,
-                                        "name": "BANTEN"
-                                    },
-                                ]} 
+                                store={newArrayForProvlist} 
                                 placeholder="Pilih Provinsi"
                                 title="Provinsi"
                                 className="provdropdownclass"
