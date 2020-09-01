@@ -21,8 +21,8 @@ export function favoriteDetailAreLoading(state = false, action) {
 export function favoriteDetail(state = [], action) {
     switch (action.type) {
         case 'FAVORITEDETAIL_FETCH_DATA_SUCCESS':
-            console.log(action.api);
-            return action.api.school[0].schools;
+            console.log(action);
+            return action.api.school;
 
         default:
             return state;
@@ -33,7 +33,8 @@ export function favoriteDetail(state = [], action) {
 export function favoriteDetailSMP(state = [], action) {
     switch (action.type) {
         case 'FAVORITEDETAIL_FETCH_DATA_SUCCESS_SMP':
-            return action.api.data;
+            console.log(action);
+            return action.api.school;
 
         default:
             return state;
@@ -43,57 +44,7 @@ export function favoriteDetailSMP(state = [], action) {
 export function favoriteDetailSMA(state = [], action) {
     switch (action.type) {
         case 'FAVORITEDETAIL_FETCH_DATA_SUCCESS_SMA':
-            return action.api.data;
-
-        default:
-            return state;
-    }
-}
-
-// export function currentfavoriteDetail(state = [], action) {
-//     switch (action.type) {
-//         case 'FAVORITEDETAIL_FETCH_DATA_SUCCESS':
-//             return action.api.data.current_page;
-
-//         default:
-//             return state;
-//     }
-// }
-
-// export function currentfavoriteDetailSMP(state = [], action) {
-//     switch (action.type) {
-//         case 'FAVORITEDETAIL_FETCH_DATA_SUCCESS_SMP':
-//             return action.api.data.current_page;
-
-//         default:
-//             return state;
-//     }
-// }
-
-// export function currentfavoriteDetailSMA(state = [], action) {
-//     switch (action.type) {
-//         case 'FAVORITEDETAIL_FETCH_DATA_SUCCESS_SMA':
-//             return action.api.data.current_page;
-
-//         default:
-//             return state;
-//     }
-// }
-
-export function getCityName(state = [], action) {
-    switch (action.type) {
-        case 'FAVORITEDETAIL_FETCH_CITYNAME_SUCCESS':
-            return action.api.regency_name.name;
-
-        default:
-            return state;
-    }
-}
-
-export function getProvName(state = [], action) {
-    switch (action.type) {
-        case 'FAVORITEDETAIL_FETCH_DATA_SUCCESS':
-            return action.api.province_name.name;
+            return action.api.school;
 
         default:
             return state;

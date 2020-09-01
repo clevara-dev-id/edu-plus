@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import $ from 'jquery';
+
 import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
 
 //Redux 
@@ -40,6 +42,7 @@ import CardImage4 from '../components/asset/images/CardList/SMAN93JAKARTA.png';
 
 //Image For School List
 import ImageSchool from '../asset/image/SchoolLists/schoolsILustrator.png';
+import { Next } from 'react-bootstrap/PageItem';
 
 //dummy Mobile
 const storeMobile = [
@@ -109,22 +112,42 @@ const storeDesktop = [
 
 let dataSearchResultMaptoProps=[];
 
-// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://139.180.184.84/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
-const getUrlBackend = "https://backend.edukasiplus.com/"
+// const getUrlBackend = "https://backend.edukasiplus.com/"
 
 
 class SearchResult extends Component {
     constructor(props) {
         super(props);
         this.state =  {
+          currenPageSearchResult:1,
           favoriteData:[],
           sortBy:'',
         };
     }
     componentDidMount=async ()=>{
         this.getSchoolsData(1);
+    }
+    componentDidUpdate=()=>{
+        if(this.props.searchResultData.length !== 0){
+                $(window).scroll(()=> {
+                    let hT = $('#cardimageSeacrhResultId').offset().top,
+                        hH = $('#cardimageSeacrhResultId').outerHeight(),
+                        wH = $(window).height(),
+                        wS = $(window).scrollTop();
+                    if(this.props.currentSearchResult < this.props.lastSearchResult){
+                        if (wS > (hT+hH-wH)){
+                            $('#buttonLoadmoreSearchResult').click();
+                        }
+                    }
+                });
+
+        }
+    }
+    componentWillUnmount() {
+        document.removeEventListener('scroll');
     }
     getSchoolsData=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
@@ -138,7 +161,7 @@ class SearchResult extends Component {
             "regency":myParamId.substr(0,4),
             "district" : myParamId,
         }
-        const data = await this.props.fetchData(`${getUrlBackend}api/search/?page=${page}`,ParameterPostData);
+        const data = await this.props.fetchData(`${getUrlBackend}api/search/?page=${page}`, ParameterPostData);
     }
     dataArrayToAsc=(data)=> {
         if(data.length > 1){
@@ -195,11 +218,11 @@ class SearchResult extends Component {
     }
     render() {
         if (this.props.hasError) {
-            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><p id="cardimageSeacrhResultId"></p>
                 Sorry! There was an error loading the items</p>;
         }
         if (this.props.isLoading) {
-            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>Loading…</p>;
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><p id="cardimageSeacrhResultId"></p>Loading…</p>;
         }
         let newArraySearchResult=[], searchResultIndex=0, imageForSchools;
         let newArrayWithFilterSearchResult=[];
@@ -233,11 +256,11 @@ class SearchResult extends Component {
             <>
                 <OnDesktop>
                     <section>
-                            <div style={{marginTop:"25px"}}></div>
-                            <BreadCrumbDesktop 
-                                store={[{name:"Home"},{name:"Search", link:"#"},{name:"Hasil Pencarian", link:"#"}]}
-                            />
-                        </section>
+                        <div style={{marginTop:"25px"}}></div>
+                        <BreadCrumbDesktop 
+                            store={[{name:"Home"},{name:"Search", link:"#"},{name:"Hasil Pencarian", link:"#"}]}
+                        />
+                    </section>
                     <section>
                         <div style={{marginTop:"36px"}}></div>
                         <TitlePageHeaderDesktop
@@ -269,16 +292,23 @@ class SearchResult extends Component {
                             store={[{name:`${this.props.countSearchResult} Data ditemukan`, idContent: "desktopSchoolsContactId"}]}
                         />
                     </section>
-                    <section>   
+                    <section id="cardimageSeacrhResultId">   
                         <CardImageTertiarayDesktop 
                             store={newArraySearchResult.length > 0 && this.state.sortBy === "az" ? this.dataArrayToAsc(newArraySearchResult) :
-                                   newArraySearchResult.length > 0 && this.state.sortBy === "za" ? this.dataArrayToDesc(newArraySearchResult):
-                                   newArraySearchResult
+                                newArraySearchResult.length > 0 && this.state.sortBy === "za" ? this.dataArrayToDesc(newArraySearchResult):
+                                newArraySearchResult
                             }
                         />
                     </section>
                     <section>
                         <div style={{marginTop: "25px"}}></div>
+                        <ButtonAnotherSchoolsDesktop
+                            style={{display: "none"}}
+                            id="buttonLoadmoreSearchResult"
+                            name="loadMore"
+                            width="277px"
+                            onClick={()=>{this.getSchoolsData(this.state.currenPageSearchResult+1); this.setState({currenPageSearchResult: this.state.currenPageSearchResult+1})}}
+                        />
                         <ButtonAnotherSchoolsDesktop
                             name="CARI SEKOLAH LAINNYA"
                             width="277px"
@@ -349,10 +379,10 @@ class SearchResult extends Component {
 }
 const mapStateToProps = (state) => {
     dataSearchResultMaptoProps[state.currentSearchResult]=state.searchResult;
-    console.log()
     return {
         searchResultData: dataSearchResultMaptoProps,
         currentSearchResult : state.currentSearchResult,
+        lastSearchResult: state.lastSearchResult,
         countSearchResult: state.countSearchResult,
         stageSearchResult: state.stageSearchResult,
         hasError: state.searchResultHaveError,

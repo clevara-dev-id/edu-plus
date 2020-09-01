@@ -43,6 +43,12 @@ import {
 } 
 from './favoritedetail';
 
+import{
+    favoriteDetailProvDataHaveError,
+    favoriteDetailProvDataAreLoading,
+    favoriteDetailProvData,
+} from './favoritedetailprovdata';
+
 import { 
     detailHaveError,
     detailAreLoading,
@@ -59,6 +65,12 @@ import {
     schoolsRegistration,
 } from './detail' 
 
+import{
+    detailCityHaveError,
+    detailCityAreLoading,
+    detailCity,
+}from './detailcitydata';
+
 import {
     searchpageHaveError, 
     searchpageAreLoading,
@@ -72,6 +84,7 @@ import {
     searchResultAreLoading,
     searchResult,
     currentSearchResult,
+    lastSearchResult,
     countSearchResult,
     stageSearchResult,
 } from './searchresult';
@@ -126,8 +139,12 @@ export default combineReducers({
     // currentfavoriteDetail, 
     // currentfavoriteDetailSMP, 
     // currentfavoriteDetailSMA,
-    getCityName,
-    getProvName,
+    // getCityName,
+    // getProvName,
+
+    favoriteDetailProvDataHaveError,
+    favoriteDetailProvDataAreLoading,
+    favoriteDetailProvData,
 
     homepageHaveError, 
     homepageAreLoading, 
@@ -154,6 +171,10 @@ export default combineReducers({
     schoolsAdressDistrict,
     schoolsRegistration,
 
+    detailCityHaveError,
+    detailCityAreLoading,
+    detailCity,
+
     searchpageHaveError, 
     searchpageAreLoading,
     searchpageprov,
@@ -165,6 +186,7 @@ export default combineReducers({
     searchResultAreLoading,
     searchResult,
     currentSearchResult,
+    lastSearchResult,
     countSearchResult,
 
     getAccessHaveError,

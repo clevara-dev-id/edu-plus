@@ -79,9 +79,9 @@ export function favoriteDetailFetchDataSMP(url, data) {
         dispatch(favoriteDetailAreLoading(true));
 
         setTimeout(() => {
-            axios.get(url, data)
+            axios.get(url)
                 .then((response) => {
-                    // console.log(response.data);
+                    console.log(response.data);
                     if (response.status !== 200) {
                         throw Error(response.statusText);
                     }
@@ -146,7 +146,7 @@ export function favoriteDetailFetchCityName(url) {
     };
 }
 
-export function favoriteDetailFetchProvName(url) {
+export function favoriteDetailFetchProvName(url){
     return (dispatch) => {
         dispatch(favoriteDetailAreLoading(true));
 

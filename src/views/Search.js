@@ -17,6 +17,7 @@ import RadioButtonFiveDesktop from '../components/base_components/Desktop/RadioB
 import RadioButtonTwoDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonTwoDesktop';
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 import TitleBottomDesktop from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktop';
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 
 //Mobile Item
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
@@ -126,10 +127,10 @@ const provArray=[
     },
 ];
 
-// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://139.180.184.84/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
-const getUrlBackend = "https://backend.edukasiplus.com/"
+// const getUrlBackend = "https://backend.edukasiplus.com/"
 
 
 class Search extends Component {
@@ -199,6 +200,12 @@ class Search extends Component {
             <>
                 <div>
                     <OnDesktop>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Home"},{name:"Search", link:"#"}]}
+                            />
+                        </section>
                         <section>
                             <div style={{marginTop:"36px"}}></div>
                             <TitlePageHeaderDesktop

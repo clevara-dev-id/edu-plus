@@ -98,10 +98,10 @@ const storeDesktop = [
     }
 ];
 
-// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://139.180.184.84/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
-const getUrlBackend = "https://backend.edukasiplus.com/"
+// const getUrlBackend = "https://backend.edukasiplus.com/"
 
 
 class Promo extends Component {

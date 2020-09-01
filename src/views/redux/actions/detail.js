@@ -112,9 +112,7 @@ export function fetchDataCity (url, data) {
                 .then(async(response) => {
                     dispatch(fetchDataCitySuccess(response.data))
                 })
-                .catch(() => dispatch(detailHaveError(true)));
-        
-               
+                .catch(() => dispatch(detailHaveError(true)));      
         }, 500);
     };
 }

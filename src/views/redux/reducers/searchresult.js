@@ -19,6 +19,7 @@ export function searchResultAreLoading(state = false, action) {
 export function searchResult(state = [], action) {
     switch (action.type) {
         case 'SEARCH_RESULT_DATA_SUCCESS':
+            console.log(action);
             return action.api.data.data;
         default:
             return state;
@@ -29,6 +30,15 @@ export function currentSearchResult(state = [], action) {
     switch (action.type) {
         case 'SEARCH_RESULT_DATA_SUCCESS':
             return action.api.data.current_page;
+        default:
+            return state;
+    }
+}
+
+export function lastSearchResult(state = [], action) {
+    switch (action.type) {
+        case 'SEARCH_RESULT_DATA_SUCCESS':
+            return action.api.data.last_page;
         default:
             return state;
     }

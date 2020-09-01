@@ -34,8 +34,11 @@ import ButtonSecondary from '../components/base_components/Button/ButtonMobile/B
 //Detail Fetch Redux
 import { 
     detailFetchData, 
-    fetchDataCity,
 } from './redux/actions/detail';
+
+import{
+    fetchDataCity,
+} from './redux/actions/detailcitydata';
 
 
 //Import Image Desktop
@@ -249,22 +252,29 @@ const storeDesktop2 =[
     {name:"Ekstrakulikuler", idContent: "desktopextracurricularContentId"}
 ];
 
-// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://139.180.184.84/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
-const getUrlBackend = "https://backend.edukasiplus.com/"
+// const getUrlBackend = "https://backend.edukasiplus.com/"
 
 
 class Detail extends Component {
     constructor(props) {
         super(props);
         this.state =  {
+          detailSchoolsDataUpdate:[],
           favoriteData:[],
         };
     }
     componentDidMount=async ()=>{
-        this.getDetailData(1);
-        // this.getCityData(1);
+        await this.getDetailData(1);
+        // await this.getCityData(1);
+    }
+    componentDidUpdate=async()=>{
+        if(this.props.detail !== this.state.detailSchoolsDataUpdate){
+            await this.getCityData(1);
+            this.setState({detailSchoolsDataUpdate: this.props.detail});
+        }
     }
     getDetailData=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
@@ -278,8 +288,9 @@ class Detail extends Component {
         let ParameterPostData = {
             "stage":myEduStage,
             "status":"1",
-            "province":myParamId.substr(0,2),
-            "regency":myParamId,
+            "province":this.props.schoolsAdressProvince.id,
+            "regency":this.props.schoolsAdressRegency.id,
+            "district":this.props.schoolsAdressDistrict.id,
         }
         const data = await this.props.fetchSchoolsCity(`${getUrlBackend}api/search/?page=${page}`,ParameterPostData);
     }
@@ -292,10 +303,10 @@ class Detail extends Component {
         if(myParamPageFrom.length > 1){
             this.props.detail.status === 1 ? status="negeri" : status="swasta"; 
             if(myParamPageFrom === "searchresult"){
-                window.location.href=`/searchresult?district_id=${this.props.detail.district_id_number}&&educationstage=${myParamEducationStage}&&status=${status}`;
+                window.location.href=`/searchresult?district_id=${this.props.schoolsAdressDistrict.id}&&educationstage=${myParamEducationStage}&&status=${status}`;
             }
             if(myParamPageFrom === "favoritedetail"){
-                window.location.href=`/favoritedetail?id=${myParamSchID}`;
+                window.location.href=`/favoritedetail?id=${this.props.schoolsAdressProvince.id}`;
             }  
         }
     }
@@ -320,7 +331,7 @@ class Detail extends Component {
         const myParamSchID = urlParams.get('schid');
         const myParamEducationStage = urlParams.get('edustage');
         const myParamPageFrom = urlParams.get('page_from');
-        this.props.getDataSchools.forEach((newData, index)=>{
+        this.props.detailCity.forEach((newData, index)=>{
             if(newData.images!==undefined && newData.images.length>0){
                 imageForSchools=newData.image;
             }
@@ -738,6 +749,7 @@ class Detail extends Component {
 const mapStateToProps = (state) => {
     return {
         detail: state.detail,
+        detailCity: state.detailCity,
         schoolsImage: state.schoolsImage,
         schoolsCost: state.schoolsCost,
         schoolFacilities: state.schoolFacilities,

@@ -21,7 +21,7 @@ import MessageGetAccessResultDesktop from '../components/base_components/Desktop
 import CardImageWithButtonDesktop from '../components/base_components/Desktop/CardImage/CardImageWithButtonDesktop';
 import CardImageNotFoundDesktop from '../components/base_components/Desktop/CardImage/CardImageNotFoundDesktop'
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
-
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 
 //Mobile Item
 import InputSearchMobileSecondary from '../components/base_components/InputSearch/Mobile/InputSearchMobileSecondary';
@@ -98,10 +98,10 @@ const autocompletesearch = [
 
 ];
 
-// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://139.180.184.84/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
-const getUrlBackend = "https://backend.edukasiplus.com/"
+// const getUrlBackend = "https://backend.edukasiplus.com/"
 
 class GetAccess extends Component {
     constructor(props){
@@ -177,6 +177,12 @@ class GetAccess extends Component {
             <>
                 <div>
                     <OnDesktop>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Home"},{name:"Daftar Sekolah", link:"#"}]}
+                            />
+                        </section>
                         <section>
                             <div style={{marginTop:"36px"}}></div>
                             <TitlePageHeaderDesktop

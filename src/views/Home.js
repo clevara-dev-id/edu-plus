@@ -190,11 +190,11 @@ let dataProvMaptoProps=[];
 let dataProvMaptoPropsSMP=[];
 let dataProvMaptoPropsSMA=[];
 
-// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://139.180.184.84/"
 // const getUrlBackend = "http://edukasiplus.com/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
-const getUrlBackend = "https://backend.edukasiplus.com/"
+// const getUrlBackend = "https://backend.edukasiplus.com/"
 
 
 class Home extends Component {
@@ -218,13 +218,13 @@ class Home extends Component {
 
     }
     getProvinceData=async(page)=>{
-        const data = await this.props.fetchData(`${getUrlBackend}api/mainpage/sd`);
+        const data = await this.props.fetchData(`${getUrlBackend}api/favorite/sd`);
     }
     getProvinceDataSMP=async(page)=>{
-        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/mainpage/smp`);
+        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/favorite/mts`);
     }
     getProvinceDataSMA=async(page)=>{
-        const data = await this.props.fetchDataSMA(`${getUrlBackend}api/mainpage/sma`);
+        const data = await this.props.fetchDataSMA(`${getUrlBackend}api/favorite/sma`);
     }
     getPromoData=async(page)=>{
         const data = await this.props.fetchDataPromo(`${getUrlBackend}api/promo`);
@@ -348,73 +348,94 @@ class Home extends Component {
         if (this.props.isLoading) {
             return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>Loading…</p>;
         }
-        let newArrayHomepage=[], newArrayWithFilterSearch=[];
-        let newArrayHomepageSMP=[], newArrayWithFilterSearchSMP=[];
-        let newArrayHomepageSMA=[], newArrayWithFilterSearchSMA=[];
+        let newArrayHomepage=[], changeOriginalArrayHomepage=[], newArrayWithFilterSearch=[];
+        let newArrayHomepageSMP=[], changeOriginalArrayHomepageSMP=[], newArrayWithFilterSearchSMP=[];
+        let newArrayHomepageSMA=[], changeOriginalArrayHomepageSMA=[], newArrayWithFilterSearchSMA=[];
         let newArrayPromo=[];
-        this.props.homepage.map((newData, index)=>{
-            let imageForCard=this.getImageName(newData.id);
-            let schoolCount='', linkCard='', messageCommingSoon;
-            if(newData.favorite_count > 0){
-                schoolCount= newData.favorite_count+"  SEKOLAH";
-                linkCard=`/favoritedetail?id=${newData.id}`;
-                messageCommingSoon=false
-            }
-            else{
-                schoolCount="Coming Soon !"
-                linkCard='#firstTabOnHomePage';
-                messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
-            }
-            newArrayHomepage[index]={
-                image                : imageForCard,
-                titleCard            : newData.name,
-                descrip              : schoolCount,
-                link                 : linkCard,
-                messageIfCommingSoon : messageCommingSoon,
-            }
-        })
-        this.props.homepageSMP.map((newData, index)=>{
-            let imageForCard=this.getImageName(newData.id);
-            let schoolCount='', linkCard='', messageCommingSoon;
-            if(newData.favorite_count > 0){
-                schoolCount= newData.favorite_count+"  SEKOLAH";
-                linkCard=`/favoritedetail?id=${newData.id}`;
-                messageCommingSoon=false
-            }
-            else{
-                schoolCount="Coming Soon !"
-                linkCard='#secondTabOnHomePage';
-                messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
-            }
-            newArrayHomepageSMP[index]={
-                image                : imageForCard,
-                titleCard            : newData.name,
-                descrip              : schoolCount,
-                link                 : linkCard,
-                messageIfCommingSoon : messageCommingSoon,
-            }
-        })
-        this.props.homepageSMA.map((newData, index)=>{
-            let imageForCard=this.getImageName(newData.id);
-            let schoolCount='', linkCard='', messageCommingSoon;
-            if(newData.favorite_count > 0){
-                schoolCount= newData.favorite_count+"  SEKOLAH";
-                linkCard=`/favoritedetail?id=${newData.id}`;
-                messageCommingSoon=false
-            }
-            else{
-                schoolCount="Coming Soon !"
-                linkCard='#thirdTabOnHomePage';
-                messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
-            }
-            newArrayHomepageSMA[index]={
-                image                : imageForCard,
-                titleCard            : newData.name,
-                descrip              : schoolCount,
-                link                 : linkCard,
-                messageIfCommingSoon : messageCommingSoon,
-            }
-        })
+        if(this.props.homepage.length !== 0){
+            this.props.homepage.map((newData, index)=>{
+                changeOriginalArrayHomepage[index]= newData;
+            })
+            changeOriginalArrayHomepage.map((newData, index)=>{
+                let imageForCard=this.getImageName(newData.id);
+                let schoolCount='', linkCard='', messageCommingSoon;
+                if(newData.schools.length > 0){
+                    schoolCount= newData.schools.length+"  SEKOLAH";
+                    linkCard=`/favoritedetail?id=${newData.id}`;
+                    messageCommingSoon=false
+                }
+                else{
+                    schoolCount="Coming Soon !"
+                    linkCard='#firstTabOnHomePage';
+                    messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
+                }
+                if(newData.schools.length > 0){
+                    newArrayHomepage[index]={
+                        image                : imageForCard,
+                        titleCard            : newData.name,
+                        descrip              : schoolCount,
+                        link                 : linkCard,
+                        messageIfCommingSoon : messageCommingSoon,
+                    }
+                }
+            });
+        }
+        if(this.props.homepageSMP.length !== 0){
+            this.props.homepageSMP.map((newData, index)=>{
+                changeOriginalArrayHomepageSMP[index]=newData;
+            })
+            changeOriginalArrayHomepageSMP.map((newData, index)=>{
+                let imageForCard=this.getImageName(newData.id);
+                let schoolCount='', linkCard='', messageCommingSoon;
+                if(newData.schools.length > 0){
+                    schoolCount= newData.schools.length+"  SEKOLAH";
+                    linkCard=`/favoritedetail?id=${newData.id}`;
+                    messageCommingSoon=false
+                }
+                else{
+                    schoolCount="Coming Soon !"
+                    linkCard='#secondTabOnHomePage';
+                    messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
+                }
+                if(newData.schools.length > 0){
+                    newArrayHomepageSMP[index]={
+                        image                : imageForCard,
+                        titleCard            : newData.name,
+                        descrip              : schoolCount,
+                        link                 : linkCard,
+                        messageIfCommingSoon : messageCommingSoon,
+                    }
+                }
+            });
+        }
+        if(this.props.homepageSMA.length !==0){
+            this.props.homepageSMA.map((newData, index)=>{
+                changeOriginalArrayHomepageSMA[index]=newData;
+            })
+            changeOriginalArrayHomepageSMA.map((newData, index)=>{
+                let imageForCard=this.getImageName(newData.id);
+                let schoolCount='', linkCard='', messageCommingSoon;
+                if(newData.schools.length > 0){
+                    schoolCount= newData.schools.length+"  SEKOLAH";
+                    linkCard=`/favoritedetail?id=${newData.id}`;
+                    messageCommingSoon=false
+                }
+                else{
+                    schoolCount="Coming Soon !"
+                    linkCard='#thirdTabOnHomePage';
+                    messageCommingSoon="Data Sekolah Akan Segera Kami Perbaharui"
+                }
+                if(newData.schools.length > 0){
+                    newArrayHomepageSMA[index]={
+                        image                : imageForCard,
+                        titleCard            : newData.name,
+                        descrip              : schoolCount,
+                        link                 : linkCard,
+                        messageIfCommingSoon : messageCommingSoon,
+                    }
+                }
+            });
+        }
         this.props.promo.map((data, index)=>{
             newArrayPromo[index]={
                 image:data.image ? data.image : ImagePromo1,

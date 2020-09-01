@@ -21,7 +21,7 @@ export function homepageAreLoading(state = false, action) {
 export function homepage(state = [], action) {
     switch (action.type) {
         case 'HOMEPAGE_FETCH_DATA_SUCCESS':
-            console.log(action.api.school);
+            console.log(action);
             return action.api.school
 
         default:
@@ -32,6 +32,7 @@ export function homepage(state = [], action) {
 export function homepageSMP(state = [], action) {
     switch (action.type) {
         case 'HOMEPAGE_FETCH_DATA_SUCCESS_SMP':
+            console.log(action);
             return action.api.school;
 
         default:

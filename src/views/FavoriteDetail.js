@@ -33,6 +33,10 @@ import {
     favoriteDetailFetchProvName,
 } from './redux/actions/favoritedetail';
 
+import{
+    favoriteDetailProvFetchData,
+}from'./redux/actions/favoritedetailprovdata';
+
 //Image For School List
 import ImageSchool from '../asset/image/SchoolLists/schoolsILustrator.png';
 
@@ -121,10 +125,10 @@ let dataCityMaptoProps=[];
 let dataCityMaptoPropsSMP=[];
 let dataCityMaptoPropsSMA=[];
 
-// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://139.180.184.84/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
-const getUrlBackend = "https://backend.edukasiplus.com/"
+// const getUrlBackend = "https://backend.edukasiplus.com/"
 
 
 class FavoriteDetail extends Component {
@@ -140,51 +144,31 @@ class FavoriteDetail extends Component {
         };
     }
     componentDidMount=async ()=>{
-        this.getCityData(1);
-        // this.getCityDataSMP(1);
-        // this.getCityDataSMA(1);
-        // this.getProvName();
-        // this.getCityName();
+        await this.getCityData(1);
+        await this.getCityDataSMP(1);
+        await this.getCityDataSMA(1);
+        await this.getProvName();
     }
     getCityData=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        let ParameterPostData = {
-            "stage":"sd",
-            "regency":myParamId,
-        }
-        // const data = await this.props.fetchData(`${getUrlBackend}api/search/favorite`, ParameterPostData);
-        const data = await this.props.fetchData (`${getUrlBackend}api/favorite/${myParamId}/mts`);
+        const data = await this.props.fetchData (`${getUrlBackend}api/favorite/${myParamId}/sd`);
     }
     getCityDataSMP=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        let ParameterPostData = {
-            "stage":"smp",
-            "regency":myParamId,
-        }
-        // const data = await this.props.fetchDataSMP(`${getUrlBackend}api/search/favorite`,ParameterPostData);
-        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/favorite/${myParamId}/sd`);
+        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/favorite/${myParamId}/mts`);
 
     }
     getCityDataSMA=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        let ParameterPostData = {
-            "stage":"sma",
-            "regency":myParamId,
-        }
-        const data = await this.props.fetchDataSMA(`${getUrlBackend}api/search/favorite`,ParameterPostData);
-    }
-    getCityName=async(page)=>{
-        const urlParams = new URLSearchParams(window.location.search);
-        const myParamId = urlParams.get('id');
-        const data = await this.props.fetchCityName(`${getUrlBackend}api/regency/${myParamId}/sd?page=1`);
+        const data = await this.props.fetchDataSMA(`${getUrlBackend}api/favorite/${myParamId}/sma`);
     }
     getProvName=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchProvName(`${getUrlBackend}api/province/${myParamId.substr(0,2)}/sd`);
+        const data = await this.props.fetchProvName(`${getUrlBackend}api/province/${myParamId}/sd`);
     }
     dataArrayToAsc=(data)=> {
         if(data.length > 1){
@@ -303,7 +287,7 @@ class FavoriteDetail extends Component {
                 newArrayWithFilterSearchSMA[index]=data;
             });
         }
-        // console.log(newArrayFaforiteDetailSMA.length);
+        console.log(this.props.favoriteDetail);
         return (
             <>
                 <div>
@@ -471,7 +455,7 @@ const mapStateToProps = (state) => {
         // currentpageSMP: state.currentfavoriteDetailSMP,
         // currentpageSMA: state.currentfavoriteDetailSMA,
         getCityName: state.getCityName,
-        getProvName: state.getProvName,
+        getProvName: state.favoriteDetailProvData,
         hasError: state.favoriteDetailHaveError,
         isLoading: state.favoriteDetailAreLoading,
     };
@@ -483,7 +467,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchDataSMP: (url, data) => dispatch(favoriteDetailFetchDataSMP(url, data)),
         fetchDataSMA: (url, data) => dispatch(favoriteDetailFetchDataSMA(url, data)),
         fetchCityName: (url) => dispatch(favoriteDetailFetchCityName(url)),
-        fetchProvName: (url) => dispatch(favoriteDetailFetchProvName(url)),
+        fetchProvName: (url) => dispatch(favoriteDetailProvFetchData(url)),
     };
 };
 
