@@ -40,10 +40,11 @@ import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.p
 
 //Const Http dummy
 // const getUrlBackend = "http://localhost:8000/"
-const getUrlBackend = "http://45.77.46.116/"
+// const getUrlBackend = "http://45.77.46.116/"
 // const getUrlBackend = "http://edukasiplus.com/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
 // const getUrlBackend = "https://backend.edukasiplus.com/"
+const getUrlBackend = "http://backend.edukasiplus.com/" //No SSL
 
 class GetAccessInput extends Component {
     constructor(props){
