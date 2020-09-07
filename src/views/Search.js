@@ -130,8 +130,8 @@ const provArray=[
 // const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://45.77.46.116/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
-// const getUrlBackend = "https://backend.edukasiplus.com/"
-const getUrlBackend = "http://backend.edukasiplus.com/" //No SSL
+const getUrlBackend = "https://backend.edukasiplus.com/"
+// const getUrlBackend = "http://backend.edukasiplus.com/" //No SSL
 
 
 class Search extends Component {
