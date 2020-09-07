@@ -11,7 +11,7 @@ const BreadCrumbMobile = props => {
             <Container id="breadCrumbMobileContainer">
                 <Row>
                     <Col>
-                        <Breadcrumb >
+                        <Breadcrumb>
                         {props.store.map((data, index)=>{
                             return(
                                 ((props.store.length-1)!==index) ?

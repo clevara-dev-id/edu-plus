@@ -252,8 +252,8 @@ const storeDesktop2 =[
     {name:"Ekstrakulikuler", idContent: "desktopextracurricularContentId"}
 ];
 
-const getUrlBackend = "http://localhost:8000/"
-// const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://45.77.46.116/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
 // const getUrlBackend = "https://backend.edukasiplus.com/"
 
@@ -418,11 +418,20 @@ class Detail extends Component {
                 }
             });
         }
+        if(this.props.schoolsImage.length !== 0){
+            console.log("get");
+            this.props.schoolsImage.map((data, index)=>{
+                newArrayImage[index]={
+                    image : `${getUrlBackend}storage/${data.image}`
+                }
+            });
+        }
         // console.log(this.props.schoolsExtracurricular);
     //     {   title:"Uang Pangkal", schoolFacilities
     //     description : "Rp. 3,000,000"
     // },
-        // console.log(this.props.schoolsRegistration);
+        // console.log(this.props.schoolsImage);
+        // console.log("detail menu");
         return (
             <> 
                 <div>

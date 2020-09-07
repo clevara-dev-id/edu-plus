@@ -125,8 +125,8 @@ let dataCityMaptoProps=[];
 let dataCityMaptoPropsSMP=[];
 let dataCityMaptoPropsSMA=[];
 
-const getUrlBackend = "http://localhost:8000/"
-// const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://45.77.46.116/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
 // const getUrlBackend = "https://backend.edukasiplus.com/"
 
@@ -157,7 +157,7 @@ class FavoriteDetail extends Component {
     getCityDataSMP=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/favorite/${myParamId}/mts`);
+        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/favorite/${myParamId}/smp`);
 
     }
     getCityDataSMA=async(page)=>{

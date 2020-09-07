@@ -22,9 +22,9 @@ import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile
 import TitleBottomSecondary from '../components/base_components/TitleBottom/Mobile/TitleBottomSecondary';
 
 // const getUrlBackend = "http://localhost:8000/"
-// const getUrlBackend = "http://139.180.184.84/"
+const getUrlBackend = "http://45.77.46.116/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
-const getUrlBackend = "https://backend.edukasiplus.com/"
+// const getUrlBackend = "https://backend.edukasiplus.com/"
 
 
 

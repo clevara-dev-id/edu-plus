@@ -31,7 +31,7 @@ export function detail(state = [], action) {
 export function schoolsCost(state = [], action) {
     switch (action.type) {
         case 'DETAIL_FETCH_DATA_SUCCESS':
-            console.log(action.api.costs)
+            // console.log(action.api.costs)
             return action.api.costs;
 
         default:
@@ -42,6 +42,7 @@ export function schoolsCost(state = [], action) {
 export function schoolsImage(state = [], action) {
     switch (action.type) {
         case 'DETAIL_FETCH_DATA_SUCCESS':
+            // console.log(action.api.images)
             return action.api.images;
 
         default:

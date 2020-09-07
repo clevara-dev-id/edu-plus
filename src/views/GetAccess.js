@@ -98,8 +98,8 @@ const autocompletesearch = [
 
 ];
 
-const getUrlBackend = "http://localhost:8000/"
-// const getUrlBackend = "http://139.180.184.84/"
+// const getUrlBackend = "http://localhost:8000/"
+const getUrlBackend = "http://45.77.46.116/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
 // const getUrlBackend = "https://backend.edukasiplus.com/"
 
@@ -158,7 +158,7 @@ class GetAccess extends Component {
             this.props.getAccess.map((data, index)=>{
                 data.user === null ? operator=false:operator=true;
                 if(data.images!==undefined && data.images.length>0){
-                    imageForSchools=data.image;
+                    imageForSchools=`${getUrlBackend}storage/${data.images[0].image}`;
                 }
                 else{
                     imageForSchools=ImageSchool;
