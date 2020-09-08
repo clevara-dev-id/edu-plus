@@ -63,7 +63,7 @@ export default class ApplicationLayout extends Component {
                         <FooterDesktop 
                             homeLink="/"
                             contactLink="/contactus"
-                            loginLink="/login"
+                            loginLink="https://operator.edukasiplus.com/"
                             registerLink="/getaccess"
                         />
                     </OnDesktop>
@@ -71,7 +71,7 @@ export default class ApplicationLayout extends Component {
                         <FooterMobileBlue
                             homeLink="/"
                             contactLink="/contactus"
-                            loginLink="/login"
+                            loginLink="https://operator.edukasiplus.com/"
                             registerLink="/getaccess"
                         />
                     </OnMobile>

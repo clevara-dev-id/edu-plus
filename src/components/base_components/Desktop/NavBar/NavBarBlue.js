@@ -36,7 +36,7 @@ const NavBarBlue = props => {
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/contactus">Hubungi Kami</a></li>
-                        <li><a href="/login">Login</a></li>
+                        <li><a href="https://operator.edukasiplus.com/">Login</a></li>
                         <li>
                             <div className="dropdownNavbarDesktop">
                                 <a href="#" className="guideBookNavbar"

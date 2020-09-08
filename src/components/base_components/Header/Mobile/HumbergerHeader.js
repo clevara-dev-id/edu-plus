@@ -41,7 +41,7 @@ const HumbergerHeader = props => {
                         <Col className="menulistnavbar">
                             <a href="/">Home</a>
                             <a href="/contactus">Hubungi Kami</a>
-                            <a href="/login">login</a>
+                            <a href="https://operator.edukasiplus.com/">login</a>
                         </Col>
                     </Row>
                     <Row> 
