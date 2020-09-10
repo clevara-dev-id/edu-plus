@@ -94,7 +94,7 @@ const DropDownListArrowDesktop = props => {
                         </div>
                     </Col>
                     <Col lg={2} className="filterSearchDesktop">
-                        <div className="dropdownDesktop">
+                        {/* <div className="dropdownDesktop">
                             <MyButton onClick={()=>{showfunctionArea()}} className="dropbtnDesktop">
                                 <Icon  
                                     name="filter" 
@@ -110,7 +110,7 @@ const DropDownListArrowDesktop = props => {
                                 <option id="districtbutton" value="kecamatan" onClick={props.onClickArea}>Kecamatan</option>
                                 <option id="villagebutton" value="kelurahan" onClick={props.onClickArea}>Desa / Kelurahan</option>
                             </div>
-                        </div>
+                        </div> */}
                     </Col>
                     <Col lg={2} className="filterSearchDesktop"></Col>
                     <Col lg={2} className="filterSearchDesktop"></Col>

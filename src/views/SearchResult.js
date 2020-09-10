@@ -18,6 +18,7 @@ import SingleDesktopBadgesWhite from '../components/base_components/Desktop/Badg
 import TitlePageWithSparatorDesktop from '../components/base_components/Desktop/TitlePage/TitlePageWithSparatorDesktop';
 import DropDownListArrowDesktop from '../components/base_components/Desktop/DropDownList/DropDownListArrowDesktop';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
+import Pagination from '../components/base_components/Desktop/Pagination/Pagination';
 
 //import mobile
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
@@ -110,13 +111,30 @@ const storeDesktop = [
     },
 ];
 
-let dataSearchResultMaptoProps=[];
-
 // const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://45.77.46.116/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
 const getUrlBackend = "https://backend.edukasiplus.com/"
 // const getUrlBackend = "http://backend.edukasiplus.com/" //No SSL
+
+const dataFromBackEnd =[
+    {data: 1},
+    {data: 2},
+    {data: 3},
+    {data: 4},
+    {data: 5},
+    {data: 6},
+    {data: 7},
+    {data: 8},
+    {data: 9},
+    {data: 10},
+    {data: 11},
+    {data: 12},
+    {data: 13},
+    {data: 14},
+    {data: 15},
+    {data: 16},
+];
 
 
 class SearchResult extends Component {
@@ -126,26 +144,28 @@ class SearchResult extends Component {
           currenPageSearchResult:1,
           favoriteData:[],
           sortBy:'',
+          todos: ['a','b','c','d','e','f','g','h','i','j','k'],
+          currentPage: 1,
+          todosPerPage: 3
         };
     }
     componentDidMount=async ()=>{
         this.getSchoolsData(1);
     }
     componentDidUpdate=()=>{
-        if(this.props.searchResultData.length !== 0){
-                $(window).scroll(()=> {
-                    let hT = $('#cardimageSeacrhResultId').offset().top,
-                        hH = $('#cardimageSeacrhResultId').outerHeight(),
-                        wH = $(window).height(),
-                        wS = $(window).scrollTop();
-                    if(this.props.currentSearchResult < this.props.lastSearchResult){
-                        if (wS > (hT+hH-wH)){
-                            $('#buttonLoadmoreSearchResult').click();
-                        }
-                    }
-                });
-
-        }
+        // if(this.props.searchResultData.length !== 0){
+        //     $(window).scroll(()=> {
+        //         let hT = $('#cardimageSeacrhResultId').offset().top,
+        //             hH = $('#cardimageSeacrhResultId').outerHeight(),
+        //             wH = $(window).height(),
+        //             wS = $(window).scrollTop();
+        //         if(this.props.currentSearchResult < this.props.lastSearchResult){
+        //             if (wS > (hT+hH-wH)){
+        //                 $('#buttonLoadmoreSearchResult').click();
+        //             }
+        //         }
+        //     });
+        // }
     }
     componentWillUnmount() {
         document.removeEventListener('scroll');
@@ -231,28 +251,34 @@ class SearchResult extends Component {
         const myParamId = urlParams.get('district_id');
         const myParamEduStage = urlParams.get('educationstage');
         const schoolsStatus = urlParams.get('status');
-        this.props.searchResultData.forEach((data, index)=>{
-            data.map((newData)=>{
-                if(newData.images!==undefined && newData.images.length>0){
-                    imageForSchools=newData.image;
-                }
-                else{
-                    imageForSchools=ImageSchool;
-                }
-                newArraySearchResult[searchResultIndex]={
-                    image     : imageForSchools,
-                    titleCard : newData.name,
-                    descrip   : newData.address,
-                    link      : `/detail?uuid=${newData.uuid}&&schid=${myParamId.substr(0, 4)}&&edustage=${myParamEduStage}&&page_from=searchresult`,
-                }
-                searchResultIndex++;
-            });
-
+        this.props.searchResultData.forEach((newData, index)=>{
+            if(newData.images!==undefined && newData.images.length>0){
+                imageForSchools=newData.image;
+            }
+            else{
+                imageForSchools=ImageSchool;
+            }
+            newArraySearchResult[index]={
+                image     : imageForSchools,
+                titleCard : newData.name,
+                descrip   : newData.address,
+                link      : `/detail?uuid=${newData.uuid}&&schid=${myParamId.substr(0, 4)}&&edustage=${myParamEduStage}&&page_from=searchresult`,
+            }
+            // searchResultIndex++;
         });
+        let newPaginationData=[], indexPage=1;
+        for(let i =0; i<dataFromBackEnd.length; i++){
+            newPaginationData[i]={
+                number: indexPage
+            }
+            indexPage++;
+        }    
         // if(newArraySearchResult.length > 0){
             
         // }
         // console.log(this.state.sortBy);
+        const { todos, currentPage, todosPerPage } = this.state;
+
         return (
             <>
                 <OnDesktop>
@@ -302,14 +328,22 @@ class SearchResult extends Component {
                         />
                     </section>
                     <section>
-                        <div style={{marginTop: "25px"}}></div>
-                        <ButtonAnotherSchoolsDesktop
-                            style={{display: "none"}}
-                            id="buttonLoadmoreSearchResult"
-                            name="loadMore"
-                            width="277px"
-                            onClick={()=>{this.getSchoolsData(this.state.currenPageSearchResult+1); this.setState({currenPageSearchResult: this.state.currenPageSearchResult+1})}}
+                        <div style={{marginTop: "0px"}}></div>
+                        <Pagination
+                            onClickPrev={(e)=>{this.getSchoolsData(e.target.value)}}
+                            onClickNumber={(e)=>{this.getSchoolsData(e.target.value)}}
+                            onClickNext={(e)=>{this.getSchoolsData(e.target.value)}}
+                            store={newArraySearchResult.length > 0 && this.state.sortBy === "az" ? this.dataArrayToAsc(newArraySearchResult) :
+                                newArraySearchResult.length > 0 && this.state.sortBy === "za" ? this.dataArrayToDesc(newArraySearchResult):
+                                newArraySearchResult
+                            }
+                            dataPerPage={3}
+                            lastPage={this.props.lastSearchResult !== 0 ? this.props.lastSearchResult : 0 }
+                            currentPage={this.props.currentSearchResult !== 0 ? this.props.currentSearchResult : 0 }
                         />
+                    </section>
+                    <section>
+                        <div style={{marginTop: "79px"}}></div>
                         <ButtonAnotherSchoolsDesktop
                             name="CARI SEKOLAH LAINNYA"
                             width="277px"
@@ -379,9 +413,8 @@ class SearchResult extends Component {
     }
 }
 const mapStateToProps = (state) => {
-    dataSearchResultMaptoProps[state.currentSearchResult]=state.searchResult;
     return {
-        searchResultData: dataSearchResultMaptoProps,
+        searchResultData: state.searchResult,
         currentSearchResult : state.currentSearchResult,
         lastSearchResult: state.lastSearchResult,
         countSearchResult: state.countSearchResult,

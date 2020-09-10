@@ -13,6 +13,7 @@ import {
 
 //Desktop
 import DropDownListFilterFourDesktop from '../components/base_components/Desktop/DropDownList/DropDownListFilterFourDesktop';
+import DropDownListFilterFourDesktopSingle from '../components/base_components/Desktop/DropDownList/DropDownListFilterFourDesktopSingle';
 import RadioButtonFiveDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonFiveDesktop';
 import RadioButtonTwoDesktop from '../components/base_components/Desktop/RadioButton/RadioButtonTwoDesktop';
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
@@ -244,7 +245,7 @@ class Search extends Component {
                                 disabledButtonClassTwo="disableButtonClassCity"
                             />
                             <div style={{marginTop: "25px"}}></div>
-                            <DropDownListFilterFourDesktop
+                            <DropDownListFilterFourDesktopSingle
                                 onClick={(e)=>{
                                     this.setState({district_id : e.target.value});
                                 }}
