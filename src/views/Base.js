@@ -1,5 +1,5 @@
-import { Component, createRef } from 'react';
-import $ from 'jquery';
+import { Component } from 'react';
+// import $ from 'jquery';
 
 // import { 
 //     getNavbar, 

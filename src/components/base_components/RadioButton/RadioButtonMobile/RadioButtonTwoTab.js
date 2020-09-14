@@ -1,9 +1,9 @@
-import React, { Component, useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
-import $ from 'jquery';
+import Icon from 'react-web-vector-icons';
+// import $ from 'jquery';
 
 import '../../Icon/Mobile/Icon'
 import './radiobuttontwotab.css';
@@ -36,7 +36,12 @@ const RadioButtonTwoTab = props =>{
                             />
                             <label htmlFor="inputSchools" >
                                 <div>
-                                    <FontAwesome name={icon === 'negeri' ? 'check-circle' : "circle-o"} size={24} color="black" />
+                                    <Icon 
+                                        font="FontAwesome"
+                                        name={icon === 'negeri' ? 'check-circle' : "circle-o"} 
+                                        size={24} 
+                                        color="black" 
+                                    />
                                     <div>{props.store[0].name}</div>
                                 </div>
                             </label>
@@ -51,7 +56,12 @@ const RadioButtonTwoTab = props =>{
                                 />
                             <label htmlFor="inputTraining" >
                                 <div>
-                                    <FontAwesome name={icon === 'swasta' ? 'check-circle' : "circle-o"} color='black' size={24} />
+                                    <Icon 
+                                        font="FontAwesome"
+                                        name={icon === 'swasta' ? 'check-circle' : "circle-o"} 
+                                        size={24} 
+                                        color="black" 
+                                    />
                                     <div>{props.store[1].name}</div>
                                 </div>
                             </label>

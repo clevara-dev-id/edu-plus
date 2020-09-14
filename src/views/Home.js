@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
+
+
 //Redux
 import { 
     homepageFetchData, 
@@ -26,7 +29,7 @@ import BadgesGroupFavoriteSchools from '../components/base_components/Badges/Bad
 import InputSearchMobile from '../components/base_components/InputSearch/Mobile/InputSearchMobile';
 import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
 import JumbotronWithCarousel from '../components/base_components/Jumbotron/Mobile/JumbotronWithCarousel'
-import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
+// import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 import CarouselMobileSecondary from '../components/base_components/Carousel/CarouselMobile/CarouselMobileSecondary';
 
 //Image For Card
@@ -70,7 +73,7 @@ import ImagePromo1 from '../asset/image/Promo/Promo1.png'
 
 //Image
 import JakartaImage from '../components/asset/images/HomePage/CardImage/Jakarta.png'
-const BASE_URL=process.env.REACT_APP_BASE_URL;
+// const BASE_URL=process.env.REACT_APP_BASE_URL;
 
 
 //dummy Mobile
@@ -109,12 +112,6 @@ const storeMobile = [
 
 ];
 
-const storeMobile2 =[
-    {name:"SD & MI", idContent: "mobileSDdanMI"},
-    {name:"SMP & MTS", idContent: "mobileSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "mobileSmaSmkMa"},
-    {name:"Universitas", idContent: "mobileUniv"},
-];
 
 const imageSliderStore = [
     {image : "https://via.placeholder.com/290x180?text=First_Slide"},
@@ -164,32 +161,6 @@ const storeDesktop = [
     }
 ];
 
-
-const storeDesktop2 =[
-    {   name:"SD & MI", 
-        idContent: "desktopSDdanMI",
-        idBadges:"firstTabOnHomePage",
-    },
-    {
-        name:"SMP & MTS", 
-        idContent: "desktopSmpMts",
-        idBadges:"secondTabOnHomePage",
-    },
-    {
-        name:"SMA, SMK, & MA", 
-        idContent: "desktopSmaSmkMa",
-        idBadges:"thirdTabOnHomePage",
-    },
-    {
-        name:"Universitas", 
-        idContent: "desktopUniv",
-        idBadges:"FourthTabOnHomePage",
-    },
-];
-let dataProvMaptoProps=[];
-let dataProvMaptoPropsSMP=[];
-let dataProvMaptoPropsSMA=[];
-
 // const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://45.77.46.116/"
 // const getUrlBackend = "http://edukasiplus.com/"
@@ -218,17 +189,17 @@ class Home extends Component {
         this.getPromoData();
 
     }
-    getProvinceData=async(page)=>{
-        const data = await this.props.fetchData(`${getUrlBackend}api/favorite/sd`);
+    getProvinceData=async()=>{
+        await this.props.fetchData(`${getUrlBackend}api/favorite/sd`);
     }
-    getProvinceDataSMP=async(page)=>{
-        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/favorite/mts`);
+    getProvinceDataSMP=async()=>{
+        await this.props.fetchDataSMP(`${getUrlBackend}api/favorite/mts`);
     }
-    getProvinceDataSMA=async(page)=>{
-        const data = await this.props.fetchDataSMA(`${getUrlBackend}api/favorite/sma`);
+    getProvinceDataSMA=async()=>{
+        await this.props.fetchDataSMA(`${getUrlBackend}api/favorite/sma`);
     }
-    getPromoData=async(page)=>{
-        const data = await this.props.fetchDataPromo(`${getUrlBackend}api/promo`);
+    getPromoData=async()=>{
+        await this.props.fetchDataPromo(`${getUrlBackend}api/promo`);
     }
     getImageName=(imageid)=>{
         let imageForCard;
@@ -356,13 +327,14 @@ class Home extends Component {
         if(this.props.homepage.length !== 0){
             this.props.homepage.map((newData, index)=>{
                 changeOriginalArrayHomepage[index]= newData;
+                return changeOriginalArrayHomepage;
             })
             changeOriginalArrayHomepage.map((newData, index)=>{
                 let imageForCard=this.getImageName(newData.id);
                 let schoolCount='', linkCard='', messageCommingSoon;
                 if(newData.schools.length > 0){
                     schoolCount= newData.schools.length+"  SEKOLAH";
-                    linkCard=`/favoritedetail?id=${newData.id}`;
+                    linkCard=`/favoritedetail?id=${newData.id}&&sch=sd`;
                     messageCommingSoon=false
                 }
                 else{
@@ -379,18 +351,20 @@ class Home extends Component {
                         messageIfCommingSoon : messageCommingSoon,
                     }
                 }
+                return newArrayHomepage;
             });
         }
         if(this.props.homepageSMP.length !== 0){
             this.props.homepageSMP.map((newData, index)=>{
                 changeOriginalArrayHomepageSMP[index]=newData;
+                return changeOriginalArrayHomepageSMP;
             })
             changeOriginalArrayHomepageSMP.map((newData, index)=>{
                 let imageForCard=this.getImageName(newData.id);
                 let schoolCount='', linkCard='', messageCommingSoon;
                 if(newData.schools.length > 0){
                     schoolCount= newData.schools.length+"  SEKOLAH";
-                    linkCard=`/favoritedetail?id=${newData.id}`;
+                    linkCard=`/favoritedetail?id=${newData.id}&&sch=smp`;
                     messageCommingSoon=false
                 }
                 else{
@@ -407,18 +381,20 @@ class Home extends Component {
                         messageIfCommingSoon : messageCommingSoon,
                     }
                 }
+                return newArrayHomepageSMP;
             });
         }
         if(this.props.homepageSMA.length !==0){
             this.props.homepageSMA.map((newData, index)=>{
                 changeOriginalArrayHomepageSMA[index]=newData;
+                return changeOriginalArrayHomepageSMA;
             })
             changeOriginalArrayHomepageSMA.map((newData, index)=>{
                 let imageForCard=this.getImageName(newData.id);
                 let schoolCount='', linkCard='', messageCommingSoon;
                 if(newData.schools.length > 0){
                     schoolCount= newData.schools.length+"  SEKOLAH";
-                    linkCard=`/favoritedetail?id=${newData.id}`;
+                    linkCard=`/favoritedetail?id=${newData.id}&&sch=sma`;
                     messageCommingSoon=false
                 }
                 else{
@@ -435,27 +411,32 @@ class Home extends Component {
                         messageIfCommingSoon : messageCommingSoon,
                     }
                 }
+                return newArrayHomepageSMA;
             });
         }
         this.props.promo.map((data, index)=>{
             newArrayPromo[index]={
                 image:data.image ? data.image : ImagePromo1,
             }
+            return newArrayPromo;
         });
 
         if(newArrayHomepage.length>0){
             newArrayHomepage.filter(name => name.titleCard.includes(this.state.homepageSearch.toUpperCase())).map((data,index)=>{
                 newArrayWithFilterSearch[index]=data;
+                return newArrayWithFilterSearch;
             });
         }
         if(newArrayHomepageSMP.length>0){
             newArrayHomepageSMP.filter(name => name.titleCard.includes(this.state.homepageSearch.toUpperCase())).map((data,index)=>{
                 newArrayWithFilterSearchSMP[index]=data;
+                return newArrayWithFilterSearchSMP;
             });
         }
         if(newArrayHomepageSMA.length>0){
             newArrayHomepageSMA.filter(name => name.titleCard.includes(this.state.homepageSearch.toUpperCase())).map((data,index)=>{
                 newArrayWithFilterSearchSMA[index]=data;
+                return newArrayWithFilterSearchSMA;
             });
         }
         return (
@@ -519,6 +500,7 @@ class Home extends Component {
                                 ]}
                                 placeholderSearch="Cari Provinsi"
                                 onChangeSearch={(eventsearch)=>{this.setState({homepageSearch:eventsearch.target.value})}}
+                                defaultCheck={0}
                             />
                         </section>
                         <section id="desktopSDdanMI" style={{display:"block"}} className="tabcontendetailDesktop">

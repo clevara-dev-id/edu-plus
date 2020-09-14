@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import Icon from 'react-web-vector-icons';
 
 import './Icon';
 import './mobileiconwithtitle.css';

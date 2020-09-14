@@ -1,32 +1,15 @@
-import React, { Component, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Badge, Button, InputGroup, FormControl } from 'react-bootstrap';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
-import $ from 'jquery';
+import { Container, Row, Col } from 'react-bootstrap';
+// import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+// import $ from 'jquery';
 
 import './singledesktopbadgeswhite.css';
 import '../Icon/Icon'
 
 
 const SingleDesktopBadgesWhite = props => {
-    // const getPath = window.location.pathname;
-    // console.log(getPath);
-    // const openPage = (evt, cityName) =>{
-    //     var i, tabcontent, tablinks;
-    //     tabcontent = document.getElementsByClassName("tabcontendetaildesktop");
-    //     for (i = 0; i < tabcontent.length; i++) {
-    //       tabcontent[i].style.display = "none";
-    //     }
-    //     tablinks = document.getElementsByClassName("tablinksbadges");
-    //     // console.log(tablinks);
-    //     for (i = 0; i < tablinks.length; i++) {
-    //       tablinks[i].className = tablinks[i].className.replace(" activeClassBadgesDesktop", "");
-    //     }
-    //     document.getElementById(cityName).style.display = "block";
-    //     evt.currentTarget.className += " activeClassBadgesDesktop";
-    // }
-
     return (
         <>
         <Container id="singleDesktopBadgesWhiteContainer">
@@ -49,13 +32,6 @@ const SingleDesktopBadgesWhite = props => {
         </>
     );
 }
-
-const LinkBadge = styled.a`
-    &:hover{
-        text-decoration: none;
-        background: none;
-    }
-`;
 
 const MyBadgeGray = styled.span`
     width: auto;

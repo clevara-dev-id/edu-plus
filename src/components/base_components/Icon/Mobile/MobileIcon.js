@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import Icon from 'react-web-vector-icons';
 // import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
 import './Icon';
 // import EntypoIcon from 'react-native-vector-icons/dist/Entypo';
-import FeatherIcon from 'react-native-vector-icons/dist/Feather';
+// import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 
 const MobileIcon = props => {
     return (

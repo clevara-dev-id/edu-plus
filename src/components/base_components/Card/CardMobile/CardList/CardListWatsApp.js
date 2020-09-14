@@ -1,31 +1,25 @@
-import React, { Component, useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import './cardlistwhatsapp.css'
-import TitlePage from '../../../TitlePage/TitleMobile/TitlePage';
+// import TitlePage from '../../../TitlePage/TitleMobile/TitlePage';
 import WhatsappIcon from '../../../../asset/logo/ContactUs/WhatsappIcon.svg'
-const CardListWatsApp = props => {
-    let store = [{
-        image   : "http://via.placeholder.com/104x104",
-        brand   : "NASIONAL",
-        title   : "No. Telepon",
-        contact : "+62 999 9999 9999 9999",
-        phone   : "021 - 525 8721"
-    }];
-    props.store ? store=props.store : store=store; 
+const CardListWatsApp = (props) => {
+    // let store = ;
+    // props.store ? store=props.store : store=store; 
     return (
         <>
         <Container id="cardimgewatapp">
             { 
-            store.map((data)=>{return (
+            props.store.map((data)=>{return (
             <Row>
                 <Col>
                     <MyCard>
                     <div className="card-horizontal">
                         <CardImage>
-                            <img class="imageClass" src={WhatsappIcon} width="56px" height="56px" alt="Card image cap" />
+                            <img class="imageClass" src={WhatsappIcon} width="56px" height="56px" alt="" />
                         </CardImage>
                         <CardBody className="cardimgewatappbody">
                             <CardTitle className="title">{data.title}</CardTitle>

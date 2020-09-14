@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Accordion, Card } from 'react-bootstrap';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import { Container, Row, Col } from 'react-bootstrap';
+// import Icon from 'react-web-vector-icons';
 
 import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
 import './mapscomponents.css'

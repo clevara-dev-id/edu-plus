@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Card } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import ButtonLoadMoreDesktop  from '../Button/PrimaryButtonDesktop';
 import './cardimagetertiarydesktop.css'
@@ -73,10 +73,6 @@ const CardCount = styled.div`
     text-align: left;
 
     color: #242424;
-`;
-
-const BottomStyle = styled.div`
-    min-height: 83%;
 `;
 
 const LinkCardImage = styled.a`

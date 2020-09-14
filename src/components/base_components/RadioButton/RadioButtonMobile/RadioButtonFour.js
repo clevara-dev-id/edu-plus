@@ -1,9 +1,9 @@
-import React, { Component, useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
-import $ from 'jquery';
+import Icon from 'react-web-vector-icons';
+// import $ from 'jquery';
 
 import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
 import './radioButtonFour.css';

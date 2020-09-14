@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Card } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import SecondaryButtonDesktop from '../Button/SecondaryButtonDesktop';
 import ImgNotFound from '../../../asset/images/CardImageNotFound/notfound.png';
@@ -24,6 +24,7 @@ const CardImageNotFoundDesktop = props => {
                                     src={ImgNotFound} 
                                     width="100px" 
                                     height="100px" 
+                                    alt=""
                                 />
                             </DivImage>
                             <div>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -14,7 +14,7 @@ const FooterMobileBlue = props => {
             <Container id="footerMobileBlueContainer">
                 <Row>
                     <Col xs={12} className="headclassfooter">
-                        <DivLogo><img src={logoeduplus} width="138px" height="52px" /></DivLogo>
+                        <DivLogo><img src={logoeduplus} width="138px" height="52px" alt="" /></DivLogo>
                     </Col>
                 </Row>
                 <Row >

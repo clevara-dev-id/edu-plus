@@ -1,6 +1,6 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Accordion, Card, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import $ from 'jquery';
 import Icon from 'react-web-vector-icons';
@@ -8,27 +8,12 @@ import Icon from 'react-web-vector-icons';
 import './dropdownlistfilterfourdesktop.css';
 import '../../Icon/Mobile/Icon';
 
-const store=[        
-    {
-        id: 31,
-        name: "DKI JAKARTA"
-    },
-    {
-        id: 32,
-        name: "JAWA BARAT"
-    },
-    {
-        id: 36,
-        name: "BANTEN"
-    },
-];
-
 
 const DropDownListFilterFourDesktopSingle = (props) => {
     const [visible, setVisible]=useState(false);
     const [pickItem, setMyPickItem]=useState(props.placeholder);
-    const [visibleTwo, setVisibleTwo]=useState(false);
-    const [pickItemTwo, setMyPickItemTwo]=useState(props.placeholderTwo);
+    // const [visibleTwo, setVisibleTwo]=useState(false);
+    // const [pickItemTwo, setMyPickItemTwo]=useState(props.placeholderTwo);
     const show = () =>{
         $(`.${props.className}`).css({"display":"block"});
         setVisible(true);
@@ -37,34 +22,34 @@ const DropDownListFilterFourDesktopSingle = (props) => {
         $(`.${props.className}`).css({"display":"none"});
         setVisible(false);
     }
-    const showTwo = () =>{
-        $(`.${props.classNameTwo}`).css({"display":"block"});
-        setVisibleTwo(true);
-    }
-    const hideTwo = () =>{
-        $(`.${props.classNameTwo}`).css({"display":"none"});
-        setVisibleTwo(false);
-    }
+    // const showTwo = () =>{
+    //     $(`.${props.classNameTwo}`).css({"display":"block"});
+    //     setVisibleTwo(true);
+    // }
+    // const hideTwo = () =>{
+    //     $(`.${props.classNameTwo}`).css({"display":"none"});
+    //     setVisibleTwo(false);
+    // }
     $(document).ready(()=> {
         if(props.disabledButton!==true){
             $(`.${props.buttonClass}`).click(()=>{
                 visible === false ? show() : hide();
             });
         }
-        if(props.disabledButtonTwo!==true){
-            $(`.${props.buttonClassTwo}`).click(()=>{
-                visibleTwo === false ? showTwo() : hideTwo();
-            });
-        }
+        // if(props.disabledButtonTwo!==true){
+        //     $(`.${props.buttonClassTwo}`).click(()=>{
+        //         visibleTwo === false ? showTwo() : hideTwo();
+        //     });
+        // }
         $(`.${props.className} > option`).click((event)=>{
             hide();
             setMyPickItem(event.target.innerHTML)
             // console.log(event.target.innerHTML);
         });
-        $(`.${props.classNameTwo} > option`).click((event)=>{
-            setMyPickItemTwo(event.target.innerHTML);
-            hideTwo();
-        });
+        // $(`.${props.classNameTwo} > option`).click((event)=>{
+        //     setMyPickItemTwo(event.target.innerHTML);
+        //     hideTwo();
+        // });
     });
     console.log("this drop down")
     console.log(props.store);
@@ -117,33 +102,7 @@ const DropDownListFilterFourDesktopSingle = (props) => {
     );
 }
 
-
-const TitleDiv = styled.div`
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 17px;
-    text-align: left;
-    margin-bottom: 16px;
-
-    /* identical to box height */
-    letter-spacing: 0.001em;
-
-    color: #000000;
-`;
-
 const CardDropdown = styled.div(
-    props => ({
-        maxWidth: "343px",
-        height: "64px",
-        background: "#FFFFFF",
-        boxShadow: "0px 1px 8px rgba(0, 0, 0, 0.1)",
-        borderRadius: "4px",
-
-    })
-);
-
-const CardDropdownTwo = styled.div(
     props => ({
         maxWidth: "343px",
         height: "64px",

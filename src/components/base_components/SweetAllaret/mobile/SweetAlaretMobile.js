@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 import Swal from 'sweetalert2';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './sweetalertmobile.css'
 
 const SweetAlaretMobile = (title, message, icon) => {

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { items, itemsHaveError, itemsAreLoading } from './items';
+// import { items, itemsHaveError, itemsAreLoading } from './items';
 import { 
     homepageHaveError, 
     homepageAreLoading, 
@@ -38,8 +38,8 @@ import {
     // currentfavoriteDetail, 
     // currentfavoriteDetailSMP, 
     // currentfavoriteDetailSMA,
-    getCityName,
-    getProvName,
+    // getCityName,
+    // getProvName,
 } 
 from './favoritedetail';
 

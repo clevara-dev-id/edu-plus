@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -10,7 +10,7 @@ import "./jumbotronwithcarouseldesktop.css"
 import logoeduplus from '../../../asset/logo/eduplusheader.svg';
 import Button from '../Button/PrimaryButtonDesktop';
 
-import { Container, Row, Col, Badge } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 const JumbotronWithCarouselDesktop = props => {
     const settings = {
         arrows: false,

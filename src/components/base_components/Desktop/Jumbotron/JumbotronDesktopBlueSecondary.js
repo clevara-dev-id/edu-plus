@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import logoeduplus from '../../../asset/logo/eduplusheader.svg';
-import Button from '../../Button/ButtonMobile/ButtonSecondary'
+// import logoeduplus from '../../../asset/logo/eduplusheader.svg';
+// import Button from '../../Button/ButtonMobile/ButtonSecondary'
 
 import './jumbotrondesktopbluesecondary.css';
 
 const JumbotronDesktopBlueSecondary = props => {
-  
     return (
         <>
             <Container id="jumbotronDesktopSecondaryBlueContainer">

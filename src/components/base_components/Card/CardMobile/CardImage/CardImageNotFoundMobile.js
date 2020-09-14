@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Card } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import ButtonPrimary from '../../../Button/ButtonMobile/ButtonPrimary';
 import ImgNotFound from '../../../../asset/images/CardImageNotFound/notfound.png';
 import './cardimagenotfoundmobile.css';
 
-const CardImageNotFoundMobile = props => {
-    const getAccess = (uuid) =>{
+const CardImageNotFoundMobile = (props) => {
+    const getAccess = () =>{
         window.location=`/getaccessinput`;
     }
     return (
@@ -27,6 +27,7 @@ const CardImageNotFoundMobile = props => {
                                     src={ImgNotFound} 
                                     width="100px" 
                                     height="100px" 
+                                    alt=" "
                                 />
                             </DivImage>
                             <div>
@@ -43,35 +44,6 @@ const CardImageNotFoundMobile = props => {
         </>
     );
 }
-
-const LinkCards = styled.a`
-    text-decoration: none;
-    &:hover{
-        text-decoration: none;
-    }
-`; 
-
-const CardTitle = styled.h3`
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 17px;
-    text-align: left;
-    margin-top: 5px;
-
-    /* identical to box height */
-    letter-spacing: 0.0125em;
-    color: #242424;
-`;
-const CardCount = styled.div`
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 14px;
-    letter-spacing: 0.0125em;
-    text-align: left;
-    color: #242424;
-`;
 
 const DivImage = styled.div`
     margin-top: 30px;

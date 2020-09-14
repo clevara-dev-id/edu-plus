@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
 
@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./carouselmobilesecondary.css"
 
-import { Container, Row, Col, Badge } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 const CarouselMobileSecondary = props => {
     const settings = {
             arrows: false,
@@ -34,7 +34,7 @@ const CarouselMobileSecondary = props => {
                             {props.store.map((data)=>{
                                 return (
                                     <div className="carouselimagecssSecondary" >
-                                        <img src={data.image} />
+                                        <img src={data.image} alt=" "/>
                                     </div>
                                 )
                             })}

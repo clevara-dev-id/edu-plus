@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
@@ -24,26 +24,26 @@ const DesktopBadgeUsingRadioButton = props => {
                     <div className="radio-toolbarTwo">
                     <div>
                         <div id="childBadgesDesktop" >
-                            {props.store.map((data)=>{
+                            {props.store.map((data, index)=>{
                                 return(
-                                    props.store[0].name === data.name ?
-                                    <>
-                                        <Input 
-                                            type="radio" 
-                                            id={data.otherId} 
-                                            name="radioBadgesDesktop" 
-                                            value="schools"
-                                            onClick={(e)=>{openPage(data.idContent)}}
-                                            onLoad={(e)=>{openPage(data.idContent)}}
-                                            defaultChecked
-                                        />
-                                        <label htmlFor={data.otherId}>
-                                            <div>
-                                                <div>{data.name}</div>
-                                            </div>
-                                        </label>   
-                                    </>
-                                    :
+                                    // props.store[0].name === data.name ?
+                                    // <>
+                                    //     <Input 
+                                    //         type="radio" 
+                                    //         id={data.otherId} 
+                                    //         name="radioBadgesDesktop" 
+                                    //         value="schools"
+                                    //         onClick={(e)=>{openPage(data.idContent)}}
+                                    //         onLoad={(e)=>{openPage(data.idContent)}}
+                                    //         defaultChecked
+                                    //     />
+                                    //     <label htmlFor={data.otherId}>
+                                    //         <div>
+                                    //             <div>{data.name}</div>
+                                    //         </div>
+                                    //     </label>   
+                                    // </>
+                                    // :
                                     <>
                                     <Input 
                                         type="radio" 
@@ -51,6 +51,8 @@ const DesktopBadgeUsingRadioButton = props => {
                                         name="radioBadgesDesktop" 
                                         value="schools"
                                         onClick={(e)=>{openPage(data.idContent)}}
+                                        // onChange={props.}
+                                        defaultChecked={props.defaultCheck === index ? true : false}
                                     />
                                     <label htmlFor={data.otherId}>
                                         <div>

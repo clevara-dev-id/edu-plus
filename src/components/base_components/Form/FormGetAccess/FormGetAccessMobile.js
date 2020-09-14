@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, {  useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
@@ -118,7 +118,7 @@ const FormGetAccessMobile = props => {
             let lastAtPos = valueInput.lastIndexOf('@');
             let lastDotPos = valueInput.lastIndexOf('.');
 
-            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && valueInput.indexOf('@@') == -1 && lastDotPos > 2 && (valueInput.length - lastDotPos) > 2)) {
+            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && valueInput.indexOf('@@') === -1 && lastDotPos > 2 && (valueInput.length - lastDotPos) > 2)) {
                 text = "Invalid Format";
                 formIsValid=false;
             }
@@ -305,18 +305,6 @@ const FormGetAccessMobile = props => {
 
 }
 
-const DivTitile = styled.div`
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 17px;
-    text-align: left;
-    margin-bottom: 16px;
-
-    /* black ter */
-    color: #242424;
-`;
-
 const DivInput = styled.div`
     width: 343px;
     height: 64px;
@@ -354,24 +342,6 @@ const DivTitle = styled.div`
 
 const InputEmail = styled.input`
     // width: 305px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    margin-left: 20px;
-    border : none;
-
-    /* identical to box height */
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.0025em;
-
-    color: #2D2D2D;
-`;
-
-const InputMessage = styled.textarea`
-    width: 305px;
-    height: 157px;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

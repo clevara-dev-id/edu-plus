@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
@@ -56,7 +56,7 @@ const FormContactDesktop = props => {
             let lastAtPos = valueInput.lastIndexOf('@');
             let lastDotPos = valueInput.lastIndexOf('.');
 
-            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && valueInput.indexOf('@@') == -1 && lastDotPos > 2 && (valueInput.length - lastDotPos) > 2)) {
+            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && valueInput.indexOf('@@') === -1 && lastDotPos > 2 && (valueInput.length - lastDotPos) > 2)) {
                 text = "Invalid Format";
                 formIsValid=false;
             }

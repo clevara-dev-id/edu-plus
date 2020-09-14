@@ -1,14 +1,14 @@
-import React, { Component, useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import Icon from 'react-web-vector-icons';
 import { Container, Row, Col } from 'react-bootstrap';
 import $ from 'jquery';
 
 import '../../Icon/Mobile/Icon';
-import arrowicon from '../../../asset/images/ShortButton/icon.svg';
-import filtericon from '../../../asset/images/ShortButton/filter.svg';
+// import arrowicon from '../../../asset/images/ShortButton/icon.svg';
+// import filtericon from '../../../asset/images/ShortButton/filter.svg';
 import './dropdown.css';
 
 const DropDownList = props => {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -7,31 +7,27 @@ import logoeduplus from '../../../asset/logo/eduplusheader.svg'
 
 import './footerdesktop.css'
 
-const FooterDesktop = props => {
+const FooterDesktop = (props) => {
   
     return (
         <>
             <Container id="footerDesktopContainer">
                 <Row>
+                    <Col className="headclassfooter">
+                        <DivLogo><img src={logoeduplus} width="138px" height="52px" alt="" /></DivLogo>
+                    </Col>
+                </Row>
+                <Row>
                     <Col lg={4}>
-                        <Row>
-                            <Col className="headclassfooter">
-                                <DivLogo><img src={logoeduplus} width="138px" height="52px" /></DivLogo>
-                            </Col>
-                        </Row>
-                        <Row >
-                            <Col>
-                                <DivDescr className="description">
-                                    Cari sekolah sesuai kebutuhan Anda di Edukasi Plus
-                                </DivDescr>
-                            </Col>
-                        </Row>
+                        <DivDescr className="description">
+                            Cari sekolah sesuai kebutuhan Anda di Edukasi Plus
+                        </DivDescr>
                     </Col>
                     <Col className="colMenuBar" lg={8}>
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li><a href="/contactus">Hubungi Kami</a></li>
-                            <li><a href="/login">Login</a></li>
+                            <li><a href="https://operator.edukasiplus.com/">Login</a></li>
                             <li><a href="/getaccess">Daftarkan Sekolah Anda</a></li>
                         </ul>
                     </Col>
@@ -72,23 +68,8 @@ const DivDescr = styled.div`
     color: #FFFFFF;
 `;
 
-const FooterLink = styled.a`
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 14px;
-
-    /* white */
-    color: #FFFFFF !important;
-    text-decoration: none;
-    &:hover{
-        text-decoration: none;
-    }
-`;
-
 const LineFooter = styled.div`
     border: 1px solid #FFFFFF;  
-    margin-top: 16px;
 `;
 
 const CopyRight = styled.div`

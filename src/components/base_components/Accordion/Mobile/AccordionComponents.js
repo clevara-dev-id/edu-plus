@@ -1,14 +1,13 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Accordion, Card } from 'react-bootstrap';
+import Icon from 'react-web-vector-icons';
 import styled from 'styled-components';
-import './accordioncomponents.css';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
 import $ from 'jquery';
 
-import '../../../../../node_modules/font-awesome/css/font-awesome.min.css';
-import iconConten from '../../../asset/logo/According/check-circle.svg'
+import './accordioncomponents.css';
 
+import '../../Icon/Mobile/Icon';
 
 const AccordionComponents = props => {
    const [Icon, setIcon] = useState('');
@@ -28,7 +27,12 @@ const AccordionComponents = props => {
                                 onClick={()=>{Icon === "active" ? setIcon('') : setIcon('active') }}>
                                 {props.title} 
                                 <IconButton>
-                                    <FontAwesome name={Icon === "active" ? "angle-down":"angle-right"} color="gray" size={16} />
+                                    <Icon
+                                        font="FontAwesome"
+                                        name={Icon === "active" ? "angle-down":"angle-right"} 
+                                        color="gray" 
+                                        size={16} 
+                                    />
                                 </IconButton>
                             </Accordion.Toggle>
                             </Card.Header>

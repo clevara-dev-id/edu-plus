@@ -1,7 +1,7 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import './breadcrumbmobile.css'
 
@@ -26,19 +26,6 @@ const BreadCrumbMobile = props => {
         </>
     );
 }
-
-const TitleDiv = styled.h5`
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: left;   
-    letter-spacing: 0px;
-
-    /* darkblue-eduplus */
-    color: #1A6EB2;
-
-`;
 
 BreadCrumbMobile.propTypes = {
     store : PropTypes.object}

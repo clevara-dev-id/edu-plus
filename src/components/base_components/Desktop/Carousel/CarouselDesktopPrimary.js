@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./carouseldesktopprimary.css"
 
-import logoeduplus from '../../../asset/logo/eduplusheader.svg';
-import Button from '../Button/PrimaryButtonDesktop';
+// import logoeduplus from '../../../asset/logo/eduplusheader.svg';
+// import Button from '../Button/PrimaryButtonDesktop';
 
 import '../Icon/Icon'
 
-import { Container, Row, Col, Badge } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 const CarouselDesktopPrimary = props => {
     const settings = {
         // className: "center",
@@ -45,7 +45,7 @@ const CarouselDesktopPrimary = props => {
                             {props.store.map((data)=>{
                                 return (
                                     <div className="carouselDesktopPrimaryImage" >
-                                        <img src={data.image} />
+                                        <img src={data.image} alt=" " />
                                     </div>
                                 )
                             })}
@@ -57,37 +57,6 @@ const CarouselDesktopPrimary = props => {
     )
 }
 
-const DivLogo = styled.div`
-    margin-top: 63px;
-    text-align: center;
-    padding-right: 15px;
-    padding-left: 15px;
-    text-align: center;
-`;
-
-const DivText = styled.div`
-    min-width: 624px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 22px;
-    margin-top: 36px;
-    padding-right: 15px;
-    padding-left: 15px;
-
-    /* or 137% */
-    text-align: center;
-
-    /* Gray 6 */
-    color: #F2F2F2;
-`;
-
-const DivButton = styled.div`
-    margin-top: 56px;
-    // padding-right: 15px;
-    // padding-left: 15px;
-    // width: 227px;
-`;
 
 
 CarouselDesktopPrimary.propTypes = {

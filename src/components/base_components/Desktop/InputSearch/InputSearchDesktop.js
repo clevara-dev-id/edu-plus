@@ -1,9 +1,9 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import $ from 'jquery';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import Icon from 'react-web-vector-icons';
 // import $ from 'jquery';
 
 import './inputsearchdesktopsecondary.css';
@@ -11,7 +11,7 @@ import '../../Icon/Mobile/Icon';
 
 
 const InputSearchDesktop = props => {
-    const [isOptionClick, setIsOptionClick]=useState(false);
+    // const [isOptionClick, setIsOptionClick]=useState(false);
 
     // $(document).ready(function(){
     //     document.getElementById("defaultOpenBadges").click();  

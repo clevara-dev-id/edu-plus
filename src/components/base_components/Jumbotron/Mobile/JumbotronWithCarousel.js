@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -10,7 +10,7 @@ import "./jumbotronWithcarousel.css"
 import logoeduplus from '../../../asset/logo/eduplusheader.svg';
 import Button from '../../Button/ButtonMobile/ButtonSecondary';
 
-import { Container, Row, Col, Badge } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 const JumbotronWithCarousel = props => {
     const settings = {
         arrows: false,
@@ -40,7 +40,7 @@ const JumbotronWithCarousel = props => {
                             <div className="firstCarouselImagecssJumbotron" >
                                 <Row>
                                     <Col style={{display:"ruby"}}>
-                                        <DivLogo><img src={logoeduplus} width="138px" height="52px" /></DivLogo>
+                                        <DivLogo><img src={logoeduplus} width="138px" height="52px" alt="" /></DivLogo>
                                     </Col>
                                 </Row>
                                 <Row>
@@ -65,7 +65,7 @@ const JumbotronWithCarousel = props => {
                             {props.store.map((data)=>{
                                 return (
                                     <div className="carouselImagecssJumbotron" >
-                                        <img src={data.image} />
+                                        <img src={data.image} alt="" />
                                     </div>
                                 )
                             })}

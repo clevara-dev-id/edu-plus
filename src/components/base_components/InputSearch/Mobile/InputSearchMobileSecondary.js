@@ -1,8 +1,8 @@
-import React, { Component, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import Icon from 'react-web-vector-icons';
 import $ from 'jquery';
 
 import './inputsearchmobilesecondary.css';

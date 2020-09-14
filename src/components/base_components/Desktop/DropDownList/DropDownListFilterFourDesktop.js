@@ -1,27 +1,12 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Accordion, Card, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import $ from 'jquery';
 import Icon from 'react-web-vector-icons';
 
 import './dropdownlistfilterfourdesktop.css';
 import '../../Icon/Mobile/Icon';
-
-const store=[        
-    {
-        id: 31,
-        name: "DKI JAKARTA"
-    },
-    {
-        id: 32,
-        name: "JAWA BARAT"
-    },
-    {
-        id: 36,
-        name: "BANTEN"
-    },
-];
 
 
 const DropDownListFilterFourDesktop = (props) => {
@@ -152,21 +137,6 @@ const DropDownListFilterFourDesktop = (props) => {
         </>
     );
 }
-
-
-const TitleDiv = styled.div`
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 17px;
-    text-align: left;
-    margin-bottom: 16px;
-
-    /* identical to box height */
-    letter-spacing: 0.001em;
-
-    color: #000000;
-`;
 
 const CardDropdown = styled.div(
     props => ({

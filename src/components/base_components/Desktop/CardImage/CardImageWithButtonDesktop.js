@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Card } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import SecondaryButtonDesktop from '../Button/SecondaryButtonDesktop';
 import './cardimagewithbuttondesktop.css'
@@ -11,7 +11,7 @@ const CardImageWithButtonDesktop = props => {
     const getAccess = (uuid) =>{
         window.location=`/getaccessinput?uuid=${uuid}`;
     }
-    const loginButtonClick = (uuid) =>{
+    const loginButtonClick = () =>{
         window.location=`/login`;
     }
     return (

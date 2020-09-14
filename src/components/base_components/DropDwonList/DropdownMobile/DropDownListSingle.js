@@ -1,8 +1,8 @@
-import React, { Component, useCallback, useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import Icon from 'react-web-vector-icons';
 import { Container, Row, Col } from 'react-bootstrap';
 import $ from 'jquery';
 
@@ -11,19 +11,19 @@ import './dropdownlistsingle.css';
 
 const DropDownListSingle = props => {
     const [filter, setFilter]=useState('URUTKAN');
-    const [filterArea, setFilterArea]=useState('FILTER');
+    // const [filterArea, setFilterArea]=useState('FILTER');
     const showfunction = () => {
         $("#myDropdownLetter").toggle();
     }
     const hidefunction = () => {
         $("#myDropdownLetter").hide();   
     }
-    const showfunctionArea = () => {
-        $("#myDropdownArea").toggle();
-    }
-    const hidefunctionArea = () => {
-        $("#myDropdownArea").hide();   
-    }
+    // const showfunctionArea = () => {
+    //     $("#myDropdownArea").toggle();
+    // }
+    // const hidefunctionArea = () => {
+    //     $("#myDropdownArea").hide();   
+    // }
     return (
         <>
             <Container id="dropdownlistFilterSingleContainer">

@@ -1,13 +1,12 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Accordion, Card } from 'react-bootstrap';
 import styled from 'styled-components';
-import './accordionaddress.css';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
-import $ from 'jquery';
+import Icon from 'react-web-vector-icons';
+// import $ from 'jquery';
 
-import '../../../../../node_modules/font-awesome/css/font-awesome.min.css';
-import iconConten from '../../../asset/logo/According/check-circle.svg'
+import './accordionaddress.css';
+import '../../Icon/Mobile/Icon';
 
 import axios from 'axios';
 const API_URL = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi';
@@ -42,12 +41,12 @@ const AccordionAddress = props => {
         setProvinsidata(getData.data.semuaprovinsi);
     }
     const getKabupaten = async(id) =>{
-        let newDataKecamatan=[], countIndex=0, countIndexKab=0;
+        let newDataKecamatan=[], countIndex=0;
         const API_URL_KABUPATEN = `http://dev.farizdotid.com/api/daerahindonesia/provinsi/${id}/kabupaten`
         const response = await axios.get(API_URL_KABUPATEN);
         const getData = await response;
-        const sumKab = getData.data.lenght;
-        getData.data.kabupatens.map(async(data, index)=>{
+        // const sumKab = getData.data.lenght;
+        getData.data.kabupatens.map(async(data)=>{
             const kecamatandata = await getKecamatan(data.id);
             // console.log(kecamatandata);
             kecamatandata.data.kecamatans.forEach((kecdata)=>{
@@ -83,7 +82,12 @@ const AccordionAddress = props => {
                                 <SelectArrow>
                                     {choiceprovinsi}
                                     <IconButton className="iconbuttonaccordion">
-                                        <FontAwesome name={Icon} color="gray" size={22} />
+                                        <Icon
+                                            font="FontAwesome" 
+                                            name={Icon} 
+                                            color="gray" 
+                                            size={22} 
+                                        />
                                     </IconButton>
                                 </SelectArrow>
                             </Accordion.Toggle>
@@ -119,7 +123,12 @@ const AccordionAddress = props => {
                                 <SelectArrow>
                                     {choicekecamatan}
                                     <IconButton className="iconbuttonaccordion">
-                                        <FontAwesome name={IconKec} color="gray" size={22} />
+                                        <Icon 
+                                            font="FontAwesome"
+                                            name={IconKec} 
+                                            color="gray" 
+                                            size={22} 
+                                        />
                                     </IconButton>
                                 </SelectArrow>
                             </Accordion.Toggle>

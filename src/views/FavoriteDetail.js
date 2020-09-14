@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import $ from 'jquery';
 
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
+
 
 //Desktop
 import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlueSecondary';
 import CardImageTertiarayDesktop from '../components/base_components/Desktop/CardImage/CardImageTertiarayDesktop';
-import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
+// import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 import DropDownListSingleDesktop from '../components/base_components/Desktop/DropDownList/DropDownListSingleDesktop';
 import DesktopBadgeUsingRadioButton from '../components/base_components/Desktop/Badges/DesktopBadgeUsingRadioButton';
@@ -17,7 +20,7 @@ import DesktopBadgeUsingRadioButton from '../components/base_components/Desktop/
 import CardImageTertiary from '../components/base_components/Card/CardMobile/CardImage/CardImageTertiary';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 import JumbotronMobileSecondary from '../components/base_components/Jumbotron/Mobile/JumbotronMobileSecondary';
-import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
+// import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 import DropDownListSingle from '../components/base_components/DropDwonList/DropdownMobile/DropDownListSingle';
 
@@ -30,7 +33,6 @@ import {
     favoriteDetailFetchDataSMP, 
     favoriteDetailFetchDataSMA,
     favoriteDetailFetchCityName,
-    favoriteDetailFetchProvName,
 } from './redux/actions/favoritedetail';
 
 import{
@@ -71,13 +73,6 @@ const storeMobile = [
 
 ];
 
-const storeMobile2 =[
-    {name:"SD & MI", idContent: "mobileSDdanMI"},
-    {name:"SMP & MTS", idContent: "mobileSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "mobileSmaSmkMa"},
-    {name:"Universitas", idContent: "mobileUniv"},
-];
-
 //dummy Desktop
 const storeDesktop = [
     {
@@ -114,16 +109,6 @@ const storeDesktop = [
 
 ];
 
-const storeDesktop2 =[
-    {name:"SD & MI", idContent: "desktopSDdanMI"},
-    {name:"SMP & MTS", idContent: "desktopSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
-    {name:"Universitas", idContent: "desktopUniv"},
-];
-
-let dataCityMaptoProps=[];
-let dataCityMaptoPropsSMP=[];
-let dataCityMaptoPropsSMA=[];
 
 // const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://45.77.46.116/"
@@ -150,26 +135,26 @@ class FavoriteDetail extends Component {
         await this.getCityDataSMA(1);
         await this.getProvName();
     }
-    getCityData=async(page)=>{
+    getCityData=async()=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchData (`${getUrlBackend}api/favorite/${myParamId}/sd`);
+        await this.props.fetchData (`${getUrlBackend}api/favorite/${myParamId}/sd`);
     }
-    getCityDataSMP=async(page)=>{
+    getCityDataSMP=async()=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/favorite/${myParamId}/smp`);
+        await this.props.fetchDataSMP(`${getUrlBackend}api/favorite/${myParamId}/smp`);
 
     }
-    getCityDataSMA=async(page)=>{
+    getCityDataSMA=async()=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchDataSMA(`${getUrlBackend}api/favorite/${myParamId}/sma`);
+        await this.props.fetchDataSMA(`${getUrlBackend}api/favorite/${myParamId}/sma`);
     }
-    getProvName=async(page)=>{
+    getProvName=async()=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchProvName(`${getUrlBackend}api/province/${myParamId}/sd`);
+        await this.props.fetchProvName(`${getUrlBackend}api/province/${myParamId}/sd`);
     }
     dataArrayToAsc=(data)=> {
         if(data.length > 1){
@@ -206,6 +191,19 @@ class FavoriteDetail extends Component {
             return data;
         }
     }
+    generateEducationStage=()=>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const schStage = urlParams.get('sch');
+        if(schStage === "sma"){
+            return 2;
+        }
+        else if(schStage === "smp"){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
     render() {
         if (this.props.hasError) {
             return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
@@ -214,6 +212,7 @@ class FavoriteDetail extends Component {
         if (this.props.isLoading) {
             return <p id="defaultOpenBadges">Loading…</p>;
         }
+        
         let newArrayFaforiteDetail=[], faforiteDetailPageIndex=0, imageForSchools;
         let newArrayFaforiteDetailSMP=[], faforiteDetailPageIndexSMP=0; 
         let newArrayFaforiteDetailSMA=[], faforiteDetailPageIndexSMA=0;
@@ -222,7 +221,23 @@ class FavoriteDetail extends Component {
         let newArrayWithFilterSearchSMA=[];
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        this.props.favoriteDetail.forEach((data, index)=>{
+        const schStage = urlParams.get('sch');
+        if(schStage === "sma"){
+            $(document).ready(()=>{
+                $("#desktopSmaSmkMa").css("display", "block");
+            });
+        }
+        if(schStage === "smp"){
+            $(document).ready(()=>{
+                $("#desktopSmpMts").css("display", "block");
+            });
+        }
+        if(schStage === "sd"){
+            $(document).ready(()=>{
+                $("#desktopSDdanMI").css("display", "block");
+            });
+        }
+        this.props.favoriteDetail.forEach((data)=>{
             // data.map((newData)=>{
                 if(data.images!==undefined && data.images.length>0){
                     imageForSchools=data.image;
@@ -276,19 +291,22 @@ class FavoriteDetail extends Component {
         if(newArrayFaforiteDetail.length>0){
             newArrayFaforiteDetail.filter(name => name.titleCard.includes(this.state.favoriteSearch.toUpperCase())).map((data,index)=>{
                 newArrayWithFilterSearch[index]=data;
+                return newArrayWithFilterSearch;
             });
         }
         if(newArrayFaforiteDetailSMP.length>0){
             newArrayFaforiteDetailSMP.filter(name => name.titleCard.includes(this.state.favoriteSearch.toUpperCase())).map((data,index)=>{
                 newArrayWithFilterSearchSMP[index]=data;
+                return newArrayWithFilterSearchSMP;
             });
         }
         if(newArrayFaforiteDetailSMA.length>0){
             newArrayFaforiteDetailSMA.filter(name => name.titleCard.includes(this.state.favoriteSearch.toUpperCase())).map((data,index)=>{
                 newArrayWithFilterSearchSMA[index]=data;
+                return newArrayWithFilterSearchSMA;
             });
         }
-        console.log(this.props.favoriteDetail);
+        // console.log(this.props.favoriteDetail);
         return (
             <>
                 <div>
@@ -302,7 +320,7 @@ class FavoriteDetail extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
-                                store={[{name:"Home"},
+                                store={[{name:"Home", link: "/"},
                                 {name:this.props.getProvName, link:"#"},
                                 // {name:this.props.getCityName, link:"#"}
                             ]}
@@ -332,6 +350,7 @@ class FavoriteDetail extends Component {
                                 ]}
                                 placeholderSearch="Cari Sekolah"
                                 onChangeSearch={(e)=>{this.setState({favoriteSearch:e.target.value})}}
+                                defaultCheck={this.generateEducationStage()}
                             />
                         </section>
                         <section>
@@ -341,7 +360,7 @@ class FavoriteDetail extends Component {
                             />
                             <div style={{marginTop:"25px"}}></div>
                         </section>
-                        <section id="desktopSDdanMI" style={{display:"block"}} className="tabcontendetailDesktop">
+                        <section id="desktopSDdanMI" style={{display:"none"}} className="tabcontendetailDesktop">
                             <CardImageTertiarayDesktop 
                                 store={newArrayFaforiteDetail.length > 0 && this.state.sortBy === "az" ? this.dataArrayToAsc(newArrayWithFilterSearch).slice(0,this.state.limitPerPage) : 
                                 newArrayFaforiteDetail.length > 0 && this.state.sortBy === "za" ? this.dataArrayToDesc(newArrayWithFilterSearch).slice(0,this.state.limitPerPage) : 
@@ -387,7 +406,7 @@ class FavoriteDetail extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbMobile 
-                                store={[{name:"Home"},
+                                store={[{name:"Home", link:"/"},
                                     {name:this.props.getProvName, link:"#"},
                                     // {name:this.props.getCityName, link:"#"}
                                 ]}                            

@@ -263,7 +263,7 @@
     color:  #FFFFFF !important;
 }
   
-#radioButtonTwoDesktopContainer > .radio-toolbarTwo > .radioTitle{
+#radioButtonTwoDesktopContainer > .radio-toolbarTwo > .row > .radioTitle{
     text-align: left;
     padding-bottom: 16px;
     font-style: normal;

@@ -8,9 +8,10 @@ import React, { Component } from 'react';
 // import LoaderSpinner from '../component/base/loader/LoaderSpinner'
 
 //Import Desktop
-import NavbarDesktop from '../components/base_components/Desktop/NavBar/Navbar';
-import NavbarDesktopBlue from '../components/base_components/Desktop/NavBar/NavBarBlue'
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import NavbarDesktop from '../components/base_components/Desktop/NavBar/Navbar';
+import NavbarDesktopBlue from '../components/base_components/Desktop/NavBar/NavBarBlue';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
 import FooterDesktop from '../components/base_components/Desktop/Footers/FooterDesktop';
 
 //Mobile Import

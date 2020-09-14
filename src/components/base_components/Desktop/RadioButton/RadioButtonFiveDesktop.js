@@ -1,9 +1,9 @@
-import React, { Component, useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
-import $ from 'jquery';
+import Icon from 'react-web-vector-icons';
+// import $ from 'jquery';
 
 import '../Icon/Icon';
 import './radiobuttonfivedesktop.css';
@@ -27,7 +27,12 @@ const RadioButtonFiveDesktop = props => {
                             />
                             <label htmlFor="inputsd" >
                                 <div>
-                                    <FontAwesome name={icon === 'sd' ? 'check-circle' : "circle-o"} color="black" size={24} />
+                                    <Icon 
+                                        font="FontAwesome"
+                                        name={icon === 'sd' ? 'check-circle' : "circle-o"} 
+                                        color="black" 
+                                        size={24} 
+                                    />
                                     <div>SD {"&"} MI</div>
                                 </div>
                             </label>
@@ -41,7 +46,11 @@ const RadioButtonFiveDesktop = props => {
                                 onChange={()=>{setIcon('smp')}} />
                             <label htmlFor="inputSMP" >
                                 <div>
-                                    <FontAwesome name={icon === 'smp' ? 'check-circle' : "circle-o"} color='black' size={24} />
+                                    <Icon 
+                                        font="FontAwesome"
+                                        name={icon === 'smp' ? 'check-circle' : "circle-o"} 
+                                        color='black' size={24} 
+                                    />
                                     <div>SMP {"&"} MTs</div>
                                 </div>
                             </label>
@@ -57,7 +66,12 @@ const RadioButtonFiveDesktop = props => {
                             />
                             <label htmlFor="inputSMA" >
                                 <div>
-                                    <FontAwesome name={icon === 'sma' ? 'check-circle' : "circle-o"} color='black' size={24} />
+                                    <Icon
+                                        font="FontAwesome"
+                                        name={icon === 'sma' ? 'check-circle' : "circle-o"} 
+                                        color='black' 
+                                        size={24} 
+                                    />
                                     <div>SMA/SMK {"&"} MA</div>
                                 </div>
                             </label>

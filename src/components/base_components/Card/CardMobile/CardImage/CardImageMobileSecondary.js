@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Card } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import ButtonLoadMore from '../../../Button/ButtonMobile/ButtonSecondary';
 import './cardimagemobilesecondary.css'
@@ -74,10 +74,6 @@ const CardCount = styled.div`
     letter-spacing: 0.0125em;
     text-align: left;
     color: #242424;
-`;
-
-const BottomStyle = styled.div`
-    min-height: 83%;
 `;
 
 CardImageMobileSecondary.propTypes = {

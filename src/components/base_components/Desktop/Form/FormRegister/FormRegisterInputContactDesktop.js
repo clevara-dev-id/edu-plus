@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import ButtonPrimary from '../../Button/SecondaryButtonDesktop';
+// import ButtonPrimary from '../../Button/SecondaryButtonDesktop';
 import './formregisterinputcontactdesktop.css';
 
 const FormRegisterInputContactDesktop = props => {
@@ -85,7 +85,7 @@ const FormRegisterInputContactDesktop = props => {
             let lastAtPos = valueInput.lastIndexOf('@');
             let lastDotPos = valueInput.lastIndexOf('.');
 
-            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && valueInput.indexOf('@@') == -1 && lastDotPos > 2 && (valueInput.length - lastDotPos) > 2)) {
+            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && valueInput.indexOf('@@') === -1 && lastDotPos > 2 && (valueInput.length - lastDotPos) > 2)) {
                 text = "Invalid Format";
                 formIsValid=false;
             }
@@ -219,31 +219,10 @@ const FormRegisterInputContactDesktop = props => {
 
 }
 
-const DivTitile = styled.div`
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 17px;
-    text-align: left;
-    margin-bottom: 16px;
-
-    /* black ter */
-    color: #242424;
-`;
-
 const DivInput = styled.div`
     max-width: 343px;
     width:100%;
     height: 64px;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    margin-bottom: 16px;
-`;
-
-const DivTextArea = styled.div`
-    width: 343px;
-    height: 200px;
     background: #FFFFFF;
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
@@ -282,23 +261,6 @@ const InputEmail = styled.input`
     color: #2D2D2D;
 `;
 
-const InputMessage = styled.textarea`
-    width: 305px;
-    height: 157px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    margin-left: 20px;
-    border : none;
-
-    /* identical to box height */
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.0025em;
-
-    color: #2D2D2D;
-`;
 
 FormRegisterInputContactDesktop.propTypes = {
     title            : PropTypes.string,

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import Icon from 'react-web-vector-icons';
 
 import '../../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
 import './kontaksekolah.css'
@@ -31,7 +31,12 @@ const KontakSekolah = props => {
                     <Col>
                         <SecondTitileKontak>
                             <span>
-                                <FontAwesome name="envelope-o" color="#3273DC" size={16} />
+                                <Icon 
+                                    font="FontAwesome"
+                                    name="envelope-o" 
+                                    color="#3273DC" 
+                                    size={16} 
+                                />
                             </span>
                             <BodyKontak>{props.mail}</BodyKontak>
                         </SecondTitileKontak>

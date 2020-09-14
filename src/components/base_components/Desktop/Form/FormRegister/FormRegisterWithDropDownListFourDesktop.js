@@ -1,8 +1,8 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
-import Icon from 'react-web-vector-icons';
+// import Icon from 'react-web-vector-icons';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import DropdownList from '../../DropDownList/DropDownListFourResgisterDesktop';
@@ -11,21 +11,9 @@ import DropdownList from '../../DropDownList/DropDownListFourResgisterDesktop';
 import './formregisterwithdropdownlistfourdesktop.css';
 import '../../Icon/Icon';
 
-const storeMobileTwo = [
-    {id:"001", name:'SD'},
-    {id:"002", name:'Madrasah Tsanawiyah'},
-    {id:"003", name:'SMP'},
-    {id:"004", name:'SMA'},
-    {id:"005", name:'Madrasah Aliyah'},
-];
-
 const FormRegisterWithDropDownListFourDesktop = props => {
     //BOTTOM FORM
     const [visible, setVisible]=useState(false);
-    const [pickItem, setMyPickItem]=useState(props.placeholder);
-    const [pickItemTwo, setMyPickItemTwo]=useState(props.placeholderTwo);
-    const [pickItemThree, setMyPickItemThree]=useState(props.placeholderThree);
-    const [pickItemFour, setMyPickItemFour]=useState(props.placeholderFour);
 
     const IsFormValid = () => {
         let valueInput, text, formIsValid=true;

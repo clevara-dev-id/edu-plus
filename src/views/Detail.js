@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
 
 //Desktop
 import CardImageTertiarayDesktop from '../components/base_components/Desktop/CardImage/CardImageTertiarayDesktop';
@@ -41,14 +42,6 @@ import{
 } from './redux/actions/detailcitydata';
 
 
-//Import Image Desktop
-import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
-
-//Import Image Mobile
-import slideImage1 from '../components/asset/images/CarouselSlider/slider1.png';
-import slideImage2 from '../components/asset/images/CarouselSlider/slider2.png';
-import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
-
 //Image For School List
 import ImageSchool from '../asset/image/SchoolLists/schoolsILustrator.png';
 
@@ -63,95 +56,6 @@ const mobileBadgesStore =[
     {name:"Ekstrakulikuler", idContent: "extracurricularContentId"}
 ];
 
-const storeMobile = [
-    {
-        image     : JakartaImage,
-        titleCard : "SD Al-Azhar Syifa Budi",
-        descrip   : "Jalan Kemang Raya No. 3"
-    },
-    {
-        image     : JakartaImage,
-        titleCard : "SDIT Insan Mandiri Jakarta",
-        descrip   : "Jalan Batu Merah No. 71, Pejaten Timur"
-    },
-    {
-        image     : "https://via.placeholder.com/255x242",
-        titleCard : "SDS Islam Harapan Ibu",
-        descrip   : "Jl. H. Banan No. 1, Kebayoran Lama"
-    },
-    {
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "SDS Pangudi Luhur Jakarta",
-        descrip   : "Jl. H. Nawi Raya No. 21, Cilandak"
-    },
-    {
-        image     : "https://via.placeholder.com/255x242",
-        titleCard : "SD Charitas",
-        descrip   : "Jalan Swakarya C.13 A No. 1 4, Cilandak"
-    },
-
-];
-
-const storeMobileTwo =[
-    {
-        name:"021 - 525 8721",
-        icon:"phone",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:"",
-    },
-    {
-        name:"sdsumbangsih@mail.com",
-        icon:"mail",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:""
-    },
-    {
-        name:"sdsumbangsih.sch.id",
-        icon:"globe",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:""
-    }
-];
-
-const storeMobileThree = [
-    {   title:"Uang Pangkal", 
-        description : "Rp. 3,000,000"
-    },
-    {   title:"SPP Bulanan", 
-        description : "Rp. 550,000"
-    },
-    {   title:"Uang Kegiatan", 
-        description : "Rp. 1,550,000"
-    },
-    {   title:"Uang Buku", 
-        description : "Rp. 1,550,000"
-    },
-    {   title:"Potongan / Diskon", 
-        description : "Rp. 1,550,000"
-    },
-];
-
-const storeMobileFour = [
-    {   title:"Kepala Sekolah", 
-        description : "Anis Mulyanis S.pd"
-    },
-    {   title:"Jumlah Siswa", 
-        description : "451"
-    },
-    {   title:"Akreditasi", 
-        description : "A"
-    },
-    {   title:"Status", 
-        description : "swasta"
-    },
-    {   title:"Jam Sekolah", 
-        description : "06:30 - 12:00"
-    },
-];
-
 const storeMobileFive = [
     {   title:"Pendaftaran", 
         description : "24-29 Mei 2020"
@@ -162,85 +66,6 @@ const storeMobileFive = [
     {   title:"Daftar Ulang", 
         description : "17 - 18 Juni 2020"
     },
-];
-
-
-const storeMobileSeven =[
-    {
-        name:"Perpustakaan",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:"",
-    },
-    {
-        name:"Laboratorium",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:""
-    },
-    {
-        name:"Lapangan Olahraga",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:""
-    },
-    {
-        name:"Air Conditioning",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:""
-    },
-];
-
-const storeMobileEight =[
-    {
-        name:"Sepak Bola",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:"",
-    },
-    {
-        name:"Bola Voli",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:""
-    },
-    {
-        name:"Pramuka",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:""
-    },
-    {
-        name:"Bola Basket",
-        icon:"check-circle",
-        iconColor:"",
-        fontFamily:"Feather",
-        size:""
-    },
-];
-
-const store = [
-    {image : slideImage1},
-    {image : slideImage2},
-    {image : slideImage1},
-    {image : slideImage2}
-];
-
-//dummy desktop
-
-const DesktopSlider = [
-    {image : SlideImageDesktop1},
-    // {image : SlideImageDesktop1},
-    // {image : SlideImageDesktop1},
-    // {image : SlideImageDesktop1}
 ];
 
 const storeDesktop2 =[
@@ -277,14 +102,14 @@ class Detail extends Component {
             this.setState({detailSchoolsDataUpdate: this.props.detail});
         }
     }
-    getDetailData=async(page)=>{
+    getDetailData=async()=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('uuid');
-        const data = await this.props.fetchData(`${getUrlBackend}api/schools/${myParamId}`);
+        await this.props.fetchData(`${getUrlBackend}api/schools/${myParamId}`);
     }
     getCityData=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
-        const myParamId = urlParams.get('schid');
+        // const myParamId = urlParams.get('schid');
         const myEduStage = urlParams.get('edustage');
         let ParameterPostData = {
             "stage":myEduStage,
@@ -293,12 +118,12 @@ class Detail extends Component {
             "regency":this.props.schoolsAdressRegency.id,
             "district":this.props.schoolsAdressDistrict.id,
         }
-        const data = await this.props.fetchSchoolsCity(`${getUrlBackend}api/search/?page=${page}`,ParameterPostData);
+        await this.props.fetchSchoolsCity(`${getUrlBackend}api/search/?page=${page}`,ParameterPostData);
     }
     handleClickViewAll=async()=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamPageFrom = urlParams.get('page_from');
-        const myParamSchID = urlParams.get('schid');
+        // const myParamSchID = urlParams.get('schid');
         const myParamEducationStage = urlParams.get('edustage');
         let status="";
         if(myParamPageFrom.length > 1){
@@ -326,13 +151,12 @@ class Detail extends Component {
         let newArrayImage=[];
         let newArrayFacilities=[];
         let newArrayExtracurricular=[];
-        let newArrayRegistration=[];
+        // let newArrayRegistration=[];
         const urlParams = new URLSearchParams(window.location.search);
-        const myParamUUID = urlParams.get('uuid');
         const myParamSchID = urlParams.get('schid');
         const myParamEducationStage = urlParams.get('edustage');
         const myParamPageFrom = urlParams.get('page_from');
-        this.props.detailCity.forEach((newData, index)=>{
+        this.props.detailCity.forEach((newData)=>{
             if(newData.images!==undefined && newData.images.length>0){
                 imageForSchools=newData.image;
             }
@@ -408,6 +232,7 @@ class Detail extends Component {
                     icon:"check-circle",
                     fontFamily:"Feather",
                 }
+                return newArrayFacilities;
             });
         }
         if(this.props.schoolsExtracurricular.length > 0){
@@ -417,6 +242,7 @@ class Detail extends Component {
                     icon:"check-circle",
                     fontFamily:"Feather",
                 }
+                return newArrayExtracurricular;
             });
         }
         if(this.props.schoolsImage.length !== 0){
@@ -425,6 +251,7 @@ class Detail extends Component {
                 newArrayImage[index]={
                     image : `${getUrlBackend}storage/${data.image}`
                 }
+                return newArrayImage;
             });
         }
         // console.log(this.props.schoolsExtracurricular);
@@ -440,7 +267,7 @@ class Detail extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
-                                store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
+                                store={[{name:"Home", link:"/"},{name:"Detail Sekolah", link:"#"}]}
                             />
                         </section>
                         <section>
@@ -612,7 +439,7 @@ class Detail extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbMobile 
-                                store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
+                                store={[{name:"Home", link:"/"},{name:"Detail Sekolah", link:"#"}]}
                             />
                         </section>
                         <section>

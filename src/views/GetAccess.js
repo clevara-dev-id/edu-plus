@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import $ from 'jquery'
+// import $ from 'jquery'
 import { connect } from 'react-redux';
 
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
 
 //Get Aceess Input Fetch Redux
 import { 
@@ -24,6 +25,7 @@ import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitleP
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 
 //Mobile Item
+import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 import InputSearchMobileSecondary from '../components/base_components/InputSearch/Mobile/InputSearchMobileSecondary';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import CardImageWithButtonMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageWithButtonMobile';
@@ -36,67 +38,10 @@ import CardImageNotFoundMobile from '../components/base_components/Card/CardMobi
 
 
 //Image
-import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
+// import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
 
 //Image For School List
 import ImageSchool from '../asset/image/SchoolLists/schoolsILustrator.png';
-
-
-
-//dummy Mobile
-// const storeMobile = [];
-const storeMobile = [
-    {
-        uuid      : "123xyz",
-        image     : JakartaImage,
-        titleCard : "SDN Islam Harapan Ibu",
-        descrip   : "Jalan Batu Merah No. 71, Pejaten Timur",
-        link      : "/getaccessdetail",
-        operator  : false,
-    },
-    {
-        uuid      : "456xyz",
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "SDIT Insan Mandiri Jakarta",
-        descrip   : "Jalan Batu Merah No. 71, Pejaten Timur",
-        link      : "/getaccessdetail",
-        operator  : true,
-    },
-    {
-        uuid      : "789xyz",
-        image     : "https://via.placeholder.com/255x242",
-        titleCard : "SDS Islam Harapan Ibu",
-        descrip   : "Jl. H. Banan No. 1, Kebayoran Lama",
-        link      : "/getaccessdetail",
-        operator  : true,
-    },
-    {
-        uuid      : "123abc",
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "SDS Pangudi Luhur Jakarta",
-        descrip   : "Jl. H. Nawi Raya No. 21, Cilandak",
-        link      : "/getaccessdetail",
-        operator  : true,
-    },
-    {
-        uuid      : "456abc",
-        image     : "https://via.placeholder.com/255x242",
-        titleCard : "SD Charitas",
-        descrip   : "Jalan Swakarya C.13 A No. 1 4, Cilandak",
-        link      : "/getaccessdetail",
-        operator  : false,
-    },
-
-];
-
-const autocompletesearch = [
-    {name:"about"},
-    {name:"home"},
-    {name:"title"},
-    {name:"brithday"},
-    {name:"news"}
-
-];
 
 // const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://45.77.46.116/"
@@ -122,14 +67,14 @@ class GetAccess extends Component {
         const paramData = {
             "name":keyWord
         }
-        const data = await this.props.fetchData(`${getUrlBackend}api/search/schools/`, paramData);
+        await this.props.fetchData(`${getUrlBackend}api/search/schools/`, paramData);
     }
     searchAoutoComplete = async (keyWord) =>{
         if(keyWord.length > 0){
             const paramData = {
                 "name":keyWord
             }
-            const data = await this.props.fetchDataSearch(`${getUrlBackend}api/search/schools/`, paramData);    
+            await this.props.fetchDataSearch(`${getUrlBackend}api/search/schools/`, paramData);    
         }
     }
     onButtonSearchClick=async(data)=>{
@@ -173,6 +118,7 @@ class GetAccess extends Component {
                     link      : "/getaccessdetail",
                     operator  : operator,
                 }
+                return newArrayGetAccess;
             });
         }
         return (
@@ -182,7 +128,7 @@ class GetAccess extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
-                                store={[{name:"Home"},{name:"Daftar Sekolah", link:"#"}]}
+                                store={[{name:"Home", link:"/"},{name:"Daftar Sekolah", link:"#"}]}
                             />
                         </section>
                         <section>
@@ -256,6 +202,12 @@ class GetAccess extends Component {
                         </section>
                     </OnDesktop>
                     <OnMobile>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbMobile 
+                                store={[{name:"Home", link:"/"},{name:"Dapatkan Akses", link:"#"}]}
+                            />
+                        </section>
                         <section>
                             <div style={{marginTop:"36px"}}></div>
                             <TitlePageMobile

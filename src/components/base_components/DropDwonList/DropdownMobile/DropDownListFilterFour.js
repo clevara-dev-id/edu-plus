@@ -1,6 +1,6 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Accordion, Card, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import $ from 'jquery';
 import Icon from 'react-web-vector-icons';
@@ -75,21 +75,6 @@ const DropDownListFilterFour = props => {
         </>
     );
 }
-
-
-const TitleDiv = styled.div`
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 17px;
-    text-align: left;
-    margin-bottom: 16px;
-
-    /* identical to box height */
-    letter-spacing: 0.001em;
-
-    color: #000000;
-`;
 
 const CardDropdown = styled.div`
     max-width: 343px;

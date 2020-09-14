@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import $ from 'jquery';
 
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
 
 //Redux 
 import { 
@@ -21,6 +21,7 @@ import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/
 import Pagination from '../components/base_components/Desktop/Pagination/Pagination';
 
 //import mobile
+import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import TitleWithSeparator from '../components/base_components/TitlePage/TitleMobile/TitleWithSeparator';
 import ButtonSecondary from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
@@ -29,113 +30,15 @@ import CardImageTertiary from '../components/base_components/Card/CardMobile/Car
 import SingleBadges from '../components/base_components/Badges/BadgesMobile/SingleBadges';
 import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 
-//Import Image Desktop
-import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
-
-//Image
-import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
-
-//Import Image
-import CardImage1 from '../components/asset/images/CardList/SMAN14JAKARTA.png';
-import CardImage2 from '../components/asset/images/CardList/SMAN51JAKARTA.png';
-import CardImage3 from '../components/asset/images/CardList/SMAN62JAKARTA.png';
-import CardImage4 from '../components/asset/images/CardList/SMAN93JAKARTA.png';
 
 //Image For School List
 import ImageSchool from '../asset/image/SchoolLists/schoolsILustrator.png';
-import { Next } from 'react-bootstrap/PageItem';
-
-//dummy Mobile
-const storeMobile = [
-    {
-        image     : JakartaImage,
-        titleCard : "SDN Islam Harapan Ibu",
-        descrip   : "Jalan Batu Merah No. 71, Pejaten Timur"
-    },
-    {
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "SDIT Insan Mandiri Jakarta",
-        descrip   : "Jalan Batu Merah No. 71, Pejaten Timur"
-    },
-    {
-        image     : "https://via.placeholder.com/255x242",
-        titleCard : "SDS Islam Harapan Ibu",
-        descrip   : "Jl. H. Banan No. 1, Kebayoran Lama"
-    },
-    {
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "SDS Pangudi Luhur Jakarta",
-        descrip   : "Jl. H. Nawi Raya No. 21, Cilandak"
-    },
-    {
-        image     : "https://via.placeholder.com/255x242",
-        titleCard : "SD Charitas",
-        descrip   : "Jalan Swakarya C.13 A No. 1 4, Cilandak"
-    },
-
-];
-
-//dummy desktop
-const DesktopSlider = [
-    {image : SlideImageDesktop1},
-    {image : SlideImageDesktop1},
-    {image : SlideImageDesktop1},
-    {image : SlideImageDesktop1}
-];
-
-const storeDesktop = [
-    {
-        image     : JakartaImage,
-        titleCard : "Jakarta Utara",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "Jakarta Pusat",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x242",
-        titleCard : "Jakarta Barat",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x242",
-        titleCard : "Jakarta Timur",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x242",
-        titleCard : "Jakarta Selatan",
-        descrip   : "15 Sekolah"
-    },
-];
 
 // const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://45.77.46.116/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
 const getUrlBackend = "https://backend.edukasiplus.com/"
 // const getUrlBackend = "http://backend.edukasiplus.com/" //No SSL
-
-const dataFromBackEnd =[
-    {data: 1},
-    {data: 2},
-    {data: 3},
-    {data: 4},
-    {data: 5},
-    {data: 6},
-    {data: 7},
-    {data: 8},
-    {data: 9},
-    {data: 10},
-    {data: 11},
-    {data: 12},
-    {data: 13},
-    {data: 14},
-    {data: 15},
-    {data: 16},
-];
-
 
 class SearchResult extends Component {
     constructor(props) {
@@ -182,7 +85,7 @@ class SearchResult extends Component {
             "regency":myParamId.substr(0,4),
             "district" : myParamId,
         }
-        const data = await this.props.fetchData(`${getUrlBackend}api/search/?page=${page}`, ParameterPostData);
+        await this.props.fetchData(`${getUrlBackend}api/search/?page=${page}`, ParameterPostData);
     }
     dataArrayToAsc=(data)=> {
         if(data.length > 1){
@@ -245,8 +148,7 @@ class SearchResult extends Component {
         if (this.props.isLoading) {
             return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><p id="cardimageSeacrhResultId"></p>Loading…</p>;
         }
-        let newArraySearchResult=[], searchResultIndex=0, imageForSchools;
-        let newArrayWithFilterSearchResult=[];
+        let newArraySearchResult=[], imageForSchools;
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('district_id');
         const myParamEduStage = urlParams.get('educationstage');
@@ -266,26 +168,13 @@ class SearchResult extends Component {
             }
             // searchResultIndex++;
         });
-        let newPaginationData=[], indexPage=1;
-        for(let i =0; i<dataFromBackEnd.length; i++){
-            newPaginationData[i]={
-                number: indexPage
-            }
-            indexPage++;
-        }    
-        // if(newArraySearchResult.length > 0){
-            
-        // }
-        // console.log(this.state.sortBy);
-        const { todos, currentPage, todosPerPage } = this.state;
-
         return (
             <>
                 <OnDesktop>
                     <section>
                         <div style={{marginTop:"25px"}}></div>
                         <BreadCrumbDesktop 
-                            store={[{name:"Home"},{name:"Search", link:"#"},{name:"Hasil Pencarian", link:"#"}]}
+                            store={[{name:"Home", link:"/"},{name:"Search", link:"/search"},{name:"Hasil Pencarian", link:"#"}]}
                         />
                     </section>
                     <section>
@@ -357,6 +246,12 @@ class SearchResult extends Component {
                         <div style={{marginTop: "48px"}}></div>
                         <Title name="Daftar SMA Negeri" />
                     </section> */}
+                    <section>
+                        <div style={{marginTop:"25px"}}></div>
+                        <BreadCrumbMobile 
+                            store={[{name:"Home", link:"/"},{name:"Search", link:"/search"},{name:"Hasil Pencarian", link:"#"}]}
+                        />
+                    </section>
                     <section>
                         <div style={{marginTop:"36px"}}></div>
                         <TitlePageMobile

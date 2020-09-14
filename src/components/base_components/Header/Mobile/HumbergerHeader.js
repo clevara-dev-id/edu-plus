@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import Icon from 'react-web-vector-icons';
 
 // import logoeduplus from '../../../asset/logo/eduplusheader.svg';
 import Button from '../../Button/ButtonMobile/ButtonSecondary';
@@ -26,7 +26,7 @@ const HumbergerHeader = props => {
             <Container id="humbergerHeaderContainer" fluid>
                 <Row>
                     <Col className="humbergerLogo">
-                        <img width="64px" height="23px" src={humbergerlogo} />
+                        <img width="64px" height="23px" src={humbergerlogo} alt="" />
                     </Col>
                     <Col className="humbergerbutton">
                         <a onClick={()=>{openNav()}}><Icon name="navicon" color="#ffffff" font="EvilIcons" size={28} /></a>
@@ -34,7 +34,7 @@ const HumbergerHeader = props => {
                 </Row>
                 <div id="mySidenavhumberger" className="sidenavHumberger">
                     <Row> 
-                        <Col className="navbarlogo"><img width="64px" height="23px" src={humbergerlogo} /></Col>
+                        <Col className="navbarlogo"><img width="64px" height="23px" src={humbergerlogo} alt="" /></Col>
                         <Col><a href="javascript:void(0)" className="closebtn" onClick={()=>{closeNav()}}>&times;</a></Col>
                     </Row>
                     <Row> 

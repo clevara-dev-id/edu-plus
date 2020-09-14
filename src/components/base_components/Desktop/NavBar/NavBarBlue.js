@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Icon from 'react-web-vector-icons';
@@ -30,7 +30,7 @@ const NavBarBlue = props => {
         <Container id="navbarDesktopBlueContainer">
             <Row>
                 <Col className="colLogoNavBar" lg={2}>
-                    <img src={logoDesktop} width="100px" height="38px" />
+                    <img src={logoDesktop} width="100px" height="38px" alt="" />
                 </Col>
                 <Col className="colMenuBar" lg={7}>
                     <ul>
@@ -39,7 +39,7 @@ const NavBarBlue = props => {
                         <li><a href="https://operator.edukasiplus.com/">Login</a></li>
                         <li>
                             <div className="dropdownNavbarDesktop">
-                                <a href="#" className="guideBookNavbar"
+                                <LinkForGuide className="guideBookNavbar"
                                     onClick={()=>{showHideFunctions()}}
                                 >Panduan
                                     <Icon 
@@ -47,7 +47,7 @@ const NavBarBlue = props => {
                                         color="#ffffff" 
                                         font="FontAwesome" size={22} 
                                     />
-                                </a>
+                                </LinkForGuide>
                                 <div id="myDropdownNavbarDesktop" class="dropdown-contentNavBarDesktop">
                                     <option
                                         value="operator" 
@@ -75,67 +75,9 @@ const NavBarBlue = props => {
     );
 }
 
-const NavTitle = styled.a`
-    font-family: Helvetica;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
-    /* identical to box height */
-
-    color: #000000;
+const LinkForGuide = styled.a`
+cursor: pointer;
 `;
-const LiMyMenubar = styled.li`
-    margin-right: 32px
-`;
-const MyMenubar = styled.a`
-    font-family: Helvetica;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 17px;
-    line-height: 21px;
-
-    /* identical to box height */
-    text-align: right;
-
-    color: #000000;
-    transition: .05s all;
-    text-decoration: none;
-    &:hover{
-        color:#DBDBDB !important;
-        cursor: pointer;
-        text-decoration: none;
-    }
-`;
-
-// const NavbarButton = styled.button`
-//     border: 0px solid transparent;
-//     width: 169px;
-//     height: 41px;
-
-//     background: #FFFFFF;
-
-//     /* shadow 1 */
-//     box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.03);
-//     border-radius: 4px;
-
-//     font-family: Helvetica;
-//     font-style: normal;
-//     font-weight: normal;
-//     font-size: 17px;
-//     line-height: 21px;
-
-//     /* identical to box height */
-//     text-align: center;
-//     transition: .05s all;
-
-//     color: #000000;
-//     &:hover{
-//         border: 2px solid #DBDBDB;
-//         background: transparent;
-//         color: #DBDBDB;
-//     }
-// `;
 
 NavBarBlue.propTypes = {
     store           : PropTypes.object,

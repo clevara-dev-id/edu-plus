@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
 
 //Redux
 import { 
@@ -29,88 +29,14 @@ import DropdownListFilterFour from '../components/base_components/DropDwonList/D
 import RadioButtonTwo from '../components/base_components/RadioButton/RadioButtonMobile/RadioButtonTwo';
 import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
 
-
-
-
-const store = [
-    {id:"001", name:'SD'},
-    {id:"002", name:'Madrasah Tsanawiyah'},
-    {id:"003", name:'SMP'},
-    {id:"004", name:'SMA'},
-    {id:"005", name:'Madrasah Aliyah'},
-];
-const store2 = [
-    {id:"001", name:'Jakarta'},
-    {id:"002", name:'Jawa Barat'},
-];
-
-const store3 = [
-    {id:"001", name:'Jakarta Selatan'},
-    {id:"002", name:'Jakarta Barat'},
-];
-
-const store4 = [
-    {id:"001", name:'Manggarai'},
-    {id:"002", name:'Tebet'},
-];
-
 const store5 = [
     {id:"001", name:'Tebet Timur'},
     {id:"002", name:'Tebet Utara'},
 ];
 
-//dummy Desktop
-
-const RegionProv = [
-    {id:"001", name:'Jakarta'},
-    {id:"002", name:'Jawa Barat'},
-];
-
 const RegionCity = [
     {id:"011", name:'Jakarta Barat'},
     {id:"012", name:'Jakarta Selatan'},
-];
-
-const storeDesktop = [
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "DKI Jakarta",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Jawa Barat",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Jawa Tengah",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Bali",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "Sumatra Utara",
-        descrip   : "15 Sekolah"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "Kalimantan",
-        descrip   : "15 Sekolah"
-    }
-
-
-];
-
-const storeDesktop2 =[
-    {name:"SD & MI", idContent: "desktopSDdanMI"},
-    {name:"SMP & MTS", idContent: "desktopSmpMts"},
-    {name:"SMA, SMK, & MA", idContent: "desktopSmaSmkMa"},
-    {name:"Universitas", idContent: "desktopUniv"},
 ];
 
 const provArray=[        
@@ -157,16 +83,16 @@ class Search extends Component {
         // this.getDistrictData();
     }
     getProvinceData=async(page)=>{ 
-        const data = await this.props.fetchData(`${getUrlBackend}api/search/init`);
+        await this.props.fetchData(`${getUrlBackend}api/search/init`);
     }
     getCityData=async(getProvId)=>{
 
-        const data = await this.props.fetchDataCity(`${getUrlBackend}api/search/get-regency/${getProvId}`);
+        await this.props.fetchDataCity(`${getUrlBackend}api/search/get-regency/${getProvId}`);
         
     }
     getDistrictData=async(getCityId)=>{
         // getCityId=3101;
-        const data = await this.props.fetchDataDistrict(`${getUrlBackend}api/search/get-district/${getCityId}`);
+        await this.props.fetchDataDistrict(`${getUrlBackend}api/search/get-district/${getCityId}`);
     }
     onClickSearchDetailHandle = () =>{
         window.location=`/searchresult?district_id=${this.state.district_id}&&educationstage=${this.state.education_stage}&&status=${this.state.status}`;
@@ -186,6 +112,7 @@ class Search extends Component {
         if(this.props.searchpageprov.length !== 0){
             this.props.searchpageprov.map((data,index)=>{
                 newArrayForProvlist[index]=data;
+                return newArrayForProvlist;
             });
         }
         // let newCityArray=[];
@@ -205,7 +132,7 @@ class Search extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
-                                store={[{name:"Home"},{name:"Search", link:"#"}]}
+                                store={[{name:"Home", link:"/"},{name:"Search", link:"/search"}]}
                             />
                         </section>
                         <section>

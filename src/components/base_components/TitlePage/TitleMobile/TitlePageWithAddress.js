@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
+// import $ from 'jquery';
 import "./titlepagesecondary.css";
 
-import LineComponents from '../../LineComponents/Mobile/LineComponents';
+// import LineComponents from '../../LineComponents/Mobile/LineComponents';
 
 const TitlePageWithAddress = props =>{
-    const readmoreFunction= () => {
-        var dots = document.getElementById("dots");
-        var moreText = document.getElementById("more");
-        var btnText = document.getElementById("myBtn");
+    // const readmoreFunction= () => {
+    //     var dots = document.getElementById("dots");
+    //     var moreText = document.getElementById("more");
+    //     var btnText = document.getElementById("myBtn");
       
-        if (dots.style.display === "none") {
-          dots.style.display = "inline";
-        //   btnText.innerHTML = "Read more"; 
-          moreText.style.display = "none";
-        } else {
-          dots.style.display = "none";
-        //   btnText.innerHTML = "Read less"; 
-          moreText.style.display = "inline";
-          $("#myBtn").hide();
-        }
-    }
+    //     if (dots.style.display === "none") {
+    //       dots.style.display = "inline";
+    //     //   btnText.innerHTML = "Read more"; 
+    //       moreText.style.display = "none";
+    //     } else {
+    //       dots.style.display = "none";
+    //     //   btnText.innerHTML = "Read less"; 
+    //       moreText.style.display = "inline";
+    //       $("#myBtn").hide();
+    //     }
+    // }
     return (
         <>
             <Container id="SecondaryTitile">
@@ -64,12 +64,6 @@ const ContenReadmore = styled.p`
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-`;
-const ButtonReadmore = styled.a`
-    color : #3273DC !important;
-    &:hover{
-        cursor: pointer !important;
-    }
 `;
 
 TitlePageWithAddress.propTypes = {

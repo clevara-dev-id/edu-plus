@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
 
 //Get Aceess Input Fetch Redux
 import { 
@@ -21,9 +22,6 @@ import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/Br
 import CardImgePromo from '../components/base_components/Card/CardMobile/CardPromo/CardImgePromo';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
 import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
-
-//Image Desktop
-import ImagePromo3 from '../components/asset/images/Promo/Promo3eduplus.png'
 
 //Image
 import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
@@ -60,44 +58,6 @@ const storeMobile = [
     },
 ];
 
-
-
-//dummy Desktop
-const storeDesktop = [
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "#PROMO1",
-        descrip   : "labore deserunt amet minim nostrud dolor aute "
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "#PROMO2",
-        descrip   : "labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla"
-    },
-    {
-        image     : ImagePromo3,
-        titleCard : "#PROMO3",
-        descrip   : `labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla. 
-                    labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla  
-                    labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla`
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "#PROMO4",
-        descrip   : "labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla"
-    },
-    {
-        image     : "https://via.placeholder.com/255x256",
-        titleCard : "#PROMO5",
-        descrip   : "labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla"
-    },
-    {
-        image     : "https://via.placeholder.com/256x255",
-        titleCard : "#PROMO6",
-        descrip   : "labore deserunt amet minim nostrud dolor aute sit sit consequat esse dolore veniam ad nulla"
-    }
-];
-
 // const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://45.77.46.116/"
 // const getUrlBackend = "https://admin.edukasiplus.com/"
@@ -115,10 +75,10 @@ class Promo extends Component {
     componentDidMount=async ()=>{
         this.getPromoData(1);
     }
-    getPromoData=async(page)=>{
-        const urlParams = new URLSearchParams(window.location.search);
-        const myParamId = urlParams.get('uuid');
-        const data = await this.props.fetchData(`${getUrlBackend}api/promo`);
+    getPromoData=async()=>{
+        // const urlParams = new URLSearchParams(window.location.search);
+        // const myParamId = urlParams.get('uuid');
+        await this.props.fetchData(`${getUrlBackend}api/promo`);
     }
     render(){
         if (this.props.hasError) {
@@ -142,7 +102,9 @@ class Promo extends Component {
                     titleCard : data.name,
                     descrip   : data.description
                 }
+                return newArrayPromo;
             });
+            return 1;
         }
         return (
             <>
@@ -151,7 +113,7 @@ class Promo extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
-                                store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
+                                store={[{name:"Home", link:"/"},{name:"Promo", link:"#"}]}
                             />
                         </section>
                         <section>
@@ -189,7 +151,7 @@ class Promo extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbMobile 
-                                store={[{name:"Home"},{name:"DKI Jakarta", link:"#"}]}
+                                store={[{name:"Home", link:"/"},{name:"Promo", link:"#"}]}
                             />
                         </section>
                         <section>

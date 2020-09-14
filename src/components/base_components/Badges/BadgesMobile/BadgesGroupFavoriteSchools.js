@@ -1,14 +1,14 @@
-import React, { Component, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Badge } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import $ from 'jquery';
 
 import './badgesgroupfavoriteschools.css';
 
 
 const BadgesGroupFavoriteSchools = props => {
-    const getPath = window.location.pathname;
+    // const getPath = window.location.pathname;
     // console.log(getPath);
     const openPage = (evt, cityName) =>{
         var i, tabcontent, tablinks;

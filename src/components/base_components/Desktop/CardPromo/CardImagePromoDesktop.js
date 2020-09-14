@@ -1,8 +1,8 @@
-import React, { Component, useState } from 'react';
-import { Container, Row, Col, Jumbotron, Button, Card, Modal } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Row, Col, Card, Modal } from 'react-bootstrap';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import './cardimagepromodesktop.css'
 
@@ -22,7 +22,7 @@ const MyVerticallyCenteredModal=(props)=> {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <div><img src={props.sourceImageModal} width="480px" height="259px" /></div>
+            <div><img src={props.sourceImageModal} width="480px" height="259px" alt="" /></div>
             <DivLine></DivLine>
             <TitleModal>{props.TitleCard}</TitleModal>
             <DescriptionModal>{props.descripModal}</DescriptionModal>

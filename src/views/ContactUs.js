@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
 
 //Get Aceess Input Fetch Redux
 import { 
@@ -10,12 +11,14 @@ import {
 
 
 //Desktop
+import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
 import CardListWhatsAppDesktop from '../components/base_components/Desktop/CardList/CardListWhatsAppDesktop';
 import FormContactDesktop from '../components/base_components/Desktop/Form/FormContact/FormContactDesktop';
 
 //Mobile Item
+import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 import CardListWatsApp from '../components/base_components/Card/CardMobile/CardList/CardListWatsApp';
 import FormContactComponents from '../components/base_components/Form/FormContact/FormContactComponents';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
@@ -48,7 +51,7 @@ class ContactUs extends Component {
             email: this.state.emailValue,
             message: this.state.messageValue
         }
-        const data = await this.props.fetchData(`${getUrlBackend}api/contact/`, sendData);
+        await this.props.fetchData(`${getUrlBackend}api/contact/`, sendData);
     }
     onHandelClickButton=()=>{
         this.postSchoolsData();
@@ -65,6 +68,12 @@ class ContactUs extends Component {
                 <div>
                     <OnDesktop>
                         <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbDesktop 
+                                store={[{name:"Home", link:"/"},{name:"Hubungi Kami", link:"#"}]}
+                            />
+                        </section>
+                        <section>
                             <div style={{marginTop:"36px"}}></div>
                             <TitlePageHeaderDesktop
                                 name="Hubungi Kami"
@@ -74,7 +83,15 @@ class ContactUs extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
-                            <CardListWhatsAppDesktop />
+                            <CardListWhatsAppDesktop 
+                                store={[{
+                                    image   : "http://via.placeholder.com/104x104",
+                                    brand   : "NASIONAL",
+                                    title   : "No. Telepon",
+                                    contact : "+62 999 9999 9999 9999",
+                                    phone   : "021 - 525 8721"
+                                }]}
+                            />
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
@@ -94,9 +111,16 @@ class ContactUs extends Component {
                                 namelink="halo@eduplus.com"
                                 nameSecondary=" dan akan segera kami balas"
                             />
+                            <div style={{marginBottom:"25px"}}></div>
                         </section>
                     </OnDesktop>
                     <OnMobile>
+                        <section>
+                            <div style={{marginTop:"25px"}}></div>
+                            <BreadCrumbMobile 
+                                store={[{name:"Daftar Sekolah", link:"/"},{name:"Hubungi Kami", link:"#"}]}
+                            />
+                        </section>
                         <section>
                             <div style={{marginTop:"36px"}}></div>
                             <TitlePageMobile
@@ -106,7 +130,16 @@ class ContactUs extends Component {
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>
-                            <CardListWatsApp />
+                            <CardListWatsApp 
+                                store={[{
+                                    image   : "http://via.placeholder.com/104x104",
+                                    brand   : "NASIONAL",
+                                    title   : "No. Telepon",
+                                    contact : "+62 999 9999 9999 9999",
+                                    phone   : "021 - 525 8721"
+                                }]}
+                            
+                            />
                         </section>
                         <section>
                             <div style={{marginTop:"25px"}}></div>

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row, Col, Jumbotron, Button } from 'react-bootstrap';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import $ from 'jquery';
+// import styled from 'styled-components';
+// import PropTypes from 'prop-types';
+// import $ from 'jquery';
 
 import './jumbotrondesktop.css'
 
-const JumbotronDesktop = props => {
+const JumbotronDesktop = (props) => {
     return (
         <>
             <Container id="jumbotronDesktopContainer">

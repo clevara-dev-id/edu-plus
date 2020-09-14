@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
+// import $ from 'jquery';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import ButtonPrimary from '../../Button/ButtonMobile/ButtonPrimary';
-import LineComponents from '../../LineComponents/Mobile/LineComponents';
+// import ButtonPrimary from '../../Button/ButtonMobile/ButtonPrimary';
+// import LineComponents from '../../LineComponents/Mobile/LineComponents';
 import './formregistersingle.css';
 
 

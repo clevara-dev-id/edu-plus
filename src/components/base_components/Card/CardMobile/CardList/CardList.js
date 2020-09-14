@@ -1,10 +1,10 @@
-import React, { Component, useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import './cardList.css'
-import TitlePage from '../../../TitlePage/TitleMobile/TitlePage';
+// import TitlePage from '../../../TitlePage/TitleMobile/TitlePage';
 
 const CardList = props => {
     let store = [{

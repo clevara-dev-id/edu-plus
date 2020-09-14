@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
+// import $ from 'jquery';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import ButtonPrimary from '../../Button/ButtonMobile/ButtonPrimary';
-import LineComponents from '../../LineComponents/Mobile/LineComponents';
+// import ButtonPrimary from '../../Button/ButtonMobile/ButtonPrimary';
+// import LineComponents from '../../LineComponents/Mobile/LineComponents';
 import './formregister.css';
 
 
@@ -54,7 +54,7 @@ const FormRegister = props => {
             let lastAtPos = valueInput.lastIndexOf('@');
             let lastDotPos = valueInput.lastIndexOf('.');
 
-            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && valueInput.indexOf('@@') == -1 && lastDotPos > 2 && (valueInput.length - lastDotPos) > 2)) {
+            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && valueInput.indexOf('@@') === -1 && lastDotPos > 2 && (valueInput.length - lastDotPos) > 2)) {
                 text = "Invalid Format";
                 formIsValid=false;
             }
@@ -148,18 +148,6 @@ const FormRegister = props => {
 
 }
 
-const DivTitile = styled.div`
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 17px;
-    text-align: left;
-    margin-bottom: 16px;
-
-    /* black ter */
-    color: #242424;
-`;
-
 const DivInput = styled.div`
     width: 343px;
     height: 64px;
@@ -200,15 +188,6 @@ const InputEmail = styled.input`
 
     color: #2D2D2D;
 `;
-
-const DivLine = styled.div(
-    props => ({
-        border       : "1.5px solid #DBDBDB",
-        marginTop    : "10px",
-        marginBottom : "10px"
-    })
-);
-
 
 FormRegister.propTypes = {
     title            : PropTypes.string,

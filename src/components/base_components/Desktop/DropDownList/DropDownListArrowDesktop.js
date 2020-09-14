@@ -1,28 +1,28 @@
-import React, { Component, useCallback, useEffect, useState } from 'react';
+import React, { useState }  from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import Icon from 'react-web-vector-icons';
 import { Container, Row, Col } from 'react-bootstrap';
 import $ from 'jquery';
 
 import '../../Icon/Mobile/Icon';
-import arrowicon from '../../../asset/images/ShortButton/icon.svg';
-import filtericon from '../../../asset/images/ShortButton/filter.svg';
+// import arrowicon from '../../../asset/images/ShortButton/icon.svg';
+// import filtericon from '../../../asset/images/ShortButton/filter.svg';
 import './dropdownlistarrowdesktop.css';
 
 const DropDownListArrowDesktop = props => {
     const [filter, setFilter]=useState('URUTKAN');
-    const [filterArea, setFilterArea]=useState('FILTER');
+    // const [filterArea, setFilterArea]=useState('FILTER');
     const showfunction = () => {
         $("#myDropdownLetterDesktop").toggle();
     }
-    const showfunctionArea = () => {
-        $("#myDropdownAreaDesktop").toggle();
-    }
-    const hidefunctionArea = () => {
-        $("#myDropdownAreaDesktop").hide();   
-    }
+    // const showfunctionArea = () => {
+    //     $("#myDropdownAreaDesktop").toggle();
+    // }
+    // const hidefunctionArea = () => {
+    //     $("#myDropdownAreaDesktop").hide();   
+    // }
     $(document).ready(function(){
         $("#azbutton").click( function()
            {
@@ -38,30 +38,30 @@ const DropDownListArrowDesktop = props => {
         );
 
         //Area
-        $("#provbutton").click( function()
-           {
-                hidefunctionArea();
-                setFilterArea("Provinsi");
-           }
-        );
-        $("#citybutton").click( function()
-           {
-                hidefunctionArea();
-                setFilterArea("Kabupaten / Kota");
-           }
-        );
-        $("#districtbutton").click( function()
-           {
-                hidefunctionArea();
-                setFilterArea("Kecamatan");
-           }
-        );
-        $("#villagebutton").click( function()
-           {
-                hidefunctionArea();
-                setFilterArea("Desa / Kelurahan");
-           }
-        );
+        // $("#provbutton").click( function()
+        //    {
+        //         hidefunctionArea();
+        //         setFilterArea("Provinsi");
+        //    }
+        // );
+        // $("#citybutton").click( function()
+        //    {
+        //         hidefunctionArea();
+        //         setFilterArea("Kabupaten / Kota");
+        //    }
+        // );
+        // $("#districtbutton").click( function()
+        //    {
+        //         hidefunctionArea();
+        //         setFilterArea("Kecamatan");
+        //    }
+        // );
+        // $("#villagebutton").click( function()
+        //    {
+        //         hidefunctionArea();
+        //         setFilterArea("Desa / Kelurahan");
+        //    }
+        // );
     });
     return (
         <>

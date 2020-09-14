@@ -1,5 +1,5 @@
-import React, { lazy } from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import Home from './views/Home';
 import Promo from './views/Promo';
@@ -14,7 +14,6 @@ import GetAccess from './views/GetAccess';
 // import GetAccessDetail from './views/GetAccessDetail';
 import GetAccessInput from './views/GetAccessInput';
 import Login from './views/Auth/Login';
-import Register from './views/Auth/Register';
 import Page404 from './views/errors/Page404';
 
 const BaseRoute = () => {
@@ -34,7 +33,6 @@ const BaseRoute = () => {
                 {/* <Route exact path="/getaccessdetail" component={GetAccessDetail} /> */}
                 <Route exact path="/getaccessinput" component={GetAccessInput} />
                 <Route exact path="/login" component={Login} />
-                <Route exact path="/register" component={Register} />
                 <Route path="" component={Page404} />
             </Switch>
         </>

@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Slider from 'react-slick';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -11,27 +10,27 @@ import logoeduplus from '../../../asset/logo/eduplusheader.svg';
 import ImageJumbotron from '../../../asset/images/Header/Jumbotron.svg';
 import Button from '../Button/PrimaryButtonDesktop';
 
-import { Container, Row, Col, Badge } from 'react-bootstrap';
+import { Container, Row, Col, } from 'react-bootstrap';
 const JumbotronDesktopBlue = props => {
-    const settings = {
-        arrows: false,
-        dots: true,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        // autoplay: true,
-        // autoplaySpeed: 2000
-        appendDots: dots => (
-            <div
-              style={{
-                borderRadius: "10px",
-                bottom: "0px"
-              }}
-            >
-              <ul style={{ margin: "0px", paddingLeft: "0px"}}> {dots} </ul>
-            </div>
-          ),
-        };
+    // const settings = {
+    //     arrows: false,
+    //     dots: true,
+    //     infinite: true,
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     // autoplay: true,
+    //     // autoplaySpeed: 2000
+    //     appendDots: dots => (
+    //         <div
+    //           style={{
+    //             borderRadius: "10px",
+    //             bottom: "0px"
+    //           }}
+    //         >
+    //           <ul style={{ margin: "0px", paddingLeft: "0px"}}> {dots} </ul>
+    //         </div>
+    //       ),
+    //     };
     return (
         <>
             <Container id="jumbotronDesktopBlueContainer">
@@ -39,7 +38,7 @@ const JumbotronDesktopBlue = props => {
                     <Col lg={5}>
                         <Row>
                             <Col>
-                                <DivLogo><img src={logoeduplus} width="271px" height="102px" /></DivLogo>
+                                <DivLogo><img src={logoeduplus} width="271px" height="102px" alt="" /></DivLogo>
                             </Col>
                         </Row>
                         <Row>
@@ -63,7 +62,7 @@ const JumbotronDesktopBlue = props => {
                     </Col>
                     <Col lg={7} style={{textAlign:"right"}}>
                         <DivImage>
-                            <img src={ImageJumbotron} width="373px" height="365px" />
+                            <img src={ImageJumbotron} width="373px" height="365px" alt="" />
                         </DivImage>
                     </Col>
                 </Row>

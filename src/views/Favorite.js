@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
 
 //Desktop
-import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
+// import JumbotronDesktop from '../components/base_components/Desktop/Jumbotron/JumbotronDesktop';
 import JumbotronDesktopBlueSecondary from '../components/base_components/Desktop/Jumbotron/JumbotronDesktopBlueSecondary';
-import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
+// import CardImage from '../components/base_components/Desktop/CardImage/CardImage';
 import CardImageSecondaryDesktop from '../components/base_components/Desktop/CardImage/CardImageSecondaryDesktop';
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
@@ -15,9 +16,9 @@ import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/
 import CardImageMobileSecondary from '../components/base_components/Card/CardMobile/CardImage/CardImageMobileSecondary';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';
 import InputSearchMobile from '../components/base_components/InputSearch/Mobile/InputSearchMobile';
-import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
+// import MobileHomePageTitle from '../components/base_components/TitlePage/TitleMobile/MobileHomePageTitle';
 import JumbotronMobileSecondary from '../components/base_components/Jumbotron/Mobile/JumbotronMobileSecondary';
-import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
+// import ButtonLoadMore from '../components/base_components/Button/ButtonMobile/ButtonSecondary';
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 
 //Image
@@ -94,32 +95,6 @@ const storeDesktop = [
     },
 ];
 
-const storeDesktop2 =[
-    {   name:"SD & MI", 
-        idContent: "desktopSDdanMI",
-        idBadges:"firstTabOnFavoritePage",
-    },
-    {
-        name:"SMP & MTS", 
-        idContent: "desktopSmpMts",
-        idBadges:"secondTabOnFavoritePage",
-    },
-    {
-        name:"SMA, SMK, & MA", 
-        idContent: "desktopSmaSmkMa",
-        idBadges:"thirdTabOnFavoritePage",
-    },
-    {
-        name:"Universitas", 
-        idContent: "desktopUniv",
-        idBadges:"FourthTabOnFavoritePage",
-    },
-];
-
-let dataCityMaptoProps=[];
-let dataCityMaptoPropsSMP=[];
-let dataCityMaptoPropsSMA=[];
-
 // const getUrlBackend = "http://localhost:8000/"
 // const getUrlBackend = "http://139.180.184.84/"
 // const getUrlBackend = "http://45.77.46.116/"
@@ -149,17 +124,17 @@ class Favorite extends Component {
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
         // console.log(myParam);
-        const data = await this.props.fetchData(`${getUrlBackend}api/province/${myParamId}/sd`);
+        await this.props.fetchData(`${getUrlBackend}api/province/${myParamId}/sd`);
     }
     getCityDataSMP=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchDataSMP(`${getUrlBackend}api/province/${myParamId}/smp`);
+        await this.props.fetchDataSMP(`${getUrlBackend}api/province/${myParamId}/smp`);
     }
     getCityDataSMA=async(page)=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('id');
-        const data = await this.props.fetchDataSMA(`${getUrlBackend}api/province/${myParamId}/sma`);
+        await this.props.fetchDataSMA(`${getUrlBackend}api/province/${myParamId}/sma`);
     }
     render() {
         if (this.props.hasError) {
@@ -170,8 +145,8 @@ class Favorite extends Component {
             return <p id="defaultOpenBadges">Loading…</p>;
         }
         let newArrayFaforite=[], titleImageForCity="FirstImage", imageForCity, nextImage="";
-        let newArrayFaforiteSMP=[], faforitePageIndexSMP=0; 
-        let newArrayFaforiteSMA=[], faforitePageIndexSMA=0;
+        let newArrayFaforiteSMP=[]; 
+        let newArrayFaforiteSMA=[];
         let newArrayWithFilterSearch=[], newArrayWithFilterSearchSMP=[], newArrayWithFilterSearchSMA=[];
         this.props.favorite.map((newData, index)=>{
             let schoolCount='', linkCard='', messageCommingSoon;
@@ -205,6 +180,8 @@ class Favorite extends Component {
                 messageIfCommingSoon : messageCommingSoon,
             }
             titleImageForCity=nextImage;
+
+            return newArrayFaforite;
         });
         this.props.favoriteSMP.map((newData, index)=>{
             let schoolCount='', linkCard='', messageCommingSoon;
@@ -237,8 +214,9 @@ class Favorite extends Component {
                 link                 : linkCard,
                 messageIfCommingSoon : messageCommingSoon,
             }
-            faforitePageIndexSMP++;
+            // faforitePageIndexSMP++;
             titleImageForCity=nextImage;
+            return newArrayFaforiteSMP;
         });
         this.props.favoriteSMA.map((newData, index)=>{
             let schoolCount='', linkCard='', messageCommingSoon;
@@ -271,22 +249,26 @@ class Favorite extends Component {
                 link                 : linkCard,
                 messageIfCommingSoon : messageCommingSoon,
             }
-            faforitePageIndexSMA++;
+            // faforitePageIndexSMA++;
             titleImageForCity=nextImage;
+            return newArrayFaforiteSMA;
         });
         if(newArrayFaforite.length>0){
             newArrayFaforite.filter(name => name.titleCard.includes(this.state.favoriteSearch.toUpperCase())).map((data,index)=>{
                 newArrayWithFilterSearch[index]=data;
+                return newArrayWithFilterSearch;
             });
         }
         if(newArrayFaforiteSMP.length>0){
             newArrayFaforiteSMP.filter(name => name.titleCard.includes(this.state.favoriteSearch.toUpperCase())).map((data,index)=>{
                 newArrayWithFilterSearchSMP[index]=data;
+                return newArrayWithFilterSearchSMP;
             });
         }
         if(newArrayFaforiteSMA.length>0){
             newArrayFaforiteSMA.filter(name => name.titleCard.includes(this.state.favoriteSearch.toUpperCase())).map((data,index)=>{
                 newArrayWithFilterSearchSMA[index]=data;
+                return newArrayWithFilterSearchSMA;
             });
         }
         return (

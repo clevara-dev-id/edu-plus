@@ -1,8 +1,8 @@
-import React, { Component, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Badge, Button, InputGroup, FormControl } from 'react-bootstrap';
-import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
+import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import Icon from 'react-web-vector-icons';
 import $ from 'jquery';
 
 import './desktopbadges.css';
@@ -103,13 +103,6 @@ const DesktopBadges = props => {
         </>
     );
 }
-
-const LinkBadge = styled.a`
-    &:hover{
-        text-decoration: none;
-        background: none;
-    }
-`;
 
 const MyBadgeGray = styled.span`
     width: auto;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import $ from 'jquery'
 import { connect } from 'react-redux';
 
-import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+// import { OnDesktop, OnMobile, onTablet } from '../constants/Breackpoint';
+import { OnDesktop, OnMobile } from '../constants/Breackpoint';
 
 //Get Aceess Input Fetch Redux
 import { 
@@ -25,18 +25,18 @@ import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitleP
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
-import CardImageSingleMobile from '../components/base_components/Card/CardMobile/SingleImage/CardImageSingleMobile';
-import TitlePageWithAddress from '../components/base_components/TitlePage/TitleMobile/TitlePageWithAddress';
-import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
+// import CardImageSingleMobile from '../components/base_components/Card/CardMobile/SingleImage/CardImageSingleMobile';
+// import TitlePageWithAddress from '../components/base_components/TitlePage/TitleMobile/TitlePageWithAddress';
+// import LineComponents from '../components/base_components/LineComponents/Mobile/LineComponents';
 import TitleBotttomTertiary from '../components/base_components/TitleBottom/Mobile/TitleBotttomTertiary';
 import FormGetAccessMobile from '../components/base_components/Form/FormGetAccess/FormGetAccessMobile';
 
 //Import Image Desktop
-import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
+// import SlideImageDesktop1 from '../components/asset/images/Detail/sekolah.png';
 
 
 //Image
-import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
+// import JakartaImage from '../components/asset/images/FavoritePage/JakartaUtara.png'
 
 //Const Http dummy
 // const getUrlBackend = "http://localhost:8000/"
@@ -70,26 +70,24 @@ class GetAccessInput extends Component {
             this.getDetailData();
         }
     }
-    getDetailData=async(page)=>{
+    getDetailData=async()=>{
         const urlParams = new URLSearchParams(window.location.search);
         const myParamId = urlParams.get('uuid');
-        const data = await this.props.fetchData(`${getUrlBackend}api/schools/${myParamId}`);
+        await this.props.fetchData(`${getUrlBackend}api/schools/${myParamId}`);
     }
     postSchoolsData = async() =>{
         const urlParams = new URLSearchParams(window.location.search);
         const uuidParam = urlParams.get('uuid');
-        let schoolname, npsn;
         if(uuidParam===null || uuidParam===""){
             const sendData = {
                 name:this.state.nameValue,
                 school_name: this.state.valueSchoolsName,
                 npsn: this.state.valueSchoolsId,
-                npsn: "60709165",
                 email:this.state.emailValue,
                 position: this.state.positionValue,
                 phone_number: this.state.phoneValue,
             }
-            const data = await this.props.fetchInputData(`${getUrlBackend}api/attempt/get-access`, sendData);
+            await this.props.fetchInputData(`${getUrlBackend}api/attempt/get-access`, sendData);
         }
         if(uuidParam!==null && uuidParam!==""){
             const sendData = {
@@ -111,7 +109,7 @@ class GetAccessInput extends Component {
             // formData.append("uuid", this.state.nameValue);
 
 
-            const data = await this.props.fetchInputData(`${getUrlBackend}api/attempt/get-access`, sendData);
+            await this.props.fetchInputData(`${getUrlBackend}api/attempt/get-access`, sendData);
         }
         
     }
@@ -139,7 +137,7 @@ class GetAccessInput extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
-                                store={[{name:"Daftar Sekolah"},{name:"Detail Sekolah", link:"#"}]}
+                                store={[{name:"Home", link:"/"},{name:"Dapatkan Akses", link:"/getaccess"},{name:"Input Form", link:"#"}]}
                             />
                         </section>
                         <section>
@@ -171,16 +169,16 @@ class GetAccessInput extends Component {
                         <section >
                             <div style={{marginTop: "32px"}}></div>
                                 <TitleBottomDesktopTertiary 
-                                width="535px"
-                                name="Pihak Eduplus melalui email"
-                                link=""
-                                namelink=" halo@eduplus.com "
-                                nameSecondary="atau no. telp. "
-                                linkSecondary=""
-                                namelinkSecondary=" +62 999 9999 9999 "
-                                nameTertiary="akan segera menghubungi anda untuk melakukan verifikasi lebih lanjut, Terimakasih"
-                                fontSize="13px"
-                                textAlign="center"
+                                    width="535px"
+                                    name="Pihak Eduplus melalui email"
+                                    link=""
+                                    namelink=" halo@eduplus.com "
+                                    nameSecondary="atau no. telp. "
+                                    linkSecondary=""
+                                    namelinkSecondary=" +62 999 9999 9999 "
+                                    nameTertiary="akan segera menghubungi anda untuk melakukan verifikasi lebih lanjut, Terimakasih"
+                                    fontSize="13px"
+                                    textAlign="center"
                                 />
                             <div style={{marginBottom: "73px"}}></div>
                         </section>
@@ -190,8 +188,9 @@ class GetAccessInput extends Component {
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbMobile 
                                 store={[
-                                    {name:"Detail Sekolah"},
-                                    {name:"Dapatkan Akses", link:"#"},
+                                    {name:"Home", link:"/"},
+                                    {name:"Dapatkan Akses", link:"/getaccess"},
+                                    {name:"Input Form", link:"#"}
                                 ]}
                             />
                         </section>
