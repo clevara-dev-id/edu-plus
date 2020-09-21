@@ -19,6 +19,8 @@ import RadioButtonTwoDesktop from '../components/base_components/Desktop/RadioBu
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 import TitleBottomDesktop from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktop';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
+import LoadingComponents from '../components/base_components/Desktop/Loading/LoadingComponents';
+
 
 //Mobile Item
 import TitlePageMobile from '../components/base_components/TitlePage/TitleMobile/TitlePage';
@@ -106,7 +108,7 @@ class Search extends Component {
                 Sorry! There was an error loading the items</p>;
         }
         if (this.props.isLoading) {
-            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>Loading…</p>;
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><LoadingComponents /></p>;
         }
         let newArrayForProvlist=[];
         if(this.props.searchpageprov.length !== 0){

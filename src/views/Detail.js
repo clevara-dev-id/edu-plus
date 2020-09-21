@@ -17,6 +17,7 @@ import LineComponentsDesktop from '../components/base_components/Desktop/LineCom
 import TitileCardDesktopViewAll from '../components/base_components/Desktop/TitlePage/TitileCardDesktopViewAll';
 import CarouselDesktopSecondary from '../components/base_components/Desktop/Carousel/CarouselDesktopSecondary';
 import ButtonAnotherSchoolsDesktop  from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
+import LoadingComponents from '../components/base_components/Desktop/Loading/LoadingComponents';
 
 
 //Mobile
@@ -144,8 +145,8 @@ class Detail extends Component {
             return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
         }
         if (this.props.isLoading) {
-            return <p id="defaultOpenBadges">Loading…</p>;
-        }
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><LoadingComponents /></p>;
+        }        
         let newArraySchoolsDetail=[], schoolsDetailPageIndex=0, imageForSchools;
         let newArrayCost=[];
         let newArrayImage=[];

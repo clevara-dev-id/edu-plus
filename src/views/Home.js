@@ -22,6 +22,7 @@ import CardImageSecondaryDesktop from '../components/base_components/Desktop/Car
 import TitlePageDesktop from '../components/base_components/Desktop/TitlePage/TitlePageDesktop';
 import TitlePageDesktopPromo from '../components/base_components/Desktop/TitlePage/TitlePageDesktopPromo';
 import DesktopBadgeUsingRadioButton from '../components/base_components/Desktop/Badges/DesktopBadgeUsingRadioButton';
+import LoadingComponents from '../components/base_components/Desktop/Loading/LoadingComponents';
 
 //Mobile Item
 import CardImageMobile from '../components/base_components/Card/CardMobile/CardImage/CardImageMobile';
@@ -316,10 +317,10 @@ class Home extends Component {
             return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>
                 Sorry! There was an error loading the items</p>;
         }
-
         if (this.props.isLoading) {
-            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}>Loading…</p>;
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><LoadingComponents /></p>;
         }
+
         let newArrayHomepage=[], changeOriginalArrayHomepage=[], newArrayWithFilterSearch=[];
         let newArrayHomepageSMP=[], changeOriginalArrayHomepageSMP=[], newArrayWithFilterSearchSMP=[];
         let newArrayHomepageSMA=[], changeOriginalArrayHomepageSMA=[], newArrayWithFilterSearchSMA=[];
@@ -417,6 +418,8 @@ class Home extends Component {
         this.props.promo.map((data, index)=>{
             newArrayPromo[index]={
                 image:data.image ? data.image : ImagePromo1,
+                titleCard : data.name,
+                descrip   : data.description
             }
             return newArrayPromo;
         });
@@ -619,7 +622,8 @@ class Home extends Component {
     }
 }
 
-const mapStateToProps = (state) => {    return {
+const mapStateToProps = (state) => {   
+    return {
         homepage: state.homepage,
         homepageSMP: state.homepageSMP,
         homepageSMA: state.homepageSMA,

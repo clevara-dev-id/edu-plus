@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
+
+import PopUpPromoDetailDesktop from '../CardPromo/PopUpPromoDetailDesktop';
+
+
 // import styled from 'styled-components';
 
 import "slick-carousel/slick/slick.css"; 
@@ -10,10 +14,16 @@ import "./carouseldesktopprimary.css"
 // import logoeduplus from '../../../asset/logo/eduplusheader.svg';
 // import Button from '../Button/PrimaryButtonDesktop';
 
+
 import '../Icon/Icon'
 
 import { Container, Row, Col } from 'react-bootstrap';
 const CarouselDesktopPrimary = props => {
+    const [modalShow, setModalShow] = useState(false);
+    const [modalImage, setModalImage] = useState('');
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalDescription, setModalDescription] = useState('');
+
     const settings = {
         // className: "center",
         // centerMode: true,
@@ -45,14 +55,43 @@ const CarouselDesktopPrimary = props => {
                             {props.store.map((data)=>{
                                 return (
                                     <div className="carouselDesktopPrimaryImage" >
-                                        <img src={data.image} alt=" " />
+                                        <img 
+                                            className="classNameForImageCraousel"
+                                            src={data.image} 
+                                            alt=" " 
+                                            onClick={()=>{
+                                                    setModalShow(true);
+                                                    setModalImage(data.image);
+                                                    setModalTitle(data.titleCard);
+                                                    setModalDescription(data.descrip);
+                                                }
+                                            }
+                                        />
                                     </div>
                                 )
                             })}
                         </Slider>
                     </Col>
                 </Row>
+                {/* <Row>
+                    <Col>
+                        <PopUpPromoDetailDesktop
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                            sourceImageModal={modalImage}
+                            TitleCard={modalTitle}
+                            descripModal={modalDescription}
+                    />
+                    </Col>
+                </Row> */}
             </Container>
+            <PopUpPromoDetailDesktop
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                sourceImageModal={modalImage}
+                TitleCard={modalTitle}
+                descripModal={modalDescription}
+            />
         </>
     )
 }

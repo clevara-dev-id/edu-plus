@@ -27,6 +27,26 @@ export function getAccess(state = [], action) {
     }
 }
 
+export function getAccessLastPage(state = [], action) {
+    switch (action.type) {
+        case 'GETACCESS_FETCH_DATA_SUCCESS':
+            // console.log(action.api.data);
+            return action.api.data.last_page;
+        default:
+            return state;
+    }
+}
+
+export function getAccessCurrentPage(state = [], action) {
+    switch (action.type) {
+        case 'GETACCESS_FETCH_DATA_SUCCESS':
+            // console.log(action.api.data);
+            return action.api.data.current_page;
+        default:
+            return state;
+    }
+}
+
 
 export function IsSchoolsFound(state = [], action) {
     switch (action.type) {

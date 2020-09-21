@@ -35,6 +35,7 @@ const NavBarBlue = props => {
                 <Col className="colMenuBar" lg={7}>
                     <ul>
                         <li><a href="/">Home</a></li>
+                        <li><a href="/search">Cari Sekolah</a></li>
                         <li><a href="/contactus">Hubungi Kami</a></li>
                         <li><a href="https://operator.edukasiplus.com/">Login</a></li>
                         <li>

@@ -221,3 +221,12 @@
     }
 
 }
+
+.carouselDesktopPrimaryImage > img {
+    cursor: pointer;
+    border: 0px;
+}
+
+.carouselDesktopPrimaryImage:focus{
+    outline: none;
+}

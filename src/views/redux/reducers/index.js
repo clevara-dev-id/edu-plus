@@ -93,6 +93,8 @@ import {
     getAccessHaveError,
     getAccessAreLoading,
     getAccess,
+    getAccessCurrentPage,
+    getAccessLastPage,
     IsSchoolsFound,
 }from './getaccess';
 
@@ -192,6 +194,8 @@ export default combineReducers({
     getAccessHaveError,
     getAccessAreLoading,
     getAccess,
+    getAccessLastPage,
+    getAccessCurrentPage,
     IsSchoolsFound,
 
     getAccessAutoCompleteHaveError,

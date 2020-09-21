@@ -23,6 +23,8 @@ import CardImageWithButtonDesktop from '../components/base_components/Desktop/Ca
 import CardImageNotFoundDesktop from '../components/base_components/Desktop/CardImage/CardImageNotFoundDesktop'
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
+import Pagination from '../components/base_components/Desktop/Pagination/Pagination';
+import LoadingComponents from '../components/base_components/Desktop/Loading/LoadingComponents';
 
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
@@ -55,19 +57,19 @@ class GetAccess extends Component {
         super(props);
  
         this.state = {
-            fieldResult: "",
-            
+            fieldResult: "",            
         }
     }
     componentDidMount = () =>{
         // this.getDetailData();
     }
-    getDetailData=async(keyWord)=>{
+    getDetailData=async(keyWord, page)=>{
         console.log("this function running after 500 ms");
+        this.setState({recentKeyword: keyWord});
         const paramData = {
             "name":keyWord
         }
-        await this.props.fetchData(`${getUrlBackend}api/search/schools/`, paramData);
+        await this.props.fetchData(`${getUrlBackend}api/search/schools?page=${page}`, paramData);
     }
     searchAoutoComplete = async (keyWord) =>{
         if(keyWord.length > 0){
@@ -77,8 +79,8 @@ class GetAccess extends Component {
             await this.props.fetchDataSearch(`${getUrlBackend}api/search/schools/`, paramData);    
         }
     }
-    onButtonSearchClick=async(data)=>{
-        await this.getDetailData(data !==undefined && data !== "" ? data : this.state.fieldResult);
+    onButtonSearchClick=async(data, page)=>{
+        await this.getDetailData(data !==undefined && data !== "" ? data : this.state.fieldResult, page ? page:1);
     }
     onClickRegisterHandle = () =>{
         window.location="/getaccess";
@@ -97,8 +99,8 @@ class GetAccess extends Component {
         if (this.props.hasError) {
             return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
         }
-        if (this.props.isLoading || this.props.isLoadingSend) {
-            return <p id="defaultOpenBadges">Loading…</p>;
+        if (this.props.isLoading) {
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><LoadingComponents /></p>;
         }
         let newArrayGetAccess=[], operator, imageForSchools;
         if(this.props.getAccess.length>0){
@@ -121,6 +123,7 @@ class GetAccess extends Component {
                 return newArrayGetAccess;
             });
         }
+        console.log(this.props.getAccessLastPage);
         return (
             <>
                 <div>
@@ -128,7 +131,7 @@ class GetAccess extends Component {
                         <section>
                             <div style={{marginTop:"25px"}}></div>
                             <BreadCrumbDesktop 
-                                store={[{name:"Home", link:"/"},{name:"Daftar Sekolah", link:"#"}]}
+                                store={[{name:"Home", link:"/"},{name:"Daftar Sekolah", link:"/link"}]}
                             />
                         </section>
                         <section>
@@ -193,8 +196,21 @@ class GetAccess extends Component {
                             { this.props.IsSchoolsFound > 0 ? 
                             <CardImageWithButtonDesktop store={newArrayGetAccess.slice(0, 18)} /> : ""}
                             {this.props.IsSchoolsFound === 0 ? <CardImageNotFoundDesktop /> : ""}
+                        </section>
+                        <section>
+                            <div style={{marginTop: "0px"}}></div>
+                            { this.props.IsSchoolsFound > 0 ? <Pagination
+                                onClickPrev={(e)=>{this.onButtonSearchClick(this.state.fieldResult, e.target.value)}}
+                                onClickNumber={(e)=>{this.onButtonSearchClick(this.state.fieldResult, e.target.value)}}
+                                onClickNext={(e)=>{this.onButtonSearchClick(this.state.fieldResult, e.target.value)}}
+                                store={newArrayGetAccess.length > 0 ? newArrayGetAccess : 1}
+                                dataPerPage={3}
+                                lastPage={this.props.getAccessLastPage !== 0 ? this.props.getAccessLastPage > 10  ? 10 : this.props.getAccessLastPage : 0 }
+                                currentPage={this.props.getAccessCurrentPage !== 0 ? this.props.getAccessCurrentPage : 0 }
+                            /> : "" }
                             <div style={{marginTop: "170px"}}></div>
                         </section>
+
                         <section>
                             {this.props.getAccess.length === 0 && this.props.IsSchoolsFound.length===0 ?
                             <div style={{marginTop:"450px"}}></div>
@@ -283,6 +299,8 @@ class GetAccess extends Component {
 const mapStateToProps = (state) => {
     return {
         getAccess: state.getAccess,
+        getAccessLastPage: state.getAccessLastPage,
+        getAccessCurrentPage: state.getAccessCurrentPage,
         IsSchoolsFound : state.IsSchoolsFound,
         hasError: state.getAccessHaveError,
         isLoading: state.getAccessAreLoading,

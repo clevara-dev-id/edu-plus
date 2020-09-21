@@ -104,7 +104,7 @@ class Promo extends Component {
                 }
                 return newArrayPromo;
             });
-            return 1;
+            // return 1;
         }
         return (
             <>

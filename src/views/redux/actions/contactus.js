@@ -41,6 +41,6 @@ export function contactUsSendData (url, data) {
                     dispatch(contactUsSendDataSuccess(response.data))
                 })
                 .catch(() => dispatch(contactUsSendHaveError(true)));
-        }, 250);
+        }, 5000);
     };
 }

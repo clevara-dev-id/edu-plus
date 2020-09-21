@@ -13,7 +13,7 @@ import CardImageTertiarayDesktop from '../components/base_components/Desktop/Car
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 import DropDownListSingleDesktop from '../components/base_components/Desktop/DropDownList/DropDownListSingleDesktop';
 import DesktopBadgeUsingRadioButton from '../components/base_components/Desktop/Badges/DesktopBadgeUsingRadioButton';
-
+import LoadingComponents from '../components/base_components/Desktop/Loading/LoadingComponents';
 
 
 //Mobile Item
@@ -208,11 +208,9 @@ class FavoriteDetail extends Component {
         if (this.props.hasError) {
             return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
         }
-
         if (this.props.isLoading) {
-            return <p id="defaultOpenBadges">Loading…</p>;
-        }
-        
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><LoadingComponents /></p>;
+        }        
         let newArrayFaforiteDetail=[], faforiteDetailPageIndex=0, imageForSchools;
         let newArrayFaforiteDetailSMP=[], faforiteDetailPageIndexSMP=0; 
         let newArrayFaforiteDetailSMA=[], faforiteDetailPageIndexSMA=0;

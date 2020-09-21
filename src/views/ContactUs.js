@@ -16,6 +16,8 @@ import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitleP
 import TitleBottomDesktopSecondary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopSecondary';
 import CardListWhatsAppDesktop from '../components/base_components/Desktop/CardList/CardListWhatsAppDesktop';
 import FormContactDesktop from '../components/base_components/Desktop/Form/FormContact/FormContactDesktop';
+import LoadingComponents from '../components/base_components/Desktop/Loading/LoadingComponents';
+
 
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
@@ -60,8 +62,8 @@ class ContactUs extends Component {
         if (this.props.hasError) {
             return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
         }
-        if (this.props.isLoading || this.props.isLoadingSend) {
-            return <p id="defaultOpenBadges">Loading…</p>;
+        if (this.props.isLoading) {
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><LoadingComponents /></p>;
         }
         return (
             <>
@@ -88,7 +90,7 @@ class ContactUs extends Component {
                                     image   : "http://via.placeholder.com/104x104",
                                     brand   : "NASIONAL",
                                     title   : "No. Telepon",
-                                    contact : "+62 999 9999 9999 9999",
+                                    contact : "0815 8668 1826",
                                     phone   : "021 - 525 8721"
                                 }]}
                             />

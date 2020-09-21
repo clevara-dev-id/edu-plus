@@ -1,0 +1,101 @@
+@media screen and (min-width: 1024px){
+    #loadingComponentsContainer{
+        max-width: 1024px;
+        padding-right: 85px;
+        padding-left: 85px;
+    }
+}
+
+@media screen and (min-width: 1152px){
+    #loadingComponentsContainer{
+        max-width: 1152px;
+        padding-right: 110px;
+        padding-left: 110px;
+    }
+}
+@media screen and (min-width: 1280px){
+    #loadingComponentsContainer{
+        max-width: 1280px;
+        padding-right: 125px;
+        padding-left: 125px;
+    }
+}
+@media screen and (min-width: 1360px){
+    #loadingComponentsContainer{
+        max-width: 1360px;
+        padding-right: 145px;
+        padding-left: 145px;
+    }
+}
+@media screen and (min-width: 1366px){
+    #loadingComponentsContainer{
+        max-width: 1366px;
+        padding-right: 145px;
+        padding-left: 145px;
+    }
+}
+@media screen and (min-width: 1440px){
+    
+    #loadingComponentsContainer{
+        max-width: 1440px;
+        padding-right: 165px;
+        padding-left: 165px;
+    }
+}
+
+#loadingComponentsContainer > .row > .col > img {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    -moz-animation: blink normal 2s infinite ease-in-out; /* Firefox */
+    -webkit-animation: blink normal 2s infinite ease-in-out; /* Webkit */
+    -ms-animation: blink normal 2s infinite ease-in-out; /* IE */
+    animation: blink normal 2s infinite ease-in-out; /* Opera and prob css3 final iteration */
+}
+/* Firefox old*/
+@-moz-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+
+@-webkit-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+/* IE */
+@-ms-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+/* Opera and prob css3 final iteration */
+@keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}

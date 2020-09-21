@@ -36,7 +36,6 @@ const CardImagePromoDesktop = props => {
     const [modalImage, setModalImage] = useState('');
     const [modalTitle, setModalTitle] = useState('');
     const [modalDescription, setModalDescription] = useState('');
-
     return (
         <>
             <Container id="cardImagePromoDesktopContainer">
@@ -45,7 +44,15 @@ const CardImagePromoDesktop = props => {
                         return(
                         <Col lg={4}>
                             <Card>
-                                <Card.Img variant="top" src={data.image} />
+                                <Card.Img variant="top" src={data.image} 
+                                    onClick={()=>{
+                                        setModalShow(true);
+                                        setModalImage(data.image);
+                                        setModalTitle(data.titleCard);
+                                        setModalDescription(data.descrip);
+                                    }
+                                }
+                                />
                                 <Card.Body>
                                     <CardTitle>{data.titleCard}</CardTitle>
                                     <CardCount>{data.descrip.substring(0, 100)}
@@ -127,7 +134,7 @@ const LinkCard = styled.a`
 
 const DivLine = styled.div`
     width: 100%;
-    border: 1px solid #DBDBDB;
+    border-top: 2px solid #DBDBDB;
     margin-top: 28px;
     margin-bottom: 28px;
 `;

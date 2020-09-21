@@ -21,6 +21,7 @@ import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/
 import TitleBottomDesktopTertiary from '../components/base_components/Desktop/TitleBottom/TitleBottomDesktopTertiary';
 import FormGetAccessDesktop from '../components/base_components/Desktop/Form/FormGetAccess/FormGetAccessDesktop';
 import TitlePageHeaderDesktop from '../components/base_components/Desktop/TitlePage/TitlePageHeaderDesktop'; 
+import LoadingComponents from '../components/base_components/Desktop/Loading/LoadingComponents';
 
 //Mobile Item
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
@@ -121,8 +122,8 @@ class GetAccessInput extends Component {
         if (this.props.hasError) {
             return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
         }
-        if (this.props.isLoading || this.props.isLoadingSend) {
-            return <p id="defaultOpenBadges">Loading…</p>;
+        if (this.props.isLoading) {
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><LoadingComponents /></p>;
         }
 
         // if(this.props.sendData.length !== 0){
@@ -175,7 +176,7 @@ class GetAccessInput extends Component {
                                     namelink=" halo@eduplus.com "
                                     nameSecondary="atau no. telp. "
                                     linkSecondary=""
-                                    namelinkSecondary=" +62 999 9999 9999 "
+                                    namelinkSecondary=" 0815 8668 1826 "
                                     nameTertiary="akan segera menghubungi anda untuk melakukan verifikasi lebih lanjut, Terimakasih"
                                     fontSize="13px"
                                     textAlign="center"

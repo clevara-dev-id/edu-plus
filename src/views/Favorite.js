@@ -12,6 +12,7 @@ import CardImageSecondaryDesktop from '../components/base_components/Desktop/Car
 import BadgesDesktop from '../components/base_components/Desktop/Badges/DesktopBadges';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 
+
 //Mobile Item
 import CardImageMobileSecondary from '../components/base_components/Card/CardMobile/CardImage/CardImageMobileSecondary';
 import BadgesGroupSecondary from '../components/base_components/Badges/BadgesMobile/BadgesGroupSecondary';

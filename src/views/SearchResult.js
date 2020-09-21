@@ -19,6 +19,7 @@ import TitlePageWithSparatorDesktop from '../components/base_components/Desktop/
 import DropDownListArrowDesktop from '../components/base_components/Desktop/DropDownList/DropDownListArrowDesktop';
 import BreadCrumbDesktop from '../components/base_components/Desktop/BreadCrumb/BreadCrumbDesktop';
 import Pagination from '../components/base_components/Desktop/Pagination/Pagination';
+import LoadingComponents from '../components/base_components/Desktop/Loading/LoadingComponents';
 
 //import mobile
 import BreadCrumbMobile from '../components/base_components/BreadCrumb/Mobile/BreadCrumbMobile';
@@ -146,7 +147,7 @@ class SearchResult extends Component {
                 Sorry! There was an error loading the items</p>;
         }
         if (this.props.isLoading) {
-            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><p id="cardimageSeacrhResultId"></p>Loading…</p>;
+            return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><LoadingComponents /></p>;
         }
         let newArraySearchResult=[], imageForSchools;
         const urlParams = new URLSearchParams(window.location.search);

@@ -5,7 +5,7 @@ import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
 
 import './breadcrumbdesktop.css'
 
-const BreadCrumbDesktop = props => {
+const BreadCrumbDesktop = (props) => {
     return (
         <>
             <Container id="breadCrumbDesktopContainer">
@@ -27,7 +27,9 @@ const BreadCrumbDesktop = props => {
     );
 }
 
-BreadCrumbDesktop.propTypes = {
-    store : PropTypes.object}
+BreadCrumbDesktop.propTypes = 
+{
+    store : PropTypes.object.isRequired
+}
 
 export default BreadCrumbDesktop;
