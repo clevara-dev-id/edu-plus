@@ -18,6 +18,7 @@ import {
 //Desktop
 import InputSearchDesktop from '../components/base_components/Desktop/InputSearch/InputSearchDesktop';
 import SecondaryButtonDesktop from '../components/base_components/Desktop/Button/SecondaryButtonDesktop';
+import ButtonAnotherSchoolsDesktop  from '../components/base_components/Desktop/Button/PrimaryButtonDesktop';
 import MessageGetAccessResultDesktop from '../components/base_components/Desktop/Message/MessageGetAccessResultDesktop';
 import CardImageWithButtonDesktop from '../components/base_components/Desktop/CardImage/CardImageWithButtonDesktop';
 import CardImageNotFoundDesktop from '../components/base_components/Desktop/CardImage/CardImageNotFoundDesktop'
@@ -94,11 +95,14 @@ class GetAccess extends Component {
             callback.apply(context, args);
           }, ms || 0);
         };
-      }
+    }
+    backButtonHandle=()=>{
+        window.location.href="/getaccess";
+    }
     render() {
-        if (this.props.hasError) {
-            return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
-        }
+        // if (this.props.hasError) {
+        //     return <p id="defaultOpenBadges">Sorry! There was an error loading the items</p>;
+        // }
         if (this.props.isLoading) {
             return <p id={window.location.hash ? window.location.hash.replace("#","") : "defaultOpenBadges"}><LoadingComponents /></p>;
         }
@@ -208,9 +212,17 @@ class GetAccess extends Component {
                                 lastPage={this.props.getAccessLastPage !== 0 ? this.props.getAccessLastPage > 10  ? 10 : this.props.getAccessLastPage : 0 }
                                 currentPage={this.props.getAccessCurrentPage !== 0 ? this.props.getAccessCurrentPage : 0 }
                             /> : "" }
-                            <div style={{marginTop: "170px"}}></div>
+                            <div style={{marginTop: "100px"}}></div>
                         </section>
-
+                        <section>
+                        {/* <div style={{marginTop: "25px"}}></div> */}
+                            { this.props.IsSchoolsFound > 0 ? <ButtonAnotherSchoolsDesktop
+                                name="Kembali"
+                                width="277px"
+                                onClick={()=>{this.backButtonHandle()}}
+                            /> : "" }
+                            <div style={{marginTop: "79px"}}></div>
+                        </section>
                         <section>
                             {this.props.getAccess.length === 0 && this.props.IsSchoolsFound.length===0 ?
                             <div style={{marginTop:"450px"}}></div>
