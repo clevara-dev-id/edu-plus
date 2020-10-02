@@ -188,7 +188,6 @@ class Home extends Component {
         this.getProvinceDataSMP(1);
         this.getProvinceDataSMA(1);
         this.getPromoData();
-
     }
     getProvinceData=async()=>{
         await this.props.fetchData(`${getUrlBackend}api/favorite/sd`);

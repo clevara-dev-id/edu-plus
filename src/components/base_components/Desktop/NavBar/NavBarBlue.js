@@ -38,7 +38,7 @@ const NavBarBlue = props => {
                         <li><a href="/search">Cari Sekolah</a></li>
                         <li><a href="/contactus">Hubungi Kami</a></li>
                         <li><a href="https://operator.edukasiplus.com/">Login</a></li>
-                        <li>
+                        {/* <li>
                             <div className="dropdownNavbarDesktop">
                                 <LinkForGuide className="guideBookNavbar"
                                     onClick={()=>{showHideFunctions()}}
@@ -61,7 +61,7 @@ const NavBarBlue = props => {
                                     </option>
                                 </div>
                             </div>
-                        </li>
+                        </li> */}
                     </ul>
                 </Col>
                 <Col className="colButtonNavBar" lg={3}>
